@@ -1,0 +1,9 @@
+# Dependências de desenvolvimento: tudo de requirements.txt mais as ferramentas de checagem.
+# Instalação: uv pip install -r requirements-dev.txt
+-r requirements.txt
+
+# Checagem estática de tipos (o código é validado com: mypy --strict vicio_ia executar_eda.py).
+mypy==2.4.0
+
+# Lint e formatação (configuração em ruff.toml): ruff check . && ruff format --check .
+ruff==0.17.0

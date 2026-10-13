@@ -1,0 +1,6 @@
+# Configuração do ruff (lint e formatação).
+# Uso: uv run ruff check .   |   uv run ruff format --check .
+
+target-version = "py312"
+line-length = 120
+extend-exclude = ["anexos", "saidas"]

@@ -1,0 +1,15 @@
+# Dependências de execução do pipeline de classificação.
+# Instalação: uv pip install -r requirements.txt   (ver README / requirements-dev.txt)
+#
+# A EDA (executar_eda.py) usa só a biblioteca padrão. As libs abaixo entram
+# nas próximas etapas do plano.
+
+# Provedores de LLM (ADR-017). Ollama e as CLIs (claude, agy) não precisam de lib Python.
+# Claude via API (provedor claude-api).
+anthropic==1.13.0
+# OpenAI e Hugging Face Inference Providers (roteador compatível com a API da OpenAI).
+openai==3.31.0
+
+# Cálculo numérico e calibração da confiança / estimativa de precisão (passos 07 e 08).
+numpy==2.5.4
+scikit-learn==1.9.1

@@ -1,0 +1,10 @@
+# Ambiente virtual (recriado com: uv venv && uv pip install -r requirements-dev.txt)
+.venv/
+
+# Caches do Python e das ferramentas
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.env
