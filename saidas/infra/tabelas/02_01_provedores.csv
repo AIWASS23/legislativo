@@ -1,0 +1,7 @@
+provedor,acesso,situação,detalhe
+ollama,local,pronto,"versão 0.34.0; 2 modelos instalados: qwen3.5:4b, codellama:7b"
+claude-cli,assinatura,pronto,claude 2.1.299; login não verificado
+gemini-agy,assinatura,pronto,agy 1.3.5; 10 modelos na conta
+claude-api,api,indisponível,falta ANTHROPIC_API_KEY
+openai,api,indisponível,falta OPENAI_API_KEY
+huggingface,api,pronto,credencial encontrada

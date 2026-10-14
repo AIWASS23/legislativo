@@ -1,0 +1,5 @@
+papel,provedor,modelo,por quê
+classificador_a,claude-cli,claude-opus-5-5,assinatura via CLI `claude` 2.1.299
+classificador_b,gemini-agy,gemini-3.8-flash-low,assinatura via CLI `agy` 1.3.5
+voto_barato,ollama,qwen3.5:4b,roda dividido entre GPU e CPU (mais lento); ~6.3 GB; os pesos não cabem inteiros na GPU (estimativa conservadora)
+verificador,claude-cli,claude-opus-5-5,assinatura via CLI `claude` 2.1.299

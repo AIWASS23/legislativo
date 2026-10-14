@@ -1,0 +1,29 @@
+{
+  "resolvido_em": "2026-10-14T10:49:42",
+  "papeis": {
+    "classificador_a": {
+      "papel": "classificador_a",
+      "provedor": "claude-cli",
+      "modelo": "claude-opus-5-5",
+      "origem": "manual"
+    },
+    "classificador_b": {
+      "papel": "classificador_b",
+      "provedor": "gemini-agy",
+      "modelo": "claude-opus-5-5-low",
+      "origem": "manual"
+    },
+    "voto_barato": {
+      "papel": "voto_barato",
+      "provedor": "ollama",
+      "modelo": "qwen3.5:4b",
+      "origem": "manual"
+    },
+    "verificador": {
+      "papel": "verificador",
+      "provedor": "claude-cli",
+      "modelo": "claude-opus-5-5",
+      "origem": "manual"
+    }
+  }
+}

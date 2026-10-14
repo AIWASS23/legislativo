@@ -1,0 +1,28 @@
+{
+  "_leia": [
+    "Catálogo editável de modelos candidatos (ADR-017). Modelos instalados no Ollama e os listados pela CLI agy são descobertos automaticamente e não precisam estar aqui.",
+    "qualidade: 1 a 5, ESTIMATIVA para classificação jurídica em português com saída JSON; validar no experimento E6 (ADR-014).",
+    "preco_entrada / preco_saida: USD por milhão de tokens (null = assinatura, local ou desconhecido).",
+    "camadas_kv, cabecas_kv, dim_kv (chave + valor): usados para estimar a memória do cache de atenção dos modelos locais.",
+    "verificar: true quando o nome ou a disponibilidade do modelo não foram confirmados nesta máquina.",
+    "Para um GGUF do Hugging Face rodando no Ollama, use provedor 'ollama' e modelo 'hf.co/<usuario>/<repo>:<quantizacao>'."
+  ],
+  "modelos": [
+    {"provedor": "claude-api", "modelo": "claude-opus-5-5", "familia": "claude", "qualidade": 5, "contexto_max": 1000000, "saida_estruturada": true, "preco_entrada": 4.0, "preco_saida": 20.0, "observacao": "Mais capaz da Anthropic na API; cache de prompt e Batch (50%)."},
+    {"provedor": "claude-api", "modelo": "claude-sonnet-5-5", "familia": "claude", "qualidade": 4, "contexto_max": 1000000, "saida_estruturada": true, "preco_entrada": 2.0, "preco_saida": 10.0, "observacao": ""},
+    {"provedor": "claude-api", "modelo": "claude-haiku-5-5", "familia": "claude", "qualidade": 3, "contexto_max": 1000000, "saida_estruturada": true, "preco_entrada": 0.1, "preco_saida": 0.5, "observacao": "Candidato a voto barato e a produção (ADR-016)."},
+    {"provedor": "claude-cli", "modelo": "claude-opus-5-5", "familia": "claude", "qualidade": 5, "contexto_max": 1000000, "saida_estruturada": true, "observacao": "Via CLI claude -p com a assinatura; mais lento por chamada."},
+    {"provedor": "claude-cli", "modelo": "claude-sonnet-5-5", "familia": "claude", "qualidade": 4, "contexto_max": 1000000, "saida_estruturada": true, "observacao": "Via CLI claude -p com a assinatura."},
+    {"provedor": "claude-cli", "modelo": "claude-haiku-5-5", "familia": "claude", "qualidade": 3, "contexto_max": 1000000, "saida_estruturada": true, "observacao": "Via CLI claude -p com a assinatura."},
+    {"provedor": "openai", "modelo": "gpt-5", "familia": "gpt", "qualidade": 5, "contexto_max": 400000, "saida_estruturada": true, "verificar": true, "observacao": "Confirmar nome e preço na conta OpenAI."},
+    {"provedor": "openai", "modelo": "gpt-5-mini", "familia": "gpt", "qualidade": 4, "contexto_max": 400000, "saida_estruturada": true, "verificar": true, "observacao": "Confirmar nome e preço na conta OpenAI."},
+    {"provedor": "huggingface", "modelo": "Qwen/Qwen3-235B-A22B-Instruct-2507", "familia": "qwen", "qualidade": 4, "contexto_max": 262144, "saida_estruturada": true, "verificar": true, "observacao": "Inference Providers (remoto); disponibilidade varia por provedor."},
+    {"provedor": "huggingface", "modelo": "meta-llama/Llama-3.3-70B-Instruct", "familia": "llama", "qualidade": 3, "contexto_max": 131072, "saida_estruturada": true, "verificar": true, "observacao": "Inference Providers (remoto)."},
+    {"provedor": "ollama", "modelo": "qwen3:4b", "familia": "qwen", "qualidade": 1, "contexto_max": 40960, "saida_estruturada": true, "tamanho_gb": 2.6, "parametros_b": 4.0, "camadas_kv": 36, "cabecas_kv": 8, "dim_kv": 256, "verificar": true, "observacao": "Pequeno: bom para voto barato, fraco como classificador."},
+    {"provedor": "ollama", "modelo": "qwen3:8b", "familia": "qwen", "qualidade": 2, "contexto_max": 40960, "saida_estruturada": true, "tamanho_gb": 5.2, "parametros_b": 8.2, "camadas_kv": 36, "cabecas_kv": 8, "dim_kv": 256, "verificar": true, "observacao": ""},
+    {"provedor": "ollama", "modelo": "llama3.1:8b", "familia": "llama", "qualidade": 2, "contexto_max": 131072, "saida_estruturada": true, "tamanho_gb": 4.9, "parametros_b": 8.0, "camadas_kv": 32, "cabecas_kv": 8, "dim_kv": 256, "verificar": true, "observacao": ""},
+    {"provedor": "ollama", "modelo": "gemma3:12b", "familia": "gemma", "qualidade": 3, "contexto_max": 131072, "saida_estruturada": true, "tamanho_gb": 8.1, "parametros_b": 12.2, "camadas_kv": 48, "cabecas_kv": 8, "dim_kv": 512, "verificar": true, "observacao": "Estimativa de memória conservadora (atenção local em parte das camadas)."},
+    {"provedor": "ollama", "modelo": "qwen3:14b", "familia": "qwen", "qualidade": 3, "contexto_max": 40960, "saida_estruturada": true, "tamanho_gb": 9.3, "parametros_b": 14.8, "camadas_kv": 40, "cabecas_kv": 8, "dim_kv": 256, "verificar": true, "observacao": ""},
+    {"provedor": "ollama", "modelo": "qwen3:30b", "familia": "qwen", "qualidade": 3, "contexto_max": 40960, "saida_estruturada": true, "tamanho_gb": 19.0, "parametros_b": 30.5, "camadas_kv": 48, "cabecas_kv": 4, "dim_kv": 256, "verificar": true, "observacao": "MoE com ~3B parâmetros ativos: mais rápido que um denso do mesmo tamanho."}
+  ]
+}

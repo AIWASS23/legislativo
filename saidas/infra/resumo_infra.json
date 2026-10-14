@@ -1,0 +1,21 @@
+{
+  "Máquina": {
+    "ram_total_gb": 32.9,
+    "vram_gb": 6.4,
+    "cpu_threads": 16
+  },
+  "Provedores": {
+    "provedores_prontos": 4
+  },
+  "Papéis sugeridos (escolha automática)": {
+    "classificador_a": "claude-cli:claude-opus-5-5",
+    "classificador_b": "gemini-agy:gemini-3.8-flash-low",
+    "voto_barato": "ollama:qwen3.5:4b",
+    "verificador": "claude-cli:claude-opus-5-5"
+  },
+  "Modelos avaliados": {
+    "modelos_avaliados": 28,
+    "prontos": 14,
+    "viaveis": 27
+  }
+}

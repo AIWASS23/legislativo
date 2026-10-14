@@ -1,0 +1,45 @@
+[
+  {
+    "papeis": [
+      "classificador_a",
+      "verificador"
+    ],
+    "provedor": "gemini-agy",
+    "modelo": "claude-opus-5-5-low",
+    "sucesso": true,
+    "acertou": true,
+    "resposta": "{\"justificativa\": \"Tício levou para si um bem móvel de outra pessoa sem violência nem grave ameaça, o que configura furto (art. 155 do CP), e não roubo.\", \"tema_id\": \"5159\"}",
+    "latencia_s": 11.67,
+    "tokens_entrada": 40613,
+    "tokens_saida": 350,
+    "custo_usd": null
+  },
+  {
+    "papeis": [
+      "classificador_b"
+    ],
+    "provedor": "gemini-agy",
+    "modelo": "gemini-3.8-flash-low",
+    "sucesso": true,
+    "acertou": true,
+    "resposta": "{\"justificativa\": \"Tício cometeu o crime de furto (tema 5159), pois subtraiu para si coisa alheia móvel sem emprego de violência ou grave ameaça.\", \"tema_id\": \"5159\"}",
+    "latencia_s": 28.99,
+    "tokens_entrada": 12998,
+    "tokens_saida": 2664,
+    "custo_usd": null
+  },
+  {
+    "papeis": [
+      "voto_barato"
+    ],
+    "provedor": "gemini-agy",
+    "modelo": "claude-sonnet-5-5-low",
+    "sucesso": true,
+    "acertou": true,
+    "resposta": "{\"justificativa\": \"Tício subtraiu coisa alheia móvel (o celular) sem violência ou grave ameaça, aproveitando a distração da vítima, o que configura furto (art. 155 do CP) e não roubo.\", \"tema_id\": \"5159\"}",
+    "latencia_s": 6.05,
+    "tokens_entrada": 20166,
+    "tokens_saida": 206,
+    "custo_usd": null
+  }
+]
