@@ -1,0 +1,360 @@
+id,formato,n_alternativas,chars_enunciado,chars_comando,chars_alternativas,chars_total,chars_brutos,html_de_editor,palavras_conteudo_enunciado,enunciado_curto,enunciado_generico,tipo_comando,comando_so_html,tags_html,alternativas_com_html,alternativas_com_quebra,entidades_html,disciplina_origem,disciplina_normalizada,origem_no_recorte,assunto_origem,assunto_sem_parte,assunto_tem_parte,assunto_multiplo,leis_citadas,menciona_cp,menciona_cpp,menciona_cf,menciona_jurisprudencia,hash_enunciado,hash_completo
+Q0001,multipla_escolha_5,5,608,28,84,720,750,0,50,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,b76ba29b5a1e,263ed84bc629
+Q0002,multipla_escolha_5,5,100,39,187,326,340,0,10,0,0,suspeito,0,,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,e3252d506f34,c9d3a870e912
+Q0003,multipla_escolha_5,5,301,31,582,914,931,0,26,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,0,0,0,be22e24f2f68,645ac4e155a0
+Q0004,multipla_escolha_5,5,922,31,246,1199,1232,0,85,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 02),Competência,1,0,,0,0,0,0,0e7999d121d1,6fee9f7f01eb
+Q0005,multipla_escolha_5,5,772,43,692,1507,1598,0,64,0,0,suspeito,0,br,0,0,0,Direito Penal,Penal,1,Fixação do regime inicial da pena privativa de liberdade,Fixação do regime inicial da pena privativa de liberdade,0,0,,0,0,0,1,58fe334596a2,5e0e9514e77f
+Q0006,multipla_escolha_5,5,463,31,72,566,630,0,41,0,0,util,0,br;i;u,0,0,0,Direito Penal,Penal,1,Roubo,Roubo,0,0,,0,0,0,0,7d55f928d222,5a2d68875c6e
+Q0007,multipla_escolha_5,5,757,85,334,1176,1211,0,74,0,0,util,0,br;i,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,,1,0,0,0,d27f44bdada5,9c4fbc6a3458
+Q0008,certo_errado,2,223,114,11,348,348,0,20,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,3cc43ee5b61b,f31e733560a5
+Q0009,multipla_escolha_4,4,209,31,200,440,471,0,21,0,0,util,0,br,4,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,9a8a94079ed8,27149acf4967
+Q0010,multipla_escolha_5,5,111,64,1734,1909,1923,0,7,0,0,util,0,i,1,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,9605,0,0,0,1,b5863bbd0b9a,d994dd43d90e
+Q0011,certo_errado,2,788,26,11,825,845,0,68,0,0,util,0,b;br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,9613,0,0,0,0,0404d901f4bb,01107e53c2a1
+Q0012,multipla_escolha_5,5,95,119,171,385,391,0,8,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,9099,0,0,0,0,7a727ac7cb8b,924ec51aee00
+Q0013,multipla_escolha_4,4,733,0,603,1336,1336,0,58,0,0,vazio,0,,0,2,0,Processo Penal,Processo Penal,1,"Sistemas de Investigação, Investigação Preliminar: Juiz das Garantias","Sistemas de Investigação, Investigação Preliminar: Juiz das Garantias",0,1,13964,0,0,0,1,add82b728862,c460b4f07975
+Q0014,certo_errado,2,318,31,11,360,367,0,30,0,0,util,0,i,0,0,0,Disciplina Unificada,,0,Medidas Socioeducativas,Medidas Socioeducativas,0,0,,0,0,0,0,3c62e60e793e,79301c2bbbf5
+Q0015,multipla_escolha_5,5,70,31,836,937,946,0,5,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,1,0,0,67638f12f0c4,907f78a70134
+Q0016,multipla_escolha_5,5,1021,0,69,1090,1194,0,90,0,0,vazio,0,br;span,0,0,0,Direito Constitucional,,0,,,0,0,13964,0,1,1,1,10dca1e6fde8,ba8b1fb60ef3
+Q0017,multipla_escolha_5,5,82,67,772,921,921,0,6,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,1,4c47affafada,1067574781c4
+Q0018,certo_errado,2,367,60,11,438,444,0,24,0,0,repete_enunciado,0,br,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 02),Competência,1,0,9099,0,0,0,0,941d6dfdf73e,928205a8388b
+Q0019,multipla_escolha_4,4,119,0,1021,1140,1330,0,8,0,0,vazio,1,b;br;i;span,4,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,1,0,0,be9b073a882a,ed0491899aa7
+Q0020,multipla_escolha_5,5,2450,133,121,2704,2797,0,208,0,0,repete_enunciado,0,b;br;i;sup,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,8069,1,0,1,1,3ca9872bdff0,697dd23d395b
+Q0021,certo_errado,2,537,23,11,571,584,0,45,0,0,util,0,b;br,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 02),Competência,1,0,,0,0,0,1,e55dcc7761c6,f46dc5995615
+Q0022,multipla_escolha_5,5,27,0,77,104,113,0,3,1,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,0f40e0c79fac,ced358c2d4a8
+Q0023,multipla_escolha_5,5,46,0,912,958,1051,0,2,0,0,vazio,0,br,4,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,2eab4df76ec4,fea9bcf0dcf9
+Q0024,multipla_escolha_5,5,1072,32,70,1174,1192,0,90,0,0,util,0,br,0,0,0,Criminologia,Criminologia,1,,,0,0,,0,0,0,0,7671b4e7afff,e058c1485a51
+Q0025,certo_errado,2,183,31,11,225,225,0,17,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,2f58188db0e8,ffbbb4129328
+Q0026,multipla_escolha_5,5,105,70,425,600,608,0,9,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,3688;11340,0,0,0,0,e25551daeb07,732227a432ee
+Q0027,multipla_escolha_5,5,74,0,377,451,451,0,8,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,"Das Citações e Intimações, Citação no Processo Penal","Das Citações e Intimações, Citação no Processo Penal",0,1,,0,0,0,0,ae7ff4bc9bb1,faed7b5fb1fe
+Q0028,certo_errado,2,632,113,11,756,768,0,56,0,0,suspeito,0,br,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,1,0,0,96c715888a02,0d16e317bf8a
+Q0029,multipla_escolha_5,5,72,103,627,802,813,0,6,0,0,suspeito,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Medida de Segurança,Medida de Segurança,0,0,13869,0,0,0,0,4c02c3ad657a,39a6afd87e23
+Q0030,multipla_escolha_5,5,116,54,284,454,459,0,11,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,0,0,0,0,e612201c4134,4e5b07ecf716
+Q0031,certo_errado,2,292,23,11,326,332,0,24,0,0,repete_enunciado,0,br,0,0,0,Criminologia,Criminologia,1,Teorias Sociológicas Explicativas da Criminalidade,Teorias Sociológicas Explicativas da Criminalidade,0,0,,0,0,0,0,3eba47c8636b,ea61b3ec8d93
+Q0032,multipla_escolha_5,5,127,91,533,751,764,0,12,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,14945d68b18c,8dc669a29352
+Q0033,multipla_escolha_5,5,19,37,456,512,512,0,2,1,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Procedimento Ordinário e Sumário (Parte 02),Procedimento Ordinário e Sumário,1,0,,0,1,0,0,a021abeb47bc,94c4f34f7b51
+Q0034,multipla_escolha_5,5,66,88,368,522,534,0,6,0,0,suspeito,0,i,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,23ff77879b9d,bbf27ed80ca9
+Q0035,multipla_escolha_5,5,86,0,895,981,981,0,4,0,0,vazio,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,,,0,0,7716;13260,0,0,0,0,33ae5f818efc,d76236a206d8
+Q0036,multipla_escolha_5,5,1046,0,1182,2228,2233,0,93,0,0,vazio,0,br,1,0,0,,,0,,,0,0,11340,1,0,0,1,6c98e79e3ec6,ae263ead3eb4
+Q0037,multipla_escolha_4,4,33,0,950,983,992,0,0,1,1,vazio,0,,0,0,0,Direito Penal,Penal,1,Crimes contra a administração pública,Crimes contra a administração pública,0,0,,1,0,0,0,44c7504378b1,502d4cc4c543
+Q0038,multipla_escolha_5,5,115,85,733,933,947,0,7,0,0,suspeito,0,br,2,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,636b2538a7cd,7877094e87ff
+Q0039,multipla_escolha_5,5,191,31,491,713,713,0,14,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,1521,0,0,0,0,968fe1a4fec2,b6e1c7012d38
+Q0040,multipla_escolha_5,5,207,0,544,751,751,0,18,0,0,vazio,0,,0,5,0,Processo Penal,Processo Penal,1,Recursos Criminais,Recursos Criminais,0,0,,0,0,0,0,8e757d74f068,62947eabf5cc
+Q0041,multipla_escolha_5,5,48,0,858,906,922,0,2,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Espécies de Medida de Segurança,Espécies de Medida de Segurança,0,0,10216;13146,1,0,0,0,c457d02b7b06,cb3abc0dd699
+Q0042,multipla_escolha_4,4,67,0,579,646,646,0,6,0,0,vazio,0,,0,4,0,Penal,Penal,1,"Tipo Penal Doloso, Tipicidade","Tipo Penal Doloso, Tipicidade",0,1,,0,0,0,0,82813f31febd,60475bb7ca9b
+Q0043,multipla_escolha_4,4,43,42,537,622,632,0,3,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,1,0,0,0,ab57b56d588f,66f9680069dd
+Q0044,certo_errado,2,819,0,11,830,830,0,78,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,"Das Provas, Das Citações e Intimações, Confissão no Processo Penal","Das Provas, Das Citações e Intimações, Confissão no Processo Penal",0,1,,0,0,0,0,1e310d82eea7,a6749e762ef9
+Q0045,multipla_escolha_5,5,55,0,391,446,446,0,5,0,0,vazio,0,,0,4,0,Penal,Penal,1,"Concussão e Excesso de Exação , Crimes contra a administração pública","Concussão e Excesso de Exação , Crimes contra a administração pública",0,1,,0,0,0,0,c6e4d245be4b,9ca5353a4802
+Q0046,multipla_escolha_5,5,93,31,792,916,916,0,4,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,1,0,1,9633296fc19e,7bc36c2c0b3d
+Q0047,multipla_escolha_5,5,522,31,780,1333,1765,0,48,0,0,util,0,br;span,5,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,1,0,0,0,3f5ca0f50aa8,c070febb3b49
+Q0048,multipla_escolha_5,5,525,57,912,1494,1513,0,42,0,0,util,0,br,1,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,ee29e200429f,ac6f2bc5d9c4
+Q0049,multipla_escolha_5,5,1056,0,1055,2111,2111,0,105,0,0,vazio,0,,0,5,0,Penal,Penal,1,"Tipicidade, Crimes contra a vida","Tipicidade, Crimes contra a vida",0,1,,0,0,0,0,10783f360787,1d0852c49763
+Q0050,multipla_escolha_4,4,150,31,297,478,480,0,11,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,11343,0,0,0,0,2c6245242287,46fae4ccb362
+Q0051,multipla_escolha_5,5,755,78,1344,2177,2218,0,67,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,6e98383f147d,596ab2abeff7
+Q0052,multipla_escolha_5,5,878,38,48,964,1010,0,91,0,0,util,0,br;i,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,e7807dc9257b,f350c276d1a2
+Q0053,certo_errado,2,393,0,11,404,404,0,32,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,"Procedimento Penal, Procedimento comum sumaríssimo - Lei nº 9.099 de 1995 - Lei dos Juizados Especiais Criminais - JECRIM","Procedimento Penal, Procedimento comum sumaríssimo - Lei nº 9.099 de 1995 - Lei dos Juizados Especiais Criminais - JECRIM",0,1,9099,0,0,0,0,7224a38b7b04,b52a1643f46c
+Q0054,multipla_escolha_5,5,243,191,292,726,732,0,19,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Classificação dos crimes,Classificação dos crimes,0,0,,0,0,1,0,7333f624445a,edcf2d51df12
+Q0055,multipla_escolha_5,5,174,31,413,618,627,0,13,0,0,util,0,br,1,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,1,0,0,b1713517dde3,937e3fe577b0
+Q0056,multipla_escolha_5,5,73,78,561,712,718,0,7,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,f9895daec832,9476cf110f40
+Q0057,multipla_escolha_5,5,45,38,149,232,249,0,4,0,0,suspeito,0,i,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,,0,0,0,0,84860cd3fa14,e50411803330
+Q0058,multipla_escolha_5,5,67,0,865,932,932,0,3,0,0,vazio,0,,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,54bfcf8ad67e,bae49a6e2587
+Q0059,multipla_escolha_4,4,91,31,643,765,781,0,4,0,0,util,0,b,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,9199481c2ad0,083a17da51b5
+Q0060,multipla_escolha_5,5,104,31,706,841,852,0,5,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Corrupção ativa,Corrupção ativa,0,0,,0,0,0,0,fd4fcd9c32eb,a5ee58091fed
+Q0061,multipla_escolha_5,5,72,31,562,665,675,0,5,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,fc45ab142e3d,b32d25ebbece
+Q0062,multipla_escolha_5,5,200,31,357,588,588,0,15,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,2ab8d172e045,ecb00c10254f
+Q0063,multipla_escolha_5,5,1152,61,70,1283,1391,0,90,0,0,util,0,br;i,0,0,11,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,11340,0,1,0,0,328a1ab328d6,512bc72cb08d
+Q0064,multipla_escolha_4,4,324,59,738,1121,1131,0,29,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Causas de extinção da punibilidade,Causas de extinção da punibilidade,0,0,,0,0,0,0,0a6fd5965625,3df4c82f889f
+Q0065,multipla_escolha_5,5,53,106,419,578,586,0,6,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,1,0,0,0,b0927b030f76,effd14c506df
+Q0066,multipla_escolha_5,5,27,45,527,599,609,0,2,1,0,suspeito,0,,0,0,0,Criminologia,Criminologia,1,Etapas Evolutivas e Escolas Criminológicas,Etapas Evolutivas e Escolas Criminológicas,0,0,,0,0,0,0,df498c466764,fe7e7a8e7c2b
+Q0067,multipla_escolha_5,5,799,91,215,1105,1117,0,76,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,57aeb05239e0,db68f78b126e
+Q0068,multipla_escolha_5,5,53,0,741,794,803,0,0,0,1,vazio,0,,0,0,0,Direito Penal,Penal,1,Crimes contra a fé pública,Crimes contra a fé pública,0,0,,0,0,0,0,8e63be86a749,3629860d0fd9
+Q0069,multipla_escolha_5,5,241,0,109,350,350,0,25,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Conceitos e caracteres, Noções Fundamentais","Conceitos e caracteres, Noções Fundamentais",0,1,,0,0,0,0,714f498b7495,a9ad26ea2bbe
+Q0070,multipla_escolha_5,5,960,0,2021,2981,2981,0,88,0,0,vazio,0,,0,0,0,Penal,Penal,1,,,0,0,11343,1,0,0,1,ad8cb7a30cf9,f9adea2e6739
+Q0071,certo_errado,2,486,31,11,528,528,0,45,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,9605,0,0,0,0,76a5522a0650,94344460a8ac
+Q0072,multipla_escolha_5,5,85,106,593,784,799,0,7,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,d8d7dfd4585b,2b4ad2c19283
+Q0073,multipla_escolha_5,5,78,0,749,827,907,0,5,0,0,vazio,0,br,4,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,389f84773e6e,746a2715d613
+Q0074,certo_errado,2,526,31,11,568,580,0,47,0,0,util,0,br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,4a5337bd5e71,c27fc30900a9
+Q0075,multipla_escolha_5,5,75,0,537,612,612,0,3,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Causas de extinção da punibilidade,Causas de extinção da punibilidade,0,0,,0,0,0,0,227693833d5c,16db250d1c82
+Q0076,multipla_escolha_5,5,215,31,253,499,506,0,17,0,0,util,0,br,0,0,0,Criminologia,Criminologia,1,Conceitos Gerais de Criminologia,Conceitos Gerais de Criminologia,0,0,,0,0,0,0,63c03d9a3a87,08d90601a99b
+Q0077,multipla_escolha_5,5,455,29,927,1411,1570,0,42,0,0,util,0,br;i,5,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,2889;4737;12015,1,0,0,1,819dd6e43e4a,1d87ceb5d930
+Q0078,multipla_escolha_5,5,1707,25,499,2231,2275,0,163,0,0,util,0,br;p;sup,5,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,9503,0,0,0,0,20ebe5d05141,102368c5552b
+Q0079,multipla_escolha_5,5,100,25,813,938,952,0,5,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,0,0,0,e8f2d74a6465,1d1f1ede5d6a
+Q0080,certo_errado,2,476,65,11,552,558,0,40,0,0,util,0,br,0,0,0,Criminologia,Criminologia,1,Criminologia no Estado Democrático de Direito,Criminologia no Estado Democrático de Direito,0,0,,0,0,0,0,6a2b8d47e627,8db010417d30
+Q0081,multipla_escolha_5,5,455,61,50,566,601,0,33,0,0,util,0,br;i,0,0,0,Criminologia,Criminologia,1,Etapas Evolutivas e Escolas Criminológicas,Etapas Evolutivas e Escolas Criminológicas,0,0,,0,0,0,0,c13fdcaf0949,7173e11514e0
+Q0082,multipla_escolha_5,5,513,91,488,1092,1103,0,52,0,0,util,0,i,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,1,0,0,0,67e8b755e750,c62365525f29
+Q0083,multipla_escolha_5,5,299,31,220,550,562,0,32,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,72cacf7a7d54,d4e6d06b41d4
+Q0084,multipla_escolha_5,5,908,31,185,1124,1145,0,78,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,11340,0,0,0,0,e924f4799f06,2295efe6eb35
+Q0085,multipla_escolha_5,5,80,85,404,569,580,0,6,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,8ee10c93fbbf,d557e1e6bf58
+Q0086,multipla_escolha_5,5,429,26,235,690,696,0,39,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,dd5e5f8703a8,c90e42a0bee7
+Q0087,multipla_escolha_5,5,101,131,381,613,619,0,9,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,7210;10741,0,0,0,1,222c71172617,ede35482ebb1
+Q0088,certo_errado,2,276,54,11,341,359,0,23,0,0,suspeito,0,br,0,0,0,Criminologia,Criminologia,1,Vitimologia,Vitimologia,0,0,,0,0,0,0,afd32c9c5bfd,7ad9a32299b1
+Q0089,multipla_escolha_5,5,418,65,2036,2519,2548,0,30,0,0,util,0,br,5,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,,0,0,0,1,323e2ea41246,1c8e91e6b934
+Q0090,multipla_escolha_5,5,31,0,1613,1644,1731,0,0,1,1,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,7716;9099,0,1,0,1,76cb175f9b18,d119b3833249
+Q0091,certo_errado,2,796,54,11,861,868,0,71,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,1,d44b9e90d4f7,6a9e0f3027b4
+Q0092,multipla_escolha_5,5,373,0,292,665,700,0,28,0,0,vazio,0,p,5,0,0,Processo Penal,Processo Penal,1,Nulidades no Processo Penal,Nulidades no Processo Penal,0,0,,0,1,0,0,e1670e9f2430,30539300efa5
+Q0093,multipla_escolha_5,5,435,62,232,729,730,0,46,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,16bf7ea41920,88c804630aab
+Q0094,multipla_escolha_5,5,393,113,230,736,783,0,32,0,0,util,0,br;span,1,0,0,Criminologia,Criminologia,1,Teorias Sociológicas Explicativas da Criminalidade,Teorias Sociológicas Explicativas da Criminalidade,0,0,,0,0,0,1,87cd34e9b79e,73922bd76aed
+Q0095,multipla_escolha_5,5,530,124,254,908,958,0,54,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,0d025302258d,8b99ea9c2cc7
+Q0096,multipla_escolha_5,5,47,63,183,293,293,0,4,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 01),Competência,1,0,,0,0,0,0,9a6d0209bf51,d42f110340ac
+Q0097,multipla_escolha_5,5,1525,90,1138,2753,2815,0,134,0,0,util,0,br;span,1,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,9296;9613;12850,0,0,0,1,b756b8ad82f9,aaf8f398789d
+Q0098,multipla_escolha_5,5,67,68,613,748,758,0,6,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,1,0,28adece611db,9e6c0aee7d50
+Q0099,multipla_escolha_5,5,691,46,784,1521,108363,1,64,0,0,util,0,br;m;o;p;style;w;xml,3,3,4,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,13869,0,0,0,0,6b439d1646b5,df4644c033ee
+Q0100,multipla_escolha_5,5,1159,95,1186,2440,2487,0,125,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,0,0,0,0,efb71a14aa68,646066cf51a4
+Q0101,multipla_escolha_5,5,136,114,820,1070,1082,0,14,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,11340,0,0,0,0,53297b459164,5e3f6a222da4
+Q0102,multipla_escolha_5,5,54,31,716,801,801,0,2,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,0,0,0,8917f43f4f31,69e6e6c7942e
+Q0103,certo_errado,2,406,50,11,467,473,0,34,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,35ca12e8f5be,4f484f2be092
+Q0104,certo_errado,2,324,0,11,335,352,0,24,0,0,vazio,1,br;i,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,1,ad11c4c86094,d11f41c1bcd7
+Q0105,certo_errado,2,624,23,11,658,670,0,55,0,0,util,0,br,0,0,0,Criminologia,Criminologia,1,Teorias Sociológicas Explicativas da Criminalidade (Parte 02),Teorias Sociológicas Explicativas da Criminalidade,1,0,,0,0,0,0,567a663c02f9,e45037e34849
+Q0106,multipla_escolha_4,4,130,147,296,573,585,0,11,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Crimes contra o patrimônio,Crimes contra o patrimônio,0,0,,0,0,0,0,d9164b33117f,0cc097da8931
+Q0107,certo_errado,2,99,155,11,265,271,0,8,0,0,util,0,,0,0,1,Penal,Penal,1,"Outras falsidades, Crimes contra a fé pública","Outras falsidades, Crimes contra a fé pública",0,1,,0,0,0,1,f2f714316e0b,9d225431db34
+Q0108,multipla_escolha_5,5,628,43,324,995,1007,0,56,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Procedimento Ordinário e Sumário (Parte 02),Procedimento Ordinário e Sumário,1,0,,0,1,0,0,58e93c707f8c,b10d1d88c9da
+Q0109,multipla_escolha_4,4,145,38,488,671,671,0,13,0,0,suspeito,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Prescrição,Prescrição,0,0,11343,0,0,0,0,692c2cf7fdef,bf582651b60e
+Q0110,multipla_escolha_4,4,70,31,1092,1193,1295,0,4,0,0,util,0,b,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 02),Competência,1,0,,1,0,0,1,42d793f966ad,b3a15d678ebe
+Q0111,multipla_escolha_5,5,62,31,770,863,871,0,3,0,0,util,0,,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,1,0,901240a90a82,35e95ebd9ea5
+Q0112,multipla_escolha_5,5,179,31,528,738,745,0,13,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,12850,0,0,0,0,c6bc29c707e1,0fbad961972a
+Q0113,multipla_escolha_5,5,559,30,803,1392,1421,0,54,0,0,util,0,br;i,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,1,e8a6c3dc7cb5,29ce2883fc2e
+Q0114,multipla_escolha_5,5,582,31,1398,2011,2057,0,53,0,0,util,0,br;i,3,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,1,ba1fa1b7b289,8e9b44fe5ce7
+Q0115,multipla_escolha_5,5,1222,107,111,1440,1456,0,123,0,0,util,0,i,1,0,0,Criminologia,Criminologia,1,Teorias Sociológicas Explicativas da Criminalidade,Teorias Sociológicas Explicativas da Criminalidade,0,0,,0,0,0,0,8e3b94a8c39f,77c754f9455a
+Q0116,multipla_escolha_5,5,130,31,962,1123,1148,0,8,0,0,util,0,sup,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Prescrição,Prescrição,0,0,11343,0,0,0,0,9c4b4171acb3,190b06bea919
+Q0117,multipla_escolha_5,5,282,53,62,397,403,0,25,0,0,suspeito,0,br,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,bfda71916ce9,3f47e9d790c5
+Q0118,certo_errado,2,904,54,11,969,982,0,87,0,0,util,0,br;i,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,0,0,0,a4a696783965,3ba65cb1f1dd
+Q0119,multipla_escolha_5,5,176,0,397,573,589,0,16,0,0,vazio,1,br,0,0,0,Processo Penal,Processo Penal,1,Lei Processual Penal no tempo e no espaço,Lei Processual Penal no tempo e no espaço,0,0,,0,0,0,0,d91d3ad75960,d3ae04b915b0
+Q0120,certo_errado,2,347,23,11,381,387,0,25,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,0,0,0,c48a614ac3f2,df858d7c289c
+Q0121,multipla_escolha_5,5,573,0,945,1518,1518,0,57,0,0,vazio,0,,0,5,0,Processo Penal,Processo Penal,1,"Ação penal de iniciativa privada: definição, princípios e espécies, Ação Penal","Ação penal de iniciativa privada: definição, princípios e espécies, Ação Penal",0,1,,0,0,0,0,7b8beff12d05,ae7ab4fcd36d
+Q0122,multipla_escolha_5,5,9,48,567,624,630,0,1,1,0,suspeito,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,8072,0,0,0,0,8f44bd6a1fd7,9f4e5f189b73
+Q0123,multipla_escolha_5,5,1169,59,193,1421,1481,0,95,0,0,repete_enunciado,0,b;br;i;u,0,0,0,Criminologia,Criminologia,1,Criminologia no Estado Democrático de Direito,Criminologia no Estado Democrático de Direito,0,0,7716,0,0,0,0,4270fef88e05,869256c4d276
+Q0124,multipla_escolha_5,5,1073,38,10,1121,1156,0,94,0,0,util,0,br,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,4f05590d9006,c5d670fa213d
+Q0125,multipla_escolha_5,5,428,31,550,1009,1049,0,40,0,0,util,0,br;i;sup,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,11343;12850,0,0,0,0,01035e092e45,3215c9cca15d
+Q0126,multipla_escolha_5,5,65,31,870,966,973,0,3,0,0,util,0,b,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,,1,0,0,0,468ed8a08d5f,5c857894b907
+Q0127,multipla_escolha_5,5,785,0,1342,2127,2127,0,70,0,0,vazio,0,,0,5,0,Processo Penal,Processo Penal,1,"Princípios fundamentais do direito processual penal, Do juiz, do ministério público, do acusado e defensor, dos assistentes e auxiliares da justiça","Princípios fundamentais do direito processual penal, Do juiz, do ministério público, do acusado e defensor, dos assistentes e auxiliares da justiça",0,1,11343,1,1,1,1,6103d6c8f518,bc056330c2f0
+Q0128,certo_errado,2,338,47,11,396,396,0,30,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,20930f63ba85,bcbaf2f4f07a
+Q0129,multipla_escolha_5,5,449,31,838,1318,1336,0,38,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,dbd840aa269c,825430a5aa6c
+Q0130,multipla_escolha_5,5,687,59,811,1557,1579,0,65,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,cd7ef9d1ae82,467b59e7fd41
+Q0131,certo_errado,2,232,0,11,243,243,0,19,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Participação, Autoria e coautoria, Concurso de Pessoas","Participação, Autoria e coautoria, Concurso de Pessoas",0,1,,0,0,0,0,38edb91e34ff,fd49b4bc301b
+Q0132,multipla_escolha_5,5,1185,31,64,1280,1304,0,98,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,97079862e34f,66d5d9f9ee20
+Q0133,certo_errado,2,162,55,11,228,234,0,10,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,4d5818a1d231,25b2c2ba3188
+Q0134,multipla_escolha_4,4,274,30,500,804,815,0,27,0,0,util,0,b,0,0,0,Direito Penal,Penal,1,Crimes contra a administração pública,Crimes contra a administração pública,0,0,,1,0,0,0,cc17df33fb70,320619b09402
+Q0135,multipla_escolha_4,4,58,0,320,378,379,0,2,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Crimes contra o patrimônio,Crimes contra o patrimônio,0,0,,0,0,0,0,70ecb383942b,c8c9afd04660
+Q0136,multipla_escolha_5,5,978,86,564,1628,1650,0,96,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,11340,0,0,0,0,323875daaf55,14da6eedd794
+Q0137,multipla_escolha_5,5,115,0,702,817,817,0,7,0,0,vazio,0,,0,0,0,Direito Civil - Legislação Especial,,0,,,0,0,,0,0,1,0,6be3d00a3053,8f3f264f7237
+Q0138,multipla_escolha_4,4,121,29,750,900,907,0,10,0,0,util,0,i,1,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,1,0,0,0,acdc83721d37,243337bbb287
+Q0139,multipla_escolha_5,5,137,31,259,427,435,0,12,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Culpabilidade,Culpabilidade,0,0,,0,0,0,0,165a33515b39,d32683162374
+Q0140,multipla_escolha_5,5,60,0,1150,1210,1216,0,3,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,1,0afe57aa3967,04e2e00a1a35
+Q0141,multipla_escolha_5,5,149,66,119,334,346,0,13,0,0,suspeito,0,,0,0,0,Criminologia,Criminologia,1,Teorias Sociológicas Explicativas da Criminalidade,Teorias Sociológicas Explicativas da Criminalidade,0,0,,0,0,0,0,d455d9e73fa2,845e15e00b3e
+Q0142,multipla_escolha_5,5,153,153,975,1281,1289,0,12,0,0,repete_enunciado,0,,0,0,0,Direito Tributário,,0,Impostos Estaduais,Impostos Estaduais,0,0,,0,0,0,0,4e7e237e19df,61008c7270a0
+Q0143,certo_errado,2,258,26,11,295,308,0,23,0,0,util,0,br;i,0,0,0,Processo Penal,Processo Penal,1,Lei Processual Penal no tempo e no espaço,Lei Processual Penal no tempo e no espaço,0,0,,0,0,0,0,5d7685bcc43a,f06ed3ba2a3e
+Q0144,multipla_escolha_4,4,155,0,67,222,222,0,16,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,"Recursos Criminais, Apelação no Processo Penal","Recursos Criminais, Apelação no Processo Penal",0,1,,0,1,0,0,cef044acaf6f,8d74ec402771
+Q0145,multipla_escolha_5,5,1566,93,45,1704,1754,0,131,0,0,util,0,br;i,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,8137;9613;12683,0,0,0,0,bc3ae52684b2,1e72fe7b1967
+Q0146,multipla_escolha_5,5,318,31,2254,2603,2622,0,26,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,9296,0,0,1,0,47a65dc715bf,6a14c554cb30
+Q0147,multipla_escolha_5,5,180,31,885,1096,1107,0,13,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,249939b1634d,4914cadeae90
+Q0148,multipla_escolha_5,5,435,86,903,1424,1432,0,42,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 01),Teoria da Pena,1,0,,0,0,0,0,17ec7c2e4f94,8ebdd100cc7e
+Q0149,multipla_escolha_5,5,99,0,1220,1319,1329,0,7,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,783021c0ea96,5487f0443ce3
+Q0150,multipla_escolha_5,5,1062,55,189,1306,1333,0,83,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,6368;11343,0,0,0,1,de748a878b99,284308b2d061
+Q0151,multipla_escolha_5,5,102,31,953,1086,1149,0,6,0,0,util,0,b;u,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,1,0,1,94728b2e5872,da9c7cf7bb41
+Q0152,multipla_escolha_5,5,175,108,266,549,549,0,15,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,,0,1,0,0,be367dbb1d85,bccd360a40f9
+Q0153,multipla_escolha_5,5,190,31,54,275,280,0,21,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,,0,0,0,0,2924aef23459,9b4518767fae
+Q0154,multipla_escolha_5,5,120,91,298,509,535,0,10,0,0,suspeito,0,sup,1,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,9029,0,0,0,0,ee57c036ac75,f2c3c56d7205
+Q0155,multipla_escolha_5,5,104,31,303,438,438,0,5,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Medida de Segurança,Medida de Segurança,0,0,,0,0,0,0,d11831894291,aee0d4026486
+Q0156,multipla_escolha_5,5,143,40,582,765,780,0,12,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Punibilidade,Punibilidade,0,0,9605,0,0,0,0,aff544d82811,7fbe3a040bd6
+Q0157,multipla_escolha_5,5,181,65,195,441,441,0,19,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,1,0,0,0,4644a2036b7a,d5572ad790c6
+Q0158,multipla_escolha_5,5,363,31,303,697,779,0,32,0,0,util,0,br;span,5,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,9455,0,0,0,0,4db8321a34ae,4a63e1037212
+Q0159,multipla_escolha_4,4,472,56,136,664,684,0,52,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,aa47109b7433,711f2b80c80e
+Q0160,certo_errado,2,256,55,11,322,328,0,20,0,0,repete_enunciado,0,br,0,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,4e14e191d32a,95709d94408b
+Q0161,multipla_escolha_4,4,1597,80,443,2120,2132,0,148,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,11343,0,0,0,0,1c01af9d6487,805ba46f2950
+Q0162,multipla_escolha_5,5,156,31,643,830,841,0,15,0,0,util,0,,0,0,0,Criminologia,Criminologia,1,Conceitos Gerais de Criminologia,Conceitos Gerais de Criminologia,0,0,,0,0,0,0,be6c676df9ac,ca3d1a3d9100
+Q0163,multipla_escolha_5,5,492,31,398,921,935,0,44,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,4898,1,0,0,0,086a23cfc733,ac369ab04029
+Q0164,multipla_escolha_5,5,89,25,673,787,800,0,5,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,7210,0,0,0,0,962eb34aa4a5,932c7f081267
+Q0165,multipla_escolha_5,5,261,31,1094,1386,1398,0,18,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,3688;12850,0,0,0,0,cd77160bd0e3,02d20a25b8a3
+Q0166,multipla_escolha_5,5,927,126,265,1318,1369,0,89,0,0,util,0,br;sup,2,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,1,0,0,0,f52b2f9ba792,c9894f5cac50
+Q0167,multipla_escolha_5,5,44,0,723,767,830,0,1,0,0,vazio,0,br,4,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,f946986fe32b,89b374963214
+Q0168,multipla_escolha_5,5,412,62,843,1317,1399,0,42,0,0,util,0,br;sup,4,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,,0,0,0,0,72347a0520b6,61df6ee35259
+Q0169,multipla_escolha_5,5,131,0,705,836,836,0,8,0,0,vazio,0,,0,0,0,Direito Processual Penal,Processo Penal,1,"Das Questões e Processos Incidentes, Suspeição e impedimento","Das Questões e Processos Incidentes, Suspeição e impedimento",0,1,,0,1,0,0,329b5ec9ca00,b94fd8259b58
+Q0170,multipla_escolha_5,5,233,0,966,1199,1199,0,17,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,,,0,0,,1,0,0,0,fc76ff294ed6,950c3a8f0b1a
+Q0171,multipla_escolha_5,5,95,31,871,997,1007,0,5,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,13964,1,0,0,0,a73db0369457,9fe0fa56d5ed
+Q0172,multipla_escolha_5,5,33,0,961,994,1029,0,0,1,1,vazio,0,br,4,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,44c7504378b1,abd9db0827f6
+Q0173,multipla_escolha_5,5,167,96,1253,1516,1521,0,11,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,7210,0,0,0,1,f910642fa523,e3645be24b84
+Q0174,multipla_escolha_4,4,64,31,998,1093,1110,0,3,0,0,util,0,b,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,8069,1,0,0,0,1d6c52c521e1,c46ad124f6dd
+Q0175,multipla_escolha_5,5,611,0,136,747,752,0,59,0,0,vazio,0,br,1,0,0,Penal,Penal,1,"Corrupção passiva, Concussão e Excesso de Exação , Crimes contra a administração pública","Corrupção passiva, Concussão e Excesso de Exação , Crimes contra a administração pública",0,1,9503,1,0,0,0,f20f214098c9,6c8d1a6b66a3
+Q0176,multipla_escolha_5,5,57,0,536,593,593,0,3,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,1ca6cb82935b,739991126130
+Q0177,multipla_escolha_5,5,32,0,685,717,717,0,0,1,1,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,02bd200d5de5,89cfc5b1162b
+Q0178,multipla_escolha_5,5,181,0,1200,1381,1388,0,17,0,0,vazio,0,p,1,5,0,Penal,Penal,1,"Legislação Penal Especial, Lei de Armas (Estatuto do Desarmamento) – Lei nº 10.826 de 2003 e Decretos Regulamentares","Legislação Penal Especial, Lei de Armas (Estatuto do Desarmamento) – Lei nº 10.826 de 2003 e Decretos Regulamentares",0,1,10826,0,0,0,0,4e33fd116e5c,340549fbb155
+Q0179,certo_errado,2,188,60,11,259,259,0,18,0,0,suspeito,0,,0,0,0,Criminologia,Criminologia,1,Criminologia no Estado Democrático de Direito,Criminologia no Estado Democrático de Direito,0,0,,0,0,0,0,80b798b844a0,53c72f0801d2
+Q0180,multipla_escolha_5,5,509,0,919,1428,1428,0,46,0,0,vazio,0,,0,5,0,Processo Penal,Processo Penal,1,"Das Provas, Inadmissibilidade das provas obtidas por meios ilícitos, Busca e apreensão","Das Provas, Inadmissibilidade das provas obtidas por meios ilícitos, Busca e apreensão",0,1,,0,0,0,0,6f935363fb70,b35cb3f3a006
+Q0181,multipla_escolha_5,5,908,93,165,1166,1265,0,82,0,0,repete_enunciado,0,b;br;i,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,8137,0,0,0,0,521da3f10637,627dcdc729f2
+Q0182,multipla_escolha_5,5,1063,39,26,1128,1173,0,92,0,0,util,0,b;br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,cbfa1f151e67,c67360fd41a5
+Q0183,certo_errado,2,821,21,11,853,859,0,74,0,0,repete_enunciado,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,41bd03678976,090e173faa00
+Q0184,certo_errado,2,281,55,11,347,353,0,26,0,0,repete_enunciado,0,br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,11343,0,0,0,0,475a39db3eab,89d0d671001f
+Q0185,multipla_escolha_5,5,230,25,770,1025,1041,0,20,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,,0,0,0,0,c3d6198bf67f,de13fb3fee48
+Q0186,multipla_escolha_5,5,984,94,81,1159,1180,0,82,0,0,suspeito,0,br,0,0,0,Direito Penal,Penal,1,Primeira fase da dosimetria,Primeira fase da dosimetria,0,0,,1,0,0,0,704680d4a58d,d5c9e9489861
+Q0187,multipla_escolha_5,5,552,0,975,1527,1628,0,50,0,0,vazio,0,br;span,0,0,0,Direito Penal,Penal,1,,,0,0,,0,0,0,0,b515179e07fe,f58baba76895
+Q0188,multipla_escolha_5,5,129,83,70,282,298,0,10,0,0,suspeito,0,i,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,,0,0,0,0,7715a149017a,2dd95c8d7fd0
+Q0189,certo_errado,2,234,57,11,302,309,0,22,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,1101336ab655,eca60ee6eac8
+Q0190,multipla_escolha_5,5,89,31,931,1051,1237,0,4,0,0,util,0,span,3,0,0,Processo Penal,Processo Penal,1,Rito Sumaríssimo,Rito Sumaríssimo,0,0,3688;9099,1,0,0,0,0ed54245e852,986e9f93538a
+Q0191,multipla_escolha_5,5,345,47,167,559,571,0,27,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Procedimento Ordinário e Sumário (Parte 02),Procedimento Ordinário e Sumário,1,0,,0,1,0,0,bc79b69707c1,510d6bef91bc
+Q0192,multipla_escolha_4,4,25,0,672,697,706,0,0,1,1,vazio,0,,0,0,0,Direito Penal,Penal,1,Concussão e Excesso de Exação,Concussão e Excesso de Exação,0,0,,0,0,0,0,25b290800da3,068f84119e87
+Q0193,multipla_escolha_5,5,71,70,1398,1539,1563,0,2,0,0,util,0,b;u,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,12850,0,0,0,0,be2dd0cbcba0,4a1c5796b08e
+Q0194,multipla_escolha_4,4,395,31,185,611,623,0,36,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Teoria do Crime Fato Típico Parte 03,Teoria do Crime Fato Típico,1,0,,0,0,0,0,1f600c7b313b,cd925118c172
+Q0195,multipla_escolha_5,5,183,182,1160,1525,1536,0,12,0,0,util,0,,0,0,0,Criminologia,Criminologia,1,Etapas Evolutivas e Escolas Criminológicas,Etapas Evolutivas e Escolas Criminológicas,0,0,,0,0,0,0,e4d9a8a704ae,c0d290f1e0bf
+Q0196,multipla_escolha_5,5,188,31,684,903,1126,0,16,0,0,util,0,i;span,5,0,0,Criminologia,Criminologia,1,Teorias Sociológicas Explicativas da Criminalidade (Parte 02),Teorias Sociológicas Explicativas da Criminalidade,1,0,,0,0,0,0,529cae4bffea,21203cc47280
+Q0197,certo_errado,2,757,152,11,920,926,0,65,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,05d0e2527b79,63afed20a647
+Q0198,multipla_escolha_5,5,345,97,237,679,696,0,33,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,,0,0,0,0,1cabef0b8c85,543b87c16129
+Q0199,multipla_escolha_5,5,93,82,800,975,1057,0,3,0,0,util,0,b;u,0,0,0,Direito Penal,Penal,1,Teoria do Crime Fato Típico Parte 03,Teoria do Crime Fato Típico,1,0,,1,0,0,0,15bb65953c97,73c7193f669e
+Q0200,multipla_escolha_5,5,73,25,974,1072,1100,0,3,0,0,util,0,br;i,3,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,12850,0,0,0,0,4b2cdeb7492b,e96c48912931
+Q0201,multipla_escolha_5,5,602,122,626,1350,1356,0,59,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,1,2962b43c5f92,444e4e12bac9
+Q0202,multipla_escolha_5,5,755,107,724,1586,1698,0,77,0,0,util,0,br;span,0,0,0,Direito Penal,Penal,1,Favorecimento de prostituição ou outra forma de exploração sexual de vulnerável,Favorecimento de prostituição ou outra forma de exploração sexual de vulnerável,0,0,,1,0,0,0,cd1f1c5ed918,ba251cb3fc0f
+Q0203,certo_errado,2,367,0,11,378,378,0,30,0,0,vazio,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,,,0,0,9613,0,0,0,0,a5a9b6e352a2,70485f6a1a09
+Q0204,certo_errado,2,286,64,11,361,367,0,29,0,0,suspeito,0,br,0,0,0,Processo Penal,Processo Penal,1,Lei Processual Penal no tempo e no espaço,Lei Processual Penal no tempo e no espaço,0,0,,0,0,0,0,91b7fc25760f,a056f442b7b9
+Q0205,multipla_escolha_4,4,31,0,387,418,426,0,0,1,1,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,0,0,0,76cb175f9b18,c817524db50f
+Q0206,multipla_escolha_5,5,59,53,375,487,497,0,2,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,5f386997f5d5,5733f5d04d07
+Q0207,multipla_escolha_5,5,180,0,623,803,813,0,17,0,0,vazio,1,br,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,,0,0,0,0,1aefea145d21,10a6968294ed
+Q0208,certo_errado,2,1287,71,11,1369,1380,0,131,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,c8d9a61e6c0b,c5411c9f48dd
+Q0209,certo_errado,2,313,23,11,347,353,0,23,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,32bd28d4db82,b6e66a38c2c8
+Q0210,multipla_escolha_5,5,259,0,1483,1742,1756,0,20,0,0,vazio,1,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,10826,0,0,0,0,7937b7d2cfe3,153f11f17edf
+Q0211,multipla_escolha_4,4,397,0,638,1035,1035,0,33,0,0,vazio,0,,0,4,0,Processo Penal,Processo Penal,1,"Do juiz, do ministério público, do acusado e defensor, dos assistentes e auxiliares da justiça","Do juiz, do ministério público, do acusado e defensor, dos assistentes e auxiliares da justiça",0,1,,0,0,0,0,889e3433e010,6188c2d81e3c
+Q0212,certo_errado,2,491,0,11,502,502,0,44,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,"Das Citações e Intimações, Citação no Processo Penal","Das Citações e Intimações, Citação no Processo Penal",0,1,9296,0,0,0,0,79db979ab860,b247102d3ad9
+Q0213,multipla_escolha_4,4,106,0,374,480,498,0,9,0,0,vazio,0,br,4,4,0,Penal,Penal,1,"Legislação Penal Especial, Lei de Tóxicos – Lei nº 11.343 de 2006","Legislação Penal Especial, Lei de Tóxicos – Lei nº 11.343 de 2006",0,1,11343,0,0,0,0,10dace87fec6,b789ab42dc3c
+Q0214,multipla_escolha_5,5,605,0,311,916,916,0,61,0,0,vazio,0,,0,3,0,Processo Penal,Processo Penal,1,Das Questões e Processos Incidentes,Das Questões e Processos Incidentes,0,0,,0,0,0,0,63d7a15ef2da,0a436fff26f2
+Q0215,multipla_escolha_4,4,257,0,400,657,657,0,25,0,0,vazio,0,,0,4,0,Penal,Penal,1,"Penas privativas de liberdade, Regimes penitenciários","Penas privativas de liberdade, Regimes penitenciários",0,1,,0,0,0,0,b365f849a70b,e304682f1dcb
+Q0216,multipla_escolha_5,5,136,25,848,1009,1026,0,10,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,9099,0,0,0,1,977436b0982a,4bd295877506
+Q0217,multipla_escolha_5,5,224,31,56,311,343,0,22,0,0,util,0,br;i,4,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,e46ef338dbe3,4219deb3a65b
+Q0218,multipla_escolha_5,5,495,59,335,889,889,0,50,0,0,util,0,,0,0,0,Direito Constitucional,,0,,,0,0,,0,0,0,0,9e84e983a32d,4449267a7bae
+Q0219,certo_errado,2,151,26,11,188,194,0,10,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,,0,0,0,0,3058d2f45389,cd501b0a8cd0
+Q0220,multipla_escolha_5,5,123,25,1363,1511,1525,0,8,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,1,366d392646dc,d61ad7b0f683
+Q0221,multipla_escolha_5,5,74,0,785,859,859,0,3,0,0,vazio,0,,0,5,0,Penal,Penal,1,"Diferenças entre reclusão e detenção, Sanções penais, Penas privativas de liberdade","Diferenças entre reclusão e detenção, Sanções penais, Penas privativas de liberdade",0,1,,0,0,0,0,52a716fb0d94,8395981b8368
+Q0222,multipla_escolha_5,5,31,0,910,941,951,0,0,1,1,vazio,0,,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,76cb175f9b18,af86a66ab7b7
+Q0223,multipla_escolha_5,5,77,0,163,240,266,0,7,0,0,vazio,1,br;i,0,0,0,Direito Penal,Penal,1,Tipicidade,Tipicidade,0,0,,0,0,0,0,5c4f42b543d6,85c6245535cf
+Q0224,multipla_escolha_5,5,572,53,1136,1761,1783,0,53,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,3688,0,0,0,0,772c8bfee242,5854675b1dd1
+Q0225,certo_errado,2,1027,23,11,1061,1073,0,92,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,1,1,0aa3c90f78a7,6da32719cbe9
+Q0226,multipla_escolha_5,5,232,33,1230,1495,1505,0,16,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,13964,0,1,0,0,a08414d097bd,2f2249cb498a
+Q0227,multipla_escolha_5,5,77,0,2065,2142,2155,0,2,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,8069,0,0,0,0,5102942e2297,35e35b2cd764
+Q0228,multipla_escolha_4,4,95,61,239,395,402,0,10,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,0,0,0,611f42138840,7e9e0f689f90
+Q0229,multipla_escolha_5,5,62,0,685,747,747,0,3,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Lei Processual Penal no tempo e no espaço,Lei Processual Penal no tempo e no espaço,0,0,,0,0,0,0,67a1d4262370,571f6f6a9446
+Q0230,multipla_escolha_5,5,151,0,1104,1255,1255,0,9,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,,1,0,0,0,f5820028af2b,bb0934875f7c
+Q0231,multipla_escolha_5,5,184,0,205,389,429,0,19,0,0,vazio,0,p,5,0,0,Penal,Penal,1,"Tipicidade, Erro do tipo essencial","Tipicidade, Erro do tipo essencial",0,1,,0,0,0,0,d3a62934cf71,92f2626a56ae
+Q0232,multipla_escolha_5,5,109,0,797,906,906,0,7,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,"Crimes contra a administração pública, Denunciação caluniosa","Crimes contra a administração pública, Denunciação caluniosa",0,1,,1,0,0,0,707459a7daaa,7bc18c38d1f1
+Q0233,multipla_escolha_5,5,89,31,922,1042,1047,0,4,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,3688,0,0,0,0,7a1cb021e10c,e2e5e26485c4
+Q0234,multipla_escolha_5,5,132,73,66,271,281,0,10,0,0,suspeito,0,br,0,0,0,Criminologia,Criminologia,1,Conceitos Gerais de Criminologia,Conceitos Gerais de Criminologia,0,0,,0,0,0,0,ffddabe68d80,b6d5235ed175
+Q0235,certo_errado,2,192,104,11,307,313,0,19,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 02),Competência,1,0,,0,0,0,0,c3f651529d18,59c0dd079e59
+Q0236,multipla_escolha_5,5,1086,39,48,1173,1221,0,98,0,0,util,0,br,4,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,1,41f0eeb1cac8,b68b19297fd2
+Q0237,multipla_escolha_5,5,70,81,1341,1492,1573,0,5,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,,0,0,0,0,32759762bc45,5c620cf96ff0
+Q0238,certo_errado,2,118,84,11,213,213,0,13,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,1,0,0,0b5d7ef82065,280e6718690b
+Q0239,multipla_escolha_4,4,24,0,1250,1274,1308,0,0,1,1,vazio,0,br,4,0,0,Direito Penal,Penal,1,Punibilidade,Punibilidade,0,0,,1,0,0,0,dd0ef339071e,a253a6663093
+Q0240,multipla_escolha_5,5,799,139,45,983,1017,0,79,0,0,util,0,br,4,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,fa69ce8bcf3e,fceec2f84b91
+Q0241,multipla_escolha_5,5,713,31,152,896,943,0,66,0,0,util,0,b;br;i,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Fato Típico) Parte 02,Teoria do Crime (Fato Típico),1,0,,0,0,0,0,745c0fd378a0,ac250f9aace2
+Q0242,multipla_escolha_5,5,68,31,1100,1199,1211,0,3,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,1521,0,0,0,0,c64374e39b4d,c326b190027b
+Q0243,multipla_escolha_5,5,314,31,128,473,485,0,28,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,,0,0,0,0,34a78b064403,975d69864b6c
+Q0244,multipla_escolha_4,4,180,0,53,233,233,0,17,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Crimes contra a administração pública, Concussão e Excesso de Exação","Crimes contra a administração pública, Concussão e Excesso de Exação",0,1,,0,0,0,0,6da6b043ffd0,5bc0017e475d
+Q0245,multipla_escolha_5,5,50,0,1027,1077,1077,0,1,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Prescrição,Prescrição,0,0,,0,0,0,0,776cbbf50217,45bc2c73ef72
+Q0246,multipla_escolha_5,5,201,31,179,411,411,0,19,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,b8d0aed45706,14ffc7753002
+Q0247,certo_errado,2,651,0,11,662,684,0,58,0,0,vazio,1,br,0,0,0,Processo Penal,Processo Penal,1,Lei Processual Penal no tempo e no espaço,Lei Processual Penal no tempo e no espaço,0,0,7716,0,0,0,1,0a12ab8029d6,6d765d01902a
+Q0248,multipla_escolha_5,5,908,0,139,1047,1047,0,82,0,0,vazio,0,,0,0,0,Penal,Penal,1,Crimes contra a administração pública,Crimes contra a administração pública,0,0,,0,0,0,0,1e4e89503948,a07639312bb0
+Q0249,certo_errado,2,876,14,11,901,931,0,86,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Competência (Parte 02),Competência,1,0,,0,0,0,0,8d2661f2c489,3fbd703e2525
+Q0250,multipla_escolha_5,5,84,31,668,783,828,0,5,0,0,util,0,span,3,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,1,7a238a9afd0b,19905b1341df
+Q0251,multipla_escolha_5,5,381,19,53,453,501,0,32,0,0,util,0,br,5,0,0,Direito Penal,Penal,1,Punibilidade,Punibilidade,0,0,,1,0,0,0,a91fed972062,c110c987054b
+Q0252,multipla_escolha_4,4,344,31,611,986,1052,0,37,0,0,util,0,br;span,4,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,1,0,0,549ba5b9faa6,8771f9dc00a2
+Q0253,multipla_escolha_5,5,58,65,594,717,728,0,2,0,0,suspeito,0,,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,47f4c0656207,751021cda5c1
+Q0254,multipla_escolha_5,5,1086,36,50,1172,1280,0,86,0,0,util,0,br;span,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,11340,0,0,0,0,df07b7913ec3,f09762748b4f
+Q0255,multipla_escolha_5,5,77,33,826,936,958,0,3,0,0,util,0,b;i,0,0,0,Direito Penal,Penal,1,Culpabilidade,Culpabilidade,0,0,,0,0,0,0,aece9f5934a9,b9a7f1abb083
+Q0256,certo_errado,2,266,139,11,416,416,0,24,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Fato Típico) Parte 02,Teoria do Crime (Fato Típico),1,0,,0,0,0,0,7141076ce909,209197e8fb00
+Q0257,multipla_escolha_4,4,1719,0,53,1772,1772,0,165,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Teoria Geral do Delito, Tipicidade","Teoria Geral do Delito, Tipicidade",0,1,,0,0,1,0,278045afb1c1,eb0dacaf8ba9
+Q0258,multipla_escolha_5,5,26,44,438,508,519,0,3,1,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,9722decca7cd,359d0917118f
+Q0259,multipla_escolha_4,4,279,43,98,420,434,0,27,0,0,suspeito,0,br,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,,1,0,0,0,a0ff06d7a111,6cc586859f2f
+Q0260,multipla_escolha_5,5,1355,53,200,1608,1640,0,115,0,0,repete_enunciado,0,br,0,0,0,Criminologia,Criminologia,1,Criminologia no Estado Democrático de Direito,Criminologia no Estado Democrático de Direito,0,0,,0,0,0,0,779dc9e43492,4d7e397bc521
+Q0261,multipla_escolha_5,5,315,31,428,774,781,0,26,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,9609,1,0,0,0,45ab26333bb8,6226426fcadb
+Q0262,multipla_escolha_5,5,99,31,1532,1662,1695,0,7,0,0,util,0,b;br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Medida de Segurança,Medida de Segurança,0,0,7210,0,1,0,0,00c3934bd323,1c67d6259e92
+Q0263,multipla_escolha_4,4,795,58,171,1024,1048,0,79,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,ef3cf6a19485,ff9af38dd326
+Q0264,certo_errado,2,619,31,11,661,667,0,55,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,0,0,0,0,e04c9be4818e,a46d9e3d3327
+Q0265,certo_errado,2,138,77,11,226,226,0,12,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Punibilidade,Punibilidade,0,0,,0,0,0,0,fe43b7e5e90c,f43694dc7711
+Q0266,multipla_escolha_5,5,453,31,449,933,970,0,41,0,0,util,0,br,5,0,0,Processo Penal,Processo Penal,1,Procedimento do Júri,Procedimento do Júri,0,0,,0,0,0,0,fdad9ece2f47,1304018db881
+Q0267,multipla_escolha_5,5,538,0,1037,1575,1575,0,45,0,0,vazio,0,,0,5,0,Processo Penal,Processo Penal,1,"Procedimento especial da Lei nº 11.343 de 2006, Procedimento Penal","Procedimento especial da Lei nº 11.343 de 2006, Procedimento Penal",0,1,,0,0,0,0,4790bce6ba91,2d90f5c4f58c
+Q0268,multipla_escolha_5,5,31,31,582,644,670,0,0,1,1,repete_enunciado,0,,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,13869,0,0,0,0,76cb175f9b18,685a5ab4a443
+Q0269,multipla_escolha_5,5,99,98,900,1097,1210,0,6,0,0,repete_enunciado,0,b;br,4,0,0,Direito Penal,Penal,1,Introdução ao Estudo de Direito Penal,Introdução ao Estudo de Direito Penal,0,0,,0,0,0,0,ed870b328be7,3feaf636360c
+Q0270,multipla_escolha_5,5,302,0,71,373,393,0,26,0,0,vazio,0,br,4,0,0,Penal,Penal,1,"Corrupção ativa, Corrupção passiva, Peculato","Corrupção ativa, Corrupção passiva, Peculato",0,1,,1,0,0,0,083d1317a58b,f2b5843cc6c3
+Q0271,multipla_escolha_4,4,637,31,384,1052,1092,0,58,0,0,util,0,br;i,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,1,0,1,ee227fb648f1,c286d94a507d
+Q0272,multipla_escolha_5,5,94,25,561,680,690,0,6,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,7210,0,0,0,1,b88831595c0d,0c0d45f65d4b
+Q0273,multipla_escolha_5,5,41,58,138,237,237,0,4,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Tipo Penal Culposo,Tipo Penal Culposo,0,0,,0,0,0,0,ad8469be49e9,8c2396f749f7
+Q0274,certo_errado,2,306,0,11,317,317,0,25,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Roubo, Crimes contra o patrimônio","Roubo, Crimes contra o patrimônio",0,1,,0,0,0,1,70d429550db7,3b045fcd3eae
+Q0275,multipla_escolha_5,5,248,46,544,838,862,0,23,0,0,suspeito,0,br,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,9099,0,0,0,0,30d8751ff17d,6b79cfffe788
+Q0276,multipla_escolha_5,5,45,0,587,632,644,0,3,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,0,0,0,c0317fb14fc4,1c9dd77939e7
+Q0277,multipla_escolha_5,5,33,0,307,340,340,0,4,1,0,vazio,0,,0,0,0,Direito Civil - Legislação Especial,,0,,,0,0,,0,0,0,0,3d8b037ae5e5,b51a5613c0fc
+Q0278,certo_errado,2,371,0,11,382,383,0,36,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Procedimento Ordinário e Sumário (Parte 02),Procedimento Ordinário e Sumário,1,0,,0,0,0,0,bdf68a6d79c7,baa566d43bc8
+Q0279,multipla_escolha_5,5,923,0,107,1030,1030,0,92,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Causas de extinção da punibilidade, Crimes contra o patrimônio, Desistência voluntária e arrependimento eficaz","Causas de extinção da punibilidade, Crimes contra o patrimônio, Desistência voluntária e arrependimento eficaz",0,1,,0,0,0,0,8cacd6f8d3fe,b28334cc6bc9
+Q0280,multipla_escolha_5,5,371,31,616,1018,1052,0,28,0,0,util,0,b;br;i,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,4c423f4c2685,ca43695a5aa7
+Q0281,multipla_escolha_4,4,685,32,151,868,963,0,60,0,0,util,0,b;br,3,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,0,0,0,430f45f4310d,337e5c08d1d3
+Q0282,multipla_escolha_5,5,31,31,1111,1173,1180,0,0,1,1,repete_enunciado,0,b,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,7716;10826;11340,0,0,0,0,76cb175f9b18,491c9014616f
+Q0283,multipla_escolha_5,5,111,31,456,598,610,0,12,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,bf4f5147ba98,51418d31d913
+Q0284,multipla_escolha_5,5,2104,166,1966,4236,4255,0,193,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,3e09a1dd5b75,ab06ffe68321
+Q0285,multipla_escolha_5,5,61,74,209,344,345,0,5,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria Geral do Delito,Teoria Geral do Delito,0,0,,0,0,0,0,66663df94a89,8e33f06facf3
+Q0286,multipla_escolha_4,4,19,19,358,396,411,0,2,1,0,repete_enunciado,0,b,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,d30548e781a4,841428c63592
+Q0287,multipla_escolha_5,5,49,81,87,217,217,0,4,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,,1,0,0,0,5464c23c67d1,509b28b8674c
+Q0288,multipla_escolha_5,5,618,31,229,878,902,0,59,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,71986eadae55,9914727acb12
+Q0289,multipla_escolha_5,5,941,0,2285,3226,3226,0,82,0,0,vazio,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,,,0,0,11340,0,0,0,1,edf7dc30742b,8a5cd04afecf
+Q0290,multipla_escolha_5,5,141,33,913,1087,1109,0,7,0,0,util,0,b;i,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,9099,0,0,0,0,422d9bc306a6,12c8f73e818f
+Q0291,certo_errado,2,269,99,11,379,379,0,25,0,0,suspeito,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,92678b4b8cab,1efe8e15cc1b
+Q0292,multipla_escolha_5,5,86,0,722,808,812,0,5,0,0,vazio,0,,0,0,0,Criminologia,Criminologia,1,Política Criminal,Política Criminal,0,0,,0,0,1,0,193773ed7550,cda67fbd4ddb
+Q0293,multipla_escolha_5,5,1124,0,386,1510,1510,0,100,0,0,vazio,0,,0,0,0,Penal,Penal,1,,,0,0,,0,0,0,0,b8a5668f34e9,20128d0bffdd
+Q0294,multipla_escolha_5,5,54,25,1392,1471,1476,0,1,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Culpabilidade,Culpabilidade,0,0,,0,0,0,1,270e96816892,369358b95ed5
+Q0295,multipla_escolha_5,5,73,25,643,741,747,0,4,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,72219f4bb0b3,c4f5cf16fcea
+Q0296,certo_errado,2,233,31,11,275,275,0,22,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,f67c35531a81,7f62203a99ab
+Q0297,multipla_escolha_5,5,365,40,1014,1419,1449,0,33,0,0,util,0,br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Ação Penal,Ação Penal,0,0,8137,0,0,0,0,0fb0fdb355a0,ca112cc7ed20
+Q0298,certo_errado,2,111,96,11,218,218,0,9,0,0,util,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,8137,0,0,0,0,def6809862f9,c54419f0e88c
+Q0299,multipla_escolha_5,5,31,0,750,781,804,0,0,1,1,vazio,0,i,1,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,76cb175f9b18,f7caa6d89827
+Q0300,multipla_escolha_4,4,258,0,96,354,359,0,21,0,0,vazio,0,br,1,0,0,Penal,Penal,1,"Crimes contra a administração pública, Favorecimento pessoal","Crimes contra a administração pública, Favorecimento pessoal",0,1,,0,0,0,0,47b04405869e,85402a7b4cc0
+Q0301,multipla_escolha_4,4,27,73,295,395,432,0,3,1,0,suspeito,0,b,0,0,0,Direito Penal,Penal,1,Lesão Corporal,Lesão Corporal,0,0,,0,0,0,0,5824b8938bee,58d566b0590b
+Q0302,multipla_escolha_5,5,397,0,142,539,539,0,40,0,0,vazio,0,,0,0,0,Penal,Penal,1,"Tipicidade, Erro do tipo essencial","Tipicidade, Erro do tipo essencial",0,1,,0,0,0,0,43e2878acde6,c36ca2013af6
+Q0303,multipla_escolha_5,5,63,25,1030,1118,1124,0,3,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,1d4ef05cc56e,e90aaf6edd9e
+Q0304,multipla_escolha_5,5,119,0,853,972,972,0,10,0,0,vazio,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,,,0,0,9099,0,0,0,1,93c3bf5ec3c1,53976f977160
+Q0305,multipla_escolha_5,5,198,31,811,1040,1062,0,18,0,0,util,0,b;i,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,0410d464b686,f9687957fc78
+Q0306,multipla_escolha_5,5,59,0,686,745,756,0,3,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Crimes contra a paz pública,Crimes contra a paz pública,0,0,,0,0,0,0,cf9217014c0d,d952c89df40f
+Q0307,certo_errado,2,1013,26,11,1050,1062,0,87,0,0,util,0,br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,9455,0,0,0,0,b9fb2c9623c6,a12e2e596414
+Q0308,multipla_escolha_5,5,112,0,169,281,281,0,10,0,0,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,"Inquérito Policial, Encerramento do Inquérito Policial","Inquérito Policial, Encerramento do Inquérito Policial",0,1,,0,0,0,0,8ce8a4d90569,6500c9319188
+Q0309,multipla_escolha_5,5,187,69,236,492,497,0,16,0,0,suspeito,0,,0,0,0,Direito Ambiental,,0,Sistema de responsabilização por ilícitos ambientais,Sistema de responsabilização por ilícitos ambientais,0,0,9605,0,0,0,0,da52fe54a237,17c8d0162185
+Q0310,multipla_escolha_5,5,65,31,852,948,1063,0,4,0,0,util,0,br,4,0,0,Processo Penal,Processo Penal,1,Lei Processual Penal no tempo e no espaço,Lei Processual Penal no tempo e no espaço,0,0,,0,1,0,0,800b91656880,bbace560970d
+Q0311,multipla_escolha_5,5,158,0,416,574,574,0,15,0,0,vazio,0,,0,5,0,Processo Penal,Processo Penal,1,"Das Citações e Intimações, Citação no Processo Penal","Das Citações e Intimações, Citação no Processo Penal",0,1,,0,0,0,0,a04acc1e258d,e45a63e0c9ea
+Q0312,certo_errado,2,245,46,11,302,320,0,16,0,0,suspeito,0,br,0,0,0,Criminologia,Criminologia,1,Teorias Legitimidoras da Pena,Teorias Legitimidoras da Pena,0,0,,0,0,0,0,32101b697a06,77f7e48ae4fd
+Q0313,certo_errado,2,277,88,11,376,376,0,26,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,0,0,0,0,ffae6237cf55,0c6c831c5878
+Q0314,multipla_escolha_4,4,17,39,561,617,654,0,2,1,0,suspeito,0,br;i,3,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,,0,0,1,0,b8a2032727fa,fc341a641428
+Q0315,multipla_escolha_5,5,391,84,453,928,938,0,30,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,1,bec947a04d91,153d1545d6a3
+Q0316,multipla_escolha_4,4,490,113,143,746,779,0,47,0,0,suspeito,0,br,3,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,1,0,0,0,fd7f2d10da9b,05ff6150ddfb
+Q0317,certo_errado,2,180,86,11,277,277,0,19,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,80c403f68e83,c0ff4f835c6e
+Q0318,multipla_escolha_5,5,660,0,1225,1885,1886,0,68,0,0,vazio,0,,0,0,0,Penal,Penal,1,,,0,0,,0,0,0,0,f167cfdbf94b,190f1a47201b
+Q0319,multipla_escolha_5,5,109,69,53,231,249,0,11,0,0,suspeito,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,,0,0,0,0,78f6f0b5d75c,021d53905745
+Q0320,multipla_escolha_4,4,127,59,422,608,608,0,11,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,11343,0,0,0,0,511d1a154626,33f8ce609162
+Q0321,multipla_escolha_4,4,31,0,440,471,481,0,0,1,1,vazio,0,,0,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,,0,0,0,0,76cb175f9b18,c212d165688b
+Q0322,multipla_escolha_5,5,408,38,201,647,666,0,34,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Procedimento Ordinário,Procedimento Ordinário,0,0,13869,0,0,0,0,d2a19be30d09,92f925ad0ac4
+Q0323,multipla_escolha_5,5,110,24,2148,2282,2287,0,7,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,0,0,0,bef3ce40a573,78719f464d92
+Q0324,multipla_escolha_4,4,933,43,174,1150,1176,0,88,0,0,util,0,br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Teoria da Pena (Parte 02),Teoria da Pena,1,0,,1,0,0,0,116843a3904c,a5c796a3db1a
+Q0325,multipla_escolha_5,5,58,0,1370,1428,1438,0,0,0,1,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,9605;11340,0,0,0,0,d4c555c5603c,561e436e1f58
+Q0326,multipla_escolha_5,5,41,69,796,906,920,0,5,0,0,suspeito,0,,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,11343,0,0,0,0,b2b35cdb24bd,a236c071b7e5
+Q0327,multipla_escolha_5,5,914,211,514,1639,1669,0,74,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,,,0,0,3688,0,0,0,0,29ab9a7ac851,0502682f5be6
+Q0328,certo_errado,2,367,23,11,401,407,0,24,0,0,util,0,br,0,0,0,Criminologia,Criminologia,1,Conceitos Gerais de Criminologia,Conceitos Gerais de Criminologia,0,0,,0,0,0,0,9055366a33eb,63b708724fe3
+Q0329,multipla_escolha_5,5,1676,109,504,2289,2342,0,153,0,0,util,0,br;p,3,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,12850,0,0,0,0,7de017a620b9,c27eade1377a
+Q0330,multipla_escolha_5,5,129,31,1037,1197,1216,0,8,0,0,util,0,b,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,13964,0,1,0,0,1a36e25b35a8,42ebb1f8ba71
+Q0331,multipla_escolha_5,5,33,0,499,532,572,0,0,1,1,vazio,0,i,5,0,0,Processo Penal,Processo Penal,1,Comunicação dos atos processuais,Comunicação dos atos processuais,0,0,,0,0,0,0,44c7504378b1,52612894f67a
+Q0332,multipla_escolha_5,5,308,31,1062,1401,1418,0,30,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,0,0,0,7d37d401c847,1643baa563f5
+Q0333,multipla_escolha_5,5,31,0,573,604,604,0,0,1,1,vazio,0,,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,,0,0,0,0,76cb175f9b18,287fce8b34d9
+Q0334,multipla_escolha_5,5,73,0,106,179,180,0,4,0,0,vazio,0,,0,0,0,Criminologia,Criminologia,1,Conceitos Gerais de Criminologia,Conceitos Gerais de Criminologia,0,0,,0,0,0,0,dd7c90a7c5bb,32f7c82f5e0b
+Q0335,multipla_escolha_5,5,91,0,1151,1242,1270,0,6,0,0,vazio,0,br;em,2,1,0,Penal,Penal,1,"Classificação dos crimes, Teoria Geral do Delito","Classificação dos crimes, Teoria Geral do Delito",0,1,,1,0,0,0,c84ae4b7a3a7,92e28e223562
+Q0336,multipla_escolha_5,5,856,0,434,1290,1290,0,83,0,0,vazio,0,,0,5,0,Penal,Penal,1,"Crimes contra o patrimônio, Furto","Crimes contra o patrimônio, Furto",0,1,,1,0,0,1,965871d3e7d5,c8f2e4920e8f
+Q0337,multipla_escolha_4,4,700,76,36,812,837,0,56,0,0,util,0,b;br,0,0,0,Direito Penal - Legislação Especial,Direito Penal - Legislação Especial,1,Concurso de Crimes,Concurso de Crimes,0,0,13869,0,0,0,0,ef67c0c9a0c8,02488c91ff77
+Q0338,multipla_escolha_5,5,83,31,886,1000,1007,0,5,0,0,util,0,b,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,,0,1,0,0,ed3545523b38,3c6878585d00
+Q0339,multipla_escolha_4,4,31,0,606,637,657,0,0,1,1,vazio,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 01),Ação Penal,1,0,,0,0,0,0,76cb175f9b18,f6f99953793d
+Q0340,multipla_escolha_5,5,59,0,775,834,834,0,2,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Concurso de Pessoas,Concurso de Pessoas,0,0,,0,0,0,0,feb3670e9c99,e748d6a16c6c
+Q0341,multipla_escolha_5,5,61,53,714,828,856,0,5,0,0,suspeito,0,br,4,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,0,43ffe8160b39,0808bebe61e5
+Q0342,multipla_escolha_5,5,1038,35,52,1125,1155,0,96,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Inquérito Policial,Inquérito Policial,0,0,,0,1,0,0,238d18a57f46,b3636ef6b4eb
+Q0343,multipla_escolha_5,5,379,0,462,841,841,0,42,0,0,vazio,0,,0,4,0,Processo Penal,Processo Penal,1,"Ação penal de iniciativa privada: definição, princípios e espécies, Ação Penal","Ação penal de iniciativa privada: definição, princípios e espécies, Ação Penal",0,1,,0,0,0,0,026e986536f6,c160d47491bf
+Q0344,multipla_escolha_5,5,160,31,609,800,809,0,11,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Ação Penal,Ação Penal,0,0,9605,0,0,0,0,4c180467864b,8f292ce13ae3
+Q0345,multipla_escolha_5,5,1184,0,726,1910,2003,0,110,0,0,vazio,0,span,0,0,1,Direito Penal,Penal,1,,,0,0,13869,1,0,0,1,07f64cbce784,706494c2a577
+Q0346,multipla_escolha_5,5,1607,31,208,1846,1903,0,139,0,0,util,0,b;br;u,0,0,0,Processo Penal,Processo Penal,1,Sistemas e Princípios Processuais Penais,Sistemas e Princípios Processuais Penais,0,0,8078,0,1,0,0,98282d322ab5,b29848ea9917
+Q0347,multipla_escolha_5,5,72,30,1408,1510,1580,0,4,0,0,util,0,i;span;u,1,0,0,Direito Penal,Penal,1,Crime continuado,Crime continuado,0,0,,1,0,0,1,7e2427935ba3,92bf73fb7e47
+Q0348,multipla_escolha_5,5,222,50,1071,1343,1343,0,22,0,0,util,0,,0,0,0,Direito Penal,Penal,1,,,0,0,,1,0,0,0,609288bb77db,519702f0bbab
+Q0349,certo_errado,2,674,83,11,768,774,0,61,0,0,util,0,br,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,,0,0,0,1,9963b3c5a59f,92c8e0766a67
+Q0350,multipla_escolha_4,4,95,0,895,990,1000,0,6,0,0,vazio,0,,0,0,0,Direito Penal,Penal,1,Legislação Penal Especial,Legislação Penal Especial,0,0,9613,0,0,0,0,cea3a2b4d881,2a352f173a65
+Q0351,multipla_escolha_5,5,30,59,125,214,223,0,3,1,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Teoria do Crime (Ilicitude),Teoria do Crime (Ilicitude),0,0,,0,0,0,0,1e52fb23b457,ad908f9db893
+Q0352,multipla_escolha_5,5,107,25,748,880,890,0,7,0,0,util,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal,Ação Penal,0,0,,0,0,0,0,4d5dc6066130,10c042220bee
+Q0353,multipla_escolha_4,4,95,113,330,538,545,0,9,0,0,suspeito,0,,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,,0,0,0,0,cb40261f31b8,5bb0cb7a7a53
+Q0354,multipla_escolha_5,5,33,0,1940,1973,2068,0,0,1,1,vazio,0,span,1,0,0,Direito Penal,Penal,1,Teoria do Crime (Fato Típico) Parte 02,Teoria do Crime (Fato Típico),1,0,,0,0,0,0,44c7504378b1,9071f2f9ef7e
+Q0355,multipla_escolha_5,5,142,31,1163,1336,1348,0,10,0,0,util,0,,0,0,0,Direito Penal,Penal,1,Concurso de Crimes,Concurso de Crimes,0,0,11343;13869,0,0,0,1,e2779ffe15a1,acfb499ed090
+Q0356,multipla_escolha_5,5,818,0,69,887,887,0,66,0,0,vazio,0,,0,0,0,Penal,Penal,1,Concurso de crimes,Concurso de crimes,0,0,,1,0,0,0,3d21cdf85ec6,4705a9614e3a
+Q0357,multipla_escolha_5,5,40,54,681,775,791,0,4,0,0,suspeito,0,,0,0,0,Direito Penal,Penal,1,Iter Criminis,Iter Criminis,0,0,,0,0,0,0,01469081800e,8845356cc221
+Q0358,certo_errado,2,470,0,11,481,481,0,40,0,0,vazio,0,,0,0,0,Penal,Penal,1,Crimes contra a inviolabilidade de segredos,Crimes contra a inviolabilidade de segredos,0,0,,0,0,0,0,4c43417ce665,f86c017b60d0
+Q0359,certo_errado,2,406,50,11,467,473,0,37,0,0,util,0,br,0,0,0,Processo Penal,Processo Penal,1,Ação Penal (Parte 02),Ação Penal,1,0,9099,1,1,0,1,13e9ee625e4e,a46b69206dff

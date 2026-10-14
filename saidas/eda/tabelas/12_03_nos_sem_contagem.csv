@@ -1,0 +1,41 @@
+tema_id,caminho,descrição,situação
+6716,Penal > Abuso de Autoridade,vazia,fantasma
+5063,Penal > Ação Penal,rica,válido
+6717,Penal > Crimes contra o meio ambiente,vazia,fantasma
+6718,Penal > Dos Crimes Contra a Administração Pública (Parte 1),vazia,fantasma
+6720,Penal > Dos Crimes Contra o Patrimônio (Parte 1),vazia,fantasma
+6719,Penal > Dos Crimes contra a Administração Pública (Parte 2),vazia,fantasma
+6721,Penal > Dos Crimes contra o Patrimônio (Parte 2),vazia,fantasma
+6722,Penal > Estatuto do Idoso - Crimes,vazia,fantasma
+6723,Penal > Lavagem de Dinheiro,vazia,fantasma
+6724,Penal > Lei Maria da Penha,vazia,fantasma
+6725,Penal > Organizações Criminosas,vazia,fantasma
+5185,Penal > Prescrição,rica,válido
+5198,Penal > Punibilidade > Decadência,rica,válido
+6726,Penal > Teoria da Pena (Parte 1),vazia,fantasma
+6727,Penal > Teoria da Pena (Parte 2),vazia,fantasma
+6728,Penal > Tráfico de Drogas,vazia,fantasma
+5466,Processo Penal > Ação Penal,rica,válido
+5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,rica,válido
+5479,Processo Penal > Ações Autônomas de Impugnação > Mandado de Segurança,rica,válido
+5480,Processo Penal > Competência,rica,válido
+6732,Processo Penal > Competência (Parte 1),vazia,fantasma
+6733,Processo Penal > Competência (Parte 2),vazia,fantasma
+5487,Processo Penal > Comunicação dos Atos Processuais,rica,válido
+6734,Processo Penal > Lei de Execução Penal,vazia,fantasma
+5512,Processo Penal > Parte Geral dos Recursos,rica,válido
+5530,Processo Penal > Procedimento Ordinário,rica,válido
+5535,Processo Penal > Procedimento Ordinário > Audiência de Instrução e Julgamento,rica,válido
+5537,Processo Penal > Procedimento Ordinário > Sentença,rica,válido
+6735,Processo Penal > Provas em Espécie,vazia,fantasma
+5548,Processo Penal > Provas em Espécies > Confissão,rica,válido
+5553,Processo Penal > Provas em Espécies > Prova Documental,rica,válido
+5550,Processo Penal > Provas em Espécies > Prova Testemunhal,rica,válido
+6736,Processo Penal > Recursos (Parte 03) - Espécies,vazia,fantasma
+5560,Processo Penal > Recursos em Espécies,rica,válido
+5562,Processo Penal > Recursos em Espécies > Apelação,rica,válido
+5565,Processo Penal > Recursos em Espécies > Embargos de Declaração,rica,válido
+5571,Processo Penal > Recursos em Espécies > Recurso Especial,rica,válido
+5570,Processo Penal > Recursos em Espécies > Recurso Extraordinário,rica,válido
+6737,Processo Penal > Sentença Penal (Parte 1),vazia,fantasma
+6738,Processo Penal > Sentença Penal (Parte 2),vazia,fantasma

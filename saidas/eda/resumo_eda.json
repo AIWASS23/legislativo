@@ -1,0 +1,120 @@
+{
+  "Questões: integridade dos dados": {
+    "registros": 359,
+    "ids_unicos": 359,
+    "ids_repetidos": 0,
+    "ids_fora_padrao": 0,
+    "alternativas_vazias": 0
+  },
+  "Questões: formato": {
+    "multipla_escolha_5": 255,
+    "certo_errado": 58,
+    "multipla_escolha_4": 46
+  },
+  "Questões: ruído de HTML e formatação": {
+    "alternativas_com_html": 171,
+    "alternativas_com_quebra": 83,
+    "comandos_so_html": 7,
+    "entidades": 17,
+    "questoes_html_de_editor": 1,
+    "caracteres_brutos": 443917,
+    "caracteres_limpos": 329314
+  },
+  "Questões: tamanho do texto": {
+    "caracteres_total": 329314,
+    "tokens_estimados": 82328
+  },
+  "Questões: o campo `comando`": {
+    "comando_util": 182,
+    "comando_suspeito": 62,
+    "comando_vazio": 101,
+    "comando_repete_enunciado": 14
+  },
+  "Questões: enunciados genéricos": {
+    "genericos": 18,
+    "curtos": 26,
+    "curtos_especificos": 10
+  },
+  "Questões: repetições": {
+    "grupos_enunciado_igual": 2,
+    "grupos_questao_igual": 0
+  },
+  "Questões: disciplina e assunto de origem": {
+    "disciplinas_origem": 12,
+    "fora_do_recorte": 8,
+    "assuntos_distintos": 95,
+    "assuntos_vazios": 18,
+    "assuntos_com_parte": 73,
+    "assuntos_multiplos": 37
+  },
+  "Questões: legislação e referências citadas": {
+    "questoes_com_lei": 93,
+    "Código Penal": 51,
+    "Código de Processo Penal": 28,
+    "Constituição": 12,
+    "Jurisprudência (STF, STJ, súmula)": 47,
+    "Alguma lei (número ou apelido)": 93
+  },
+  "Temas: estrutura da árvore": {
+    "nos": 377,
+    "disciplinas": 4,
+    "inativos": 2,
+    "problemas_estrutura": 0
+  },
+  "Temas: descrições": {
+    "descricao_raiz": 4,
+    "descricao_modelo": 333,
+    "descricao_vazia": 20,
+    "descricao_rica": 20
+  },
+  "Temas: contagem histórica de questões": {
+    "com_contagem": 333,
+    "sem_contagem": 40,
+    "zerados": 7
+  },
+  "Temas: nós fantasmas": {
+    "fantasmas": 20,
+    "fantasmas_parte": 11,
+    "fantasmas_sem_canonico": 0
+  },
+  "Temas: títulos repetidos": {
+    "titulos_repetidos": 15,
+    "repetidos_entre_validos": 1
+  },
+  "Temas: sobreposição entre disciplinas": {
+    "pares_sobrepostos": 15
+  },
+  "Temas: possíveis lixeiras": {
+    "suspeitas_lixeira": 21
+  },
+  "Temas: anomalias de título": {
+    "titulos_com_anomalia": 7
+  },
+  "Temas: nós utilizáveis como tema central": {
+    "publicaveis": 351,
+    "aceitam_recuo": 51
+  },
+  "Cruzamento: assunto de origem × títulos da árvore": {
+    "assunto_sem_correspondencia": 62,
+    "assunto_tema_valido": 253,
+    "assunto_fantasma": 26,
+    "assunto_vazio": 18,
+    "assunto_ambiguo": 67
+  },
+  "Cruzamento: disciplina de origem × disciplina do assunto": {
+    "coerentes": 235,
+    "incoerentes": 18,
+    "fora_do_recorte": 0
+  },
+  "Cruzamento: leis citadas × temas": {
+    "leis_com_tema": 32,
+    "leis_sem_tema_valido": 0,
+    "leis_com_fantasma": 8
+  },
+  "Cruzamento: cobertura dos sinais fracos": {
+    "sem_sinal": 79,
+    "dois_sinais": 57,
+    "dois_sinais_mesmo_ramo": 0,
+    "dois_sinais_mesma_disciplina": 8
+  }
+}
