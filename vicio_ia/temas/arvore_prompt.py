@@ -86,6 +86,38 @@ class MaterialArvore:
             linhas.append(self._linha_escopo(tema) + sufixo)
         return "\n".join(linhas) + "\n"
 
+    def nivel1_sem_escopo(self) -> str:
+        """Só os temas de nível 1, com a lista de subtemas e sem escopo (experimento E4).
+
+        Returns:
+            Texto com uma linha por tema de nível 1.
+        """
+        linhas: list[str] = ["Temas em que a questão pode ser classificada (ID | caminho)."]
+        tema: TemaPreparado
+        for tema in self._ordem:
+            if tema.nivel != 1:
+                continue
+            subtemas: list[str] = [
+                self._temas[i].titulo_exibicao for i in tema.filhos if i in self._temas and self._temas[i].publicavel
+            ]
+            marca: str = self.MARCA_CONCEITUAL if tema.lixeira == "forte" else ""
+            sufixo: str = f" (subtemas: {'; '.join(subtemas)})" if subtemas else ""
+            linhas.append(f"{tema.tema_id} | {tema.caminho_exibicao}{marca}{sufixo}")
+        return "\n".join(linhas) + "\n"
+
+    def filhos_sem_cartoes(self, tema_id: str) -> str:
+        """O tema e os filhos publicáveis só com ID e caminho (experimento E4).
+
+        Args:
+            tema_id: Tema de nível 1.
+
+        Returns:
+            Uma linha por nó.
+        """
+        tema: TemaPreparado = self._temas[tema_id]
+        ids: list[str] = [tema_id, *(i for i in tema.filhos if i in self._temas and self._temas[i].publicavel)]
+        return "\n".join(f"[{i}] {self._temas[i].caminho_exibicao}" for i in ids) + "\n"
+
     def cartoes_filhos(self, tema_id: str) -> str:
         """Cartões do tema e dos filhos publicáveis, para a 2ª etapa do classificador B.
 

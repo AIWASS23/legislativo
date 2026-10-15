@@ -71,7 +71,7 @@ class PipelineCartoes:
             if tema.tipo_descricao == "rica"
         }
         fabrica: FabricaClientes = FabricaClientes(self._caminhos, self._parametros_llm)
-        cliente: ClienteLLM = fabrica.cliente("cartoes", self._parametros.papel_modelo)
+        cliente: ClienteLLM = fabrica.cliente_fixo("cartoes", self._parametros.provedor, self._parametros.modelo)
         prompt: ArquivoPrompt = ArquivoPrompt(self._caminhos.prompts / "cartao_tema.md")
         gerador: GeradorCartoes = GeradorCartoes(
             cliente, prompt, temas, enxuta, descricoes, self._parametros, fabrica.paralelismo(cliente.provedor)
