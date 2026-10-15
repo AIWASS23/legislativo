@@ -208,7 +208,7 @@ Q0206,tema_valido,5487,
 Q0207,sem_correspondencia,,
 Q0208,tema_valido,5066,
 Q0209,tema_valido,5498,
-Q0210,tema_valido,5066,4697
+Q0210,tema_valido,5066,4693;4697
 Q0211,sem_correspondencia,,
 Q0212,sem_correspondencia,,4700;5555
 Q0213,sem_correspondencia,,4708
@@ -220,7 +220,7 @@ Q0218,vazio,,
 Q0219,tema_valido,5071,
 Q0220,tema_valido,5498,
 Q0221,tema_valido,5201,
-Q0222,tema_valido,5063;5466,
+Q0222,tema_valido,5063;5466,4701;5539
 Q0223,tema_valido,5227,
 Q0224,tema_valido,5066,4686
 Q0225,tema_valido,5063;5466,

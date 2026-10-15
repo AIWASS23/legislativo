@@ -222,6 +222,8 @@ class AnaliseQuestoes(Analise):
         questoes_alt_quebra: int = sum(1 for perfil in self._perfis if perfil.alternativas_com_quebra)
         comando_so_html: int = sum(1 for perfil in self._perfis if perfil.comando_so_html)
         editor: list[PerfilQuestao] = [perfil for perfil in self._perfis if perfil.html_de_editor]
+        com_escape: list[PerfilQuestao] = [perfil for perfil in self._perfis if perfil.escapes_literais]
+        total_escapes: int = sum(perfil.escapes_literais for perfil in self._perfis)
         brutos: int = sum(perfil.chars_brutos for perfil in self._perfis)
         limpos: int = sum(perfil.chars_total for perfil in self._perfis)
         brutos_editor: int = sum(perfil.chars_brutos for perfil in editor)
@@ -255,6 +257,10 @@ class AnaliseQuestoes(Analise):
                 "de todo o HTML do recorte), quase tudo CSS e metadados que a limpeza descarta."
             ),
             (
+                f"{total_escapes} escapes literais (barra + n ou t gravados como texto, defeito de escape duplo no banco) "
+                f"em {len(com_escape)} questões ({self._pct(len(com_escape))}%); a limpeza os converte em quebra de linha ou espaço."
+            ),
+            (
                 f"Antes da limpeza o recorte tem {self._milhar(brutos)} caracteres; depois, {self._milhar(limpos)}. "
                 "Mandar o HTML cru para um modelo pagaria tokens de lixo."
             ),
@@ -281,6 +287,8 @@ class AnaliseQuestoes(Analise):
             "comandos_so_html": comando_so_html,
             "entidades": sum(entidades.values()),
             "questoes_html_de_editor": len(editor),
+            "escapes_literais": total_escapes,
+            "questoes_com_escape_literal": len(com_escape),
             "caracteres_brutos": brutos,
             "caracteres_limpos": limpos,
         }

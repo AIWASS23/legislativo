@@ -1,6 +1,6 @@
 # EDA: questões e árvore de temas
 
-_Gerado em 14/10/2026 10:31._
+_Gerado em 15/10/2026 08:19._
 
 Fontes: `questoes.jsonl` e `temas.csv` (pasta `anexos/`, sem alterações).
 
@@ -84,7 +84,8 @@ _completa em `tabelas/02_02_letras_alternativas.csv`._
 
 - Tags encontradas: <w> (1206), <br> (720), <i> (61), <span> (46), <b> (45), <m> (36), <p> (16), <sup> (15), <xml> (9), <u> (7), <o> (6), <style> (3), <em> (2). Nenhuma imagem ou tabela: o conteúdo é todo textual.
 - Questões com HTML colado do Word: 1 (Q0099), somando 108.363 caracteres brutos (24.4% de todo o HTML do recorte), quase tudo CSS e metadados que a limpeza descarta.
-- Antes da limpeza o recorte tem 443.917 caracteres; depois, 329.314. Mandar o HTML cru para um modelo pagaria tokens de lixo.
+- 1043 escapes literais (barra + n ou t gravados como texto, defeito de escape duplo no banco) em 106 questões (29.5%); a limpeza os converte em quebra de linha ou espaço.
+- Antes da limpeza o recorte tem 443.917 caracteres; depois, 328.225. Mandar o HTML cru para um modelo pagaria tokens de lixo.
 - 171 alternativas têm HTML ou entidades; 83 alternativas (20 questões) têm quebra de linha no meio da frase (texto colado de PDF).
 - 7 comandos contêm só HTML (ex.: `<br>`) e ficam vazios depois da limpeza.
 - Conclusão: uma limpeza simples (quebras, tags, entidades e espaços) basta; não há perda de conteúdo.
@@ -123,21 +124,21 @@ _completa em `tabelas/03_02_entidades_html.csv`._
 | id | caracteres brutos | caracteres limpos | % removido | HTML de editor |
 |---|---|---|---|---|
 | Q0099 | 108363 | 1521 | 98.60 | sim |
-| Q0047 | 1765 | 1333 | 24.50 | não |
-| Q0196 | 1126 | 903 | 19.80 | não |
-| Q0019 | 1330 | 1140 | 14.30 | não |
+| Q0047 | 1765 | 1313 | 25.60 | não |
+| Q0196 | 1126 | 898 | 20.20 | não |
+| Q0019 | 1330 | 1117 | 16.00 | não |
 | Q0190 | 1237 | 1051 | 15.00 | não |
 | Q0077 | 1570 | 1411 | 10.10 | não |
+| Q0202 | 1698 | 1583 | 6.80 | não |
 | Q0310 | 1063 | 948 | 10.80 | não |
 | Q0269 | 1210 | 1097 | 9.30 | não |
-| Q0202 | 1698 | 1586 | 6.60 | não |
-| Q0063 | 1391 | 1283 | 7.80 | não |
+| Q0354 | 2068 | 1957 | 5.40 | não |
 
 _completa em `tabelas/03_03_maior_reducao_limpeza.csv`._
 
 ## 4. Questões: tamanho do texto
 
-- Texto total: mediana de 828 caracteres por questão; 329.314 caracteres no recorte (cerca de 82.328 tokens).
+- Texto total: mediana de 825 caracteres por questão; 328.225 caracteres no recorte (cerca de 82.056 tokens).
 - As alternativas costumam ter mais texto que o enunciado: o classificador precisa recebê-las sempre.
 
 **Distribuição de tamanho**
@@ -146,9 +147,9 @@ _completa em `tabelas/03_03_maior_reducao_limpeza.csv`._
 |---|---|---|---|---|---|---|---|---|
 | enunciado (caracteres) | 359 | 9.00 | 89.00 | 201.00 | 517.50 | 1089.80 | 2450.00 | 365.20 |
 | comando (caracteres) | 359 | 0.00 | 0.00 | 31.00 | 59.50 | 113.10 | 211.00 | 40.60 |
-| alternativas (caracteres) | 359 | 10.00 | 97.00 | 425.00 | 798.50 | 1345.90 | 2285.00 | 511.60 |
-| total (caracteres) | 359 | 104.00 | 517.00 | 828.00 | 1162.50 | 1976.80 | 4236.00 | 917.30 |
-| palavras de conteúdo no enunciado | 359 | 0.00 | 6.00 | 18.00 | 47.00 | 96.20 | 208.00 | 32.00 |
+| alternativas (caracteres) | 359 | 10.00 | 97.00 | 420.00 | 796.50 | 1341.00 | 2285.00 | 508.60 |
+| total (caracteres) | 359 | 104.00 | 517.00 | 825.00 | 1162.50 | 1962.40 | 4205.00 | 914.30 |
+| palavras de conteúdo no enunciado | 359 | 0.00 | 6.00 | 18.00 | 45.00 | 96.10 | 208.00 | 31.40 |
 
 _completa em `tabelas/04_01_tamanhos.csv`._
 
@@ -156,22 +157,22 @@ _completa em `tabelas/04_01_tamanhos.csv`._
 
 | id | formato | caracteres | enunciado |
 |---|---|---|---|
-| Q0284 | multipla_escolha_5 | 4236 | No dia 2 de fevereiro de 2022, por volta das 21h, Bernardo, sargento da Marinha, ao se aproximar com seu veículo automo… |
+| Q0284 | multipla_escolha_5 | 4205 | No dia 2 de fevereiro de 2022, por volta das 21h, Bernardo, sargento da Marinha, ao se aproximar com seu veículo automo… |
 | Q0289 | multipla_escolha_5 | 3226 | “A Lei nº 11.340/2006 aporta em nosso ordenamento jurídico em resposta às graves violações de direitos sofridas pelas m… |
 | Q0070 | multipla_escolha_5 | 2981 | Carlos Alberto foi preso preventivamente em 1º de fevereiro de 2024, pela suposta prática do crime de tráfico de drogas… |
-| Q0097 | multipla_escolha_5 | 2753 | Inquérito policial revelou que um grupo de 16 pessoas, além de outras não identificadas, dedicava-se ao comércio ilícit… |
+| Q0097 | multipla_escolha_5 | 2736 | Inquérito policial revelou que um grupo de 16 pessoas, além de outras não identificadas, dedicava-se ao comércio ilícit… |
 | Q0020 | multipla_escolha_5 | 2704 | Assinale com V (verdadeiro) ou com F (falso) as seguintes afirmações sobre posições jurisprudenciais do Superior Tribun… |
-| Q0146 | multipla_escolha_5 | 2603 | A Constituição Federal de 1988, no artigo 5°, inciso LVI, prevê expressamente a inadmissibilidade da utilização no proc… |
+| Q0146 | multipla_escolha_5 | 2559 | A Constituição Federal de 1988, no artigo 5°, inciso LVI, prevê expressamente a inadmissibilidade da utilização no proc… |
 | Q0089 | multipla_escolha_5 | 2519 | De acordo com o Glossário Jurídico do Supremo Tribunal Federal, “o princípio da insignificância tem o sentido de exclui… |
 | Q0100 | multipla_escolha_5 | 2440 | Augusto levou sua filha, Ana, de treze anos de idade, a uma boate cuja entrada era permitida apenas para pessoas maiore… |
-| Q0329 | multipla_escolha_5 | 2289 | Em determinado estado brasileiro, uma investigação revelou um esquema criminoso que envolvia a competição futebolística… |
 | Q0323 | multipla_escolha_5 | 2282 | Acerca de provas, instrumentos legais de obtenção de prova e procedimento probatório, assinale a opção correta |
+| Q0329 | multipla_escolha_5 | 2275 | Em determinado estado brasileiro, uma investigação revelou um esquema criminoso que envolvia a competição futebolística… |
 
 _completa em `tabelas/04_02_mais_longas.csv`._
 
 ## 5. Questões: o campo `comando`
 
-- 101 comandos vazios (28.1%), 182 úteis, 62 suspeitos e 14 que só repetem o enunciado.
+- 101 comandos vazios (28.1%), 124 úteis, 62 suspeitos e 72 que só repetem o enunciado.
 - Os suspeitos pedem algo que não cabe em questão objetiva ('Explique...', 'Complete a frase...'); 12 deles estão em questões de certo/errado. Parecem gerados por outra ferramenta.
 - Decisão para o passo 01: usar o comando só quando for útil; suspeito ou repetido fica fora do texto do modelo.
 
@@ -179,10 +180,10 @@ _completa em `tabelas/04_02_mais_longas.csv`._
 
 | tipo | n | % | exemplos |
 |---|---|---|---|
-| util | 182 | 50.70 | Q0001, Q0003, Q0004, Q0006, Q0007, Q0009 |
+| util | 124 | 34.50 | Q0001, Q0003, Q0006, Q0007, Q0009, Q0011 |
 | vazio | 101 | 28.10 | Q0013, Q0016, Q0019, Q0022, Q0023, Q0027 |
+| repete_enunciado | 72 | 20.10 | Q0004, Q0010, Q0018, Q0020, Q0021, Q0031 |
 | suspeito | 62 | 17.30 | Q0002, Q0005, Q0008, Q0017, Q0028, Q0029 |
-| repete_enunciado | 14 | 3.90 | Q0018, Q0020, Q0031, Q0123, Q0142, Q0160 |
 
 _completa em `tabelas/05_01_tipos_comando.csv`._
 
@@ -386,19 +387,19 @@ _mostrando 25 de 95 linhas; completa em `tabelas/08_03_assuntos_origem.csv`._
 
 ## 9. Questões: legislação e referências citadas
 
-- 93 questões (25.9%) citam alguma lei por número ou apelido.
-- 47 questões citam jurisprudência: tendem a ser mais difíceis de classificar, porque o tema vem do caso julgado, não de um artigo.
+- 95 questões (26.5%) citam alguma lei por número ou apelido.
+- 49 questões citam jurisprudência: tendem a ser mais difíceis de classificar, porque o tema vem do caso julgado, não de um artigo.
 - Os temas indicados por lei são um sinal fraco (passo 03): a mesma lei pode ser cobrada em mais de um tema.
 
 **Referências citadas**
 
 | referência | questões | % |
 |---|---|---|
-| Código Penal | 51 | 14.20 |
-| Código de Processo Penal | 28 | 7.80 |
-| Constituição | 12 | 3.30 |
-| Jurisprudência (STF, STJ, súmula) | 47 | 13.10 |
-| Alguma lei (número ou apelido) | 93 | 25.90 |
+| Código Penal | 52 | 14.50 |
+| Código de Processo Penal | 29 | 8.10 |
+| Constituição | 13 | 3.60 |
+| Jurisprudência (STF, STJ, súmula) | 49 | 13.60 |
+| Alguma lei (número ou apelido) | 95 | 26.50 |
 
 _completa em `tabelas/09_01_referencias.csv`._
 
@@ -407,7 +408,7 @@ _completa em `tabelas/09_01_referencias.csv`._
 | lei | nome | questões | temas indicados |
 |---|---|---|---|
 | 11343 | Lei de Drogas | 13 | 4708, 6728 |
-| 9099 | Lei dos Juizados Especiais | 10 | 4701, 5539 |
+| 9099 | Lei dos Juizados Especiais | 11 | 4701, 5539 |
 | 11340 | Lei Maria da Penha | 10 | 4704, 6724 |
 | 13869 | Lei de Abuso de Autoridade | 7 | 4684, 6716 |
 | 12850 | Lei das Organizações Criminosas | 7 | 4705, 6725 |
@@ -423,6 +424,7 @@ _completa em `tabelas/09_01_referencias.csv`._
 | 10826 | Estatuto do Desarmamento | 3 | 4697 |
 | 1521 | Lei de Economia Popular | 2 | 4687 |
 | 9503 | Código de Trânsito Brasileiro | 2 | 4691 |
+| 8072 | Lei dos Crimes Hediondos | 2 | 4693 |
 | 9455 | Lei de Tortura | 2 | 4707 |
 | 13260 | Lei Antiterrorismo | 1 | 4706 |
 | 10216 | (não catalogada) | 1 |  |
@@ -430,9 +432,8 @@ _completa em `tabelas/09_01_referencias.csv`._
 | 2889 | Lei do Genocídio | 1 | 4698 |
 | 4737 | Código Eleitoral | 1 | 4692 |
 | 12015 | Reforma dos crimes contra a dignidade sexual | 1 | 5102 |
-| 10741 | Estatuto da Pessoa Idosa | 1 | 4696, 6722 |
 
-_mostrando 25 de 32 linhas; completa em `tabelas/09_02_leis_citadas.csv`._
+_mostrando 25 de 33 linhas; completa em `tabelas/09_02_leis_citadas.csv`._
 
 ## 10. Temas: estrutura da árvore
 
@@ -831,8 +832,8 @@ _completa em `tabelas/20_01_disciplina_incoerente.csv`._
 | lei | nome | questões | temas |
 |---|---|---|---|
 | 11343 | Lei de Drogas | 13 | 4708 Direito Penal - Legislação Especial > Tráfico de Drogas [válido] \| 6728 Penal > Tráfico de Drogas [fantasma] |
+| 9099 | Lei dos Juizados Especiais | 11 | 4701 Direito Penal - Legislação Especial > Juizado Especial Criminal [válido] \| 5539 Processo Penal > Procedimento Sumaríssimo [válido] |
 | 11340 | Lei Maria da Penha | 10 | 4704 Direito Penal - Legislação Especial > Lei Maria da Penha [válido] \| 6724 Penal > Lei Maria da Penha [fantasma] |
-| 9099 | Lei dos Juizados Especiais | 10 | 4701 Direito Penal - Legislação Especial > Juizado Especial Criminal [válido] \| 5539 Processo Penal > Procedimento Sumaríssimo [válido] |
 | 13869 | Lei de Abuso de Autoridade | 7 | 4684 Direito Penal - Legislação Especial > Abuso de Autoridade [válido] \| 6716 Penal > Abuso de Autoridade [fantasma] |
 | 12850 | Lei das Organizações Criminosas | 7 | 4705 Direito Penal - Legislação Especial > Organizações Criminosas [válido] \| 6725 Penal > Organizações Criminosas [fantasma] |
 | 9605 | Lei de Crimes Ambientais | 6 | 4688 Direito Penal - Legislação Especial > Crimes contra o meio ambiente [válido] \| 6717 Penal > Crimes contra o meio ambiente [fantasma] |
@@ -844,10 +845,10 @@ _completa em `tabelas/20_01_disciplina_incoerente.csv`._
 | 10826 | Estatuto do Desarmamento | 3 | 4697 Direito Penal - Legislação Especial > Estatuto do Desarmamento [válido] |
 | 9296 | Lei de Interceptação Telefônica | 3 | 4700 Direito Penal - Legislação Especial > Interceptação Telefônica [válido] \| 5555 Processo Penal > Provas em Espécies > Interceptação Telefônica e Quebra do… |
 | 8069 | Estatuto da Criança e do Adolescente | 3 | 4709 Direito Penal - Legislação Especial > Violência contra Criança e Adolescente [válido] |
+| 8072 | Lei dos Crimes Hediondos | 2 | 4693 Direito Penal - Legislação Especial > Crimes Hediondos [válido] |
 | 9455 | Lei de Tortura | 2 | 4707 Direito Penal - Legislação Especial > Tortura [válido] |
 | 9503 | Código de Trânsito Brasileiro | 2 | 4691 Direito Penal - Legislação Especial > Crimes de Trânsito [válido] |
 | 1521 | Lei de Economia Popular | 2 | 4687 Direito Penal - Legislação Especial > Crimes contra a Economia Popular [válido] |
-| 8072 | Lei dos Crimes Hediondos | 1 | 4693 Direito Penal - Legislação Especial > Crimes Hediondos [válido] |
 | 13260 | Lei Antiterrorismo | 1 | 4706 Direito Penal - Legislação Especial > Terrorismo [válido] |
 | 2889 | Lei do Genocídio | 1 | 4698 Direito Penal - Legislação Especial > Genocídio [válido] |
 | 8078 | Código de Defesa do Consumidor | 1 | 4694 Direito Penal - Legislação Especial > Crimes previstos no CDC [válido] |
@@ -861,7 +862,7 @@ _mostrando 25 de 32 linhas; completa em `tabelas/21_01_leis_temas.csv`._
 ## 22. Cruzamento: cobertura dos sinais fracos
 
 - 280 questões (78.0%) têm ao menos um sinal fraco de tema (assunto de origem com título válido ou lei catalogada); 79 não têm nenhum.
-- Quando os dois sinais existem (57 questões), caem no mesmo ramo em 0 e na mesma disciplina em 8. Não é erro de cálculo: a lei aponta para Legislação Especial e o assunto de origem aponta para Penal ou Processo Penal.
+- Quando os dois sinais existem (58 questões), caem no mesmo ramo em 0 e na mesma disciplina em 9. Não é erro de cálculo: a lei aponta para Legislação Especial e o assunto de origem aponta para Penal ou Processo Penal.
 - Em vários desses casos o assunto de origem está claramente errado. 'Concurso de Crimes' aparece em 15 dos conflitos (de 43 questões com esse assunto): o site de origem também tem lixeiras, e o assunto mais frequente do recorte é uma delas.
 - Conclusão: sinal fraco serve para desempate e para medir concordância, nunca como rótulo. O classificador principal continua sendo o modelo de linguagem.
 
@@ -869,9 +870,9 @@ _mostrando 25 de 32 linhas; completa em `tabelas/21_01_leis_temas.csv`._
 
 | sinal | questões | % |
 |---|---|---|
-| só assunto de origem | 196 | 54.60 |
+| só assunto de origem | 195 | 54.30 |
 | só lei citada | 27 | 7.50 |
-| os dois | 57 | 15.90 |
+| os dois | 58 | 16.20 |
 | nenhum | 79 | 22.00 |
 
 _completa em `tabelas/22_01_cobertura_sinais.csv`._
@@ -882,7 +883,7 @@ _completa em `tabelas/22_01_cobertura_sinais.csv`._
 |---|---|---|
 | Concurso de Crimes | 15 | 43 |
 | Ação Penal (Parte 02) | 7 | 17 |
-| Ação Penal | 6 | 20 |
+| Ação Penal | 7 | 20 |
 | Ação Penal (Parte 01) | 4 | 19 |
 | Inquérito Policial | 4 | 19 |
 | Teoria do Crime (Ilicitude) | 3 | 8 |

@@ -23,6 +23,7 @@ class ProcessadorTexto:
     _RE_BLOCO_IGNORADO: ClassVar[re.Pattern[str]] = re.compile(
         r"<!--.*?-->|<\s*(style|script|xml)\b.*?<\s*/\s*\1\s*>", re.IGNORECASE | re.DOTALL
     )
+    _RE_ESCAPE_LITERAL: ClassVar[re.Pattern[str]] = re.compile(r"\\(?:r\\n|n|r|t)")
     _RE_EDITOR: ClassVar[re.Pattern[str]] = re.compile(r"<!--\[if|<\s*[wom]:|mso-", re.IGNORECASE)
     _RE_QUEBRA: ClassVar[re.Pattern[str]] = re.compile(r"<\s*br\s*/?\s*>|</\s*(?:p|div|li)\s*>", re.IGNORECASE)
     _RE_TAG: ClassVar[re.Pattern[str]] = re.compile(r"<[^>]*>")
@@ -46,7 +47,8 @@ class ProcessadorTexto:
     def html_para_texto(self, html_bruto: str) -> str:
         """Converte HTML cru em texto legível, preservando quebras de linha.
 
-        Comentários (inclusive os condicionais do Word) e blocos ``<style>``,
+        Escapes literais vindos do banco (os dois caracteres ``\\`` + ``n``, ou ``\\t``)
+        viram quebra de linha ou espaço. Comentários (inclusive os condicionais do Word) e blocos ``<style>``,
         ``<script>`` e ``<xml>`` são removidos com o conteúdo; ``<br>`` e fins de
         parágrafo viram quebra de linha; as demais tags são removidas mantendo
         o texto; entidades (``&nbsp;``) são decodificadas.
@@ -57,13 +59,25 @@ class ProcessadorTexto:
         Returns:
             Texto limpo, sem espaços repetidos e com no máximo uma linha em branco seguida.
         """
-        texto: str = self._RE_BLOCO_IGNORADO.sub("", html_bruto)
+        texto: str = self._RE_ESCAPE_LITERAL.sub(lambda m: " " if m.group(0) == "\\t" else "\n", html_bruto)
+        texto = self._RE_BLOCO_IGNORADO.sub("", texto)
         texto = self._RE_QUEBRA.sub("\n", texto)
         texto = self._RE_TAG.sub("", texto)
         texto = html.unescape(texto)
         linhas: list[str] = [self._RE_ESPACOS.sub(" ", linha).strip() for linha in texto.split("\n")]
         texto = self._RE_LINHAS_VAZIAS.sub("\n\n", "\n".join(linhas))
         return texto.strip()
+
+    def escapes_literais(self, texto: str) -> int:
+        """Conta escapes literais (``\\n``, ``\\t``, ``\\r`` escritos como texto) vindos do banco.
+
+        Args:
+            texto: Texto bruto.
+
+        Returns:
+            Número de ocorrências.
+        """
+        return len(self._RE_ESCAPE_LITERAL.findall(texto))
 
     def tem_html_de_editor(self, html_bruto: str) -> bool:
         """Indica se o texto traz marcação colada de editor (Word: ``mso-``, ``<w:>``, comentários condicionais).

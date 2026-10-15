@@ -25,6 +25,8 @@ class Caminhos:
         catalogo_modelos: Catálogo editável de modelos candidatos (ADR-017).
         escolha_modelos: Escolha de provedor e modelo por papel (``auto`` ou manual).
         env: Arquivo ``.env`` opcional com chaves de API (ignorado pelo git).
+        dados_preparados: Pasta com as saídas do passo 01 usadas pelos passos seguintes.
+        saida_preparacao: Pasta com o resumo e a conferência do passo 01.
     """
 
     raiz: Path
@@ -37,6 +39,8 @@ class Caminhos:
     catalogo_modelos: Path
     escolha_modelos: Path
     env: Path
+    dados_preparados: Path
+    saida_preparacao: Path
 
     @classmethod
     def padrao(cls) -> Caminhos:
@@ -59,6 +63,8 @@ class Caminhos:
             catalogo_modelos=config / "catalogo_modelos.json",
             escolha_modelos=config / "escolha_modelos.json",
             env=raiz / ".env",
+            dados_preparados=raiz / "dados" / "preparados",
+            saida_preparacao=raiz / "saidas" / "preparacao",
         )
 
 
@@ -229,6 +235,32 @@ def _palavras_sem_conteudo_padrao() -> frozenset[str]:
         "aponte",
         "proposicao",
         "proposicoes",
+        "apresentado",
+        "apresentada",
+        "apresentados",
+        "apresentadas",
+        "subsequente",
+        "subsequentes",
+        "proximo",
+        "proximos",
+        "proxima",
+        "proximas",
+        "hipotetica",
+        "hipotetico",
+        "situacao",
+        "caso",
+        "narrado",
+        "narrada",
+        "contexto",
+        "diante",
+        "neste",
+        "nesta",
+        "nesse",
+        "nessa",
+        "deste",
+        "desta",
+        "desse",
+        "dessa",
     }
     return frozenset(ligacao | frases_padrao)
 
@@ -377,3 +409,19 @@ class ParametrosLLM:
     sobrecarga_memoria_gb: float = 0.8
     bytes_cache_kv: int = 2
     max_bytes_argumento_cli: int = 120_000
+
+
+@dataclass(frozen=True)
+class ParametrosPreparacao:
+    """Parâmetros do passo 01 (preparação das questões, ADR-004).
+
+    Attributes:
+        chars_por_token: Caracteres por token usados para estimar o tamanho do texto.
+        ids_conferencia: Questões que sempre entram na amostra de conferência manual.
+        tamanho_conferencia: Tamanho da amostra de conferência (completada com
+            exemplos de formatos e tipos de comando ainda não cobertos).
+    """
+
+    chars_por_token: float = 3.5
+    ids_conferencia: tuple[str, ...] = ("Q0099", "Q0008", "Q0090", "Q0122")
+    tamanho_conferencia: int = 10

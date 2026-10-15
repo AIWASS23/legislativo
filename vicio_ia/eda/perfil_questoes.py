@@ -21,7 +21,7 @@ type TipoComando = Literal["vazio", "repete_enunciado", "suspeito", "util"]
 """Classificação do campo ``comando``.
 
 * ``vazio``: ausente, em branco ou só HTML.
-* ``repete_enunciado``: copia o começo do enunciado (ou vice-versa).
+* ``repete_enunciado``: está contido no enunciado (ou o enunciado no começo dele).
 * ``suspeito``: pede algo que não cabe em questão objetiva ("Explique...",
   "Complete a frase...") e parece gerado por outra ferramenta.
 * ``util``: comando normal ("Assinale a alternativa correta").
@@ -42,6 +42,7 @@ class PerfilQuestao(RegistroTabular):
         chars_total: Soma dos três anteriores.
         chars_brutos: Caracteres do HTML original (enunciado, comando e alternativas).
         html_de_editor: Algum campo tem marcação colada de editor (Word).
+        escapes_literais: Escapes ``\\n``/``\\t`` gravados como texto no banco (todos os campos).
         palavras_conteudo_enunciado: Palavras do enunciado fora das frases-padrão.
         enunciado_curto: Enunciado abaixo do limiar de caracteres.
         enunciado_generico: Enunciado sem conteúdo temático (assunto está nas alternativas).
@@ -76,6 +77,7 @@ class PerfilQuestao(RegistroTabular):
     chars_total: int
     chars_brutos: int
     html_de_editor: bool
+    escapes_literais: int
     palavras_conteudo_enunciado: int
     enunciado_curto: bool
     enunciado_generico: bool
@@ -214,6 +216,7 @@ class PerfiladorQuestoes:
             chars_total=len(limpo.enunciado) + len(limpo.comando) + chars_alternativas,
             chars_brutos=sum(len(campo) for campo in campos_brutos),
             html_de_editor=any(self._processador.tem_html_de_editor(campo) for campo in campos_brutos),
+            escapes_literais=sum(self._processador.escapes_literais(campo) for campo in campos_brutos),
             palavras_conteudo_enunciado=palavras_conteudo,
             enunciado_curto=len(limpo.enunciado) < self._parametros.limiar_enunciado_curto,
             enunciado_generico=palavras_conteudo <= self._parametros.max_palavras_conteudo_generico,
@@ -294,7 +297,11 @@ class PerfiladorQuestoes:
         if (
             len(comando_norm) >= 10
             and enunciado_norm
-            and (enunciado_norm.startswith(comando_norm[:60]) or comando_norm.startswith(enunciado_norm[:60]))
+            and (
+                comando_norm in enunciado_norm
+                or enunciado_norm.startswith(comando_norm[:60])
+                or comando_norm.startswith(enunciado_norm[:60])
+            )
         ):
             return "repete_enunciado"
         palavras: set[str] = set(comando_norm.split())

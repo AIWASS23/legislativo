@@ -1,6 +1,6 @@
 medida,n,mín,p25,mediana,p75,p95,máx,média
 enunciado (caracteres),359,9.0,89.0,201.0,517.5,1089.8,2450.0,365.2
 comando (caracteres),359,0.0,0.0,31.0,59.5,113.1,211.0,40.6
-alternativas (caracteres),359,10.0,97.0,425.0,798.5,1345.9,2285.0,511.6
-total (caracteres),359,104.0,517.0,828.0,1162.5,1976.8,4236.0,917.3
-palavras de conteúdo no enunciado,359,0.0,6.0,18.0,47.0,96.2,208.0,32.0
+alternativas (caracteres),359,10.0,97.0,420.0,796.5,1341.0,2285.0,508.6
+total (caracteres),359,104.0,517.0,825.0,1162.5,1962.4,4205.0,914.3
+palavras de conteúdo no enunciado,359,0.0,6.0,18.0,45.0,96.1,208.0,31.4

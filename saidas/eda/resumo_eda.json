@@ -17,18 +17,20 @@
     "comandos_so_html": 7,
     "entidades": 17,
     "questoes_html_de_editor": 1,
+    "escapes_literais": 1043,
+    "questoes_com_escape_literal": 106,
     "caracteres_brutos": 443917,
-    "caracteres_limpos": 329314
+    "caracteres_limpos": 328225
   },
   "Questões: tamanho do texto": {
-    "caracteres_total": 329314,
-    "tokens_estimados": 82328
+    "caracteres_total": 328225,
+    "tokens_estimados": 82056
   },
   "Questões: o campo `comando`": {
-    "comando_util": 182,
+    "comando_util": 124,
     "comando_suspeito": 62,
-    "comando_vazio": 101,
-    "comando_repete_enunciado": 14
+    "comando_repete_enunciado": 72,
+    "comando_vazio": 101
   },
   "Questões: enunciados genéricos": {
     "genericos": 18,
@@ -48,12 +50,12 @@
     "assuntos_multiplos": 37
   },
   "Questões: legislação e referências citadas": {
-    "questoes_com_lei": 93,
-    "Código Penal": 51,
-    "Código de Processo Penal": 28,
-    "Constituição": 12,
-    "Jurisprudência (STF, STJ, súmula)": 47,
-    "Alguma lei (número ou apelido)": 93
+    "questoes_com_lei": 95,
+    "Código Penal": 52,
+    "Código de Processo Penal": 29,
+    "Constituição": 13,
+    "Jurisprudência (STF, STJ, súmula)": 49,
+    "Alguma lei (número ou apelido)": 95
   },
   "Temas: estrutura da árvore": {
     "nos": 377,
@@ -113,8 +115,8 @@
   },
   "Cruzamento: cobertura dos sinais fracos": {
     "sem_sinal": 79,
-    "dois_sinais": 57,
+    "dois_sinais": 58,
     "dois_sinais_mesmo_ramo": 0,
-    "dois_sinais_mesma_disciplina": 8
+    "dois_sinais_mesma_disciplina": 9
   }
 }
