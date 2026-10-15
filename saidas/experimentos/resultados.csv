@@ -1,0 +1,21 @@
+horario,experimento,descricao,modo,rotuladas,com_tema,acertos,precisao_top1,cobertura_95,modelos,observacao
+2026-10-15T14:04:02,E0,assunto de origem com um único nó válido,estrita,60,33,12,0.364,0.000,,
+2026-10-15T14:04:02,E0,assunto de origem com um único nó válido,tolerante,60,33,12,0.364,0.000,,
+2026-10-15T14:04:02,E2,"classificador A sozinho, ordenado pela autoconfiança",estrita,60,0,0,0.000,0.000,,60 rotuladas ainda sem classificação
+2026-10-15T14:04:02,E2,"classificador A sozinho, ordenado pela autoconfiança",tolerante,60,0,0,0.000,0.000,,60 rotuladas ainda sem classificação
+2026-10-15T14:04:02,E3,"classificador B sozinho, ordenado pela autoconfiança",estrita,60,0,0,0.000,0.000,,60 rotuladas ainda sem classificação
+2026-10-15T14:04:02,E3,"classificador B sozinho, ordenado pela autoconfiança",tolerante,60,0,0,0.000,0.000,,60 rotuladas ainda sem classificação
+2026-10-15T14:04:02,E3b,voto barato sozinho (sem autoconfiança),estrita,60,0,0,0.000,0.000,,60 rotuladas ainda sem classificação
+2026-10-15T14:04:02,E3b,voto barato sozinho (sem autoconfiança),tolerante,60,0,0,0.000,0.000,,60 rotuladas ainda sem classificação
+2026-10-15T15:21:28,E0,assunto de origem com um único nó válido,estrita,60,33,12,0.364,0.000,,
+2026-10-15T15:21:28,E0,assunto de origem com um único nó válido,tolerante,60,33,12,0.364,0.000,,
+2026-10-15T15:21:28,E2,"classificador A sozinho, ordenado pela autoconfiança",estrita,60,60,52,0.867,0.667,codex-cli:gpt-6.1-sol,
+2026-10-15T15:21:28,E2,"classificador A sozinho, ordenado pela autoconfiança",tolerante,60,60,59,0.983,1.000,codex-cli:gpt-6.1-sol,
+2026-10-15T15:21:28,E3,"classificador B sozinho, ordenado pela autoconfiança",estrita,60,60,52,0.867,0.783,gemini-agy:gemini-3.8-flash-low,
+2026-10-15T15:21:28,E3,"classificador B sozinho, ordenado pela autoconfiança",tolerante,60,60,60,1.000,1.000,gemini-agy:gemini-3.8-flash-low,
+2026-10-15T15:21:28,E3b,voto barato sozinho (sem autoconfiança),estrita,60,60,30,0.500,0.000,gemini-agy:gpt-oss-120b-medium,
+2026-10-15T15:21:28,E3b,voto barato sozinho (sem autoconfiança),tolerante,60,60,41,0.683,0.000,gemini-agy:gpt-oss-120b-medium,
+2026-10-15T15:28:34,E4,B com escopo e cartões,estrita,60,60,52,0.867,0.783,gemini-agy:gemini-3.8-flash-low,
+2026-10-15T15:28:34,E4,B com escopo e cartões,tolerante,60,60,60,1.000,1.000,gemini-agy:gemini-3.8-flash-low,
+2026-10-15T15:40:54,E4,B só com títulos (sem escopo nem cartões),estrita,60,60,53,0.883,0.617,gemini-agy:gemini-3.8-flash-low,
+2026-10-15T15:40:54,E4,B só com títulos (sem escopo nem cartões),tolerante,60,60,59,0.983,1.000,gemini-agy:gemini-3.8-flash-low,
