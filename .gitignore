@@ -8,3 +8,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .env
+
+# Arquivo temporário da gravação atômica da planilha de rótulos (só sobra se a gravação for interrompida)
+*.csv.tmp
+
+# Logs das execuções em segundo plano (o resultado fica no cache runs/ e nos relatórios)
+*.log

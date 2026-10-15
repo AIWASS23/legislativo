@@ -35,6 +35,7 @@ class Caminhos:
         saida_custos: Resumo de custo e tempo por papel e por modelo.
         saida_cartoes: Material de revisão dos cartões e tamanhos das versões da árvore.
         dados_classificacao: Respostas e sinais por questão (ADR-008).
+        saida_classificacao: Resumo agregado da classificação.
     """
 
     raiz: Path
@@ -56,6 +57,7 @@ class Caminhos:
     saida_custos: Path
     saida_cartoes: Path
     dados_classificacao: Path
+    saida_classificacao: Path
 
     @classmethod
     def padrao(cls) -> Caminhos:
@@ -87,6 +89,7 @@ class Caminhos:
             saida_custos=raiz / "saidas" / "custos",
             saida_cartoes=raiz / "saidas" / "cartoes",
             dados_classificacao=raiz / "dados" / "classificacao",
+            saida_classificacao=raiz / "saidas" / "classificacao",
         )
 
 
@@ -391,7 +394,15 @@ def _paralelismo_padrao() -> dict[str, int]:
     Returns:
         Dicionário ``provedor -> chamadas simultâneas``.
     """
-    return {"claude-cli": 3, "gemini-agy": 3, "ollama": 1, "claude-api": 8, "openai": 8, "huggingface": 4}
+    return {
+        "claude-cli": 3,
+        "gemini-agy": 3,
+        "codex-cli": 3,
+        "ollama": 1,
+        "claude-api": 8,
+        "openai": 8,
+        "huggingface": 4,
+    }
 
 
 @dataclass(frozen=True)
@@ -419,6 +430,7 @@ class ParametrosLLM:
         huggingface_url: Endpoint compatível com OpenAI do Hugging Face Inference Providers.
         claude_esforco: Esforço (``effort``) nas chamadas do provedor ``claude-api``.
         claude_cli_esforco: Esforço (``--effort``) nas chamadas do provedor ``claude-cli`` ("" = padrão da CLI).
+        codex_esforco: Esforço de raciocínio (``model_reasoning_effort``) nas chamadas do provedor ``codex-cli``.
         paralelismo: Chamadas simultâneas por provedor nas rodadas em lote.
         fracao_vram_utilizavel: Fração da VRAM livre considerada utilizável.
         sobrecarga_memoria_gb: Memória extra estimada por modelo local carregado.
@@ -441,6 +453,7 @@ class ParametrosLLM:
     huggingface_url: str = "https://router.huggingface.co/v1"
     claude_esforco: str = "low"
     claude_cli_esforco: str = "medium"
+    codex_esforco: str = "medium"
     paralelismo: dict[str, int] = field(default_factory=_paralelismo_padrao)
     fracao_vram_utilizavel: float = 0.9
     sobrecarga_memoria_gb: float = 0.8
@@ -479,6 +492,8 @@ class ParametrosGold:
         niveis_certeza: Valores aceitos na coluna ``certeza``.
         max_resultados_busca: Temas exibidos por busca na rotulagem interativa.
         rotulo_fora_do_recorte: Estrato das questões cuja disciplina de origem não está no recorte.
+        leva2_liberada: Libera o sorteio da leva 2. Só ligar depois de congelar prompts e regras
+            (ADR-012): a leva 2 mede, não ajusta.
     """
 
     semente: int = 20261015
@@ -489,6 +504,7 @@ class ParametrosGold:
     niveis_certeza: tuple[str, ...] = ("alta", "media", "baixa")
     max_resultados_busca: int = 15
     rotulo_fora_do_recorte: str = "(fora do recorte)"
+    leva2_liberada: bool = False
 
 
 @dataclass(frozen=True)
@@ -496,7 +512,9 @@ class ParametrosCartoes:
     """Parâmetros do passo 02 (cartões de tema, ADR-007).
 
     Attributes:
-        papel_modelo: Papel cujo modelo gera os rascunhos (o de maior qualidade, o verificador).
+        provedor: Provedor que gera os rascunhos. Fixo, e não o do papel verificador, para que trocar
+            o verificador não invalide no cache os rascunhos já gerados (gerados em 15/10 com Opus 5.5).
+        modelo: Modelo que gera os rascunhos.
         max_cartoes_por_chamada: Máximo de cartões pedidos numa chamada (blocos maiores são divididos).
         max_chars_escopo: Tamanho máximo aceito para o escopo de um cartão.
         max_tokens_saida: Limite de tokens de saída por chamada.
@@ -504,7 +522,8 @@ class ParametrosCartoes:
             entram na revisão prioritária.
     """
 
-    papel_modelo: str = "verificador"
+    provedor: str = "claude-cli"
+    modelo: str = "claude-opus-5-5"
     max_cartoes_por_chamada: int = 16
     max_chars_escopo: int = 400
     max_tokens_saida: int = 16000
@@ -532,3 +551,50 @@ class ParametrosClassificacao:
     verificar: bool = True
     com_escopo_a: bool = True
     chars_por_token_local: float = 3.0
+
+
+def _taxas_convencao_padrao() -> dict[str, float]:
+    """Cria as taxas supostas de discordância de convenção por tipo de nó (ADR-013).
+
+    Returns:
+        ``tipo_convencao -> taxa``. O gold não mede esse risco; as taxas são hipóteses declaradas.
+    """
+    return {"duplicado_outra_disciplina": 0.20, "sobreposicao": 0.10, "duplicado_parte": 0.03}
+
+
+@dataclass(frozen=True)
+class ParametrosCalibracao:
+    """Parâmetros da calibração, do limiar e da previsão (ADR-011, ADR-013).
+
+    Attributes:
+        penalidades_l2: Grade de penalidades L2 da regressão logística (o intercepto não é penalizado);
+            a usada é a de menor log-loss na validação cruzada.
+        partes_validacao: Partes da validação cruzada estratificada.
+        reamostras: Reamostras do bootstrap completo.
+        semente: Semente da validação cruzada e do bootstrap.
+        alvo_precisao: Precisão mínima exigida das publicadas.
+        percentil_limiar: Percentil do bootstrap usado como limite inferior no critério do limiar.
+        reserva_pontual: Estimativa pontual mínima na regra de reserva (sem conjunto que atinja o alvo).
+        percentis_intervalo: Percentis do intervalo informado no ``previsao.txt``.
+        min_gold_direto: Itens do gold publicados a partir dos quais o ponto é o estimador direto.
+        taxas_convencao: Taxas supostas de discordância de convenção por tipo de nó.
+        fatores_sensibilidade: Multiplicadores das taxas mostrados no ``previsao.txt``.
+        margem_ambiguidade_no_limiar: Desconta a margem de ambiguidade do rótulo também no limiar. Desligado:
+            pela ADR-011, o critério do limiar desconta só a margem de convenção; a de ambiguidade alarga o
+            intervalo informado.
+        total_questoes: Questões do case (denominador da cobertura).
+    """
+
+    penalidades_l2: tuple[float, ...] = (0.01, 0.03, 0.1, 0.3, 1.0, 3.0)
+    partes_validacao: int = 5
+    reamostras: int = 1000
+    semente: int = 20261016
+    alvo_precisao: float = 0.95
+    percentil_limiar: float = 10.0
+    reserva_pontual: float = 0.97
+    percentis_intervalo: tuple[float, float] = (5.0, 95.0)
+    min_gold_direto: int = 40
+    taxas_convencao: dict[str, float] = field(default_factory=_taxas_convencao_padrao)
+    fatores_sensibilidade: tuple[float, ...] = (0.0, 1.0, 2.0)
+    margem_ambiguidade_no_limiar: bool = False
+    total_questoes: int = 359
