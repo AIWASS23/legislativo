@@ -126,3 +126,119 @@ registrado continua igual ao do `temas.csv`.
 3. frases-padrão de prova contadas como conteúdo.
 
 **Por quê.** As checagens automáticas da primeira versão não pegavam esses casos.
+
+---
+
+## D6. Gold set: sorteio e protocolo de rotulagem (15/10/2026)
+
+**Contexto.** O case não traz questões rotuladas, e a previsão de precisão é avaliada. Só
+rótulos feitos à mão, sem ver a saída dos modelos, medem acerto em vez de concordância
+(ADR-012).
+
+**Decisão: sorteio.**
+- **Leva 1 (desenvolvimento):** 60 questões, estratificadas por disciplina de origem
+  normalizada × formato, com alocação proporcional pelo método do maior resto e **semente
+  20261015** (`ParametrosGold` em `vicio_ia/configuracao.py`).
+  - 14 estratos; 12 recebem questões. Os 2 estratos com uma questão só na população
+    (Criminologia com 4 alternativas; fora do recorte de certo/errado) ficam sem sorteio.
+  - Probabilidade de inclusão de ~0,17 em todos os estratos sorteados; o peso de cada
+    questão nas estimativas é o inverso dela.
+  - Ordem de rotulagem embaralhada, para não rotular estrato por estrato.
+  - Duplicatas exatas ficariam fora do sorteio e herdariam o rótulo (hoje não há nenhuma).
+- **Leva 2 (estimativa), só depois do congelamento de prompts e regras:** 40 questões com
+  probabilidade calibrada ≥ limiar + 0,10 e 20 com |P − limiar| < 0,10, sem repetir a leva 1.
+  Estrato menor que o pedido entra inteiro.
+
+**Decisão: protocolo de rotulagem.**
+- **Rótulo cego:** quem rotula vê só o texto canônico. Nada de saída de modelo, nem de
+  disciplina ou assunto de origem (ADR-006).
+- **Fontes permitidas:** texto da lei, árvore e cartões de tema. Um LLM pode explicar o
+  conteúdo jurídico, mas **nunca ser perguntado sobre o tema**; quando usado, fica registrado
+  na coluna `observacao`.
+- **Critérios:**
+  - `tema_id` é o nó mais específico em que há segurança;
+  - na dúvida entre subtemas, vale o pai, com os filhos plausíveis em `alternativos`;
+  - `fora` quando nenhum tema do recorte serve;
+  - `multitema` quando a questão cobre mais de um tema por igual;
+  - certeza alta, média ou baixa.
+- **Convenção dos duplicados:** a mesma de D1. A validação recusa nó fantasma e indica o canônico.
+- **O gold não decide nada:** o `publicacao.csv` sai só do pipeline. Os rótulos medem a
+  precisão e calibram a confiança.
+- **Tempo gasto:** medido por questão na coluna `minutos` quando se usa o rotulador interativo.
+- **Leva 1 concluída em 15/10:** as 60 questões foram rotuladas à mão pelo autor, direto na planilha
+  (fora do rotulador interativo, por isso sem tempo por questão), e gravadas às 09:28. O tempo total
+  está a informar. Resultado: 0 fora, 12 multitema, 30 com alternativos, 45 com certeza alta e 15 média.
+
+**Por quê.**
+- Estratificar pela origem e pelo formato espalha a amostra pelos tipos de questão sem usar
+  nenhuma saída de modelo.
+- A semente fixa torna o sorteio reprodutível e auditável.
+- Esconder os rótulos de origem evita que o gold herde os erros deles.
+
+**Arquivos:** `dados/gold/amostra_leva1.csv` (sorteio), `rotulos_leva1.csv` (rótulos; o código
+nunca sobrescreve uma linha preenchida), `caderno_leva1.md` (questões na ordem de rotulagem).
+
+---
+
+## D7. Cartões de tema: modelo fixo e revisão (15/10/2026)
+
+**Decisão.**
+- Os 351 cartões foram rascunhados pelo Claude Opus 5.5 (CLI `claude`), em 58 chamadas, uma por tema pai (ADR-007).
+- O modelo dos cartões ficou **fixo** (`ParametrosCartoes`), em vez de seguir o papel de verificador.
+  Assim, trocar o verificador não invalida no cache os rascunhos já gerados.
+- Correções manuais vão em `dados/temas/cartoes_ajustes.csv` e são aplicadas sobre os rascunhos a cada
+  execução. Até agora: **nenhum ajuste**; a revisão das prioridades 1 a 3
+  (`saidas/cartoes/revisao_cartoes.md`) está pendente.
+
+**Por quê.** Os cartões são o material que o professor valida (memo). O rascunho por LLM cobre os 351
+nós no prazo; a revisão humana se concentra onde a régua pune: lixeiras, sobreposições e irmãos parecidos.
+
+---
+
+## D8. Modelos por papel fora da cota do Claude Code (15/10/2026)
+
+**Contexto.** A CLI `claude` divide a cota com a sessão de trabalho. Numa rodada dos cartões a cota
+acabou e 35 chamadas falharam. O modelo local (`qwen3.5:4b`) gera ~2 tokens/s nesta GPU: ~34 s por
+questão e ~3,4 h por rodada.
+
+**Decisão** (`config/escolha_modelos.json`, modo manual):
+
+| Papel | Modelo |
+|---|---|
+| Classificador A | GPT `gpt-6.1-sol` pela CLI `codex` (assinatura do ChatGPT) |
+| Classificador B | Gemini 3.8 Flash `-low` pela CLI `agy` |
+| Voto barato | GPT-OSS 120B `-medium` pela CLI `agy` |
+| Verificador | Gemini 3.8 Flash `-medium` pela CLI `agy` (até 15/10 às 15h: Claude Opus 5.5 `-medium`) |
+
+**Por quê.** Nenhum papel gasta a cota do Claude Code. O voto barato é um modelo aberto,
+equivalente ao que rodaria auto-hospedado em produção (ADR-016).
+
+**Troca do verificador (15/10, ~15h20, decisão do autor).** No `agy`, Claude e GPT-OSS dividem uma
+cota, que acabou depois de ~120 chamadas e volta ~19h. O verificador passou para o Gemini 3.8 Flash
+`-medium`, que tem cota própria e leva ~30 s por verificação. **Risco aceito:** é a mesma família do
+classificador B, então um erro de B tende a passar pelo verificador. O E3 mede o quanto A e B erram
+juntos, e a calibração aprende o peso do veredito no gold.
+**Risco:** cada assinatura tem limite próprio. O do `codex` acabou às 15h de 15/10 (volta às 18:57),
+com 85 das 359 questões classificadas por A, entre elas as 60 do gold. As chamadas que faltam são
+refeitas na execução seguinte; o resto vem do cache.
+
+---
+
+## D9. Regras de decisão definidas na implementação (15/10/2026)
+
+**Decisão** (código em `vicio_ia/decisao/` e `vicio_ia/avaliacao/previsao.py`):
+1. **Verificador escolhe um irmão do candidato:** recuo para o pai, quando ele é publicável (ADR-010:
+   as fontes concordam no ramo, mas divergem entre os filhos). Se o verificador escolhe outro ramo,
+   a questão vai para `revisar`.
+2. **Verificador escolhe um filho do candidato:** publica-se o candidato e o filho vai para `extras_ids`.
+   O candidato está certo pela régua tanto se o especialista escolheu ele quanto se escolheu o filho.
+3. **O verificador não sabe qual é o candidato** e não recebe o voto barato entre as sugestões, para o
+   prompt dele não depender da ordem em que as respostas chegam.
+4. **Confiança de `fora`:** a confiança do verificador em "nenhum" (o gold da leva 1 não tem nenhuma
+   questão `fora` para calibrar).
+5. **Ponto da previsão:** já desconta a margem de convenção (perda esperada pelas taxas supostas).
+   O limite inferior desconta também a margem de ambiguidade.
+6. **Calibração:** regressão logística L2 implementada com `numpy` (IRLS). O `scikit-learn` não tem
+   tipos, e o padrão do projeto exige `mypy --strict`. O modelo é o mesmo da ADR-013.
+7. **Intervalo do bootstrap:** o limiar fica fixo nas reamostras (a calibração é reajustada, o conjunto
+   publicado não). Refazer o limiar em cada reamostra exigiria um bootstrap aninhado.
