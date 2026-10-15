@@ -1,0 +1,109 @@
+[
+  {
+    "papel": "cartoes",
+    "provedor": "claude-cli",
+    "modelo": "claude-opus-5-5",
+    "versoes_prompt": [
+      "cartao_tema@df4671f43c01"
+    ],
+    "chamadas": 58,
+    "tokens_entrada": 1076943,
+    "tokens_saida": 329793,
+    "latencia_total_s": 2966.1,
+    "latencia_media_s": 51.14,
+    "custo_usd": 14.812,
+    "tipo_custo": "equivalente_de_lista"
+  },
+  {
+    "papel": "classificador_a",
+    "provedor": "codex-cli",
+    "modelo": "gpt-6.1-sol",
+    "versoes_prompt": [
+      "classificador_plano@6673d99f94f0",
+      "classificador_plano@ac91b7aada10"
+    ],
+    "chamadas": 95,
+    "tokens_entrada": 4256884,
+    "tokens_saida": 17806,
+    "latencia_total_s": 803.1,
+    "latencia_media_s": 8.45,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
+    "papel": "classificador_b",
+    "provedor": "gemini-agy",
+    "modelo": "gemini-3.8-flash-low",
+    "versoes_prompt": [
+      "classificador_hierarquico_subtema@e2f7b76531f3",
+      "classificador_hierarquico_tema@2b4d1941ddd1"
+    ],
+    "chamadas": 641,
+    "tokens_entrada": 19894379,
+    "tokens_saida": 1084551,
+    "latencia_total_s": 11615.5,
+    "latencia_media_s": 18.12,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
+    "papel": "verificador",
+    "provedor": "gemini-agy",
+    "modelo": "claude-opus-5-5-medium",
+    "versoes_prompt": [
+      "verificador@583862d6ac7b"
+    ],
+    "chamadas": 13,
+    "tokens_entrada": 632969,
+    "tokens_saida": 9898,
+    "latencia_total_s": 186.1,
+    "latencia_media_s": 14.31,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
+    "papel": "verificador",
+    "provedor": "gemini-agy",
+    "modelo": "gemini-3.8-flash-medium",
+    "versoes_prompt": [
+      "verificador@583862d6ac7b"
+    ],
+    "chamadas": 75,
+    "tokens_entrada": 2182797,
+    "tokens_saida": 484547,
+    "latencia_total_s": 2287.5,
+    "latencia_media_s": 30.5,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
+    "papel": "voto_barato",
+    "provedor": "gemini-agy",
+    "modelo": "gpt-oss-120b-medium",
+    "versoes_prompt": [
+      "voto_barato@ce6f10ebdfab"
+    ],
+    "chamadas": 80,
+    "tokens_entrada": 4951231,
+    "tokens_saida": 91534,
+    "latencia_total_s": 1640.1,
+    "latencia_media_s": 20.5,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
+    "papel": "voto_barato",
+    "provedor": "ollama",
+    "modelo": "qwen3.5:4b",
+    "versoes_prompt": [
+      "voto_barato@ce6f10ebdfab"
+    ],
+    "chamadas": 14,
+    "tokens_entrada": 111317,
+    "tokens_saida": 707,
+    "latencia_total_s": 473.6,
+    "latencia_media_s": 33.83,
+    "custo_usd": 0.0,
+    "tipo_custo": "local"
+  }
+]
