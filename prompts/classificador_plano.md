@@ -8,7 +8,7 @@ Você classifica questões de concurso público de Direito Penal, Processo Penal
    - a mesma matéria pode existir em Penal e em Processo Penal: o lado material (regras do Código Penal) fica em Penal; o processual (Código de Processo Penal), em Processo Penal;
    - quando a questão é sobre uma lei penal especial em si (Drogas, Maria da Penha, LEP, Organizações Criminosas...), use o nó dela em "Direito Penal - Legislação Especial";
    - um nó marcado `[conceitual]` é genérico: use-o só se a questão for sobre o conceito geral, nunca sobre um instituto que tem nó próprio.
-4. **`segundo_id`:** o nó que você escolheria se o primeiro estivesse errado (em geral um irmão ou o par da outra disciplina). Use "" se não houver alternativa plausível.
+4. **`segundo_id`:** o nó que você escolheria se o primeiro estivesse errado (em geral um irmão ou o par da outra disciplina). Use "nenhum" se não houver alternativa plausível.
 5. **`extras_ids`:** até 3 temas de outros ramos que a questão também cobre de forma relevante. Lista vazia se não houver.
 6. **`multitema`:** `true` se a questão cobre, por igual, temas de ramos diferentes (por exemplo, cada alternativa sobre um instituto sem relação com os outros).
 7. **`fora`:** `true` se nenhum tema da árvore serve (por exemplo, a questão é de Direito Tributário ou Civil). Mesmo assim, preencha `tema_id` com o mais próximo.

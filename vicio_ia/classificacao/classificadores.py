@@ -142,6 +142,7 @@ class Classificador(ABC):
             Voto válido.
         """
         segundo: str = str(dados.get("segundo_id", ""))
+        segundo = "" if segundo == FabricaSchemas.NENHUM else segundo
         extras_brutos: object = dados.get("extras_ids", [])
         extras: tuple[str, ...] = tuple(
             dict.fromkeys(
@@ -264,6 +265,7 @@ class ClassificadorHierarquico(Classificador):
         prompt_subtema: ArquivoPrompt,
         material: MaterialArvore,
         temas: Sequence[TemaPreparado],
+        com_cartoes: bool = True,
     ) -> None:
         """Prepara o prompt da 1ª etapa e o índice dos filhos.
 
@@ -275,12 +277,16 @@ class ClassificadorHierarquico(Classificador):
             prompt_subtema: ``prompts/classificador_hierarquico_subtema.md``.
             material: Versões da árvore.
             temas: Árvore preparada.
+            com_cartoes: Usa escopo e cartões (``False`` = só títulos, experimento E4).
         """
         super().__init__(cliente, montador, schemas)
+        self._com_cartoes: bool = com_cartoes
         self._prompt_tema: ArquivoPrompt = prompt_tema
         self._prompt_subtema: ArquivoPrompt = prompt_subtema
         self._material: MaterialArvore = material
-        self._sistema_tema: str = prompt_tema.preencher({"arvore": material.nivel1_com_escopo()})
+        self._sistema_tema: str = prompt_tema.preencher(
+            {"arvore": material.nivel1_com_escopo() if com_cartoes else material.nivel1_sem_escopo()}
+        )
         nivel1: list[str] = sorted(t.tema_id for t in temas if t.publicavel and t.nivel == 1)
         self._nivel1: frozenset[str] = frozenset(nivel1)
         self._schema_tema: dict[str, object] = schemas.completo(nivel1)
@@ -324,7 +330,13 @@ class ClassificadorHierarquico(Classificador):
             opcoes: list[str] = [tema, *filhos]
             segunda: RespostaEtapa = self._chamar(
                 self._prompt_subtema,
-                self._prompt_subtema.preencher({"cartoes": self._material.cartoes_filhos(tema)}),
+                self._prompt_subtema.preencher(
+                    {
+                        "cartoes": self._material.cartoes_filhos(tema)
+                        if self._com_cartoes
+                        else self._material.filhos_sem_cartoes(tema)
+                    }
+                ),
                 questao.texto_canonico,
                 self._schemas.subtema(opcoes),
                 f"{questao.id}:subtema",
@@ -340,7 +352,10 @@ class ClassificadorHierarquico(Classificador):
         conf_sub: float | None = self._confianca(segunda.dados)
         confianca: float | None = conf_tema * conf_sub if conf_tema is not None and conf_sub is not None else None
         dados: dict[str, object] = dict(primeira.dados)
-        dados["segundo_id"] = str(segunda.dados.get("segundo_id", "")) or str(primeira.dados.get("segundo_id", ""))
+        segundo_sub: str = str(segunda.dados.get("segundo_id", ""))
+        dados["segundo_id"] = (
+            segundo_sub if segundo_sub not in ("", FabricaSchemas.NENHUM) else str(primeira.dados.get("segundo_id", ""))
+        )
         dados["nucleo"] = str(segunda.dados.get("nucleo", "")) or str(primeira.dados.get("nucleo", ""))
         return self._voto(
             self._versao,

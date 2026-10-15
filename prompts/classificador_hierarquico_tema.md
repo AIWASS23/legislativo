@@ -8,7 +8,7 @@ Você classifica questões de concurso público de Direito Penal, Processo Penal
    - a mesma matéria pode existir em Penal e em Processo Penal: o lado material (regras do Código Penal) fica em Penal; o processual (Código de Processo Penal), em Processo Penal;
    - quando a questão é sobre uma lei penal especial em si, use o tema dela em "Direito Penal - Legislação Especial";
    - um tema marcado `[conceitual]` é genérico: use-o só se a questão for sobre o conceito geral.
-4. **`segundo_id`:** o tema que você escolheria se o primeiro estivesse errado. Use "" se não houver alternativa plausível.
+4. **`segundo_id`:** o tema que você escolheria se o primeiro estivesse errado. Use "nenhum" se não houver alternativa plausível.
 5. **`multitema`:** `true` se a questão cobre, por igual, temas diferentes.
 6. **`fora`:** `true` se nenhum tema serve (por exemplo, Direito Tributário ou Civil). Mesmo assim, preencha `tema_id` com o mais próximo.
 7. **`autoconfianca`:** de 0 a 1, a probabilidade de o tema escolhido conter o tema que um professor especialista escolheria.

@@ -12,6 +12,7 @@ class FabricaSchemas:
     """Monta os schemas a partir da árvore preparada (só IDs publicáveis)."""
 
     NENHUM: ClassVar[str] = "nenhum"
+    """Valor de "nenhuma opção" nos ``enum`` (o Gemini não aceita string vazia num ``enum``)."""
 
     def __init__(self, temas: Sequence[TemaPreparado]) -> None:
         """Guarda os IDs publicáveis.
@@ -40,7 +41,7 @@ class FabricaSchemas:
             {
                 "nucleo": {"type": "string"},
                 "tema_id": {"type": "string", "enum": ids},
-                "segundo_id": {"type": "string", "enum": [*ids, ""]},
+                "segundo_id": {"type": "string", "enum": [*ids, self.NENHUM]},
                 "extras_ids": {"type": "array", "items": {"type": "string", "enum": self._publicaveis}},
                 "multitema": {"type": "boolean"},
                 "fora": {"type": "boolean"},
@@ -62,7 +63,7 @@ class FabricaSchemas:
             {
                 "nucleo": {"type": "string"},
                 "tema_id": {"type": "string", "enum": ids},
-                "segundo_id": {"type": "string", "enum": [*ids, ""]},
+                "segundo_id": {"type": "string", "enum": [*ids, self.NENHUM]},
                 "autoconfianca": {"type": "number"},
             }
         )

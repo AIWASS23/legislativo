@@ -131,10 +131,24 @@ class PipelineClassificacao:
             flush=True,
         )
         inicio: float = time.monotonic()
+        votos: dict[str, list[VotoClassificador]] = {questao.id: [] for questao in selecionadas}
+        lentos: list[Classificador] = [c for c in classificadores if c.cliente.papel == "voto_barato"]
+        principais: list[Classificador] = [c for c in classificadores if c.cliente.papel != "voto_barato"]
+        executores_lentos: list[ThreadPoolExecutor] = []
+        futuros_lentos: dict[Future[VotoClassificador], str]
+        executores: list[ThreadPoolExecutor]
+        futuros: dict[Future[VotoClassificador], str]
         try:
-            votos: dict[str, list[VotoClassificador]] = self._classificar(classificadores, selecionadas, fabrica)
+            executores_lentos, futuros_lentos = self._iniciar(lentos, selecionadas, fabrica)
+            executores, futuros = self._iniciar(principais, selecionadas, fabrica)
+            try:
+                self._acompanhar(futuros, votos, len(futuros), "A e B")
+            finally:
+                self._encerrar(executores)
             vereditos: dict[str, VereditoVerificador] = self._verificar(verificador, selecionadas, votos, fabrica)
+            self._acompanhar(futuros_lentos, votos, len(futuros_lentos), "voto barato")
         finally:
+            self._encerrar(executores_lentos)
             fabrica.escrever_resumo_custos()
             print(f"Chamadas: {fabrica.resumo_sessao()}", flush=True)
         regras: SinalLegislacao = SinalLegislacao(MapaLegislacao(ProcessadorTexto()), temas)
@@ -171,9 +185,20 @@ class PipelineClassificacao:
             q for q in questoes if (not pedidas or q.id in pedidas) and q.id not in pendentes
         ]
         adiadas: int = sum(1 for q in questoes if (not pedidas or q.id in pedidas) and q.id in pendentes)
+        gold: set[str] = self._gold_leva1()
+        escolhidas.sort(key=lambda q: (q.id not in gold, q.id))
         if self._parametros.limite > 0:
             escolhidas = escolhidas[: self._parametros.limite]
         return escolhidas, adiadas
+
+    def _gold_leva1(self) -> set[str]:
+        """IDs da leva 1 do gold (classificados primeiro, para os experimentos começarem cedo).
+
+        Returns:
+            IDs da amostra, ou vazio se ela não existir.
+        """
+        amostra: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / "amostra_leva1.csv")
+        return {item.id for item in amostra.ler()} if amostra.existe() else set()
 
     def _gold_pendente(self, temas: Sequence[TemaPreparado]) -> set[str]:
         """Lista as questões da leva 1 do gold ainda sem rótulo.
@@ -199,45 +224,52 @@ class PipelineClassificacao:
         feitos: set[str] = {rotulo.id for rotulo in planilha.ler() if rotulo.preenchido}
         return {item.id for item in itens if item.id not in feitos}
 
-    def _classificar(
-        self,
+    @staticmethod
+    def _iniciar(
         classificadores: Sequence[Classificador],
         questoes: Sequence[QuestaoPreparada],
         fabrica: FabricaClientes,
-    ) -> dict[str, list[VotoClassificador]]:
-        """Roda os classificadores em paralelo, com um executor por papel (limite por provedor).
+    ) -> tuple[list[ThreadPoolExecutor], dict[Future[VotoClassificador], str]]:
+        """Dispara os classificadores, com um executor por papel (limite de chamadas por provedor).
+
+        O voto barato (modelo local, o mais lento) é disparado à parte, para o verificador não
+        esperar por ele: o verificador só usa A e B.
 
         Args:
-            classificadores: A, B e voto barato.
-            questoes: Questões a classificar.
+            classificadores: Classificadores a disparar.
+            questoes: Questões a classificar (na ordem de prioridade).
             fabrica: Fábrica (limites de paralelismo).
 
         Returns:
-            ``ID da questão -> votos``.
+            ``(executores, tarefa -> ID da questão)``.
         """
-        votos: dict[str, list[VotoClassificador]] = {questao.id: [] for questao in questoes}
         executores: list[ThreadPoolExecutor] = [
             ThreadPoolExecutor(max_workers=fabrica.paralelismo(c.cliente.provedor), thread_name_prefix=c.cliente.papel)
             for c in classificadores
         ]
         futuros: dict[Future[VotoClassificador], str] = {}
-        try:
-            indice: int
-            classificador: Classificador
-            for indice, classificador in enumerate(classificadores):
-                questao: QuestaoPreparada
-                for questao in questoes:
-                    futuros[executores[indice].submit(classificador.classificar, questao)] = questao.id
-            self._acompanhar(futuros, votos, len(questoes) * len(classificadores))
-        finally:
-            executor: ThreadPoolExecutor
-            for executor in executores:
-                executor.shutdown(wait=True)
-        return votos
+        indice: int
+        classificador: Classificador
+        for indice, classificador in enumerate(classificadores):
+            questao: QuestaoPreparada
+            for questao in questoes:
+                futuros[executores[indice].submit(classificador.classificar, questao)] = questao.id
+        return executores, futuros
+
+    @staticmethod
+    def _encerrar(executores: Sequence[ThreadPoolExecutor]) -> None:
+        """Espera e encerra os executores.
+
+        Args:
+            executores: Executores a encerrar.
+        """
+        executor: ThreadPoolExecutor
+        for executor in executores:
+            executor.shutdown(wait=True)
 
     @staticmethod
     def _acompanhar(
-        futuros: dict[Future[VotoClassificador], str], votos: dict[str, list[VotoClassificador]], total: int
+        futuros: dict[Future[VotoClassificador], str], votos: dict[str, list[VotoClassificador]], total: int, nome: str
     ) -> None:
         """Recolhe os votos à medida que ficam prontos e mostra o progresso.
 
@@ -245,6 +277,7 @@ class PipelineClassificacao:
             futuros: Tarefa -> ID da questão.
             votos: Acumulador.
             total: Número de tarefas.
+            nome: Grupo mostrado no progresso.
         """
         falhas: Counter[str] = Counter()
         passo: int = max(1, total // 20)
@@ -256,7 +289,7 @@ class PipelineClassificacao:
             if not voto.ok:
                 falhas[voto.papel] += 1
             if feitas % passo == 0 or feitas == total:
-                print(f"  votos: {feitas}/{total} ({dict(falhas) or 'sem falhas'})", flush=True)
+                print(f"  {nome}: {feitas}/{total} ({dict(falhas) or 'sem falhas'})", flush=True)
 
     def _verificar(
         self,
@@ -324,8 +357,7 @@ class PipelineClassificacao:
         b: VotoClassificador | None = por_papel.get("classificador_b")
         if a is None or b is None:
             return "", [], "falta voto válido de A ou de B"
-        barato: VotoClassificador | None = por_papel.get("voto_barato")
-        sugeridos: list[str] = [a.tema_id, b.tema_id, a.segundo_id, b.segundo_id, barato.tema_id if barato else ""]
+        sugeridos: list[str] = [a.tema_id, b.tema_id, a.segundo_id, b.segundo_id]
         if a.fora and b.fora:
             return a.tema_id, sugeridos, ""
         if not self._mesmo_ramo(a.tema_id, b.tema_id):
@@ -411,7 +443,7 @@ class PipelineClassificacao:
             "Concordância não é acerto: o acerto é medido no gold (ADR-012, ADR-014).",
             "",
         ]
-        destino: Path = self._caminhos.raiz / "saidas" / "classificacao" / "resumo_classificacao.md"
+        destino: Path = self._caminhos.saida_classificacao / "resumo_classificacao.md"
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text("\n".join(linhas), encoding="utf-8")
         return destino
