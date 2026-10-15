@@ -1,0 +1,61 @@
+id,tema_id,alternativos,fora,multitema,certeza,observacao,minutos,rotulado_em
+Q0240,5500,5473,n,s,alta,Prazos sucessivos do inquérito com indiciado preso e do oferecimento da denúncia.,,2026-10-15T09:28:16-03:00
+Q0075,5191,,n,n,alta,Comunicabilidade da extinção da punibilidade entre crimes relacionados.,,2026-10-15T09:28:16-03:00
+Q0013,5503,,n,n,alta,Competências do juiz das garantias durante a investigação.,,2026-10-15T09:28:16-03:00
+Q0283,5496,,n,n,alta,Hipoteca legal e substituição por caução.,,2026-10-15T09:28:16-03:00
+Q0351,5118,,n,n,alta,Falsificação de cartão de crédito e sua equiparação documental.,,2026-10-15T09:28:16-03:00
+Q0103,5478,,n,n,alta,Finalidade e alcance da revisão criminal.,,2026-10-15T09:28:16-03:00
+Q0164,4703,,n,n,alta,Assistência ao preso e ao egresso na Lei de Execução Penal.,,2026-10-15T09:28:16-03:00
+Q0181,4695,,n,n,alta,Identificação de condutas que constituem crimes contra a ordem tributária.,,2026-10-15T09:28:16-03:00
+Q0261,5136,,n,n,alta,Proteção penal de programa de computador e cópia de segurança.,,2026-10-15T09:28:16-03:00
+Q0080,4370,,n,n,alta,Modelos de reação ao delito e sua distinção.,,2026-10-15T09:28:16-03:00
+Q0212,5488,,n,n,alta,Citação por hora certa e consequências da ausência do acusado.,,2026-10-15T09:28:16-03:00
+Q0045,5091,,n,n,alta,Forma qualificada do excesso de exação.,,2026-10-15T09:28:16-03:00
+Q0100,5224,5103,n,n,media,Erro sobre a idade da vítima no estupro de vulnerável; há interface com o tipo penal sexual.,,2026-10-15T09:28:16-03:00
+Q0226,5544,,n,n,alta,Etapas da cadeia de custódia e coleta de vestígios.,,2026-10-15T09:28:16-03:00
+Q0155,4703,,n,n,alta,Hipóteses e condições do regime disciplinar diferenciado.,,2026-10-15T09:28:16-03:00
+Q0196,4388,4387,n,n,media,Teoria do etiquetamento social; os dois subtemas sociológicos apresentam sobreposição.,,2026-10-15T09:28:16-03:00
+Q0093,5223,5150;5142,n,n,alta,Distinção entre omissão imprópria do garantidor e omissão de socorro.,,2026-10-15T09:28:16-03:00
+Q0236,5490,5491;5495;5592;5582,n,s,media,"Assertivas independentes sobre questões prejudiciais, restituição, prova inquisitorial e autodefesa; não há um único subtema comum.",,2026-10-15T09:28:16-03:00
+Q0030,5135,,n,n,alta,Atentado contra a liberdade de trabalho.,,2026-10-15T09:28:16-03:00
+Q0024,4388,4387,n,n,media,"Teoria ecológica, associação diferencial e criminalidade de colarinho branco; sobreposição entre subtemas sociológicos.",,2026-10-15T09:28:16-03:00
+Q0287,5229,5230,n,n,media,"Reconhecimento de causa de exclusão da ilicitude, com estado de necessidade entre as alternativas.",,2026-10-15T09:28:16-03:00
+Q0340,5071,5074;5076;5072;5203,n,s,alta,"Conjunto de regras de autoria, participação, comunicabilidade e agravamento da pena; recuo ao tema geral.",,2026-10-15T09:28:16-03:00
+Q0254,4704,,n,n,alta,Concessão e duração de medidas protetivas de urgência na Lei Maria da Penha.,,2026-10-15T09:28:16-03:00
+Q0274,5160,,n,n,alta,Consumação do latrocínio diante de morte consumada e subtração tentada.,,2026-10-15T09:28:16-03:00
+Q0300,5084,,n,n,alta,Favorecimento posterior ao roubo mediante ocultação da arma.,,2026-10-15T09:28:16-03:00
+Q0358,5133,,n,n,alta,Invasão de dispositivo informático e proteção penal dos segredos.,,2026-10-15T09:28:16-03:00
+Q0189,5472,5196,n,n,media,Desistência da ação penal privada e limite temporal; interface com o perdão do ofendido.,,2026-10-15T09:28:16-03:00
+Q0077,5170,5174,n,s,media,Normas penais em branco e crimes de atentado; recuo ao tema introdutório pela combinação de institutos.,,2026-10-15T09:28:16-03:00
+Q0197,5500,5482,n,n,media,"Atribuição para instaurar inquérito pela Polícia Federal, relacionada à competência material.",,2026-10-15T09:28:16-03:00
+Q0337,4684,,n,n,alta,"Dolo específico, divergência interpretativa e ação penal na Lei de Abuso de Autoridade.",,2026-10-15T09:28:16-03:00
+Q0002,4378,,n,n,alta,Seletividade da criminalização secundária na formação da clientela do sistema penal.,,2026-10-15T09:28:16-03:00
+Q0023,5524,5526;5527;5528,n,s,alta,"Abrange as fases do júri, pronúncia, impronúncia e julgamento em plenário.",,2026-10-15T09:28:16-03:00
+Q0271,5562,5515;5513,n,n,media,"Limites do efeito devolutivo da apelação, especialmente contra decisões do júri.",,2026-10-15T09:28:16-03:00
+Q0208,5072,5231,n,n,media,O comando exige avaliar autoria e participação; a legítima defesa de terceiro interfere na análise do fato.,,2026-10-15T09:28:16-03:00
+Q0134,5092,,n,n,alta,"Tipificação, pena e formas da corrupção passiva.",,2026-10-15T09:28:16-03:00
+Q0036,4704,,n,n,alta,Audiência de retratação da representação na Lei Maria da Penha.,,2026-10-15T09:28:16-03:00
+Q0102,5572,5574;5577,n,s,alta,Sentença absolutória imprópria e efeitos civis e funcionais da condenação.,,2026-10-15T09:28:16-03:00
+Q0178,4697,,n,n,alta,"Porte de arma por servidores da Polícia Judicial, relacionado ao Estatuto do Desarmamento.",,2026-10-15T09:28:16-03:00
+Q0284,5224,5231,n,n,media,Descriminante putativa decorrente de erro sobre pressupostos fáticos da legítima defesa.,,2026-10-15T09:28:16-03:00
+Q0098,5548,,n,n,alta,Conceito de confissão qualificada.,,2026-10-15T09:28:16-03:00
+Q0273,5089,5222,n,n,media,"Identificação de modalidade culposa entre tipos penais, com foco no peculato culposo.",,2026-10-15T09:28:16-03:00
+Q0010,4688,,n,n,alta,Tipos penais e responsabilidade por crimes ambientais.,,2026-10-15T09:28:16-03:00
+Q0026,4704,,n,n,alta,Âmbito de incidência da proteção da Lei Maria da Penha.,,2026-10-15T09:28:16-03:00
+Q0263,5492,5583,n,n,alta,Hipóteses de suspeição e impedimento do juiz; o tema específico reúne ambos os institutos.,,2026-10-15T09:28:16-03:00
+Q0195,4373,4388,n,n,media,"Concepções de crime, criminoso e pena nas escolas clássica, positivista e crítica.",,2026-10-15T09:28:16-03:00
+Q0233,5178,,n,n,alta,Distinção entre desistência voluntária e arrependimento eficaz.,,2026-10-15T09:28:16-03:00
+Q0011,4702,5482,n,s,alta,Lavagem de capitais e competência federal para seu processamento.,,2026-10-15T09:28:16-03:00
+Q0040,5562,5515;5529,n,n,alta,Atribuição de efeito suspensivo à apelação contra condenação do júri.,,2026-10-15T09:28:16-03:00
+Q0220,5501,,n,n,alta,Revisão do arquivamento do inquérito policial.,,2026-10-15T09:28:16-03:00
+Q0078,4697,4691,n,n,alta,"Posse, porte, comércio e omissão de cautela com armas; há menção acessória a crime de trânsito. Texto com ruído de digitalização, mas núcleo identificável.",,2026-10-15T09:28:16-03:00
+Q0047,5164,5065,n,n,alta,Qualificadoras do dano e espécie de ação penal correspondente.,,2026-10-15T09:28:16-03:00
+Q0215,5201,5576,n,n,alta,Critérios para fixar o regime inicial da pena privativa de liberdade.,,2026-10-15T09:28:16-03:00
+Q0015,5498,5500;5501,n,s,alta,"Regras de investigação, prazos, diligências e devolução do inquérito; recuo ao tema geral.",,2026-10-15T09:28:16-03:00
+Q0276,5543,5547;5548;5552;5545;5554,n,s,alta,"Alternativas abrangem interrogatório, confissão, acareação, corpo de delito e busca pessoal.",,2026-10-15T09:28:16-03:00
+Q0332,5541,,n,n,alta,Transação penal e impedimento de nova concessão dentro do prazo legal.,,2026-10-15T09:28:16-03:00
+Q0037,5118,5132;5081,n,s,media,"Alternativas independentes sobre escravidão, falso testemunho e falsidade documental; não há núcleo comum.",,2026-10-15T09:28:16-03:00
+Q0005,5199,5203;5201,n,s,alta,Período depurador da reincidência e regime inicial de cumprimento da pena.,,2026-10-15T09:28:16-03:00
+Q0163,4703,5133;4684,n,n,media,Controle da correspondência do preso pela direção penitenciária; interface com inviolabilidade dos segredos e abuso de autoridade.,,2026-10-15T09:28:16-03:00
+Q0344,4688,,n,n,alta,Destinação de bens apreendidos e ação penal na Lei de Crimes Ambientais.,,2026-10-15T09:28:16-03:00
+Q0004,5480,5484;5483;5482,n,s,alta,"Competência por prerrogativa de função, territorial e em razão da matéria.",,2026-10-15T09:28:16-03:00

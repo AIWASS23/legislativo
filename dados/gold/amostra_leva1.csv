@@ -1,0 +1,61 @@
+ordem,id,leva,estrato,tamanho_estrato,sorteadas_estrato,prob_inclusao
+1,Q0240,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+2,Q0075,1,Penal | multipla_escolha_5,113,19,0.168142
+3,Q0013,1,Processo Penal | multipla_escolha_4,16,3,0.187500
+4,Q0283,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+5,Q0351,1,Penal | multipla_escolha_5,113,19,0.168142
+6,Q0103,1,Processo Penal | certo_errado,26,4,0.153846
+7,Q0164,1,Direito Penal - Legislação Especial | multipla_escolha_5,22,4,0.181818
+8,Q0181,1,Direito Penal - Legislação Especial | multipla_escolha_5,22,4,0.181818
+9,Q0261,1,Penal | multipla_escolha_5,113,19,0.168142
+10,Q0080,1,Criminologia | certo_errado,7,1,0.142857
+11,Q0212,1,Processo Penal | certo_errado,26,4,0.153846
+12,Q0045,1,Penal | multipla_escolha_5,113,19,0.168142
+13,Q0100,1,Penal | multipla_escolha_5,113,19,0.168142
+14,Q0226,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+15,Q0155,1,Penal | multipla_escolha_5,113,19,0.168142
+16,Q0196,1,Criminologia | multipla_escolha_5,23,4,0.173913
+17,Q0093,1,Penal | multipla_escolha_5,113,19,0.168142
+18,Q0236,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+19,Q0030,1,Penal | multipla_escolha_5,113,19,0.168142
+20,Q0024,1,Criminologia | multipla_escolha_5,23,4,0.173913
+21,Q0287,1,Penal | multipla_escolha_5,113,19,0.168142
+22,Q0340,1,Penal | multipla_escolha_5,113,19,0.168142
+23,Q0254,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+24,Q0274,1,Penal | certo_errado,17,3,0.176471
+25,Q0300,1,Penal | multipla_escolha_4,26,4,0.153846
+26,Q0358,1,Penal | certo_errado,17,3,0.176471
+27,Q0189,1,Processo Penal | certo_errado,26,4,0.153846
+28,Q0077,1,Penal | multipla_escolha_5,113,19,0.168142
+29,Q0197,1,Processo Penal | certo_errado,26,4,0.153846
+30,Q0337,1,Direito Penal - Legislação Especial | multipla_escolha_4,3,1,0.333333
+31,Q0002,1,Criminologia | multipla_escolha_5,23,4,0.173913
+32,Q0023,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+33,Q0271,1,Processo Penal | multipla_escolha_4,16,3,0.187500
+34,Q0208,1,Penal | certo_errado,17,3,0.176471
+35,Q0134,1,Penal | multipla_escolha_4,26,4,0.153846
+36,Q0036,1,(fora do recorte) | multipla_escolha_5,7,1,0.142857
+37,Q0102,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+38,Q0178,1,Penal | multipla_escolha_5,113,19,0.168142
+39,Q0284,1,Penal | multipla_escolha_5,113,19,0.168142
+40,Q0098,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+41,Q0273,1,Penal | multipla_escolha_5,113,19,0.168142
+42,Q0010,1,Penal | multipla_escolha_5,113,19,0.168142
+43,Q0026,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+44,Q0263,1,Processo Penal | multipla_escolha_4,16,3,0.187500
+45,Q0195,1,Criminologia | multipla_escolha_5,23,4,0.173913
+46,Q0233,1,Penal | multipla_escolha_5,113,19,0.168142
+47,Q0011,1,Direito Penal - Legislação Especial | certo_errado,7,1,0.142857
+48,Q0040,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+49,Q0220,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+50,Q0078,1,Direito Penal - Legislação Especial | multipla_escolha_5,22,4,0.181818
+51,Q0047,1,Penal | multipla_escolha_5,113,19,0.168142
+52,Q0215,1,Penal | multipla_escolha_4,26,4,0.153846
+53,Q0015,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+54,Q0276,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+55,Q0332,1,Processo Penal | multipla_escolha_5,90,15,0.166667
+56,Q0037,1,Penal | multipla_escolha_4,26,4,0.153846
+57,Q0005,1,Penal | multipla_escolha_5,113,19,0.168142
+58,Q0163,1,Direito Penal - Legislação Especial | multipla_escolha_5,22,4,0.181818
+59,Q0344,1,Penal | multipla_escolha_5,113,19,0.168142
+60,Q0004,1,Processo Penal | multipla_escolha_5,90,15,0.166667
