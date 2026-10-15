@@ -171,6 +171,7 @@ class PipelineInfra:
         """
         claude: InfoCLI | None = perfil.cli("claude")
         agy: InfoCLI | None = perfil.cli("agy")
+        codex: InfoCLI | None = perfil.cli("codex")
         ollama_detalhe: str = (
             f"versão {perfil.ollama.versao}; {len(perfil.ollama.modelos)} modelos instalados: "
             + ", ".join(m.nome for m in perfil.ollama.modelos)
@@ -192,6 +193,12 @@ class PipelineInfra:
                 f"agy {agy.versao}; {len(agy.modelos)} modelos na conta"
                 if agy and agy.instalado
                 else "CLI não instalada",
+            ],
+            [
+                "codex-cli",
+                "assinatura",
+                "pronto" if codex and codex.instalado else "indisponível",
+                f"codex {codex.versao}; {codex.observacao}" if codex and codex.instalado else "CLI não instalada",
             ],
             self._linha_api("claude-api", "anthropic", "ANTHROPIC_API_KEY", perfil),
             self._linha_api("openai", "openai", "OPENAI_API_KEY", perfil),

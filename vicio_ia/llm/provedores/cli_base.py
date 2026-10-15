@@ -87,7 +87,8 @@ class ProvedorCLI(ProvedorLLM):
             raise ErroProvedor(f"{self.nome}: tempo esgotado ({self._timeout}s)") from erro
         latencia: float = time.perf_counter() - inicio
         if processo.returncode != 0:
-            raise ErroProvedor(f"{self.nome}: saiu com código {processo.returncode}: {processo.stderr.strip()[:500]}")
+            detalhe: str = processo.stderr.strip()[:500] or processo.stdout.strip()[-500:]
+            raise ErroProvedor(f"{self.nome}: saiu com código {processo.returncode}: {detalhe}")
         return self._ultimo_json(processo.stdout), latencia
 
     def _ultimo_json(self, saida: str) -> dict[str, object]:

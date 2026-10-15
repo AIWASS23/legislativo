@@ -259,7 +259,8 @@ class RecomendadorModelos:
         if modelo.provedor == "huggingface":
             pronto = credenciais.get("huggingface", False)
             return pronto, "Inference Providers (HF)" if pronto else "falta HF_TOKEN (ou `hf auth login`)"
-        nome_cli: str = "claude" if modelo.provedor == "claude-cli" else "agy"
+        nomes_cli: dict[str, str] = {"claude-cli": "claude", "gemini-agy": "agy", "codex-cli": "codex"}
+        nome_cli: str = nomes_cli.get(modelo.provedor, modelo.provedor)
         cli: InfoCLI | None = self._perfil.cli(nome_cli)
         if cli is None or not cli.instalado:
             return False, f"CLI `{nome_cli}` não instalada"

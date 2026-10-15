@@ -60,7 +60,7 @@ class AnalisadorInfra:
             gpus=self._gpus(ram_total),
             disco_livre_gb=self._disco_livre(),
             ollama=self._ollama(),
-            clis=(self._cli_claude(), self._cli_agy()),
+            clis=(self._cli_claude(), self._cli_agy(), self._cli_codex()),
             credenciais=self._ambiente.credenciais(),
             coletado_em=datetime.now().isoformat(timespec="seconds"),
         )
@@ -335,6 +335,19 @@ class AnalisadorInfra:
         if versao is None:
             return InfoCLI("claude", False, "", ())
         return InfoCLI("claude", True, versao.strip().split()[0], (), "login não verificado")
+
+    def _cli_codex(self) -> InfoCLI:
+        """Verifica a CLI ``codex`` (OpenAI Codex, assinatura do ChatGPT).
+
+        Returns:
+            Situação da CLI e se o login foi feito.
+        """
+        versao: str | None = self._rodar(["codex", "--version"], 15)
+        if versao is None:
+            return InfoCLI("codex", False, "", ())
+        login: str | None = self._rodar(["codex", "login", "status"], 15)
+        observacao: str = "login feito" if login is not None and "Logged in" in login else "login não verificado"
+        return InfoCLI("codex", True, versao.strip().split()[-1], (), observacao)
 
     def _cli_agy(self) -> InfoCLI:
         """Verifica a CLI ``agy`` (Antigravity, assinatura) e lista os modelos dela.

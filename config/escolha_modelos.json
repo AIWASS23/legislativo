@@ -2,21 +2,21 @@
   "modo": "manual",
   "papeis": {
     "classificador_a": {
-      "provedor": "claude-cli",
-      "modelo": "claude-opus-5-5"
+      "provedor": "codex-cli",
+      "modelo": "gpt-6.1-sol"
     },
     "classificador_b": {
       "provedor": "gemini-agy",
       "modelo": "gemini-3.8-flash-low"
     },
     "voto_barato": {
-      "provedor": "ollama",
-      "modelo": "qwen3.5:4b"
+      "provedor": "gemini-agy",
+      "modelo": "gpt-oss-120b-medium"
     },
     "verificador": {
-      "provedor": "claude-cli",
-      "modelo": "claude-opus-5-5"
+      "provedor": "gemini-agy",
+      "modelo": "gemini-3.8-flash-medium"
     }
   },
-  "atualizado_em": "2026-10-15T09:43:14"
+  "atualizado_em": "2026-10-15T15:27:01"
 }

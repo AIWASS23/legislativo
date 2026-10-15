@@ -215,6 +215,29 @@ class FabricaClientes:
         self._clientes.append(cliente)
         return cliente
 
+    def cliente_fixo(self, papel: str, provedor: str, modelo: str) -> ClienteLLM:
+        """Cria um cliente com provedor e modelo fixos, fora da escolha por papel.
+
+        Args:
+            papel: Papel registrado no cache.
+            provedor: Nome do provedor.
+            modelo: Modelo.
+
+        Returns:
+            Cliente pronto.
+        """
+        cliente: ClienteLLM = ClienteLLM(
+            papel,
+            self._provedores.obter(provedor),
+            modelo,
+            self._cache,
+            self._precos,
+            self._rodada,
+            self._somente_cache,
+        )
+        self._clientes.append(cliente)
+        return cliente
+
     def paralelismo(self, provedor: str) -> int:
         """Chamadas simultâneas permitidas para um provedor.
 

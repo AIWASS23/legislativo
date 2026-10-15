@@ -88,6 +88,7 @@ class CatalogoModelos:
         "huggingface": "api",
         "claude-cli": "assinatura",
         "gemini-agy": "assinatura",
+        "codex-cli": "assinatura",
     }
     _RE_CODIGO: ClassVar[re.Pattern[str]] = re.compile(r"code|coder|starcoder", re.IGNORECASE)
 

@@ -109,7 +109,7 @@ class ContadorCusto:
     """Agrega o cache por papel e modelo e grava ``saidas/custos/resumo_custos.md`` e ``.json``."""
 
     PROVEDORES_LOCAIS: ClassVar[frozenset[str]] = frozenset({"ollama"})
-    PROVEDORES_ASSINATURA: ClassVar[frozenset[str]] = frozenset({"claude-cli", "gemini-agy"})
+    PROVEDORES_ASSINATURA: ClassVar[frozenset[str]] = frozenset({"claude-cli", "gemini-agy", "codex-cli"})
 
     def resumir(self, registros: Sequence[RegistroChamada]) -> list[ResumoUso]:
         """Agrega os registros.

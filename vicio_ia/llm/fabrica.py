@@ -9,6 +9,7 @@ from vicio_ia.configuracao import Caminhos, ParametrosLLM
 from vicio_ia.llm.contratos import ErroProvedor, ProvedorLLM
 from vicio_ia.llm.provedores.claude_api import ProvedorClaudeAPI
 from vicio_ia.llm.provedores.claude_cli import ProvedorClaudeCLI
+from vicio_ia.llm.provedores.codex_cli import ProvedorCodexCLI
 from vicio_ia.llm.provedores.gemini_agy import ProvedorGeminiAgy
 from vicio_ia.llm.provedores.huggingface import ProvedorHuggingFace
 from vicio_ia.llm.provedores.ollama import ProvedorOllama
@@ -18,7 +19,15 @@ from vicio_ia.llm.provedores.openai_api import ProvedorOpenAI
 class FabricaProvedores:
     """Cria (e reaproveita) instâncias de provedores a partir do nome configurado."""
 
-    NOMES: ClassVar[tuple[str, ...]] = ("ollama", "claude-api", "claude-cli", "gemini-agy", "openai", "huggingface")
+    NOMES: ClassVar[tuple[str, ...]] = (
+        "ollama",
+        "claude-api",
+        "claude-cli",
+        "gemini-agy",
+        "codex-cli",
+        "openai",
+        "huggingface",
+    )
 
     def __init__(self, caminhos: Caminhos, parametros: ParametrosLLM) -> None:
         """Recebe a configuração e carrega o ``.env``.
@@ -69,6 +78,8 @@ class FabricaProvedores:
             return ProvedorClaudeCLI(p.timeout_segundos, p.max_bytes_argumento_cli, p.claude_cli_esforco)
         if nome == "gemini-agy":
             return ProvedorGeminiAgy(p.timeout_segundos, p.max_bytes_argumento_cli)
+        if nome == "codex-cli":
+            return ProvedorCodexCLI(p.timeout_segundos, p.max_bytes_argumento_cli, p.codex_esforco)
         if nome == "openai":
             return ProvedorOpenAI(self._ambiente, p.timeout_segundos)
         if nome == "huggingface":
