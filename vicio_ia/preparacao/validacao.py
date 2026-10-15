@@ -1,4 +1,4 @@
-"""Checagens automáticas das questões preparadas (regras da ADR-004 e da ADR-006)."""
+"""Checagens automáticas do passo 01: questões (ADR-004, ADR-006) e árvore de temas (ADR-005)."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from dataclasses import dataclass, replace
 from typing import ClassVar
 
 from vicio_ia.dominio import Questao
+from vicio_ia.preparacao.arvore_preparada import DecisoesArvore, TemaPreparado
 from vicio_ia.preparacao.texto_canonico import MontadorTextoCanonico, QuestaoPreparada
 
 
@@ -126,6 +127,89 @@ class ValidadorQuestoesPreparadas:
             if self.SENTINELA in texto or texto != textos.get(questao.id):
                 vazamentos.append(questao.id)
         return vazamentos
+
+    def _resultado(self, regra: str, violacoes: list[str]) -> ResultadoChecagem:
+        """Monta o resultado de uma regra.
+
+        Args:
+            regra: Descrição da regra.
+            violacoes: Casos que violaram a regra.
+
+        Returns:
+            Resultado com no máximo :attr:`MAX_VIOLACOES` exemplos.
+        """
+        return ResultadoChecagem(regra, not violacoes, tuple(violacoes[: self.MAX_VIOLACOES]))
+
+
+class ValidadorArvorePreparada:
+    """Confere a árvore preparada contra as regras da ADR-005 e as decisões manuais."""
+
+    MAX_VIOLACOES: ClassVar[int] = 10
+
+    def validar(
+        self,
+        temas: Sequence[TemaPreparado],
+        decisoes: DecisoesArvore,
+        arvore_enxuta: str,
+        titulos_originais: dict[str, str],
+    ) -> list[ResultadoChecagem]:
+        """Roda todas as checagens da árvore.
+
+        Args:
+            temas: Nós preparados.
+            decisoes: Decisões manuais lidas de ``dados/temas/``.
+            arvore_enxuta: Texto da árvore enxuta gerado para os prompts.
+            titulos_originais: ``tema_id -> título`` do ``temas.csv``.
+
+        Returns:
+            Um resultado por regra.
+        """
+        por_id: dict[str, TemaPreparado] = {tema.tema_id: tema for tema in temas}
+        publicaveis: set[str] = {tema.tema_id for tema in temas if tema.publicavel}
+        ids_na_arvore: list[str] = [linha.split(" | ", 1)[0] for linha in arvore_enxuta.splitlines()[1:]]
+        return [
+            self._resultado(
+                "nenhum nó inativo, fantasma ou disciplina é publicável",
+                [t.tema_id for t in temas if t.publicavel and (t.status != "active" or t.fantasma or t.nivel == 0)],
+            ),
+            self._resultado(
+                "todo fantasma aponta para um canônico publicável",
+                [
+                    t.tema_id
+                    for t in temas
+                    if t.fantasma and (t.canonico_id is None or t.canonico_id not in publicaveis)
+                ],
+            ),
+            self._resultado(
+                "toda lixeira (forte, moderada ou fora) existe e é publicável",
+                [i for i in decisoes.lixeiras if i not in publicaveis],
+            ),
+            self._resultado(
+                "todo nó de sobreposição existe e é publicável",
+                [i for i in decisoes.sobreposicoes if i not in publicaveis],
+            ),
+            self._resultado(
+                "toda correção de título confere com o título original do temas.csv",
+                [i for i, (original, _) in decisoes.correcoes.items() if titulos_originais.get(i) != original],
+            ),
+            self._resultado(
+                "título de exibição só difere do original nos nós corrigidos",
+                [t.tema_id for t in temas if (t.titulo_exibicao != t.titulo) != (t.tema_id in decisoes.correcoes)],
+            ),
+            self._resultado(
+                "a árvore enxuta lista exatamente os nós publicáveis, uma vez cada",
+                sorted(set(ids_na_arvore) ^ publicaveis)
+                + [i for i in set(ids_na_arvore) if ids_na_arvore.count(i) > 1],
+            ),
+            self._resultado(
+                "recuo para o pai só em temas de nível 1 publicáveis com filhos",
+                [t.tema_id for t in temas if t.aceita_recuo and not (t.publicavel and t.nivel == 1 and t.filhos)],
+            ),
+            self._resultado(
+                "todo nó citado nas decisões existe na árvore",
+                [i for i in [*decisoes.lixeiras, *decisoes.sobreposicoes, *decisoes.correcoes] if i not in por_id],
+            ),
+        ]
 
     def _resultado(self, regra: str, violacoes: list[str]) -> ResultadoChecagem:
         """Monta o resultado de uma regra.

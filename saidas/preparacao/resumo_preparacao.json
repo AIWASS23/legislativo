@@ -24,8 +24,36 @@
     "cita jurisprudência": 49,
     "duplicata de outra questão (texto completo)": 0
   },
-  "Checagens automáticas": {
+  "Checagens automáticas: questões": {
     "checagens_aprovadas": 8,
     "checagens": 8
+  },
+  "Árvore: nós utilizáveis": {
+    "publicaveis": 351,
+    "fantasmas": 20,
+    "aceitam_recuo": 51
+  },
+  "Árvore: lixeiras (decisão manual)": {
+    "lixeira_forte": 11,
+    "lixeira_moderada": 7,
+    "lixeira_fora": 3
+  },
+  "Árvore: sobreposições e zona de convenção": {
+    "zona_convencao": 114,
+    "canonicos_com_duplicado": 15,
+    "zona_sobreposicao": 35,
+    "zona_duplicado_outra_disciplina": 8,
+    "zona_duplicado_parte": 71
+  },
+  "Árvore: títulos corrigidos (só exibição)": {
+    "titulos_corrigidos": 9
+  },
+  "Árvore: texto para os prompts": {
+    "arvore_enxuta_bytes": 26901,
+    "arvore_enxuta_tokens": 7448
+  },
+  "Checagens automáticas: árvore": {
+    "checagens_aprovadas": 9,
+    "checagens": 9
   }
 }

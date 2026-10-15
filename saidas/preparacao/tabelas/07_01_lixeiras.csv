@@ -1,0 +1,22 @@
+tema_id,caminho,nível,justificativa
+5171,Penal > Introdução ao Estudo do Direito Penal > Conceito e Fontes do Direito Penal,forte,"Conceito e Fontes do Direito Penal: título introdutório que absorve tudo (310 questões, 74% do tema)"
+5581,Processo Penal > Sistemas e Princípios Processuais Penais > Sistemas Processuais Penais,forte,"Sistemas Processuais Penais: genérico, absorve o processo penal inteiro (285, 53%)"
+5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,forte,"Princípios do Processo Penal: concentração muito alta para 'princípios' (253, 47%)"
+5467,Processo Penal > Ação Penal > Características e Condições da Ação Penal,forte,Características e Condições da Ação Penal: genérico dentro de um tema já sobreposto (212)
+5585,Processo Penal > Teoria Geral das Prisões > Conceitos e Espécies de Prisão,forte,"Conceitos e Espécies de Prisão: absorve as prisões em espécie (209, 58%; Preventiva tem 4, Medidas Cautelares 0)"
+5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",forte,"Conceito, Finalidade e Características do Inquérito Policial: introdutório (164)"
+5200,"Penal > Teoria da Pena > Sanção Penal: Conceito, Finalidade e Modalidades",forte,"Sanção Penal: Conceito, Finalidade e Modalidades: introdutório (107)"
+5088,Penal > Dos Crimes Contra a Administração Pública > Noções gerais dos crimes praticados contra a administração pública,forte,Noções gerais dos crimes contra a administração pública: literalmente 'noções gerais' (100)
+5212,Penal > Teoria do Crime: Culpabilidade > Conceito e Elementos da Culpabilidade,forte,Conceito e Elementos da Culpabilidade: introdutório (100)
+5595,Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal,forte,Princípios Relativos à Prova Penal: genérico (79)
+5117,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública,forte,"Dos Crimes contra a Fé Pública: filho com o mesmo nome do pai, lixeira de fato (103, 58%)"
+5181,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Tempo,moderada,"Lei Penal no Tempo: tema real, mas concentração alta (227, 80%)"
+5507,Processo Penal > Lei Processual no Tempo e no Espaço > Lei processual no Tempo,moderada,"Lei Processual no Tempo: tema real, mas concentração alta (80, 81%)"
+5526,Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri,moderada,"Procedimento Bifásico do Júri: guarda-chuva do júri (143, 56%)"
+5510,Processo Penal > Nulidades > Nulidade Absoluta e Relativa,moderada,"Nulidade Absoluta e Relativa: conceito central, mas absorve nulidades em geral (104, 77%)"
+5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,moderada,"Competência dos Juizados Especiais Criminais: parece absorver a Lei 9.099 inteira (74, 79%)"
+5514,Processo Penal > Parte Geral dos Recursos > Pressupostos Objetivos e Subjetivos de Admissibilidade Recursal,moderada,"Pressupostos de Admissibilidade Recursal: genérico de recursos (68, 52%)"
+4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,moderada,"Teorias de Nível Sociológico: sobrepõe-se a 'Teorias Criminológicas em Espécie' (84, 83%)"
+5150,Penal > Dos Crimes Contra a Vida > Homicídio,fora,"Homicídio: específico, só muito cobrado (falso positivo da heurística)"
+5064,Penal > Ação Penal > Ação Penal Pública,fora,"Ação Penal Pública: distribuição natural; o problema é a sobreposição Penal x Processo Penal, tratada em sobreposicoes.csv"
+5172,Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal,fora,Princípios do Direito Penal: concentração normal (15%); insignificância e legalidade são tema próprio

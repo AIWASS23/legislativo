@@ -1,0 +1,115 @@
+tema_id,caminho,tipo,duplicado por,grupo
+4384,Criminologia > Teorias Legitimadoras da Pena,sobreposicao,,pena
+4684,Direito Penal - Legislação Especial > Abuso de Autoridade,duplicado_outra_disciplina,6716,
+4688,Direito Penal - Legislação Especial > Crimes contra o meio ambiente,duplicado_outra_disciplina,6717,
+4696,Direito Penal - Legislação Especial > Estatuto do Idoso - Crimes,duplicado_outra_disciplina,6722,
+4700,Direito Penal - Legislação Especial > Interceptação Telefônica,sobreposicao,,interceptacao
+4701,Direito Penal - Legislação Especial > Juizado Especial Criminal,sobreposicao,,juizados
+4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,duplicado_outra_disciplina,6723,
+4704,Direito Penal - Legislação Especial > Lei Maria da Penha,duplicado_outra_disciplina,6724,
+4703,Direito Penal - Legislação Especial > Lei de Execução Penal,duplicado_outra_disciplina,6734,
+4705,Direito Penal - Legislação Especial > Organizações Criminosas,duplicado_outra_disciplina,6725,orcrim_meios_prova
+4708,Direito Penal - Legislação Especial > Tráfico de Drogas,duplicado_outra_disciplina,6728,
+5063,Penal > Ação Penal,sobreposicao,,acao_penal
+5065,Penal > Ação Penal > Ação Penal Privada,sobreposicao,,acao_penal
+5064,Penal > Ação Penal > Ação Penal Pública,sobreposicao,,acao_penal
+5087,Penal > Dos Crimes Contra a Administração Pública,duplicado_parte,6718;6719,
+5097,Penal > Dos Crimes Contra a Administração Pública > Advocacia Administrativa,duplicado_parte,6718;6719,
+5091,Penal > Dos Crimes Contra a Administração Pública > Concussão e Excesso de Exação,duplicado_parte,6718;6719,
+5096,Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa,duplicado_parte,6718;6719,
+5094,Penal > Dos Crimes Contra a Administração Pública > Contrabando ou Descaminho,duplicado_parte,6718;6719,
+5093,Penal > Dos Crimes Contra a Administração Pública > Corrupção Ativa,duplicado_parte,6718;6719,
+5092,Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva,duplicado_parte,6718;6719,
+5090,Penal > Dos Crimes Contra a Administração Pública > Emprego Irregular de Verbas ou Rendas Públicas,duplicado_parte,6718;6719,
+5088,Penal > Dos Crimes Contra a Administração Pública > Noções gerais dos crimes praticados contra a administração pública,duplicado_parte,6718;6719,
+5089,Penal > Dos Crimes Contra a Administração Pública > Peculato e Peculato Mediante Erro de Outrem,duplicado_parte,6718;6719,
+5095,Penal > Dos Crimes Contra a Administração Pública > Prevaricação,duplicado_parte,6718;6719,
+5100,"Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato",duplicado_parte,6718;6719,
+5101,Penal > Dos Crimes Contra a Administração Pública > Tráfico de Influência,duplicado_parte,6718;6719,
+5099,Penal > Dos Crimes Contra a Administração Pública > Usurpação de Função Pública,duplicado_parte,6718;6719,
+5098,Penal > Dos Crimes Contra a Administração Pública > Violência Arbitrária,duplicado_parte,6718;6719,
+5157,Penal > Dos Crimes Contra o Patrimônio,duplicado_parte,6720;6721,
+5158,Penal > Dos Crimes Contra o Patrimônio > Disposições Gerais dos Crimes Contra o Patrimônio,duplicado_parte,6720;6721,
+5167,Penal > Dos Crimes Contra o Patrimônio > Abuso de Incapazes,duplicado_parte,6720;6721,
+5165,Penal > Dos Crimes Contra o Patrimônio > Apropriação indébita,duplicado_parte,6720;6721,
+5164,Penal > Dos Crimes Contra o Patrimônio > Dano,duplicado_parte,6720;6721,
+5162,Penal > Dos Crimes Contra o Patrimônio > Esbulho Possessório,duplicado_parte,6720;6721,
+5166,Penal > Dos Crimes Contra o Patrimônio > Estelionato,duplicado_parte,6720;6721,
+5161,Penal > Dos Crimes Contra o Patrimônio > Extorsão,duplicado_parte,6720;6721,
+5168,Penal > Dos Crimes Contra o Patrimônio > Fraude à Execução,duplicado_parte,6720;6721,
+5159,Penal > Dos Crimes Contra o Patrimônio > Furto,duplicado_parte,6720;6721,
+5169,Penal > Dos Crimes Contra o Patrimônio > Receptação,duplicado_parte,6720;6721,
+5160,Penal > Dos Crimes Contra o Patrimônio > Roubo,duplicado_parte,6720;6721,
+5163,Penal > Dos Crimes Contra o Patrimônio > Usurpação,duplicado_parte,6720;6721,
+5198,Penal > Punibilidade > Decadência,sobreposicao,,acao_penal
+5199,Penal > Teoria da Pena,duplicado_parte,6726;6727,
+5209,Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais,duplicado_parte,6726;6727,
+5208,Penal > Teoria da Pena > Livramento Condicional,duplicado_parte,6726;6727,
+5206,Penal > Teoria da Pena > Pena de Multa,duplicado_parte,6726;6727,
+5201,Penal > Teoria da Pena > Penas Privativas de Liberdade,duplicado_parte,6726;6727,
+5205,Penal > Teoria da Pena > Penas Restritivas de Direitos,duplicado_parte,6726;6727,
+5202,Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais,duplicado_parte,6726;6727,
+5210,Penal > Teoria da Pena > Reabilitação Criminal,duplicado_parte,6726;6727,
+5200,"Penal > Teoria da Pena > Sanção Penal: Conceito, Finalidade e Modalidades",sobreposicao,6726;6727,pena
+5203,Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes,duplicado_parte,6726;6727,
+5207,Penal > Teoria da Pena > Suspensão Condicional da Pena,duplicado_parte,6726;6727,
+5204,Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição,duplicado_parte,6726;6727,
+5466,Processo Penal > Ação Penal,sobreposicao,,acao_penal
+5475,Processo Penal > Ação Penal > Ação Civil Ex Delicto,sobreposicao,,acao_penal
+5471,Processo Penal > Ação Penal > Ação Penal Pública Condicionada,sobreposicao,,acao_penal
+5470,Processo Penal > Ação Penal > Ação Penal Pública Incondicionada,sobreposicao,,acao_penal
+5472,Processo Penal > Ação Penal > Ação Penal de Iniciativa Privada,sobreposicao,,acao_penal
+5467,Processo Penal > Ação Penal > Características e Condições da Ação Penal,sobreposicao,,acao_penal
+5468,Processo Penal > Ação Penal > Classificação da Ação Penal,sobreposicao,,acao_penal
+5473,Processo Penal > Ação Penal > Denúncia,sobreposicao,,acao_penal
+5469,Processo Penal > Ação Penal > Princípios da Ação Penal,sobreposicao,,acao_penal
+5474,Processo Penal > Ação Penal > Queixa Crime,sobreposicao,,acao_penal
+5480,Processo Penal > Competência,duplicado_parte,6732;6733,
+5483,Processo Penal > Competência > Competência Territorial,duplicado_parte,6732;6733,
+5485,Processo Penal > Competência > Competência de Juízo,duplicado_parte,6732;6733,
+5482,Processo Penal > Competência > Competência em Razão da Matéria,duplicado_parte,6732;6733,
+5484,Processo Penal > Competência > Competência por Prerrogativa de Função,duplicado_parte,6732;6733,
+5481,Processo Penal > Competência > Espécies e Fixação de Competência Criminal,duplicado_parte,6732;6733,
+5486,"Processo Penal > Competência > Prorrogação, Perpetuação e Modificação de Competência",duplicado_parte,6732;6733,
+5537,Processo Penal > Procedimento Ordinário > Sentença,sobreposicao,,sentenca
+5539,Processo Penal > Procedimento Sumaríssimo,sobreposicao,,juizados
+5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,sobreposicao,,juizados
+5542,Processo Penal > Procedimento Sumaríssimo > Suspensão Condicional do Processo,sobreposicao,,juizados
+5541,Processo Penal > Procedimento Sumaríssimo > Transação Penal,sobreposicao,,juizados
+5543,Processo Penal > Provas em Espécies,duplicado_parte,6735,
+5552,Processo Penal > Provas em Espécies > Acareação,duplicado_parte,6735,
+5558,Processo Penal > Provas em Espécies > Ação Controlada,sobreposicao,6735,orcrim_meios_prova
+5554,Processo Penal > Provas em Espécies > Busca e Apreensão,duplicado_parte,6735,
+5544,Processo Penal > Provas em Espécies > Cadeia de Custódia,duplicado_parte,6735,
+5556,Processo Penal > Provas em Espécies > Captação Ambiental,duplicado_parte,6735,
+5557,Processo Penal > Provas em Espécies > Colaboração Premiada,sobreposicao,6735,orcrim_meios_prova
+5548,Processo Penal > Provas em Espécies > Confissão,duplicado_parte,6735,
+5549,Processo Penal > Provas em Espécies > Declaração do Ofendido,duplicado_parte,6735,
+5545,Processo Penal > Provas em Espécies > Exame de Corpo de Delito,duplicado_parte,6735,
+5559,Processo Penal > Provas em Espécies > Infiltração de Agentes,sobreposicao,6735,orcrim_meios_prova
+5555,Processo Penal > Provas em Espécies > Interceptação Telefônica e Quebra do Sigilo de Dados Telefônicos,sobreposicao,6735,interceptacao
+5547,Processo Penal > Provas em Espécies > Interrogatório Judicial,duplicado_parte,6735,
+5546,Processo Penal > Provas em Espécies > Perícia,duplicado_parte,6735,
+5553,Processo Penal > Provas em Espécies > Prova Documental,duplicado_parte,6735,
+5550,Processo Penal > Provas em Espécies > Prova Testemunhal,duplicado_parte,6735,
+5551,Processo Penal > Provas em Espécies > Reconhecimento de Pessoas e Coisas,duplicado_parte,6735,
+5560,Processo Penal > Recursos em Espécies,duplicado_parte,6736,
+5566,Processo Penal > Recursos em Espécies > Agravo em Execução,duplicado_parte,6736,
+5562,Processo Penal > Recursos em Espécies > Apelação,duplicado_parte,6736,
+5567,Processo Penal > Recursos em Espécies > Carta Testemunhavel,duplicado_parte,6736,
+5568,Processo Penal > Recursos em Espécies > Correição Parcial,duplicado_parte,6736,
+5564,Processo Penal > Recursos em Espécies > Embargos Infringentes,duplicado_parte,6736,
+5565,Processo Penal > Recursos em Espécies > Embargos de Declaração,duplicado_parte,6736,
+5563,Processo Penal > Recursos em Espécies > Protesto por novo Júri,duplicado_parte,6736,
+5571,Processo Penal > Recursos em Espécies > Recurso Especial,duplicado_parte,6736,
+5570,Processo Penal > Recursos em Espécies > Recurso Extraordinário,duplicado_parte,6736,
+5561,Processo Penal > Recursos em Espécies > Recurso em sentido estrito (RESE),duplicado_parte,6736,
+5569,Processo Penal > Recursos em Espécies > Recursos no Âmbito dos Juizados Especiais,duplicado_parte,6736,
+5572,Processo Penal > Sentença Penal,sobreposicao,6737;6738,sentenca
+5573,Processo Penal > Sentença Penal > Classificação dos Provimentos Judiciais,sobreposicao,6737;6738,sentenca
+5577,Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória,sobreposicao,6737;6738,sentenca
+5579,Processo Penal > Sentença Penal > Emendatio Libelli e Mutatio Libelli,sobreposicao,6737;6738,sentenca
+5576,Processo Penal > Sentença Penal > Fixação da Pena e do Regime Penitenciário,sobreposicao,6737;6738,sentenca
+5578,Processo Penal > Sentença Penal > Princípio da Correlação entre Acusação e Sentença,sobreposicao,6737;6738,sentenca
+5574,Processo Penal > Sentença Penal > Sentença Absolutória,sobreposicao,6737;6738,sentenca
+5575,Processo Penal > Sentença Penal > Sentença Condenatória,sobreposicao,6737;6738,sentenca

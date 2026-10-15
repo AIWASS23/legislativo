@@ -27,6 +27,7 @@ class Caminhos:
         env: Arquivo ``.env`` opcional com chaves de API (ignorado pelo git).
         dados_preparados: Pasta com as saídas do passo 01 usadas pelos passos seguintes.
         saida_preparacao: Pasta com o resumo e a conferência do passo 01.
+        dados_temas: Decisões manuais sobre a árvore (lixeiras, sobreposições, correções de título).
     """
 
     raiz: Path
@@ -41,6 +42,7 @@ class Caminhos:
     env: Path
     dados_preparados: Path
     saida_preparacao: Path
+    dados_temas: Path
 
     @classmethod
     def padrao(cls) -> Caminhos:
@@ -65,6 +67,7 @@ class Caminhos:
             env=raiz / ".env",
             dados_preparados=raiz / "dados" / "preparados",
             saida_preparacao=raiz / "saidas" / "preparacao",
+            dados_temas=raiz / "dados" / "temas",
         )
 
 

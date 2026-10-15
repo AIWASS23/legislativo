@@ -1,0 +1,10 @@
+regra,resultado,violações
+"nenhum nó inativo, fantasma ou disciplina é publicável",aprovada,
+todo fantasma aponta para um canônico publicável,aprovada,
+"toda lixeira (forte, moderada ou fora) existe e é publicável",aprovada,
+todo nó de sobreposição existe e é publicável,aprovada,
+toda correção de título confere com o título original do temas.csv,aprovada,
+título de exibição só difere do original nos nós corrigidos,aprovada,
+"a árvore enxuta lista exatamente os nós publicáveis, uma vez cada",aprovada,
+recuo para o pai só em temas de nível 1 publicáveis com filhos,aprovada,
+todo nó citado nas decisões existe na árvore,aprovada,
