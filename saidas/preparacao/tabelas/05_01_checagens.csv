@@ -1,0 +1,9 @@
+regra,resultado,violações
+"todas as questões foram preparadas, uma vez cada",aprovada,
+nenhum texto canônico vazio,aprovada,
+nenhuma tag HTML no texto canônico,aprovada,
+nenhum escape literal (barra + n ou t) no texto canônico,aprovada,
+nenhum resíduo de editor (CSS do Word) no texto canônico,aprovada,
+múltipla escolha traz todas as alternativas; certo/errado não traz alternativas,aprovada,
+comando no texto só quando útil e com conteúdo,aprovada,
+rótulos de origem não entram no texto canônico (ADR-006),aprovada,

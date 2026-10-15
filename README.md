@@ -13,6 +13,7 @@ aluno, num tema da árvore), **revisar** (fila do professor, com sugestão) ou *
 | Parte | Estado |
 |---|---|
 | Ambiente e padrão de código ([ADR-001](docs/adr/00-fundacao/ADR-001-stack-e-ambiente.md)) | Pronto |
+| Passo 01, parte 1: texto canônico das questões ([ADR-004](docs/adr/01-dados/ADR-004-texto-canonico-das-questoes.md)) | Pronto: `dados/preparados/questoes.jsonl` |
 | Provedores de LLM plugáveis e escolha de modelos pela máquina ([ADR-017](docs/adr/00-fundacao/ADR-017-provedores-plugaveis-e-analise-de-infra.md)) | Pronto: [`saidas/infra/relatorio_infra.md`](saidas/infra/relatorio_infra.md) |
 | Análise exploratória (EDA) dos dados | Pronta: [`saidas/eda/relatorio_eda.md`](saidas/eda/relatorio_eda.md) |
 | Preparação, classificação, decisão, avaliação | Em andamento; ver o [roteiro](docs/adr/README.md#5-roteiro-de-implementação) |
@@ -43,6 +44,7 @@ Todo ponto de entrada roda **sem argumentos**. Caminhos e limiares ficam em
 | Comando | O que faz | Saídas |
 |---|---|---|
 | `uv run python executar_eda.py` | Análise exploratória das questões e da árvore de temas | `saidas/eda/relatorio_eda.md`, `resumo_eda.json`, `tabelas/*.csv` |
+| `uv run python executar_preparacao.py` | Passo 01: texto canônico das questões, com 8 checagens automáticas | `dados/preparados/questoes.jsonl`, `saidas/preparacao/` (relatório e amostra de conferência) |
 | `uv run python executar_infra.py` | Analisa a máquina (CPU, RAM, GPU, Ollama, CLIs, credenciais) e recomenda um modelo por papel | `saidas/infra/relatorio_infra.md`, `perfil_maquina.json` |
 | `uv run python executar_escolha_modelo.py` | Escolha interativa dos modelos (sugestão automática ou um por papel) | `config/escolha_modelos.json` |
 | `uv run python executar_teste_llm.py` | Uma questão simples por modelo escolhido: funcionou? acertou? latência e tokens | `saidas/infra/teste_llm.json` |
@@ -99,6 +101,7 @@ uv run python executar_checagem.py
 ```
 ├── README.md                  ← este arquivo
 ├── executar_eda.py            ← EDA
+├── executar_preparacao.py     ← passo 01: texto canônico das questões
 ├── executar_infra.py          ← análise da máquina e recomendação de modelos
 ├── executar_escolha_modelo.py ← escolha interativa de modelos por papel
 ├── executar_teste_llm.py      ← teste rápido dos modelos escolhidos
@@ -107,6 +110,7 @@ uv run python executar_checagem.py
 │   ├── configuracao.py        ← caminhos e parâmetros (sem argumentos de CLI)
 │   ├── dominio.py, carregamento.py, texto.py, arvore.py, conhecimento.py, ambiente.py, relatorio.py
 │   ├── eda/                   ← perfis e análises da EDA
+│   ├── preparacao/            ← passo 01: texto canônico e checagens
 │   ├── infra/                 ← analisador da máquina, catálogo, memória, recomendador
 │   └── llm/                   ← contrato, provedores (ollama, claude-api/cli, gemini-agy, openai, huggingface), seleção
 ├── config/                    ← catálogo de modelos e escolha de modelos (editáveis)
@@ -114,7 +118,9 @@ uv run python executar_checagem.py
 ├── docs/
 │   ├── adr/                   ← plano de implementação (ADRs por fase)
 │   └── enunciado/             ← README original do case e PDF
+├── dados/preparados/         ← saídas do passo 01 usadas pelos passos seguintes
 ├── saidas/eda/                ← relatório, resumo e tabelas da EDA
+├── saidas/preparacao/         ← relatório e conferência do passo 01
 ├── saidas/infra/              ← perfil da máquina, recomendação, escolha resolvida, teste dos modelos
 ├── anexos/                    ← dados do case (não versionados; ver "Como rodar")
 └── requirements.txt, requirements-dev.txt, ruff.toml, .python-version
