@@ -27,7 +27,14 @@ class Caminhos:
         env: Arquivo ``.env`` opcional com chaves de API (ignorado pelo git).
         dados_preparados: Pasta com as saídas do passo 01 usadas pelos passos seguintes.
         saida_preparacao: Pasta com o resumo e a conferência do passo 01.
-        dados_temas: Decisões manuais sobre a árvore (lixeiras, sobreposições, correções de título).
+        dados_temas: Decisões manuais sobre a árvore (lixeiras, sobreposições, correções de título)
+            e cartões de tema (gerados, ajustes manuais e finais, ADR-007).
+        dados_gold: Amostras, rótulos manuais e cadernos do gold set (ADR-012).
+        prompts: Prompts versionados de cada papel (a versão é o hash do arquivo).
+        runs: Cache de chamadas a modelos, só de acréscimo (``runs/<papel>/<data>.jsonl``, ADR-003).
+        saida_custos: Resumo de custo e tempo por papel e por modelo.
+        saida_cartoes: Material de revisão dos cartões e tamanhos das versões da árvore.
+        dados_classificacao: Respostas e sinais por questão (ADR-008).
     """
 
     raiz: Path
@@ -43,6 +50,12 @@ class Caminhos:
     dados_preparados: Path
     saida_preparacao: Path
     dados_temas: Path
+    dados_gold: Path
+    prompts: Path
+    runs: Path
+    saida_custos: Path
+    saida_cartoes: Path
+    dados_classificacao: Path
 
     @classmethod
     def padrao(cls) -> Caminhos:
@@ -68,6 +81,12 @@ class Caminhos:
             dados_preparados=raiz / "dados" / "preparados",
             saida_preparacao=raiz / "saidas" / "preparacao",
             dados_temas=raiz / "dados" / "temas",
+            dados_gold=raiz / "dados" / "gold",
+            prompts=raiz / "prompts",
+            runs=raiz / "runs",
+            saida_custos=raiz / "saidas" / "custos",
+            saida_cartoes=raiz / "saidas" / "cartoes",
+            dados_classificacao=raiz / "dados" / "classificacao",
         )
 
 
@@ -364,6 +383,17 @@ def _qualidade_minima_padrao() -> dict[str, int]:
     return {"classificador_a": 3, "classificador_b": 3, "voto_barato": 1, "verificador": 4}
 
 
+def _paralelismo_padrao() -> dict[str, int]:
+    """Cria o limite de chamadas simultâneas por provedor.
+
+    As CLIs de assinatura têm limite de uso e o Ollama tem uma GPU só; as APIs aguentam mais.
+
+    Returns:
+        Dicionário ``provedor -> chamadas simultâneas``.
+    """
+    return {"claude-cli": 3, "gemini-agy": 3, "ollama": 1, "claude-api": 8, "openai": 8, "huggingface": 4}
+
+
 @dataclass(frozen=True)
 class ParametrosLLM:
     """Provedores, modelos e critérios de recomendação (ADR-017).
@@ -388,6 +418,8 @@ class ParametrosLLM:
         ollama_pensar: Ativa o raciocínio dos modelos locais que o suportam (mais lento).
         huggingface_url: Endpoint compatível com OpenAI do Hugging Face Inference Providers.
         claude_esforco: Esforço (``effort``) nas chamadas do provedor ``claude-api``.
+        claude_cli_esforco: Esforço (``--effort``) nas chamadas do provedor ``claude-cli`` ("" = padrão da CLI).
+        paralelismo: Chamadas simultâneas por provedor nas rodadas em lote.
         fracao_vram_utilizavel: Fração da VRAM livre considerada utilizável.
         sobrecarga_memoria_gb: Memória extra estimada por modelo local carregado.
         bytes_cache_kv: Bytes por elemento do cache de atenção (2 = f16, padrão do Ollama).
@@ -408,6 +440,8 @@ class ParametrosLLM:
     ollama_pensar: bool = False
     huggingface_url: str = "https://router.huggingface.co/v1"
     claude_esforco: str = "low"
+    claude_cli_esforco: str = "medium"
+    paralelismo: dict[str, int] = field(default_factory=_paralelismo_padrao)
     fracao_vram_utilizavel: float = 0.9
     sobrecarga_memoria_gb: float = 0.8
     bytes_cache_kv: int = 2
@@ -428,3 +462,73 @@ class ParametrosPreparacao:
     chars_por_token: float = 3.5
     ids_conferencia: tuple[str, ...] = ("Q0099", "Q0008", "Q0090", "Q0122")
     tamanho_conferencia: int = 10
+
+
+@dataclass(frozen=True)
+class ParametrosGold:
+    """Parâmetros do gold set manual cego (ADR-012).
+
+    Attributes:
+        semente: Semente dos sorteios das amostras (fixa, para reprodutibilidade).
+        tamanho_leva1: Questões da leva 1 (desenvolvimento), estratificada por
+            disciplina de origem normalizada e formato.
+        leva2_publicacao: Questões da leva 2 sorteadas entre as que seriam publicadas
+            (probabilidade calibrada acima do limiar mais a largura da fronteira).
+        leva2_fronteira: Questões da leva 2 sorteadas perto do limiar.
+        largura_fronteira: Distância máxima ao limiar para a questão estar na fronteira.
+        niveis_certeza: Valores aceitos na coluna ``certeza``.
+        max_resultados_busca: Temas exibidos por busca na rotulagem interativa.
+        rotulo_fora_do_recorte: Estrato das questões cuja disciplina de origem não está no recorte.
+    """
+
+    semente: int = 20261015
+    tamanho_leva1: int = 60
+    leva2_publicacao: int = 40
+    leva2_fronteira: int = 20
+    largura_fronteira: float = 0.10
+    niveis_certeza: tuple[str, ...] = ("alta", "media", "baixa")
+    max_resultados_busca: int = 15
+    rotulo_fora_do_recorte: str = "(fora do recorte)"
+
+
+@dataclass(frozen=True)
+class ParametrosCartoes:
+    """Parâmetros do passo 02 (cartões de tema, ADR-007).
+
+    Attributes:
+        papel_modelo: Papel cujo modelo gera os rascunhos (o de maior qualidade, o verificador).
+        max_cartoes_por_chamada: Máximo de cartões pedidos numa chamada (blocos maiores são divididos).
+        max_chars_escopo: Tamanho máximo aceito para o escopo de um cartão.
+        max_tokens_saida: Limite de tokens de saída por chamada.
+        limiar_similaridade_irmaos: Similaridade de títulos a partir da qual dois irmãos
+            entram na revisão prioritária.
+    """
+
+    papel_modelo: str = "verificador"
+    max_cartoes_por_chamada: int = 16
+    max_chars_escopo: int = 400
+    max_tokens_saida: int = 16000
+    limiar_similaridade_irmaos: float = 0.5
+
+
+@dataclass(frozen=True)
+class ParametrosClassificacao:
+    """Parâmetros dos passos 05 e 06 (classificação e verificação, ADR-008).
+
+    Attributes:
+        adiar_gold_pendente: Não classifica as questões do gold ainda sem rótulo, para o
+            rótulo continuar cego (ADR-012). Elas entram numa execução depois de rotuladas.
+        somente_ids: Classifica só estas questões (vazio = todas); útil no teste de fumaça.
+        limite: Máximo de questões por execução (0 = sem limite).
+        verificar: Roda o verificador nas candidatas a publicar.
+        com_escopo_a: O classificador A recebe a árvore com escopo (``False`` = só títulos, E4).
+        chars_por_token_local: Caracteres por token na estimativa do contexto do modelo local
+            (conservador).
+    """
+
+    adiar_gold_pendente: bool = True
+    somente_ids: tuple[str, ...] = ()
+    limite: int = 0
+    verificar: bool = True
+    com_escopo_a: bool = True
+    chars_por_token_local: float = 3.0

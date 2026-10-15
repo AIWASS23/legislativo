@@ -105,6 +105,14 @@ class ProvedorLLM(ABC):
             ErroProvedor: Se a chamada falhar ou a resposta não respeitar o schema.
         """
 
+    def parametros_cache(self) -> dict[str, object]:
+        """Parâmetros do provedor que mudam a resposta e, por isso, entram na chave do cache (ADR-003).
+
+        Returns:
+            Dicionário serializável em JSON (vazio quando nada além do modelo importa).
+        """
+        return {}
+
     @classmethod
     def extrair_json(cls, texto: str) -> dict[str, object] | None:
         """Decodifica um objeto JSON de um texto, tolerando texto em volta.

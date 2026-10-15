@@ -66,7 +66,7 @@ class FabricaProvedores:
         if nome == "claude-api":
             return ProvedorClaudeAPI(p.claude_esforco, p.timeout_segundos)
         if nome == "claude-cli":
-            return ProvedorClaudeCLI(p.timeout_segundos, p.max_bytes_argumento_cli)
+            return ProvedorClaudeCLI(p.timeout_segundos, p.max_bytes_argumento_cli, p.claude_cli_esforco)
         if nome == "gemini-agy":
             return ProvedorGeminiAgy(p.timeout_segundos, p.max_bytes_argumento_cli)
         if nome == "openai":

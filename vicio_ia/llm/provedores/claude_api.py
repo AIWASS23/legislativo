@@ -52,6 +52,14 @@ class ProvedorClaudeAPI(ProvedorLLM):
         self._esforco: Esforco = self.ESFORCOS[esforco]
         self._timeout: int = timeout_segundos
 
+    def parametros_cache(self) -> dict[str, object]:
+        """O esforço muda a resposta.
+
+        Returns:
+            ``{"esforco": ...}``.
+        """
+        return {"esforco": self._esforco}
+
     def gerar(self, requisicao: RequisicaoLLM, modelo: str) -> RespostaLLM:
         """Faz uma chamada à API.
 

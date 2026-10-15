@@ -1,0 +1,22 @@
+{
+  "modo": "manual",
+  "papeis": {
+    "classificador_a": {
+      "provedor": "claude-cli",
+      "modelo": "claude-opus-5-5"
+    },
+    "classificador_b": {
+      "provedor": "gemini-agy",
+      "modelo": "gemini-3.8-flash-low"
+    },
+    "voto_barato": {
+      "provedor": "ollama",
+      "modelo": "qwen3.5:4b"
+    },
+    "verificador": {
+      "provedor": "claude-cli",
+      "modelo": "claude-opus-5-5"
+    }
+  },
+  "atualizado_em": "2026-10-15T09:43:14"
+}

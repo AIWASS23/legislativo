@@ -14,15 +14,40 @@ from vicio_ia.llm.provedores.cli_base import ProvedorCLI
 class ProvedorClaudeCLI(ProvedorCLI):
     """Chama ``claude -p`` sem ferramentas, sem MCP e sem salvar sessão.
 
-    O prompt de sistema do Claude Code é substituído pelo da requisição
-    (``--system-prompt``, com limite de tamanho de argumento), e a tarefa vai pela
-    entrada padrão, sem limite. A saída
-    estruturada usa ``--json-schema`` e chega no campo ``structured_output``.
+    O prompt de sistema do Claude Code é substituído pelo da requisição, gravado num
+    arquivo da pasta temporária (``--system-prompt-file``, sem limite de tamanho de
+    argumento). A tarefa vai pela entrada padrão. A saída estruturada usa
+    ``--json-schema`` e chega no campo ``structured_output``.
     """
 
     nome: ClassVar[str] = "claude-cli"
     descricao: ClassVar[str] = "Claude via CLI `claude -p` (assinatura)"
     executavel: ClassVar[str] = "claude"
+    ESFORCOS: ClassVar[frozenset[str]] = frozenset({"", "low", "medium", "high", "xhigh", "max"})
+
+    def __init__(self, timeout_segundos: int, max_bytes_argumento: int, esforco: str) -> None:
+        """Configura os limites da chamada e o esforço.
+
+        Args:
+            timeout_segundos: Tempo máximo por chamada.
+            max_bytes_argumento: Tamanho máximo do schema passado como argumento.
+            esforco: ``--effort`` da CLI (``""`` = padrão da CLI).
+
+        Raises:
+            ErroProvedor: Se o esforço for inválido.
+        """
+        super().__init__(timeout_segundos, max_bytes_argumento)
+        if esforco not in self.ESFORCOS:
+            raise ErroProvedor(f"claude-cli: esforço inválido {esforco!r}")
+        self._esforco: str = esforco
+
+    def parametros_cache(self) -> dict[str, object]:
+        """O esforço muda a resposta.
+
+        Returns:
+            ``{"esforco": ...}``.
+        """
+        return {"esforco": self._esforco}
 
     def gerar(self, requisicao: RequisicaoLLM, modelo: str) -> RespostaLLM:
         """Faz uma chamada via CLI.
@@ -37,9 +62,10 @@ class ProvedorClaudeCLI(ProvedorCLI):
         Raises:
             ErroProvedor: Se a CLI falhar, reportar erro ou não devolver a resposta estruturada.
         """
-        self.checar_tamanho(requisicao.sistema, "prompt de sistema")
         pasta: str
         with tempfile.TemporaryDirectory(prefix="vicio_claude_") as pasta:
+            arquivo_sistema: Path = Path(pasta) / "sistema.md"
+            arquivo_sistema.write_text(requisicao.sistema, encoding="utf-8")
             comando: list[str] = [
                 self.executavel,
                 "-p",
@@ -49,11 +75,13 @@ class ProvedorClaudeCLI(ProvedorCLI):
                 modelo,
                 "--no-session-persistence",
                 "--strict-mcp-config",
-                "--system-prompt",
-                requisicao.sistema,
+                "--system-prompt-file",
+                str(arquivo_sistema),
                 "--tools",
                 "",
             ]
+            if self._esforco:
+                comando.extend(["--effort", self._esforco])
             if requisicao.schema is not None:
                 schema: str = json.dumps(dict(requisicao.schema), ensure_ascii=False)
                 self.checar_tamanho(schema, "schema")

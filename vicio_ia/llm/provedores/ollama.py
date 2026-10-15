@@ -37,6 +37,14 @@ class ProvedorOllama(ProvedorLLM):
         self._timeout: int = timeout_segundos
         self._capacidades: dict[str, tuple[str, ...]] = {}
 
+    def parametros_cache(self) -> dict[str, object]:
+        """Contexto e raciocínio mudam a resposta do modelo local.
+
+        Returns:
+            ``{"num_ctx": ..., "pensar": ...}``.
+        """
+        return {"num_ctx": self._contexto, "pensar": self._pensar}
+
     def gerar(self, requisicao: RequisicaoLLM, modelo: str) -> RespostaLLM:
         """Faz uma chamada ao modelo local.
 
