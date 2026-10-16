@@ -1,4 +1,4 @@
-"""Experimentos no gold, leva 1 (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B × A).
+"""Experimentos no gold, leva 1 (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B × A), E5 (pipeline).
 
 Cada execução acrescenta uma linha por experimento e modo da régua em
 ``saidas/experimentos/resultados.csv``. As métricas são agregadas: nenhuma questão
@@ -15,12 +15,14 @@ from pathlib import Path
 from typing import ClassVar, TextIO
 
 from vicio_ia.arvore import ArvoreTemas
+from vicio_ia.avaliacao.calibracao import CalibradorBase, ExemploCalibracao, SeletorCalibrador, VetorizadorDecisao
 from vicio_ia.avaliacao.metricas import AvaliadorGold, PrevisaoSistema, ResultadoAvaliacao
 from vicio_ia.avaliacao.planilha import PlanilhaRotulos, RotuloGold, SituacaoLinha
 from vicio_ia.avaliacao.pontuador import ModoRegua, PontuadorRegua
 from vicio_ia.carregamento import CarregadorDados
 from vicio_ia.classificacao.respostas import SinaisQuestao, VotoClassificador
-from vicio_ia.configuracao import Caminhos, ParametrosGold
+from vicio_ia.configuracao import Caminhos, ParametrosCalibracao, ParametrosGold
+from vicio_ia.decisao.agregacao import AgregadorSinais, DecisaoPreliminar
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
@@ -109,7 +111,7 @@ class PipelineExperimentos:
         self._gold: ParametrosGold = parametros_gold if parametros_gold is not None else ParametrosGold()
 
     def executar(self) -> Path:
-        """Roda E0, E2 e E3 na leva 1 rotulada.
+        """Roda E0, E2, E3 e E5 na leva 1 rotulada.
 
         Returns:
             Caminho de ``resultados.csv``.
@@ -157,8 +159,83 @@ class PipelineExperimentos:
                     modelos.add(f"{voto.provedor}:{voto.modelo}")
             self._registrar(registro, avaliador, nome, descricao, previsoes, rotulos, ",".join(sorted(modelos)), nota)
         self._correlacao_erros(sinais, rotulos, avaliador)
+        self._e5(sinais, questoes, temas, rotulos, avaliador, registro, nota)
         print(f"Resultados: {registro.arquivo}")
         return registro.arquivo
+
+    def _e5(
+        self,
+        sinais: Mapping[str, SinaisQuestao],
+        questoes: Sequence[QuestaoPreparada],
+        temas: Sequence[TemaPreparado],
+        rotulos: Sequence[RotuloGold],
+        avaliador: AvaliadorGold,
+        registro: RegistroExperimentos,
+        nota: str,
+    ) -> None:
+        """E5: pipeline completo (agregação, verificador, recuo, calibração e chance efetiva) × A sozinho.
+
+        A ``P`` de cada questão do gold vem de um calibrador ajustado sem ela (validação cruzada), para
+        não medir o pipeline nos mesmos dados em que ele foi calibrado. Só as candidatas podem ser
+        publicadas; revisões forçadas e ``fora`` contam como não publicadas.
+
+        Args:
+            sinais: Sinais por ID.
+            questoes: Questões preparadas.
+            temas: Árvore preparada.
+            rotulos: Rótulos válidos.
+            avaliador: Avaliador com a régua.
+            registro: Registro de resultados.
+            nota: Observação (rotuladas sem classificação).
+        """
+        parametros: ParametrosCalibracao = ParametrosCalibracao()
+        agregador: AgregadorSinais = AgregadorSinais(temas)
+        origem: SinalOrigem = SinalOrigem(temas, ProcessadorTexto())
+        por_id: dict[str, QuestaoPreparada] = {q.id: q for q in questoes}
+        exemplos: list[ExemploCalibracao] = []
+        rotulo: RotuloGold
+        for rotulo in rotulos:
+            if rotulo.id not in sinais:
+                continue
+            decisao: DecisaoPreliminar = agregador.decidir(
+                sinais[rotulo.id], por_id[rotulo.id], origem.temas(por_id[rotulo.id])
+            )
+            if decisao.tema_id and decisao.acao != "fora":
+                exemplos.append(
+                    ExemploCalibracao(decisao, avaliador.pontuador.acerta(decisao.tema_id, rotulo, "estrita"), 1.0)
+                )
+        if len({e.acerto for e in exemplos}) < 2:
+            print("  E5: gold insuficiente para calibrar")
+            return
+        calibrador: CalibradorBase
+        calibrador, _ = SeletorCalibrador(VetorizadorDecisao()).escolher(
+            exemplos, parametros.penalidades_l2, parametros.partes_validacao, parametros.semente
+        )
+        fora: list[float] = calibrador.fora_da_amostra(exemplos, parametros.partes_validacao, parametros.semente)
+        efetiva: bool
+        for efetiva in (False, True):
+            previsoes: dict[str, PrevisaoSistema] = {}
+            exemplo: ExemploCalibracao
+            probabilidade: float
+            for exemplo, probabilidade in zip(exemplos, fora, strict=True):
+                d: DecisaoPreliminar = exemplo.decisao
+                fator: float = 1.0 - parametros.taxas_convencao.get(d.tipo_convencao, 0.0) if efetiva else 1.0
+                previsoes[d.id] = PrevisaoSistema(
+                    d.id, d.tema_id if d.acao == "candidata" else "", probabilidade * fator
+                )
+            ordem: str = (
+                "chance efetiva (com risco de convenção)" if efetiva else "P calibrada (o gold não mede convenção)"
+            )
+            self._registrar(
+                registro,
+                avaliador,
+                "E5",
+                f"pipeline completo ({calibrador.nome}, P fora da amostra, ordenado pela {ordem})",
+                previsoes,
+                rotulos,
+                "",
+                nota,
+            )
 
     def _rotulos(self, temas: Sequence[TemaPreparado]) -> list[RotuloGold]:
         """Lê os rótulos válidos da leva 1.
