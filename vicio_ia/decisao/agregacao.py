@@ -86,6 +86,7 @@ class DecisaoPreliminar:
         extras_ids: Temas de outro ramo indicados por duas fontes ou mais (até 3), ou os
             subtemas candidatos de uma questão recuada.
         concordancia_ramo: Fontes (A, B, voto barato, regras) no ramo do tema: 0 a 4.
+        fontes_no_ramo: Quais fontes estão no ramo do tema (papéis e ``regras``).
         veredito: Veredito do verificador.
         autoconfianca_media: Média da autoconfiança de A e B.
         lixeira: Nível de lixeira do tema.
@@ -102,6 +103,7 @@ class DecisaoPreliminar:
     motivo: str
     extras_ids: tuple[str, ...]
     concordancia_ramo: int
+    fontes_no_ramo: tuple[str, ...]
     veredito: str
     autoconfianca_media: float | None
     lixeira: str
@@ -328,8 +330,9 @@ class AgregadorSinais:
         """
         no: TemaPreparado | None = self._arvore.tema(tema) if tema else None
         votos: list[VotoClassificador] = [v for v in sinais.votos if v.ok and v.tema_id]
-        concordancia: int = sum(1 for v in votos if tema and self._arvore.mesmo_ramo(v.tema_id, tema))
-        concordancia += int(bool(tema) and any(self._arvore.mesmo_ramo(r, tema) for r in sinais.regras))
+        fontes: list[str] = [v.papel for v in votos if tema and self._arvore.mesmo_ramo(v.tema_id, tema)]
+        if tema and any(self._arvore.mesmo_ramo(r, tema) for r in sinais.regras):
+            fontes.append("regras")
         confiancas: list[float] = [
             v.autoconfianca
             for v in votos
@@ -344,7 +347,8 @@ class AgregadorSinais:
             recuou=recuou,
             motivo=motivo,
             extras_ids=tuple(e for e in extras if e and e != tema)[:3],
-            concordancia_ramo=concordancia,
+            concordancia_ramo=len(fontes),
+            fontes_no_ramo=tuple(fontes),
             veredito=sinais.verificador.veredito,
             autoconfianca_media=round(sum(confiancas) / len(confiancas), 3) if confiancas else None,
             lixeira=no.lixeira if no is not None else "",

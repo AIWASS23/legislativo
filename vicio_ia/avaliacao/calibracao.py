@@ -1,12 +1,18 @@
-"""Calibração da confiança (ADR-013): regressão logística L2 sobre poucas variáveis dos sinais.
+"""Calibração da confiança (ADR-013): dois calibradores intercambiáveis.
 
-A regressão é implementada com ``numpy`` (mínimos quadrados reponderados, IRLS), para manter
-o código tipado de ponta a ponta. O alvo é o acerto pela régua **estrita** no gold.
+* **Logístico:** regressão logística L2 sobre poucas variáveis dos sinais, implementada com ``numpy``
+  (mínimos quadrados reponderados, IRLS), para manter o código tipado de ponta a ponta.
+* **Faixas:** a alternativa da ADR-013 para quando a regressão fica instável. Taxa de acerto observada
+  em cada faixa de sinais (consenso total, confirmação parcial...), com suavização de Jeffreys, e
+  incerteza por sorteios da distribuição Beta de cada faixa.
+
+O alvo é o acerto pela régua **estrita** no gold. O pipeline usa o de menor log-loss na validação cruzada.
 """
 
 from __future__ import annotations
 
 import math
+from abc import ABC, abstractmethod
 from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import ClassVar
@@ -175,81 +181,34 @@ class ValidacaoCalibracao:
     faixas: tuple[tuple[str, int, float, float], ...]
 
 
-class SeletorPenalidade:
-    """Escolhe a penalidade L2 pela menor log-loss na validação cruzada."""
-
-    def __init__(self, vetorizador: VetorizadorDecisao) -> None:
-        """Guarda o vetorizador.
-
-        Args:
-            vetorizador: Conversor de decisões em variáveis.
-        """
-        self._vetorizador: VetorizadorDecisao = vetorizador
-
-    def escolher(
-        self, exemplos: Sequence[ExemploCalibracao], penalidades: Sequence[float], partes: int, semente: int
-    ) -> tuple[float, list[tuple[float, ValidacaoCalibracao]]]:
-        """Valida cada penalidade da grade.
-
-        Empates na log-loss (diferença menor que 0,001) ficam com a penalidade maior, mais conservadora.
-
-        Args:
-            exemplos: Gold rotulado.
-            penalidades: Grade de penalidades.
-            partes: Partes da validação cruzada.
-            semente: Semente.
-
-        Returns:
-            ``(penalidade escolhida, [(penalidade, validação)])``.
-        """
-        resultados: list[tuple[float, ValidacaoCalibracao]] = [
-            (penalidade, Calibrador(penalidade, self._vetorizador).validar(exemplos, partes, semente))
-            for penalidade in penalidades
-        ]
-        melhor: float = min(r[1].log_loss for r in resultados)
-        escolhida: float = max(p for p, v in resultados if v.log_loss <= melhor + 0.001)
-        return escolhida, resultados
-
-
-class Calibrador:
-    """Ajusta e aplica a calibração; faz a validação cruzada estratificada."""
-
-    def __init__(self, penalidade: float, vetorizador: VetorizadorDecisao) -> None:
-        """Define o modelo.
-
-        Args:
-            penalidade: Penalidade L2.
-            vetorizador: Conversor de decisões em variáveis.
-        """
-        self._penalidade: float = penalidade
-        self._vetorizador: VetorizadorDecisao = vetorizador
-        self._modelo: RegressaoLogisticaL2 = RegressaoLogisticaL2(penalidade)
-        self._ajustado: bool = False
+class CalibradorBase(ABC):
+    """Contrato comum: ajustar no gold, prever ``P(acerto)`` e gerar reamostras para o bootstrap."""
 
     @property
-    def coeficientes(self) -> dict[str, float]:
-        """Coeficientes por variável (com o intercepto)."""
-        valores: Matriz = self._modelo.coeficientes
-        nomes: tuple[str, ...] = ("intercepto", *self._vetorizador.NOMES)
-        return {nome: round(float(valor), 3) for nome, valor in zip(nomes, valores, strict=False)}
+    @abstractmethod
+    def nome(self) -> str:
+        """Nome do método (para o relatório)."""
 
-    def ajustar(self, exemplos: Sequence[ExemploCalibracao]) -> Calibrador:
+    @abstractmethod
+    def novo(self) -> CalibradorBase:
+        """Cria um calibrador não ajustado com os mesmos hiperparâmetros.
+
+        Returns:
+            Calibrador novo.
+        """
+
+    @abstractmethod
+    def ajustar(self, exemplos: Sequence[ExemploCalibracao]) -> CalibradorBase:
         """Ajusta nos exemplos rotulados.
 
         Args:
-            exemplos: Exemplos.
+            exemplos: Gold rotulado.
 
         Returns:
             O próprio calibrador.
         """
-        x: Matriz = self._vetorizador.matriz([e.decisao for e in exemplos])
-        y: Matriz = np.array([1.0 if e.acerto else 0.0 for e in exemplos], dtype=np.float64)
-        pesos: Matriz = np.array([e.peso for e in exemplos], dtype=np.float64)
-        pesos = pesos * len(exemplos) / float(pesos.sum())
-        self._modelo = RegressaoLogisticaL2(self._penalidade).ajustar(x, y, pesos)
-        self._ajustado = True
-        return self
 
+    @abstractmethod
     def prever(self, decisoes: Sequence[DecisaoPreliminar]) -> list[float]:
         """Probabilidade calibrada de acerto.
 
@@ -259,9 +218,34 @@ class Calibrador:
         Returns:
             Probabilidades na mesma ordem.
         """
-        if not decisoes:
-            return []
-        return [float(p) for p in self._modelo.prever(self._vetorizador.matriz(decisoes))]
+
+    def amostrar(
+        self,
+        decisoes: Sequence[DecisaoPreliminar],
+        exemplos: Sequence[ExemploCalibracao],
+        reamostras: int,
+        gerador: np.random.Generator,
+    ) -> Matriz:
+        """Bootstrap não paramétrico: reamostra o gold, reajusta e prevê as decisões.
+
+        Args:
+            decisoes: Decisões a prever.
+            exemplos: Gold rotulado.
+            reamostras: Número de reamostras.
+            gerador: Gerador aleatório.
+
+        Returns:
+            Matriz ``reamostras válidas × decisões``.
+        """
+        linhas: list[list[float]] = []
+        _reamostra: int
+        for _reamostra in range(reamostras):
+            sorteio: list[int] = [int(i) for i in gerador.integers(0, len(exemplos), len(exemplos))]
+            amostra: list[ExemploCalibracao] = [exemplos[i] for i in sorteio]
+            if len({e.acerto for e in amostra}) < 2:
+                continue
+            linhas.append(self.novo().ajustar(amostra).prever(decisoes))
+        return np.array(linhas, dtype=np.float64).reshape(len(linhas), len(decisoes))
 
     def validar(self, exemplos: Sequence[ExemploCalibracao], partes: int, semente: int) -> ValidacaoCalibracao:
         """Validação cruzada estratificada (acertos e erros distribuídos entre as partes).
@@ -273,6 +257,19 @@ class Calibrador:
 
         Returns:
             Métricas fora da amostra.
+        """
+        return self._metricas(exemplos, self.fora_da_amostra(exemplos, partes, semente))
+
+    def fora_da_amostra(self, exemplos: Sequence[ExemploCalibracao], partes: int, semente: int) -> list[float]:
+        """Probabilidade de cada exemplo prevista por um calibrador ajustado sem ele (validação cruzada).
+
+        Args:
+            exemplos: Exemplos rotulados.
+            partes: Número de partes.
+            semente: Semente do embaralhamento.
+
+        Returns:
+            Probabilidades na ordem dos exemplos.
         """
         gerador: np.random.Generator = np.random.default_rng(semente)
         indices: dict[bool, list[int]] = {True: [], False: []}
@@ -295,13 +292,12 @@ class Calibrador:
             teste: list[int] = [i for i in range(len(exemplos)) if parte_de[i] == parte]
             if not teste or len({e.acerto for e in treino}) < 2:
                 continue
-            modelo: Calibrador = Calibrador(self._penalidade, self._vetorizador).ajustar(treino)
-            probabilidades: list[float] = modelo.prever([exemplos[i].decisao for i in teste])
+            probabilidades: list[float] = self.novo().ajustar(treino).prever([exemplos[i].decisao for i in teste])
             indice: int
             probabilidade: float
             for indice, probabilidade in zip(teste, probabilidades, strict=True):
                 previstas[indice] = probabilidade
-        return self._metricas(exemplos, previstas)
+        return previstas
 
     @staticmethod
     def _metricas(exemplos: Sequence[ExemploCalibracao], previstas: Sequence[float]) -> ValidacaoCalibracao:
@@ -346,3 +342,271 @@ class Calibrador:
         return ValidacaoCalibracao(
             n, round(taxa, 3), round(brier, 4), round(brier_base, 4), round(perda, 4), tuple(faixas)
         )
+
+
+class CalibradorLogistico(CalibradorBase):
+    """Regressão logística L2 sobre as variáveis do :class:`VetorizadorDecisao`."""
+
+    def __init__(self, penalidade: float, vetorizador: VetorizadorDecisao) -> None:
+        """Define o modelo.
+
+        Args:
+            penalidade: Penalidade L2.
+            vetorizador: Conversor de decisões em variáveis.
+        """
+        self._penalidade: float = penalidade
+        self._vetorizador: VetorizadorDecisao = vetorizador
+        self._modelo: RegressaoLogisticaL2 = RegressaoLogisticaL2(penalidade)
+
+    @property
+    def nome(self) -> str:
+        """Nome do método."""
+        return f"regressão logística L2 (penalidade {self._penalidade:g})"
+
+    @property
+    def coeficientes(self) -> dict[str, float]:
+        """Coeficientes por variável (com o intercepto)."""
+        valores: Matriz = self._modelo.coeficientes
+        nomes: tuple[str, ...] = ("intercepto", *self._vetorizador.NOMES)
+        return {nome: round(float(valor), 3) for nome, valor in zip(nomes, valores, strict=False)}
+
+    def novo(self) -> CalibradorLogistico:
+        """Cria um calibrador não ajustado com a mesma penalidade.
+
+        Returns:
+            Calibrador novo.
+        """
+        return CalibradorLogistico(self._penalidade, self._vetorizador)
+
+    def ajustar(self, exemplos: Sequence[ExemploCalibracao]) -> CalibradorLogistico:
+        """Ajusta nos exemplos rotulados, com o peso amostral.
+
+        Args:
+            exemplos: Exemplos.
+
+        Returns:
+            O próprio calibrador.
+        """
+        x: Matriz = self._vetorizador.matriz([e.decisao for e in exemplos])
+        y: Matriz = np.array([1.0 if e.acerto else 0.0 for e in exemplos], dtype=np.float64)
+        pesos: Matriz = np.array([e.peso for e in exemplos], dtype=np.float64)
+        pesos = pesos * len(exemplos) / float(pesos.sum())
+        self._modelo = RegressaoLogisticaL2(self._penalidade).ajustar(x, y, pesos)
+        return self
+
+    def prever(self, decisoes: Sequence[DecisaoPreliminar]) -> list[float]:
+        """Probabilidade calibrada de acerto.
+
+        Args:
+            decisoes: Decisões com tema.
+
+        Returns:
+            Probabilidades na mesma ordem.
+        """
+        if not decisoes:
+            return []
+        return [float(p) for p in self._modelo.prever(self._vetorizador.matriz(decisoes))]
+
+
+class CalibradorFaixas(CalibradorBase):
+    """Taxa de acerto observada por faixa de sinais, com suavização de Jeffreys.
+
+    Faixas, da mais à menos confiável:
+
+    * ``consenso_total``: o verificador confirma e A, B e o voto barato estão no ramo do tema;
+    * ``confirma_parcial``: o verificador confirma, mas alguma fonte de LLM discorda;
+    * ``verificador_vizinho``: o verificador escolheu o pai, um filho ou um irmão (houve recuo ou ajuste);
+    * ``outros``: o resto (revisões forçadas, falhas).
+
+    A taxa de cada faixa usa o peso amostral (inverso da probabilidade de inclusão), porque a leva 2 é
+    sorteada pela chance efetiva, que mistura faixa e tipo de convenção. A incerteza usa o tamanho
+    efetivo de Kish, ``(Σw)² / Σw²``: com pesos iguais, é o próprio número de questões.
+    """
+
+    FAIXAS: ClassVar[tuple[str, ...]] = ("consenso_total", "confirma_parcial", "verificador_vizinho", "outros")
+    FONTES_LLM: ClassVar[frozenset[str]] = frozenset({"classificador_a", "classificador_b", "voto_barato"})
+
+    def __init__(self, prior: float = 0.5) -> None:
+        """Define a suavização.
+
+        Args:
+            prior: Pseudo-contagem de acertos e de erros (0,5 = Jeffreys).
+        """
+        self._prior: float = prior
+        self._brutas: dict[str, tuple[int, int]] = {}
+        self._efetivas: dict[str, tuple[float, float]] = {}
+
+    @property
+    def nome(self) -> str:
+        """Nome do método."""
+        return "faixas de sinais com suavização de Jeffreys"
+
+    @property
+    def tabela(self) -> list[tuple[str, int, int, float]]:
+        """``(faixa, exemplos, acertos, P)`` de cada faixa, na ordem de :attr:`FAIXAS`."""
+        return [(faixa, *self._brutas.get(faixa, (0, 0)), round(self._taxa(faixa), 4)) for faixa in self.FAIXAS]
+
+    @classmethod
+    def faixa(cls, decisao: DecisaoPreliminar) -> str:
+        """Faixa de uma decisão.
+
+        Args:
+            decisao: Decisão preliminar.
+
+        Returns:
+            Nome da faixa.
+        """
+        if decisao.veredito == "confirma":
+            return "consenso_total" if cls.FONTES_LLM <= set(decisao.fontes_no_ramo) else "confirma_parcial"
+        if decisao.veredito in ("pai", "filho", "irmao"):
+            return "verificador_vizinho"
+        return "outros"
+
+    def novo(self) -> CalibradorFaixas:
+        """Cria um calibrador não ajustado com a mesma suavização.
+
+        Returns:
+            Calibrador novo.
+        """
+        return CalibradorFaixas(self._prior)
+
+    def ajustar(self, exemplos: Sequence[ExemploCalibracao]) -> CalibradorFaixas:
+        """Conta exemplos e acertos por faixa, brutos e efetivos (com o peso amostral).
+
+        Args:
+            exemplos: Gold rotulado.
+
+        Returns:
+            O próprio calibrador.
+        """
+        por_faixa: dict[str, list[ExemploCalibracao]] = {faixa: [] for faixa in self.FAIXAS}
+        exemplo: ExemploCalibracao
+        for exemplo in exemplos:
+            por_faixa[self.faixa(exemplo.decisao)].append(exemplo)
+        self._brutas = {f: (len(itens), sum(1 for e in itens if e.acerto)) for f, itens in por_faixa.items()}
+        self._efetivas = {f: self._efetiva(itens) for f, itens in por_faixa.items()}
+        return self
+
+    @staticmethod
+    def _efetiva(exemplos: Sequence[ExemploCalibracao]) -> tuple[float, float]:
+        """Tamanho efetivo de Kish e acertos efetivos de um grupo de exemplos.
+
+        Args:
+            exemplos: Exemplos de uma faixa.
+
+        Returns:
+            ``(n efetivo, acertos efetivos)``; ``(0, 0)`` se vazio.
+        """
+        if not exemplos:
+            return 0.0, 0.0
+        pesos: list[float] = [e.peso for e in exemplos]
+        soma: float = sum(pesos)
+        n_efetivo: float = soma * soma / sum(w * w for w in pesos)
+        taxa: float = sum(e.peso for e in exemplos if e.acerto) / soma
+        return n_efetivo, taxa * n_efetivo
+
+    def prever(self, decisoes: Sequence[DecisaoPreliminar]) -> list[float]:
+        """Taxa suavizada da faixa de cada decisão.
+
+        Args:
+            decisoes: Decisões com tema.
+
+        Returns:
+            Probabilidades na mesma ordem.
+        """
+        return [self._taxa(self.faixa(decisao)) for decisao in decisoes]
+
+    def amostrar(
+        self,
+        decisoes: Sequence[DecisaoPreliminar],
+        exemplos: Sequence[ExemploCalibracao],
+        reamostras: int,
+        gerador: np.random.Generator,
+    ) -> Matriz:
+        """Sorteia a taxa de cada faixa da distribuição Beta ajustada no gold.
+
+        O bootstrap comum não serve aqui: numa faixa com 28 acertos em 28, toda reamostra dá 100%
+        e a incerteza some. A Beta(acertos + 0,5, erros + 0,5) mantém a incerteza do tamanho da faixa.
+
+        Args:
+            decisoes: Decisões a prever.
+            exemplos: Gold rotulado.
+            reamostras: Número de sorteios.
+            gerador: Gerador aleatório.
+
+        Returns:
+            Matriz ``sorteios × decisões``.
+        """
+        ajustado: CalibradorFaixas = self.novo().ajustar(exemplos)
+        total: tuple[float, float] = self._efetiva(exemplos)
+        sorteios: dict[str, Matriz] = {}
+        faixa: str
+        for faixa in self.FAIXAS:
+            n: float
+            acertos: float
+            n, acertos = ajustado._efetivas.get(faixa, (0.0, 0.0))
+            if n == 0:
+                n, acertos = total
+            sorteios[faixa] = gerador.beta(acertos + self._prior, n - acertos + self._prior, reamostras)
+        colunas: list[Matriz] = [sorteios[self.faixa(decisao)] for decisao in decisoes]
+        if not colunas:
+            return np.zeros((reamostras, 0), dtype=np.float64)
+        resultado: Matriz = np.stack(colunas, axis=1)
+        return resultado
+
+    def _taxa(self, faixa: str) -> float:
+        """Taxa suavizada de uma faixa (a do gold inteiro, se a faixa não tiver exemplos).
+
+        Args:
+            faixa: Nome da faixa.
+
+        Returns:
+            ``(acertos + prior) / (n + 2 · prior)``.
+        """
+        n: float
+        acertos: float
+        n, acertos = self._efetivas.get(faixa, (0.0, 0.0))
+        if n == 0:
+            n = sum(c[0] for c in self._efetivas.values())
+            acertos = sum(c[1] for c in self._efetivas.values())
+        return (acertos + self._prior) / (n + 2 * self._prior)
+
+
+class SeletorCalibrador:
+    """Escolhe a penalidade da regressão e, depois, o método de menor log-loss na validação cruzada."""
+
+    def __init__(self, vetorizador: VetorizadorDecisao) -> None:
+        """Guarda o vetorizador.
+
+        Args:
+            vetorizador: Conversor de decisões em variáveis.
+        """
+        self._vetorizador: VetorizadorDecisao = vetorizador
+
+    def escolher(
+        self, exemplos: Sequence[ExemploCalibracao], penalidades: Sequence[float], partes: int, semente: int
+    ) -> tuple[CalibradorBase, list[tuple[str, ValidacaoCalibracao]]]:
+        """Valida a grade de penalidades e as faixas, e escolhe o melhor.
+
+        Empates na log-loss (diferença menor que 0,001) ficam com o mais simples: faixas antes da
+        regressão, e penalidade maior antes de menor.
+
+        Args:
+            exemplos: Gold rotulado.
+            penalidades: Grade de penalidades da regressão.
+            partes: Partes da validação cruzada.
+            semente: Semente.
+
+        Returns:
+            ``(calibrador escolhido, [(nome, validação)])`` na ordem testada.
+        """
+        candidatos: list[CalibradorBase] = [
+            CalibradorFaixas(),
+            *(CalibradorLogistico(p, self._vetorizador) for p in sorted(penalidades, reverse=True)),
+        ]
+        resultados: list[tuple[CalibradorBase, ValidacaoCalibracao]] = [
+            (c, c.validar(exemplos, partes, semente)) for c in candidatos
+        ]
+        melhor: float = min(v.log_loss for _, v in resultados)
+        escolhido: CalibradorBase = next(c for c, v in resultados if v.log_loss <= melhor + 0.001)
+        return escolhido, [(c.nome, v) for c, v in resultados]

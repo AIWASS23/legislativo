@@ -485,10 +485,11 @@ class ParametrosGold:
         semente: Semente dos sorteios das amostras (fixa, para reprodutibilidade).
         tamanho_leva1: Questões da leva 1 (desenvolvimento), estratificada por
             disciplina de origem normalizada e formato.
-        leva2_publicacao: Questões da leva 2 sorteadas entre as que seriam publicadas
-            (probabilidade calibrada acima do limiar mais a largura da fronteira).
-        leva2_fronteira: Questões da leva 2 sorteadas perto do limiar.
-        largura_fronteira: Distância máxima ao limiar para a questão estar na fronteira.
+        leva2_publicacao: Questões da leva 2 sorteadas entre as que seriam publicadas (P calibrada
+            igual ou acima do limiar provisório).
+        leva2_fronteira: Questões da leva 2 sorteadas logo abaixo do limiar.
+        largura_fronteira: Distância máxima abaixo do limiar para a questão estar na fronteira (com
+            faixas, as P são discretas: 0,15 alcança a faixa seguinte).
         niveis_certeza: Valores aceitos na coluna ``certeza``.
         max_resultados_busca: Temas exibidos por busca na rotulagem interativa.
         rotulo_fora_do_recorte: Estrato das questões cuja disciplina de origem não está no recorte.
@@ -500,7 +501,7 @@ class ParametrosGold:
     tamanho_leva1: int = 60
     leva2_publicacao: int = 40
     leva2_fronteira: int = 20
-    largura_fronteira: float = 0.10
+    largura_fronteira: float = 0.15
     niveis_certeza: tuple[str, ...] = ("alta", "media", "baixa")
     max_resultados_busca: int = 15
     rotulo_fora_do_recorte: str = "(fora do recorte)"

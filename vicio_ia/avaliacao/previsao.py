@@ -1,13 +1,14 @@
 """Limiar de publicação e previsão de precisão e cobertura (ADR-011, etapa 4, e ADR-013).
 
-1. A calibração dá ``P(acerto)`` a cada candidata; elas são ordenadas por ``P``.
-2. Bootstrap: o gold é reamostrado e a calibração reajustada ``B`` vezes; para cada tamanho ``k``
-   do conjunto publicado (as ``k`` de maior ``P``), a precisão estimada é a média da ``P`` reajustada.
-3. Limite inferior de cada ``k``: percentil 10 do bootstrap menos a margem de convenção (pela
-   composição do conjunto) e a margem de ambiguidade do rótulo. Publica-se o maior ``k`` com limite
-   inferior de pelo menos 95%. Reserva: o maior ``k`` com estimativa pontual de 97% ou mais.
-4. Intervalo informado: percentis 5 e 95 do bootstrap para o conjunto escolhido (limiar fixo nas
-   reamostras), alargado pelas margens no limite inferior.
+1. A calibração dá ``P(acerto)`` a cada candidata. A **chance efetiva** desconta o risco de convenção
+   do nó: ``P × (1 - taxa suposta do tipo de convenção)`` (ADR-005, ADR-013). É ela que ordena as
+   candidatas e vai para a coluna ``confianca``: publicar num nó de risco "custa" confiança (ADR-011).
+2. Reamostras da calibração (bootstrap, ou sorteios da Beta nas faixas) dão a incerteza da chance efetiva
+   média de cada conjunto ``k`` (as ``k`` de maior chance, cortando só entre valores diferentes).
+3. Publica-se o maior ``k`` cujo percentil 10 fica em 95% ou mais. Reserva: o maior ``k`` com estimativa
+   pontual de 97% ou mais.
+4. Intervalo informado: percentis 5 e 95 das reamostras para o conjunto escolhido (limiar fixo nas
+   reamostras), menos as margens de convenção e de ambiguidade do rótulo no limite inferior.
 """
 
 from __future__ import annotations
@@ -17,7 +18,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from vicio_ia.avaliacao.calibracao import Calibrador, ExemploCalibracao, Matriz, VetorizadorDecisao
+from vicio_ia.avaliacao.calibracao import CalibradorBase, ExemploCalibracao, Matriz
 from vicio_ia.configuracao import ParametrosCalibracao
 from vicio_ia.decisao.agregacao import DecisaoPreliminar
 
@@ -42,6 +43,7 @@ class ResultadoPrevisao:
         cobertura_intervalo: Intervalo da cobertura.
         sensibilidade: ``(fator das taxas, ponto, limite inferior)``.
         reamostras_validas: Reamostras do bootstrap com as duas classes.
+        limiar_provisorio: Limiar que a leva 2 usa para sortear a zona de publicação.
     """
 
     probabilidades: dict[str, float]
@@ -59,22 +61,21 @@ class ResultadoPrevisao:
     cobertura_intervalo: tuple[float, float]
     sensibilidade: tuple[tuple[float, float, float], ...]
     reamostras_validas: int
+    limiar_provisorio: float
 
 
 class PrevisorPrecisao:
     """Escolhe o limiar e prevê precisão e cobertura."""
 
-    def __init__(self, parametros: ParametrosCalibracao, vetorizador: VetorizadorDecisao, penalidade: float) -> None:
+    def __init__(self, parametros: ParametrosCalibracao, calibrador: CalibradorBase) -> None:
         """Guarda os parâmetros.
 
         Args:
             parametros: Parâmetros da calibração e do limiar.
-            vetorizador: Conversor de decisões em variáveis.
-            penalidade: Penalidade L2 escolhida na validação cruzada.
+            calibrador: Calibrador escolhido na validação cruzada (usado não ajustado, como molde).
         """
         self._parametros: ParametrosCalibracao = parametros
-        self._vetorizador: VetorizadorDecisao = vetorizador
-        self._penalidade: float = penalidade
+        self._calibrador: CalibradorBase = calibrador
 
     def prever(
         self,
@@ -93,64 +94,99 @@ class PrevisorPrecisao:
             Previsão.
         """
         p: ParametrosCalibracao = self._parametros
-        principal: Calibrador = Calibrador(self._penalidade, self._vetorizador).ajustar(exemplos)
-        probabilidades: dict[str, float] = {
-            d.id: round(prob, 4) for d, prob in zip(com_tema, principal.prever(com_tema), strict=True)
-        }
+        principal: CalibradorBase = self._calibrador.novo().ajustar(exemplos)
+        calibradas: dict[str, float] = dict(zip((d.id for d in com_tema), principal.prever(com_tema), strict=True))
+        fator: dict[str, float] = {d.id: 1.0 - p.taxas_convencao.get(d.tipo_convencao, 0.0) for d in com_tema}
+        probabilidades: dict[str, float] = {i: round(calibradas[i] * fator[i], 4) for i in calibradas}
         candidatas: list[DecisaoPreliminar] = sorted(
             (d for d in com_tema if d.acao == "candidata"), key=lambda d: (-probabilidades[d.id], d.id)
         )
-        reamostras: Matriz = self._bootstrap(candidatas, exemplos)
-        acumuladas: Matriz = np.cumsum(reamostras, axis=1) / np.arange(1, len(candidatas) + 1)
+        reamostras: Matriz = principal.amostrar(candidatas, exemplos, p.reamostras, np.random.default_rng(p.semente))
+        efetivas: Matriz = reamostras * np.array([fator[d.id] for d in candidatas], dtype=np.float64)
+        acumuladas: Matriz = np.cumsum(efetivas, axis=1) / np.arange(1, len(candidatas) + 1)
         pontos: list[float] = list(
             np.cumsum([probabilidades[d.id] for d in candidatas]) / np.arange(1, len(candidatas) + 1)
         )
-        margens: list[float] = self._margens_convencao(candidatas, 1.0)
         ambiguidade: float = self._ambiguidade(exemplos, acerto_tolerante)
         desconto: float = ambiguidade if p.margem_ambiguidade_no_limiar else 0.0
+        cortes: list[int] = self._cortes(candidatas, probabilidades)
         k: int = 0
         regra: str = "nenhuma publicada"
         indice: int
         if reamostras.shape[0] > 0:
-            for indice in range(len(candidatas), 0, -1):
+            for indice in cortes:
                 inferior: float = float(np.percentile(acumuladas[:, indice - 1], p.percentil_limiar))
-                if inferior - margens[indice - 1] - desconto >= p.alvo_precisao:
+                if inferior - desconto >= p.alvo_precisao:
                     k, regra = indice, "limite inferior"
                     break
         if k == 0:
-            for indice in range(len(candidatas), 0, -1):
-                if pontos[indice - 1] - margens[indice - 1] >= p.reserva_pontual:
+            for indice in cortes:
+                if pontos[indice - 1] >= p.reserva_pontual:
                     k, regra = indice, "reserva pontual"
                     break
         publicadas: list[DecisaoPreliminar] = candidatas[:k]
         ids_publicados: set[str] = {d.id for d in publicadas}
         no_conjunto: list[ExemploCalibracao] = [e for e in exemplos if e.decisao.id in ids_publicados]
         ambiguidade_publicadas: float = self._ambiguidade(no_conjunto, acerto_tolerante) if no_conjunto else ambiguidade
+        provisorio: float = self._limiar_provisorio(candidatas, probabilidades, pontos, cortes)
         return self._resultado(
-            probabilidades, publicadas, regra, reamostras, exemplos, ambiguidade_publicadas, pontos[k - 1] if k else 0.0
+            probabilidades,
+            publicadas,
+            regra,
+            reamostras,
+            exemplos,
+            ambiguidade_publicadas,
+            sum(calibradas[d.id] for d in candidatas[:k]) / k if k else 0.0,
+            provisorio,
         )
 
-    def _bootstrap(self, candidatas: Sequence[DecisaoPreliminar], exemplos: Sequence[ExemploCalibracao]) -> Matriz:
-        """Reajusta a calibração em reamostras do gold e prevê as candidatas.
+    @staticmethod
+    def _cortes(candidatas: Sequence[DecisaoPreliminar], probabilidades: Mapping[str, float]) -> list[int]:
+        """Tamanhos de conjunto permitidos: só na fronteira entre valores diferentes de ``P``.
+
+        Com empates (todas as questões de uma faixa têm a mesma ``P``), cortar no meio escolheria
+        questões de forma arbitrária.
 
         Args:
-            candidatas: Candidatas, na ordem da ``P`` principal.
-            exemplos: Gold rotulado.
+            candidatas: Candidatas ordenadas pela ``P``, da maior para a menor.
+            probabilidades: ``P`` por ID.
 
         Returns:
-            Matriz ``reamostras válidas × candidatas``.
+            Tamanhos ``k`` permitidos, do maior para o menor.
         """
-        gerador: np.random.Generator = np.random.default_rng(self._parametros.semente)
-        linhas: list[list[float]] = []
-        _reamostra: int
-        for _reamostra in range(self._parametros.reamostras):
-            sorteio: list[int] = [int(i) for i in gerador.integers(0, len(exemplos), len(exemplos))]
-            amostra: list[ExemploCalibracao] = [exemplos[i] for i in sorteio]
-            if len({e.acerto for e in amostra}) < 2:
-                continue
-            modelo: Calibrador = Calibrador(self._penalidade, self._vetorizador).ajustar(amostra)
-            linhas.append(modelo.prever(candidatas))
-        return np.array(linhas, dtype=np.float64).reshape(len(linhas), len(candidatas))
+        cortes: list[int] = [
+            k
+            for k in range(1, len(candidatas) + 1)
+            if k == len(candidatas) or probabilidades[candidatas[k].id] != probabilidades[candidatas[k - 1].id]
+        ]
+        return sorted(cortes, reverse=True)
+
+    def _limiar_provisorio(
+        self,
+        candidatas: Sequence[DecisaoPreliminar],
+        probabilidades: Mapping[str, float],
+        pontos: Sequence[float],
+        cortes: Sequence[int],
+    ) -> float:
+        """Limiar que a leva 2 usa para sortear a zona de publicação.
+
+        É a menor ``P`` do maior conjunto cuja estimativa pontual (sem margens) chega à precisão-alvo:
+        onde o pipeline publicaria se houvesse evidência suficiente. É isso que a leva 2 precisa medir.
+
+        Args:
+            candidatas: Candidatas ordenadas pela ``P``.
+            probabilidades: ``P`` por ID.
+            pontos: Média da ``P`` de cada prefixo.
+            cortes: Tamanhos de conjunto permitidos.
+
+        Returns:
+            Limiar provisório (a maior ``P`` se nenhum prefixo chegar ao alvo; 1,0 sem candidatas).
+        """
+        indice: int
+        for indice in cortes:
+            if pontos[indice - 1] >= self._parametros.alvo_precisao:
+                return round(probabilidades[candidatas[indice - 1].id], 4)
+        return round(probabilidades[candidatas[0].id], 4) if candidatas else 1.0
 
     def _margens_convencao(self, candidatas: Sequence[DecisaoPreliminar], fator: float) -> list[float]:
         """Margem de convenção de cada prefixo das candidatas (ADR-013, margem b).
@@ -198,6 +234,7 @@ class PrevisorPrecisao:
         exemplos: Sequence[ExemploCalibracao],
         ambiguidade: float,
         precisao_modelo: float,
+        limiar_provisorio: float,
     ) -> ResultadoPrevisao:
         """Monta a previsão do conjunto escolhido.
 
@@ -209,6 +246,7 @@ class PrevisorPrecisao:
             exemplos: Gold rotulado.
             ambiguidade: Margem de ambiguidade (medida no gold que cai nas publicadas).
             precisao_modelo: Média da ``P`` das publicadas.
+            limiar_provisorio: Limiar da leva 2.
 
         Returns:
             Previsão.
@@ -258,4 +296,5 @@ class PrevisorPrecisao:
             cobertura_intervalo=(round(max(0.0, cobertura - 0.01), 4), round(min(1.0, cobertura + 0.01), 4)),
             sensibilidade=tuple(sensibilidade),
             reamostras_validas=int(reamostras.shape[0]),
+            limiar_provisorio=limiar_provisorio,
         )

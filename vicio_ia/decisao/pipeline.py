@@ -14,9 +14,11 @@ from typing import ClassVar, TextIO
 from vicio_ia.arvore import ArvoreTemas
 from vicio_ia.avaliacao.amostragem import ArquivoAmostra
 from vicio_ia.avaliacao.calibracao import (
-    Calibrador,
+    CalibradorBase,
+    CalibradorFaixas,
+    CalibradorLogistico,
     ExemploCalibracao,
-    SeletorPenalidade,
+    SeletorCalibrador,
     ValidacaoCalibracao,
     VetorizadorDecisao,
 )
@@ -115,15 +117,16 @@ class PipelineDecisao:
         if len({e.acerto for e in exemplos}) < 2:
             raise ErroPublicacao(f"gold insuficiente para calibrar: {len(exemplos)} exemplos com tema")
         vetorizador: VetorizadorDecisao = VetorizadorDecisao()
-        penalidade: float
-        grade: list[tuple[float, ValidacaoCalibracao]]
-        penalidade, grade = SeletorPenalidade(vetorizador).escolher(
+        calibrador: CalibradorBase
+        grade: list[tuple[str, ValidacaoCalibracao]]
+        calibrador, grade = SeletorCalibrador(vetorizador).escolher(
             exemplos, self._parametros.penalidades_l2, self._parametros.partes_validacao, self._parametros.semente
         )
-        validacao: ValidacaoCalibracao = next(v for pena, v in grade if pena == penalidade)
-        coeficientes: dict[str, float] = Calibrador(penalidade, vetorizador).ajustar(exemplos).coeficientes
+        validacao: ValidacaoCalibracao = next(v for nome, v in grade if nome == calibrador.nome)
+        ajustado: CalibradorBase = calibrador.novo().ajustar(exemplos)
+        detalhes: list[str] = self._detalhes_calibrador(ajustado)
         com_tema: list[DecisaoPreliminar] = [d for d in preliminares.values() if d.tema_id and d.acao != "fora"]
-        previsao: ResultadoPrevisao = PrevisorPrecisao(self._parametros, vetorizador, penalidade).prever(
+        previsao: ResultadoPrevisao = PrevisorPrecisao(self._parametros, calibrador).prever(
             com_tema, exemplos, tolerante
         )
         linhas: list[LinhaPublicacao] = self._linhas(questoes, preliminares, sinais, previsao)
@@ -132,7 +135,7 @@ class PipelineDecisao:
         self._gravar_previsao(previsao, validacao, len(exemplos))
         self._gravar_preliminares(list(preliminares.values()), previsao)
         relatorio: Path = self._relatorio(
-            linhas, preliminares, previsao, validacao, coeficientes, len(exemplos), penalidade, grade
+            linhas, preliminares, previsao, validacao, detalhes, len(exemplos), calibrador.nome, grade
         )
         contagem: Counter[str] = Counter(linha.decisao for linha in linhas)
         print(
@@ -375,6 +378,30 @@ class PipelineDecisao:
         destino.write_text("\n".join(texto), encoding="utf-8")
         return destino
 
+    @staticmethod
+    def _detalhes_calibrador(calibrador: CalibradorBase) -> list[str]:
+        """Tabela das faixas ou coeficientes da regressão, para o relatório.
+
+        Args:
+            calibrador: Calibrador ajustado no gold.
+
+        Returns:
+            Linhas em Markdown.
+        """
+        if isinstance(calibrador, CalibradorFaixas):
+            return [
+                "| Faixa | Questões do gold | Acertos | P (Jeffreys) |",
+                "|---|---:|---:|---:|",
+                *(f"| {faixa} | {n} | {acertos} | {taxa:.3f} |" for faixa, n, acertos, taxa in calibrador.tabela),
+            ]
+        if isinstance(calibrador, CalibradorLogistico):
+            return [
+                "| Variável | Coeficiente |",
+                "|---|---:|",
+                *(f"| {nome} | {valor} |" for nome, valor in calibrador.coeficientes.items()),
+            ]
+        return []
+
     def _gravar_preliminares(self, preliminares: Sequence[DecisaoPreliminar], previsao: ResultadoPrevisao) -> Path:
         """Grava as decisões preliminares e as probabilidades das candidatas (para a leva 2 do gold).
 
@@ -396,6 +423,7 @@ class PipelineDecisao:
             json.dumps(
                 {
                     "limiar": previsao.limiar,
+                    "limiar_leva2": previsao.limiar_provisorio,
                     "gerado_em": datetime.now().isoformat(timespec="seconds"),
                     "candidatas": candidatas,
                 },
@@ -416,10 +444,10 @@ class PipelineDecisao:
         preliminares: Mapping[str, DecisaoPreliminar],
         previsao: ResultadoPrevisao,
         validacao: ValidacaoCalibracao,
-        coeficientes: Mapping[str, float],
+        detalhes: Sequence[str],
         exemplos: int,
-        penalidade: float,
-        grade: Sequence[tuple[float, ValidacaoCalibracao]],
+        metodo: str,
+        grade: Sequence[tuple[str, ValidacaoCalibracao]],
     ) -> Path:
         """Grava ``saidas/decisao/relatorio_decisao.md``.
 
@@ -428,10 +456,10 @@ class PipelineDecisao:
             preliminares: Decisões preliminares.
             previsao: Previsão.
             validacao: Validação cruzada.
-            coeficientes: Coeficientes da calibração.
+            detalhes: Linhas em Markdown com a tabela das faixas ou os coeficientes.
             exemplos: Exemplos do gold.
-            penalidade: Penalidade L2 escolhida.
-            grade: Validação de cada penalidade da grade.
+            metodo: Calibrador escolhido.
+            grade: Validação de cada calibrador testado.
 
         Returns:
             Caminho gravado.
@@ -479,15 +507,15 @@ class PipelineDecisao:
             "|---|---:|---:|---:|",
             *(f"| {faixa} | {n} | {media:.3f} | {obs:.3f} |" for faixa, n, media, obs in validacao.faixas),
             "",
-            f"Penalidade L2 escolhida pela menor log-loss na validação cruzada: {penalidade:g}.",
+            f"Calibrador escolhido pela menor log-loss na validação cruzada: **{metodo}**.",
             "",
-            "| Penalidade L2 | Brier | Log-loss |",
-            "|---:|---:|---:|",
-            *(f"| {pena:g} | {v.brier:.4f} | {v.log_loss:.4f} |" for pena, v in grade),
+            "| Calibrador | Brier | Log-loss |",
+            "|---|---:|---:|",
+            *(f"| {nome} | {v.brier:.4f} | {v.log_loss:.4f} |" for nome, v in grade),
             "",
-            "| Variável | Coeficiente |",
-            "|---|---:|",
-            *(f"| {nome} | {valor} |" for nome, valor in coeficientes.items()),
+            *detalhes,
+            "",
+            f"Limiar provisório para sortear a leva 2: P = {previsao.limiar_provisorio:.3f}.",
             "",
         ]
         destino: Path = self._caminhos.raiz / "saidas" / "decisao" / "relatorio_decisao.md"
