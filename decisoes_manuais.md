@@ -285,3 +285,32 @@ refeitas na execução seguinte; o resto vem do cache.
 **Limite assumido.** Com só a leva 1, o percentil 10 da faixa de consenso é 0,953. Isso só certifica 95%
 nos nós sem risco de convenção. A leva 2 existe para medir as faixas seguintes: com 68 acertos em 68, o
 percentil 10 iria a 0,980.
+
+---
+
+## D11. Congelamento antes da leva 2 (16/10/2026, 13:02)
+
+**Decisão do autor:** congelar agora e sortear a leva 2 só com a classificação completa (A nas 359).
+
+**O que ficou congelado** (`saidas/experimentos/congelamento.json`): 34 arquivos com impressão digital
+(SHA-256).
+- Os 6 prompts, as árvores e os cartões.
+- As decisões manuais da árvore.
+- A escolha de modelos por papel.
+- O código de classificação, decisão e calibração, e a configuração.
+
+A partir daqui, nada disso muda; a leva 2 só mede. O passo 07 avisa se algo mudar.
+
+**Cartões sem revisão manual.** Ficam como os rascunhos do modelo (D7). A revisão das zonas de risco não
+coube antes do congelamento. Mudar o escopo de um cartão refaria as 359 chamadas do classificador A,
+inviável com a cota.
+
+**Travas da leva 2** (`executar_gold.py`):
+- congelamento registrado e sem nenhuma diferença;
+- classificação completa: as 359 questões com voto válido de A e de B;
+- probabilidades calculadas depois dos sinais e do congelamento.
+
+**Incidente registrado.** Às 13:02, ao conferir a trava antiga, o `executar_gold.py` sorteou uma leva 2
+com as probabilidades das 08h (A com 179 de 359). Ela foi apagada no mesmo minuto, antes de qualquer
+rótulo e sem que ninguém visse as questões. A trava de "classificação completa" foi criada para isso
+não se repetir. O sorteio válido será feito com a classificação completa.

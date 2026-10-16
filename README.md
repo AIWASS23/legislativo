@@ -58,6 +58,7 @@ Todo ponto de entrada roda **sem argumentos**. Caminhos e limiares ficam em
 | `uv run python executar_classificacao.py` | Passos 05 e 06: classificadores A (plano) e B (hierárquico), voto barato, regras das leis citadas e verificador contrastivo; pula o gold ainda sem rótulo | `dados/classificacao/sinais.jsonl`, `saidas/classificacao/`, `saidas/custos/` |
 | `uv run python executar_experimentos.py` | Experimentos no gold (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B e voto barato sozinhos; erros em comum de A e B). Só números agregados | `saidas/experimentos/resultados.csv` |
 | `uv run python executar_experimento_cartoes.py` | Experimento E4: classificador B com escopo e cartões × só títulos, no gold (com cache) | `saidas/experimentos/resultados.csv` |
+| `uv run python executar_congelamento.py` | Congela o pipeline antes da leva 2: impressão digital de prompts, cartões, árvores, decisões, modelos e código | `saidas/experimentos/congelamento.json`, `registro.md` |
 | `uv run python executar_decisao.py` | Passo 07: agregação, recuo para o pai, regras que forçam revisão, calibração no gold, limiar e previsão. Não chama modelo | `publicacao.csv`, `previsao.txt`, `saidas/decisao/`, `dados/decisao/` |
 | `uv run python executar_gold.py` | Gold set, leva 1: sorteio estratificado com semente fixa (ou reaproveita o gravado), planilha de rótulos (nunca sobrescrita), caderno e situação da rotulagem | `dados/gold/` (`amostra_leva1.csv`, `rotulos_leva1.csv`, `caderno_leva1.md`) |
 | `uv run python executar_rotulagem.py` | Rotulagem interativa no terminal: só o texto canônico, busca de temas na árvore, grava a cada questão e retoma de onde parou | `dados/gold/rotulos_leva1.csv` |
@@ -174,4 +175,4 @@ As seções que o case exige no README serão preenchidas conforme o pipeline av
 
 - **Passos que geram o `publicacao.csv`:** a preencher.
 - **Modelos usados, custo e tempo:** a preencher, com valores medidos do cache de chamadas ([ADR-003](docs/adr/00-fundacao/ADR-003-cache-reprodutibilidade-e-custo.md)).
-- **Decisões tomadas à mão:** em [`decisoes_manuais.md`](decisoes_manuais.md) (D1 a D10 até agora).
+- **Decisões tomadas à mão:** em [`decisoes_manuais.md`](decisoes_manuais.md) (D1 a D11 até agora).

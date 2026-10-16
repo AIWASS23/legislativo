@@ -8,6 +8,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from vicio_ia.avaliacao.amostragem import AmostradorGold, ArquivoAmostra, CandidatoLeva2, ItemAmostra
+from vicio_ia.avaliacao.congelamento import RegistroCongelamento
 from vicio_ia.avaliacao.planilha import CadernoRotulagem, PlanilhaRotulos, RotuloGold, SituacaoLinha
 from vicio_ia.configuracao import Caminhos, ParametrosEDA, ParametrosGold
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
@@ -25,9 +26,9 @@ class PipelineGold:
     * ``rotulos_leva1.csv``: planilha de rótulos; criada vazia se não existir, **nunca sobrescrita**;
     * ``caderno_leva1.md``: as questões na ordem de rotulagem, só com o texto canônico.
 
-    A leva 2 (``amostra_leva2.csv``, ``rotulos_leva2.csv``, ``caderno_leva2.md``) só é sorteada com
-    ``ParametrosGold.leva2_liberada`` ligado (depois do congelamento de prompts e regras) e com as
-    probabilidades calibradas gravadas pelo passo 07 (``dados/decisao/probabilidades.json``).
+    A leva 2 (``amostra_leva2.csv``, ``rotulos_leva2.csv``, ``caderno_leva2.md``) só é sorteada com um
+    congelamento registrado e sem diferenças (``executar_congelamento.py``) e com as probabilidades
+    calibradas gravadas pelo passo 07 (``dados/decisao/probabilidades.json``).
     """
 
     def __init__(
@@ -111,8 +112,18 @@ class PipelineGold:
         if arquivo.existe():
             return arquivo.ler()
         origem: Path = self._caminhos.raiz / "dados" / "decisao" / "probabilidades.json"
-        if not self._parametros.leva2_liberada:
-            print("\nLeva 2: bloqueada até o congelamento (ParametrosGold.leva2_liberada = False).")
+        congelado: bool
+        diferencas: list[str]
+        congelado, diferencas = RegistroCongelamento(self._caminhos).conferir()
+        if not congelado:
+            print("\nLeva 2: bloqueada até o congelamento (rode `uv run python executar_congelamento.py`).")
+            return []
+        if diferencas:
+            print(f"\nLeva 2: bloqueada; o pipeline mudou desde o congelamento: {'; '.join(diferencas[:10])}")
+            return []
+        pendencia: str = self._classificacao_incompleta(origem)
+        if pendencia:
+            print(f"\nLeva 2: bloqueada; {pendencia}")
             return []
         if not origem.is_file():
             print(f"\nLeva 2: liberada, mas falta {origem}; rode antes `uv run python executar_decisao.py`.")
@@ -131,6 +142,47 @@ class PipelineGold:
         arquivo.gravar(sorteio)
         print(f"\nAmostra da leva 2 sorteada (limiar {float(limiar):.3f}): {arquivo.caminho}")
         return sorteio
+
+    def _classificacao_incompleta(self, probabilidades: Path) -> str:
+        """Confere que a leva 2 vai ser sorteada sobre a classificação completa e congelada.
+
+        Exige ``sinais.jsonl`` com as questões todas, com votos válidos de A e de B, e probabilidades
+        calculadas depois do congelamento e depois dos sinais.
+
+        Args:
+            probabilidades: ``dados/decisao/probabilidades.json``.
+
+        Returns:
+            O problema encontrado, ou ``""`` se estiver tudo pronto.
+        """
+        sinais: Path = self._caminhos.dados_classificacao / "sinais.jsonl"
+        congelamento: Path = RegistroCongelamento(self._caminhos).arquivo
+        if not sinais.is_file():
+            return "falta dados/classificacao/sinais.jsonl"
+        incompletas: int = 0
+        total: int = 0
+        linha: str
+        for linha in sinais.read_text(encoding="utf-8").splitlines():
+            if not linha.strip():
+                continue
+            total += 1
+            objeto: object = json.loads(linha)
+            votos: object = objeto.get("votos", []) if isinstance(objeto, dict) else []
+            validos: set[str] = {
+                str(v.get("papel"))
+                for v in (votos if isinstance(votos, list) else [])
+                if isinstance(v, dict) and v.get("ok") is True
+            }
+            incompletas += not {"classificador_a", "classificador_b"} <= validos
+        esperadas: int = len(LeitorPreparados(self._caminhos).questoes())
+        if total < esperadas or incompletas:
+            return (
+                f"classificação incompleta ({total} de {esperadas} questões em sinais.jsonl; "
+                f"{incompletas} sem voto válido de A ou de B). Rode executar_classificacao.py e executar_decisao.py."
+            )
+        if probabilidades.stat().st_mtime < max(sinais.stat().st_mtime, congelamento.stat().st_mtime):
+            return "probabilidades.json é anterior aos sinais ou ao congelamento; rode executar_decisao.py."
+        return ""
 
     def _amostra_leva1(self, amostrador: AmostradorGold, questoes: Sequence[QuestaoPreparada]) -> list[ItemAmostra]:
         """Sorteia a leva 1, ou reaproveita a gravada.

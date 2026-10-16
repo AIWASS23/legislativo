@@ -22,6 +22,7 @@ from vicio_ia.avaliacao.calibracao import (
     ValidacaoCalibracao,
     VetorizadorDecisao,
 )
+from vicio_ia.avaliacao.congelamento import RegistroCongelamento
 from vicio_ia.avaliacao.planilha import PlanilhaRotulos, RotuloGold, SituacaoLinha
 from vicio_ia.avaliacao.pontuador import PontuadorRegua
 from vicio_ia.avaliacao.previsao import PrevisorPrecisao, ResultadoPrevisao
@@ -92,6 +93,11 @@ class PipelineDecisao:
         Raises:
             ErroPublicacao: Se o arquivo gerado não passar no validador.
         """
+        congelado: bool
+        diferencas: list[str]
+        congelado, diferencas = RegistroCongelamento(self._caminhos).conferir()
+        if congelado and diferencas:
+            print(f"AVISO: o pipeline mudou desde o congelamento: {'; '.join(diferencas[:10])}")
         leitor: LeitorPreparados = LeitorPreparados(self._caminhos)
         questoes: list[QuestaoPreparada] = leitor.questoes()
         temas: list[TemaPreparado] = leitor.temas()

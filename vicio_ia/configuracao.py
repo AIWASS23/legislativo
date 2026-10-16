@@ -493,8 +493,6 @@ class ParametrosGold:
         niveis_certeza: Valores aceitos na coluna ``certeza``.
         max_resultados_busca: Temas exibidos por busca na rotulagem interativa.
         rotulo_fora_do_recorte: Estrato das questões cuja disciplina de origem não está no recorte.
-        leva2_liberada: Libera o sorteio da leva 2. Só ligar depois de congelar prompts e regras
-            (ADR-012): a leva 2 mede, não ajusta.
     """
 
     semente: int = 20261015
@@ -505,7 +503,6 @@ class ParametrosGold:
     niveis_certeza: tuple[str, ...] = ("alta", "media", "baixa")
     max_resultados_busca: int = 15
     rotulo_fora_do_recorte: str = "(fora do recorte)"
-    leva2_liberada: bool = False
 
 
 @dataclass(frozen=True)
