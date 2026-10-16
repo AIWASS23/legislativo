@@ -64,9 +64,9 @@ class AmostradorGold:
 
     * **Leva 1:** estratificada por disciplina de origem normalizada e formato, com alocação
       proporcional pelo método do maior resto. Questões duplicadas ficam fora (herdam o rótulo).
-    * **Leva 2:** depois do congelamento; ``leva2_publicacao`` questões acima de
-      ``limiar + largura_fronteira`` e ``leva2_fronteira`` com ``|P - limiar| < largura_fronteira``,
-      sem repetir a leva 1. Estrato menor que o pedido entra inteiro.
+    * **Leva 2:** depois do congelamento; ``leva2_publicacao`` questões com ``P ≥ limiar`` (onde o
+      pipeline publicaria) e ``leva2_fronteira`` com ``limiar - largura_fronteira ≤ P < limiar``, sem
+      repetir a leva 1. Estrato menor que o pedido entra inteiro.
     """
 
     COLUNAS: ClassVar[tuple[str, ...]] = (
@@ -143,9 +143,9 @@ class AmostradorGold:
         for candidato in candidatos:
             if candidato.id in excluir:
                 continue
-            if candidato.probabilidade >= limiar + largura:
+            if candidato.probabilidade >= limiar:
                 estratos["publicacao"].append(candidato.id)
-            elif abs(candidato.probabilidade - limiar) < largura:
+            elif candidato.probabilidade >= limiar - largura:
                 estratos["fronteira"].append(candidato.id)
         pedidos: dict[str, int] = {
             "publicacao": self._parametros.leva2_publicacao,

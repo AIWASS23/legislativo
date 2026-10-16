@@ -120,7 +120,7 @@ class PipelineGold:
         conteudo: object = json.loads(origem.read_text(encoding="utf-8"))
         if not isinstance(conteudo, dict):
             return []
-        limiar: object = conteudo.get("limiar")
+        limiar: object = conteudo.get("limiar_leva2", conteudo.get("limiar"))
         brutas: object = conteudo.get("candidatas")
         if not isinstance(limiar, (int, float)) or not isinstance(brutas, dict):
             return []
