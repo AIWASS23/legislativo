@@ -166,8 +166,8 @@ rótulos feitos à mão, sem ver a saída dos modelos, medem acerto em vez de co
   precisão e calibram a confiança.
 - **Tempo gasto:** medido por questão na coluna `minutos` quando se usa o rotulador interativo.
 - **Leva 1 concluída em 15/10:** as 60 questões foram rotuladas à mão pelo autor, direto na planilha
-  (fora do rotulador interativo, por isso sem tempo por questão), e gravadas às 09:28. O tempo total
-  está a informar. Resultado: 0 fora, 12 multitema, 30 com alternativos, 45 com certeza alta e 15 média.
+  (fora do rotulador interativo, por isso sem tempo por questão), e gravadas às 09:28. **Tempo total
+  informado pelo autor: 3 horas** (~3 minutos por questão), dentro da estimativa de 2 a 3 minutos da ADR-012. Resultado: 0 fora, 12 multitema, 30 com alternativos, 45 com certeza alta e 15 média.
 
 **Por quê.**
 - Estratificar pela origem e pelo formato espalha a amostra pelos tipos de questão sem usar
