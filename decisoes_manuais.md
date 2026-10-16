@@ -237,8 +237,51 @@ refeitas na execução seguinte; o resto vem do cache.
 4. **Confiança de `fora`:** a confiança do verificador em "nenhum" (o gold da leva 1 não tem nenhuma
    questão `fora` para calibrar).
 5. **Ponto da previsão:** já desconta a margem de convenção (perda esperada pelas taxas supostas).
-   O limite inferior desconta também a margem de ambiguidade.
+   O limite inferior do intervalo desconta também a margem de ambiguidade; o critério do limiar, não
+   (ADR-011; corrigido em 16/10).
 6. **Calibração:** regressão logística L2 implementada com `numpy` (IRLS). O `scikit-learn` não tem
    tipos, e o padrão do projeto exige `mypy --strict`. O modelo é o mesmo da ADR-013.
 7. **Intervalo do bootstrap:** o limiar fica fixo nas reamostras (a calibração é reajustada, o conjunto
    publicado não). Refazer o limiar em cada reamostra exigiria um bootstrap aninhado.
+
+---
+
+## D10. Calibração por faixas e chance efetiva (16/10/2026)
+
+**Contexto.** Na primeira prévia do passo 07 (15/10), nada foi publicado:
+- a regressão logística de 7 variáveis mal superou um palpite constante. São só 6 erros em 60
+  questões, então ela puxou todas as probabilidades para ~0,92;
+- a margem de ambiguidade estava, por engano, também no critério do limiar.
+
+**Decisão.**
+1. **Calibração por faixas**, a alternativa prevista na ADR-013. A taxa de acerto observada em cada faixa
+   de sinais, com suavização de Jeffreys:
+
+   | Faixa | Quando | Gold (leva 1) | P |
+   |---|---|---|---|
+   | consenso total | verificador confirma; A, B e voto barato no ramo | 28/28 | 0,983 |
+   | confirma parcial | verificador confirma; alguma fonte discorda | 19/22 | 0,848 |
+   | verificador vizinho | verificador escolheu pai, filho ou irmão | 2/2 | 0,833 |
+   | outros | revisões forçadas, falhas | 5/8 | 0,611 |
+
+   O pipeline escolhe, pela menor log-loss na validação cruzada, entre as faixas e a regressão (grade de
+   penalidades). As faixas venceram: 0,287 contra 0,312. A incerteza vem de sorteios da Beta de cada faixa:
+   o bootstrap comum diria que 28 em 28 é "100% sem variação".
+2. **Chance efetiva** = P × (1 − taxa suposta de convenção do nó: 20%, 10% ou 3%). É ela que ordena as
+   candidatas e vai para a coluna `confianca`. Sem isso, as poucas questões em nós com cópia em outra
+   disciplina (taxa suposta de 20%) barravam a faixa inteira. Margem de convenção da faixa de consenso:
+   0,057.
+3. **O corte só cai entre valores diferentes de P**, nunca no meio de uma faixa (que escolheria questões
+   de forma arbitrária).
+4. **Leva 2** sorteada a partir de um limiar provisório: a menor chance efetiva do maior conjunto cuja
+   média chega a 95%. São 40 questões acima dele e 20 logo abaixo (até 0,15 de distância).
+5. **Pesos amostrais nas faixas** (tamanho efetivo de Kish): a leva 2 é sorteada pela chance efetiva.
+
+**Por quê.**
+- Com 6 erros no gold, um modelo de 7 variáveis não tem como aprender, e faixas são auditáveis.
+- O E5 mostrou que a autoconfiança dos modelos não separa erros: eles declaram 0,99 em respostas erradas.
+  O que separa é a concordância entre fontes independentes.
+
+**Limite assumido.** Com só a leva 1, o percentil 10 da faixa de consenso é 0,953. Isso só certifica 95%
+nos nós sem risco de convenção. A leva 2 existe para medir as faixas seguintes: com 68 acertos em 68, o
+percentil 10 iria a 0,980.

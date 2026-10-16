@@ -174,4 +174,4 @@ As seções que o case exige no README serão preenchidas conforme o pipeline av
 
 - **Passos que geram o `publicacao.csv`:** a preencher.
 - **Modelos usados, custo e tempo:** a preencher, com valores medidos do cache de chamadas ([ADR-003](docs/adr/00-fundacao/ADR-003-cache-reprodutibilidade-e-custo.md)).
-- **Decisões tomadas à mão:** em [`decisoes_manuais.md`](decisoes_manuais.md) (D1 a D9 até agora).
+- **Decisões tomadas à mão:** em [`decisoes_manuais.md`](decisoes_manuais.md) (D1 a D10 até agora).
