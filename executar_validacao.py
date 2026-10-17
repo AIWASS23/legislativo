@@ -1,6 +1,6 @@
 """Validação dos entregáveis (ADR-015). Uso: ``uv run python executar_validacao.py`` (sem argumentos).
 
-Confere ``publicacao.csv`` e ``previsao.txt`` na raiz contra o formato do LEIA-ME. Sai com
+Confere ``publicacao.csv`` e ``previsao.txt`` de ``relatorio/`` contra o formato do LEIA-ME. Sai com
 código 1 se houver problema.
 """
 

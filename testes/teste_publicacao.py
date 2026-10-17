@@ -1,4 +1,4 @@
-"""Colunas obrigatórias do ``publicacao.csv`` (ADR-011, LEIA-ME), régua do gold e corte do limiar."""
+"""Colunas obrigatórias do ``publicacao.csv`` (ADR-011, LEIA-ME), régua do gold, corte do limiar e estimador direto."""
 
 from __future__ import annotations
 
@@ -7,9 +7,11 @@ from dataclasses import replace
 
 from testes.fabrica import FabricaTestes
 from vicio_ia.arvore import ArvoreTemas
+from vicio_ia.avaliacao.calibracao import CalibradorFaixas, ExemploCalibracao
 from vicio_ia.avaliacao.planilha import RotuloGold
 from vicio_ia.avaliacao.pontuador import PontuadorRegua
 from vicio_ia.avaliacao.previsao import PrevisorPrecisao
+from vicio_ia.configuracao import ParametrosCalibracao
 from vicio_ia.decisao.agregacao import AgregadorSinais, DecisaoPreliminar
 from vicio_ia.decisao.pipeline import ErroPublicacao, LinhaPublicacao, PipelineDecisao
 from vicio_ia.dominio import Tema
@@ -149,6 +151,45 @@ class TesteCorteDoLimiar(unittest.TestCase):
         candidatas: list[DecisaoPreliminar] = [replace(base, id=f"Q{i}") for i in range(4)]
         probabilidades: dict[str, float] = {"Q0": 0.98, "Q1": 0.98, "Q2": 0.95, "Q3": 0.85}
         self.assertEqual(PrevisorPrecisao._cortes(candidatas, probabilidades), [4, 3, 2])
+
+
+class TesteEstimadorDireto(unittest.TestCase):
+    """O acerto do gold nas publicadas entra no ponto com a suavização de Jeffreys (D12)."""
+
+    def setUp(self) -> None:
+        """Monta o previsor e uma decisão de consenso para os exemplos."""
+        fabrica: FabricaTestes = FabricaTestes()
+        self.base: DecisaoPreliminar = AgregadorSinais(fabrica.temas()).decidir(
+            fabrica.simples("X1", "X1", "X1", "confirma", "X1", "X1"), fabrica.questao(), ()
+        )
+        self.previsor: PrevisorPrecisao = PrevisorPrecisao(ParametrosCalibracao(), CalibradorFaixas())
+
+    def _exemplos(self, pesos: list[float], erros: int = 0) -> list[ExemploCalibracao]:
+        """Exemplos do gold com os pesos dados; os ``erros`` primeiros erram.
+
+        Args:
+            pesos: Peso amostral de cada exemplo.
+            erros: Quantos exemplos erram.
+
+        Returns:
+            Exemplos.
+        """
+        return [
+            ExemploCalibracao(replace(self.base, id=f"Q{i}"), acerto=i >= erros, peso=peso)
+            for i, peso in enumerate(pesos)
+        ]
+
+    def teste_treze_acertos_em_treze_nao_viram_certeza(self) -> None:
+        """13 em 13 com pesos iguais: (13 + 0,5) / (13 + 1) = 0,964."""
+        self.assertAlmostEqual(self.previsor._suavizar(self._exemplos([5.9] * 13)), 13.5 / 14)
+
+    def teste_pesos_desiguais_usam_o_tamanho_efetivo(self) -> None:
+        """Pesos 1 e 3, os dois certos: n efetivo = 16 / 10 = 1,6 e acerto (1,6 + 0,5) / 2,6."""
+        self.assertAlmostEqual(self.previsor._suavizar(self._exemplos([1.0, 3.0])), 2.1 / 2.6)
+
+    def teste_erro_entra_na_taxa(self) -> None:
+        """Um erro em quatro, pesos iguais: (3 + 0,5) / 5 = 0,7."""
+        self.assertAlmostEqual(self.previsor._suavizar(self._exemplos([1.0] * 4, erros=1)), 0.7)
 
 
 if __name__ == "__main__":

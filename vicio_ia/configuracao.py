@@ -36,6 +36,7 @@ class Caminhos:
         saida_cartoes: Material de revisão dos cartões e tamanhos das versões da árvore.
         dados_classificacao: Respostas e sinais por questão (ADR-008).
         saida_classificacao: Resumo agregado da classificação.
+        entregaveis: Pasta do ``publicacao.csv``, do ``previsao.txt`` e do relatório (ADR-015).
     """
 
     raiz: Path
@@ -58,6 +59,7 @@ class Caminhos:
     saida_cartoes: Path
     dados_classificacao: Path
     saida_classificacao: Path
+    entregaveis: Path
 
     @classmethod
     def padrao(cls) -> Caminhos:
@@ -90,6 +92,7 @@ class Caminhos:
             saida_cartoes=raiz / "saidas" / "cartoes",
             dados_classificacao=raiz / "dados" / "classificacao",
             saida_classificacao=raiz / "saidas" / "classificacao",
+            entregaveis=raiz / "relatorio",
         )
 
 
@@ -566,6 +569,7 @@ class ParametrosCalibracao:
         reserva_pontual: Estimativa pontual mínima na regra de reserva (sem conjunto que atinja o alvo).
         percentis_intervalo: Percentis do intervalo informado no ``previsao.txt``.
         min_gold_direto: Itens do gold publicados a partir dos quais o ponto é o estimador direto.
+        prior_direto: Pseudo-contagem de acertos e de erros na suavização do estimador direto (0,5 = Jeffreys, D12).
         taxas_convencao: Taxas supostas de discordância de convenção por tipo de nó.
         fatores_sensibilidade: Multiplicadores das taxas mostrados no ``previsao.txt``.
         margem_ambiguidade_no_limiar: Desconta a margem de ambiguidade do rótulo também no limiar. Desligado:
@@ -583,6 +587,7 @@ class ParametrosCalibracao:
     reserva_pontual: float = 0.97
     percentis_intervalo: tuple[float, float] = (5.0, 95.0)
     min_gold_direto: int = 40
+    prior_direto: float = 0.5
     taxas_convencao: dict[str, float] = field(default_factory=_taxas_convencao_padrao)
     fatores_sensibilidade: tuple[float, ...] = (0.0, 1.0, 2.0)
     margem_ambiguidade_no_limiar: bool = False

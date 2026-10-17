@@ -5,7 +5,7 @@ lista todas elas. Cada decisão que afeta o pipeline está num arquivo de dados 
 (`dados/temas/`), lido pelo código e conferido por checagens automáticas a cada
 `uv run python executar_preparacao.py`.
 
-Última atualização: 15/10/2026.
+Última atualização: 17/10/2026.
 
 ---
 
@@ -310,3 +310,27 @@ inviável com a cota.
    execuções, porque dependia da ordem de iteração de conjuntos. Duas execuções seguidas agora geram o
    mesmo `publicacao.csv`, byte a byte; em relação à execução anterior, só mudou a ordem dos extras de 4
    questões.
+3. Só docstrings e mensagens: o gold set passou a ser descrito como uma amostra única.
+4. A fórmula do ponto da precisão prevista mudou (D12). As decisões do `publicacao.csv` não mudaram.
+5. O `publicacao.csv` e o `previsao.txt` passaram da raiz para `relatorio/`, junto com o relatório. Os dois
+   arquivos saem idênticos, byte a byte.
+
+---
+
+## D12. Suavização do estimador direto na precisão prevista (17/10/2026)
+
+**Contexto.** Pela ADR-013, com menos de 40 itens do gold entre as publicadas, o ponto da precisão é a
+média do estimador direto com o estimador por modelo. Só 13 questões do gold caíram nas 81 publicadas,
+e as 13 estão certas. O direto bruto dava 1,000; com o modelo (0,983), o ponto saía 0,99.
+
+**Decisão do autor.** Aplicar ao estimador direto a mesma suavização de Jeffreys da calibração, no
+tamanho efetivo de Kish: `(acertos + 0,5) / (n + 1)`. Para 13 em 13, isso dá 0,964. O ponto passa a ser
+(0,964 + 0,983) / 2 = **0,973**, informado como **0,97**.
+
+**Por quê.** Treze acertos em treze não provam 100%. Sem suavização, o direto tratava a amostra pequena
+como certeza, enquanto o estimador por modelo já descontava esse tamanho. Com a suavização, os dois
+estimadores ficam no mesmo critério, e o ponto fica menos otimista.
+
+**O que não mudou.** O limiar, as 81 publicadas, a coluna `confianca` e o intervalo (0,93–1,00), que vem
+dos sorteios da Beta. A mudança foi feita depois do congelamento (D11), com recongelamento registrado.
+Ela muda só o número informado, não as decisões.

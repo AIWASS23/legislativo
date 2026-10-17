@@ -18,7 +18,7 @@ from vicio_ia.preparacao.leitura import LeitorPreparados
 
 
 class ValidadorEntrega:
-    """Confere o ``publicacao.csv`` e o ``previsao.txt`` da raiz do repositório."""
+    """Confere o ``publicacao.csv`` e o ``previsao.txt`` da pasta dos entregáveis (``relatorio/``)."""
 
     COLUNAS: ClassVar[tuple[str, ...]] = ("id", "decisao", "tema_central_id", "extras_ids", "confianca", "motivo")
     _RE_LINHA: ClassVar[re.Pattern[str]] = re.compile(
@@ -63,7 +63,7 @@ class ValidadorEntrega:
         Returns:
             Linhas (vazio se o arquivo faltar ou o cabeçalho estiver errado).
         """
-        arquivo_csv: Path = self._caminhos.raiz / "publicacao.csv"
+        arquivo_csv: Path = self._caminhos.entregaveis / "publicacao.csv"
         if not arquivo_csv.is_file():
             problemas.append("publicacao.csv não existe")
             return []
@@ -137,7 +137,7 @@ class ValidadorEntrega:
             total: Total de questões.
             problemas: Acumulador de problemas.
         """
-        arquivo: Path = self._caminhos.raiz / "previsao.txt"
+        arquivo: Path = self._caminhos.entregaveis / "previsao.txt"
         if not arquivo.is_file():
             problemas.append("previsao.txt não existe")
             return

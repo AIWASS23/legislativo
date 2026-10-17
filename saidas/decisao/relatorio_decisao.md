@@ -1,12 +1,12 @@
 # Passo 07: decisão
 
-Gerado em 17/10/2026 14:45.
+Gerado em 17/10/2026 15:13.
 
 - Publicar: 81; revisar: 276; fora: 2.
 - Publicadas no nível 1: 27, das quais 0 por recuo para o pai (ADR-010).
 - Tipo de convenção das publicadas: {'sem risco': 81}.
 - Limiar P = 0.983 (limite inferior).
-- Precisão: ponto 0.991, intervalo 0.933–1.000; modelo 0.983; direta 1.0 em 13 do gold; margens: convenção 0.000, ambiguidade 0.000.
+- Precisão: ponto 0.973, intervalo 0.933–1.000; modelo 0.983; direta 1.0 em 13 do gold (suavizada 0.9642); margens: convenção 0.000, ambiguidade 0.000.
 
 ## Motivos de revisar e fora
 

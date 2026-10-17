@@ -9,6 +9,9 @@
    pontual de 97% ou mais.
 4. Intervalo informado: percentis 5 e 95 das reamostras para o conjunto escolhido (limiar fixo nas
    reamostras), menos as margens de convenção e de ambiguidade do rótulo no limite inferior.
+5. Ponto informado: o estimador direto (acerto do gold que cai nas publicadas) com a mesma suavização de
+   Jeffreys da calibração, combinado com o estimador por modelo (D12). Sem a suavização, 13 acertos em 13
+   dariam 1,00 no direto, otimista demais para tão poucos itens.
 """
 
 from __future__ import annotations
@@ -34,6 +37,7 @@ class ResultadoPrevisao:
         regra: ``limite inferior``, ``reserva pontual`` ou ``nenhuma publicada``.
         precisao_modelo: Média da ``P`` das publicadas (estimador por modelo).
         precisao_direta: Acerto (régua estrita) do gold que cai nas publicadas, ou ``None``.
+        precisao_direta_suavizada: O mesmo acerto com a suavização de Jeffreys no tamanho efetivo de Kish.
         gold_publicadas: Itens do gold entre as publicadas.
         margem_ambiguidade: Precisão tolerante menos estrita no gold.
         margem_convencao: Margem pela composição das publicadas e pelas taxas supostas.
@@ -51,6 +55,7 @@ class ResultadoPrevisao:
     regra: str
     precisao_modelo: float
     precisao_direta: float | None
+    precisao_direta_suavizada: float | None
     gold_publicadas: int
     margem_ambiguidade: float
     margem_convencao: float
@@ -177,6 +182,24 @@ class PrevisorPrecisao:
             margens.append(soma / indice)
         return margens
 
+    def _suavizar(self, gold: Sequence[ExemploCalibracao]) -> float:
+        """Acerto do gold nas publicadas com a suavização de Jeffreys (D12).
+
+        Usa o tamanho efetivo de Kish, como a calibração: ``(acertos + a) / (n + 2a)``, com ``a`` = 0,5.
+
+        Args:
+            gold: Itens do gold que caem nas publicadas (não vazio).
+
+        Returns:
+            Acerto suavizado.
+        """
+        a: float = self._parametros.prior_direto
+        pesos: list[float] = [e.peso for e in gold]
+        soma: float = sum(pesos)
+        n_efetivo: float = soma * soma / sum(w * w for w in pesos)
+        acertos: float = sum(e.peso for e in gold if e.acerto) / soma * n_efetivo
+        return (acertos + a) / (n_efetivo + 2 * a)
+
     @staticmethod
     def _ambiguidade(exemplos: Sequence[ExemploCalibracao], tolerante: Mapping[str, bool]) -> float:
         """Precisão tolerante menos estrita no gold com tema (ADR-013, margem a).
@@ -224,12 +247,13 @@ class PrevisorPrecisao:
         gold: list[ExemploCalibracao] = [e for e in exemplos if e.decisao.id in ids]
         peso_total: float = sum(e.peso for e in gold)
         direta: float | None = sum(e.peso for e in gold if e.acerto) / peso_total if gold and peso_total else None
-        if direta is None:
+        suavizada: float | None = self._suavizar(gold) if direta is not None else None
+        if suavizada is None:
             bruto: float = precisao_modelo
         elif len(gold) >= p.min_gold_direto:
-            bruto = direta
+            bruto = suavizada
         else:
-            bruto = (direta + precisao_modelo) / 2
+            bruto = (suavizada + precisao_modelo) / 2
         margem: float = self._margens_convencao(publicadas, 1.0)[-1] if k else 0.0
         if k and reamostras.shape[0] > 0:
             medias: Matriz = reamostras[:, :k].mean(axis=1)
@@ -254,6 +278,7 @@ class PrevisorPrecisao:
             regra=regra,
             precisao_modelo=round(precisao_modelo, 4),
             precisao_direta=round(direta, 4) if direta is not None else None,
+            precisao_direta_suavizada=round(suavizada, 4) if suavizada is not None else None,
             gold_publicadas=len(gold),
             margem_ambiguidade=round(ambiguidade, 4),
             margem_convencao=round(margem, 4),

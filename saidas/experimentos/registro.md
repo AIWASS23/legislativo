@@ -102,3 +102,17 @@ Recongelamento em 17/10, sem efeito nas decisões: só docstrings e mensagens (o
 
 34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
 daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.
+
+## Congelamento (2026-10-17T14:55:52)
+
+Recongelamento em 17/10: o ponto da precisão prevista usa o estimador direto com a suavização de Jeffreys da calibração (D12): 13 acertos em 13 dão 0,964, e o ponto passa de 0,99 para 0,97. O limiar, as 81 publicadas, a coluna confianca e o intervalo não mudaram; nenhum prompt, cartão, regra de decisão ou modelo mudou.
+
+34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
+daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.
+
+## Congelamento (2026-10-17T15:13:28)
+
+Recongelamento em 17/10, sem efeito nas decisões: publicacao.csv e previsao.txt passam a ser gravados e validados em relatorio/ (Caminhos.entregaveis), junto com o relatório. Conferido: os dois arquivos saem idênticos, byte a byte, aos que estavam na raiz.
+
+34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
+daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.

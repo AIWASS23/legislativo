@@ -149,7 +149,7 @@ class PipelineDecisao:
             f"precisão prevista {previsao.precisao_ponto:.3f} ({previsao.precisao_intervalo[0]:.2f}–"
             f"{previsao.precisao_intervalo[1]:.2f}); cobertura {previsao.cobertura:.3f}; regra: {previsao.regra}"
         )
-        print(f"Entregáveis: {destino}, {self._caminhos.raiz / 'previsao.txt'}\nRelatório: {relatorio}")
+        print(f"Entregáveis: {destino}, {self._caminhos.entregaveis / 'previsao.txt'}\nRelatório: {relatorio}")
         return destino
 
     def _sinais(self) -> dict[str, SinaisQuestao]:
@@ -279,7 +279,7 @@ class PipelineDecisao:
             raise ErroPublicacao("; ".join(problemas[:20]))
 
     def _gravar_csv(self, linhas: Sequence[LinhaPublicacao]) -> Path:
-        """Grava ``publicacao.csv`` na raiz.
+        """Grava ``publicacao.csv`` na pasta dos entregáveis (``relatorio/``).
 
         Args:
             linhas: Linhas validadas.
@@ -287,7 +287,8 @@ class PipelineDecisao:
         Returns:
             Caminho gravado.
         """
-        destino: Path = self._caminhos.raiz / "publicacao.csv"
+        self._caminhos.entregaveis.mkdir(parents=True, exist_ok=True)
+        destino: Path = self._caminhos.entregaveis / "publicacao.csv"
         arquivo: TextIO
         with destino.open("w", encoding="utf-8", newline="") as arquivo:
             csv.writer(arquivo).writerows(
@@ -304,7 +305,7 @@ class PipelineDecisao:
     def _gravar_previsao(
         self, previsao: ResultadoPrevisao, validacao: ValidacaoCalibracao, exemplos: int, metodo: str
     ) -> Path:
-        """Grava ``previsao.txt`` na raiz, no formato do LEIA-ME, com a explicação.
+        """Grava ``previsao.txt`` na pasta dos entregáveis (``relatorio/``), no formato do LEIA-ME, com a explicação.
 
         Args:
             previsao: Previsão.
@@ -324,8 +325,10 @@ class PipelineDecisao:
             for fator, ponto, inferior in previsao.sensibilidade
         )
         direta: str = (
-            f"{previsao.precisao_direta:.3f} em {previsao.gold_publicadas} questões do gold que caem nas publicadas"
-            if previsao.precisao_direta is not None
+            f"{previsao.precisao_direta:.3f} em {previsao.gold_publicadas} questões do gold que caem nas publicadas, "
+            f"{previsao.precisao_direta_suavizada:.3f} com a mesma suavização de Jeffreys da calibração, para não "
+            "tratar poucos acertos como certeza"
+            if previsao.precisao_direta is not None and previsao.precisao_direta_suavizada is not None
             else "sem questões do gold nas publicadas"
         )
         texto: list[str] = [
@@ -357,8 +360,8 @@ class PipelineDecisao:
                 f"O resto foi para revisão do professor."
             ),
             (
-                f"5. A precisão prevista combina a média da chance de acerto das publicadas ({previsao.precisao_modelo:.3f}) "
-                f"com o acerto direto no gold ({direta})."
+                f"5. A precisão prevista é a média de dois estimadores: a chance de acerto média das publicadas "
+                f"({previsao.precisao_modelo:.3f}) e o acerto direto no gold ({direta})."
             ),
             (
                 "6. A chance de cada questão já desconta o risco de convenção do tema: em temas duplicados ou "
@@ -385,7 +388,7 @@ class PipelineDecisao:
             ),
             "",
         ]
-        destino: Path = self._caminhos.raiz / "previsao.txt"
+        destino: Path = self._caminhos.entregaveis / "previsao.txt"
         destino.write_text("\n".join(texto), encoding="utf-8")
         return destino
 
@@ -477,7 +480,8 @@ class PipelineDecisao:
             (
                 f"- Precisão: ponto {previsao.precisao_ponto:.3f}, intervalo {previsao.precisao_intervalo[0]:.3f}–"
                 f"{previsao.precisao_intervalo[1]:.3f}; modelo {previsao.precisao_modelo:.3f}; direta "
-                f"{previsao.precisao_direta} em {previsao.gold_publicadas} do gold; margens: convenção "
+                f"{previsao.precisao_direta} em {previsao.gold_publicadas} do gold (suavizada "
+                f"{previsao.precisao_direta_suavizada}); margens: convenção "
                 f"{previsao.margem_convencao:.3f}, ambiguidade {previsao.margem_ambiguidade:.3f}."
             ),
             "",

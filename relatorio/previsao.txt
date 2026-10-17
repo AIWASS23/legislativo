@@ -1,4 +1,4 @@
-precisao_prevista: 0.99
+precisao_prevista: 0.97
 precisao_intervalo: 0.93-1.00
 cobertura_prevista: 0.23
 cobertura_intervalo: 0.22-0.24
@@ -9,8 +9,8 @@ Como chegamos nesses números
 2. Cada questão foi classificada por quatro fontes diferentes (dois classificadores de famílias distintas, um voto barato e as leis citadas) e conferida por um verificador que compara o candidato com os vizinhos.
 3. A chance de acerto de cada questão vem do gold: a taxa de acerto observada nas questões com o mesmo padrão de sinais (concordância entre as fontes e veredito do verificador). O método foi escolhido na validação cruzada (faixas de sinais com suavização de Jeffreys); o erro quadrático (Brier) fora da amostra foi 0.091, contra 0.090 de um palpite constante.
 4. Publicamos as questões de maior chance de acerto enquanto o limite inferior da precisão estimada ficou em 95% ou mais (regra usada: limite inferior; limiar P = 0.98). O resto foi para revisão do professor.
-5. A precisão prevista combina a média da chance de acerto das publicadas (0.983) com o acerto direto no gold (1.000 em 13 questões do gold que caem nas publicadas).
-6. A chance de cada questão já desconta o risco de convenção do tema: em temas duplicados ou sobrepostos, o especialista pode ter usado o outro nó, e o nosso gold não mede isso. Por isso, temas de risco exigem mais confiança para serem publicados. Nas publicadas, o desconto médio é 0.000; as taxas de discordância são hipóteses (taxas × 0: ponto 0.991, limite inferior 0.933; taxas × 1: ponto 0.991, limite inferior 0.933; taxas × 2: ponto 0.991, limite inferior 0.933).
+5. A precisão prevista é a média de dois estimadores: a chance de acerto média das publicadas (0.983) e o acerto direto no gold (1.000 em 13 questões do gold que caem nas publicadas, 0.964 com a mesma suavização de Jeffreys da calibração, para não tratar poucos acertos como certeza).
+6. A chance de cada questão já desconta o risco de convenção do tema: em temas duplicados ou sobrepostos, o especialista pode ter usado o outro nó, e o nosso gold não mede isso. Por isso, temas de risco exigem mais confiança para serem publicados. Nas publicadas, o desconto médio é 0.000; as taxas de discordância são hipóteses (taxas × 0: ponto 0.973, limite inferior 0.933; taxas × 1: ponto 0.973, limite inferior 0.933; taxas × 2: ponto 0.973, limite inferior 0.933).
 7. O intervalo vem de 1000 sorteios da incerteza da calibração (quanto menos questões do gold sustentam uma faixa, mais larga ela fica), com o limite inferior alargado também pela ambiguidade dos rótulos (0.000: diferença entre a régua tolerante e a estrita no gold).
 8. Cobertura: 81 publicadas de 359. É um número exato se a avaliação usar as 359 questões; o intervalo de ±0,01 cobre só arredondamento.
 
