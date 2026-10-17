@@ -8,6 +8,8 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .env
+docs/enunciado/
+relatorio/arquitetura_producao.png
 
 # Arquivo temporário da gravação atômica da planilha de rótulos (só sobra se a gravação for interrompida)
 *.csv.tmp

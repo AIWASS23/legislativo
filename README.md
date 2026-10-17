@@ -26,9 +26,9 @@ aluno, num tema da árvore), **revisar** (fila do professor, com sugestão) ou *
 ### 1. Pré-requisitos
 
 - [uv](https://docs.astral.sh/uv/). Ele instala o Python 3.12 (fixado em `.python-version`) se não houver um na máquina.
-- Os anexos do case em `anexos/`. Eles **não são versionados**: baixe o
-  [ZIP dos anexos](https://github.com/viciod/case-vicio-ia/raw/main/anexos-case-ia.zip) e extraia
-  `questoes.jsonl`, `temas.csv`, `LEIA-ME.md` e `entrega_modelo.csv` em `anexos/`.
+- Os anexos do case (`questoes.jsonl`, `temas.csv`, `LEIA-ME.md` e `entrega_modelo.csv`) já vêm no
+  repositório, em `anexos/`, como foram recebidos. A origem é o
+  [ZIP dos anexos](https://github.com/viciod/case-vicio-ia/raw/main/anexos-case-ia.zip) do case.
 
 ### 2. Ambiente
 
@@ -181,7 +181,7 @@ uv run python executar_checagem.py
 ├── saidas/experimentos/       ← resultados, registro dos experimentos e congelamento
 ├── saidas/custos/             ← custo e tempo por papel
 ├── saidas/infra/              ← perfil da máquina, recomendação, escolha resolvida, teste dos modelos
-├── anexos/                    ← dados do case (não versionados; ver "Como rodar")
+├── anexos/                    ← dados do case, como foram recebidos (nunca alterados)
 ├── .env.example               ← modelo das chaves de API (copiar para .env)
 └── requirements.txt, requirements-dev.txt, ruff.toml, .python-version
 ```
