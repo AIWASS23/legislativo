@@ -136,18 +136,15 @@ rótulos feitos à mão, sem ver a saída dos modelos, medem acerto em vez de co
 (ADR-012).
 
 **Decisão: sorteio.**
-- **Leva 1 (desenvolvimento):** 60 questões, estratificadas por disciplina de origem
-  normalizada × formato, com alocação proporcional pelo método do maior resto e **semente
-  20261015** (`ParametrosGold` em `vicio_ia/configuracao.py`).
+- **60 questões**, estratificadas por disciplina de origem normalizada × formato, com alocação
+  proporcional pelo método do maior resto e **semente 20261015** (`ParametrosGold` em
+  `vicio_ia/configuracao.py`).
   - 14 estratos; 12 recebem questões. Os 2 estratos com uma questão só na população
     (Criminologia com 4 alternativas; fora do recorte de certo/errado) ficam sem sorteio.
   - Probabilidade de inclusão de ~0,17 em todos os estratos sorteados; o peso de cada
     questão nas estimativas é o inverso dela.
   - Ordem de rotulagem embaralhada, para não rotular estrato por estrato.
   - Duplicatas exatas ficariam fora do sorteio e herdariam o rótulo (hoje não há nenhuma).
-- **Leva 2 (estimativa), só depois do congelamento de prompts e regras:** 40 questões com
-  probabilidade calibrada ≥ limiar + 0,10 e 20 com |P − limiar| < 0,10, sem repetir a leva 1.
-  Estrato menor que o pedido entra inteiro.
 
 **Decisão: protocolo de rotulagem.**
 - **Rótulo cego:** quem rotula vê só o texto canônico. Nada de saída de modelo, nem de
@@ -165,7 +162,7 @@ rótulos feitos à mão, sem ver a saída dos modelos, medem acerto em vez de co
 - **O gold não decide nada:** o `publicacao.csv` sai só do pipeline. Os rótulos medem a
   precisão e calibram a confiança.
 - **Tempo gasto:** medido por questão na coluna `minutos` quando se usa o rotulador interativo.
-- **Leva 1 concluída em 15/10:** as 60 questões foram rotuladas à mão pelo autor, direto na planilha
+- **Rotulagem concluída em 15/10:** as 60 questões foram rotuladas à mão pelo autor, direto na planilha
   (fora do rotulador interativo, por isso sem tempo por questão), e gravadas às 09:28. **Tempo total
   informado pelo autor: 3 horas** (~3 minutos por questão), dentro da estimativa de 2 a 3 minutos da ADR-012. Resultado: 0 fora, 12 multitema, 30 com alternativos, 45 com certeza alta e 15 média.
 
@@ -234,7 +231,7 @@ refeitas na execução seguinte; o resto vem do cache.
    O candidato está certo pela régua tanto se o especialista escolheu ele quanto se escolheu o filho.
 3. **O verificador não sabe qual é o candidato** e não recebe o voto barato entre as sugestões, para o
    prompt dele não depender da ordem em que as respostas chegam.
-4. **Confiança de `fora`:** a confiança do verificador em "nenhum" (o gold da leva 1 não tem nenhuma
+4. **Confiança de `fora`:** a confiança do verificador em "nenhum" (o gold não tem nenhuma
    questão `fora` para calibrar).
 5. **Ponto da previsão:** já desconta a margem de convenção (perda esperada pelas taxas supostas).
    O limite inferior do intervalo desconta também a margem de ambiguidade; o critério do limiar, não
@@ -257,7 +254,7 @@ refeitas na execução seguinte; o resto vem do cache.
 1. **Calibração por faixas**, a alternativa prevista na ADR-013. A taxa de acerto observada em cada faixa
    de sinais, com suavização de Jeffreys:
 
-   | Faixa | Quando | Gold (leva 1) | P |
+   | Faixa | Quando | Gold | P |
    |---|---|---|---|
    | consenso total | verificador confirma; A, B e voto barato no ramo | 28/28 | 0,983 |
    | confirma parcial | verificador confirma; alguma fonte discorda | 19/22 | 0,848 |
@@ -273,24 +270,25 @@ refeitas na execução seguinte; o resto vem do cache.
    0,057.
 3. **O corte só cai entre valores diferentes de P**, nunca no meio de uma faixa (que escolheria questões
    de forma arbitrária).
-4. **Leva 2** sorteada a partir de um limiar provisório: a menor chance efetiva do maior conjunto cuja
-   média chega a 95%. São 40 questões acima dele e 20 logo abaixo (até 0,15 de distância).
-5. **Pesos amostrais nas faixas** (tamanho efetivo de Kish): a leva 2 é sorteada pela chance efetiva.
+4. **Pesos amostrais nas faixas** (tamanho efetivo de Kish), para a taxa continuar correta se os
+   estratos do gold tiverem probabilidades de inclusão diferentes.
 
 **Por quê.**
 - Com 6 erros no gold, um modelo de 7 variáveis não tem como aprender, e faixas são auditáveis.
 - O E5 mostrou que a autoconfiança dos modelos não separa erros: eles declaram 0,99 em respostas erradas.
   O que separa é a concordância entre fontes independentes.
 
-**Limite assumido.** Com só a leva 1, o percentil 10 da faixa de consenso é 0,953. Isso só certifica 95%
-nos nós sem risco de convenção. A leva 2 existe para medir as faixas seguintes: com 68 acertos em 68, o
-percentil 10 iria a 0,980.
+**Limite assumido.** O gold tem 60 questões e 6 erros (régua estrita). Na faixa de consenso total, 28
+acertos em 28 dão percentil 10 de 0,953, o que certifica 95% só nos nós sem risco de convenção. As
+questões de consenso em nós "(Parte N)" (chance efetiva de 0,953, percentil 10 de ~0,92) vão para revisão.
+A previsão foi calibrada e conferida no mesmo gold, com validação cruzada; não houve teste numa amostra
+independente, e o `previsao.txt` e o relatório dizem isso.
 
 ---
 
-## D11. Congelamento antes da leva 2 (16/10/2026, 13:02)
+## D11. Congelamento antes da rodada final (16/10/2026, 13:02)
 
-**Decisão do autor:** congelar agora e sortear a leva 2 só com a classificação completa (A nas 359).
+**Decisão do autor:** congelar o pipeline antes de completar a classificação e de gerar os entregáveis.
 
 **O que ficou congelado** (`saidas/experimentos/congelamento.json`): 34 arquivos com impressão digital
 (SHA-256).
@@ -299,18 +297,16 @@ percentil 10 iria a 0,980.
 - A escolha de modelos por papel.
 - O código de classificação, decisão e calibração, e a configuração.
 
-A partir daqui, nada disso muda; a leva 2 só mede. O passo 07 avisa se algo mudar.
+A partir daqui, nada disso muda. O passo 07 avisa se algo mudar.
 
 **Cartões sem revisão manual.** Ficam como os rascunhos do modelo (D7). A revisão das zonas de risco não
 coube antes do congelamento. Mudar o escopo de um cartão refaria as 359 chamadas do classificador A,
 inviável com a cota.
 
-**Travas da leva 2** (`executar_gold.py`):
-- congelamento registrado e sem nenhuma diferença;
-- classificação completa: as 359 questões com voto válido de A e de B;
-- probabilidades calculadas depois dos sinais e do congelamento.
-
-**Incidente registrado.** Às 13:02, ao conferir a trava antiga, o `executar_gold.py` sorteou uma leva 2
-com as probabilidades das 08h (A com 179 de 359). Ela foi apagada no mesmo minuto, antes de qualquer
-rótulo e sem que ninguém visse as questões. A trava de "classificação completa" foi criada para isso
-não se repetir. O sorteio válido será feito com a classificação completa.
+**Recongelamentos (17/10), todos sem efeito nas decisões e registrados em `saidas/experimentos/registro.md`:**
+1. Os testes unitários entraram no portão de qualidade (`ParametrosQualidade`), e o texto explicativo do
+   `previsao.txt` foi corrigido (calibração por faixas e sorteios da Beta).
+2. Foi removido código sem uso. A ordem dos `extras_ids` empatados ficou estável: antes, ela variava entre
+   execuções, porque dependia da ordem de iteração de conjuntos. Duas execuções seguidas agora geram o
+   mesmo `publicacao.csv`, byte a byte; em relação à execução anterior, só mudou a ordem dos extras de 4
+   questões.

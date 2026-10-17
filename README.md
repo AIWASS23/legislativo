@@ -21,7 +21,7 @@ aluno, num tema da árvore), **revisar** (fila do professor, com sugestão) ou *
 | Cartões de tema ([ADR-007](docs/adr/02-temas/ADR-007-cartoes-de-tema.md)) | Gerados por LLM; revisão manual pendente (`saidas/cartoes/revisao_cartoes.md`) |
 | Classificação e verificação ([ADR-008](docs/adr/03-classificacao/ADR-008-arquitetura-de-classificacao.md)) | Código pronto; rodada completa em andamento |
 | Decisão, calibração e previsão ([ADR-010](docs/adr/04-decisao/ADR-010-granularidade-e-recuo-para-o-pai.md), [ADR-011](docs/adr/04-decisao/ADR-011-politica-publicar-revisar-fora.md), [ADR-013](docs/adr/05-avaliacao/ADR-013-calibracao-e-previsao.md)) | Código pronto; aguarda a rodada completa |
-| Gold set manual cego, leva 1 ([ADR-012](docs/adr/05-avaliacao/ADR-012-gold-set-manual-cego.md)) | Sorteio, planilha, rotulagem interativa e régua prontos; rotulagem em andamento (`dados/gold/`) |
+| Gold set manual cego ([ADR-012](docs/adr/05-avaliacao/ADR-012-gold-set-manual-cego.md)) | 60 questões rotuladas à mão; sorteio, planilha, rotulagem interativa e régua (`dados/gold/`) |
 | Preparação, classificação, decisão, avaliação | Em andamento; ver o [roteiro](docs/adr/README.md#5-roteiro-de-implementação) |
 | Entregáveis (`publicacao.csv`, `previsao.txt`, relatório) | Ainda não gerados |
 
@@ -58,12 +58,14 @@ Todo ponto de entrada roda **sem argumentos**. Caminhos e limiares ficam em
 | `uv run python executar_classificacao.py` | Passos 05 e 06: classificadores A (plano) e B (hierárquico), voto barato, regras das leis citadas e verificador contrastivo; pula o gold ainda sem rótulo | `dados/classificacao/sinais.jsonl`, `saidas/classificacao/`, `saidas/custos/` |
 | `uv run python executar_experimentos.py` | Experimentos no gold (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B e voto barato sozinhos; erros em comum de A e B). Só números agregados | `saidas/experimentos/resultados.csv` |
 | `uv run python executar_experimento_cartoes.py` | Experimento E4: classificador B com escopo e cartões × só títulos, no gold (com cache) | `saidas/experimentos/resultados.csv` |
-| `uv run python executar_congelamento.py` | Congela o pipeline antes da leva 2: impressão digital de prompts, cartões, árvores, decisões, modelos e código | `saidas/experimentos/congelamento.json`, `registro.md` |
+| `uv run python executar_congelamento.py` | Congela o pipeline antes da rodada final: impressão digital de prompts, cartões, árvores, decisões, modelos e código | `saidas/experimentos/congelamento.json`, `registro.md` |
 | `uv run python executar_decisao.py` | Passo 07: agregação, recuo para o pai, regras que forçam revisão, calibração no gold, limiar e previsão. Não chama modelo | `publicacao.csv`, `previsao.txt`, `saidas/decisao/`, `dados/decisao/` |
-| `uv run python executar_gold.py` | Gold set, leva 1: sorteio estratificado com semente fixa (ou reaproveita o gravado), planilha de rótulos (nunca sobrescrita), caderno e situação da rotulagem | `dados/gold/` (`amostra_leva1.csv`, `rotulos_leva1.csv`, `caderno_leva1.md`) |
+| `uv run python executar_gold.py` | Gold set: sorteio estratificado com semente fixa (ou reaproveita o gravado), planilha de rótulos (nunca sobrescrita), caderno e situação da rotulagem | `dados/gold/` (`amostra_leva1.csv`, `rotulos_leva1.csv`, `caderno_leva1.md`) |
 | `uv run python executar_rotulagem.py` | Rotulagem interativa no terminal: só o texto canônico, busca de temas na árvore, grava a cada questão e retoma de onde parou | `dados/gold/rotulos_leva1.csv` |
 | `uv run python executar_validacao.py` | Confere `publicacao.csv` e `previsao.txt` contra o formato do LEIA-ME (sai com código 1 se houver problema) | Resumo no terminal |
 | `uv run python executar_pipeline.py` | Roda tudo em ordem (01, 02, 05/06, 07) e valida a entrega; com o cache `runs/` completo, não chama nenhum modelo | Todos os acima |
+| `uv run python executar_graficos.py` | Gráficos de confiabilidade e de precisão × cobertura (gold e 359), com as tabelas equivalentes | `saidas/avaliacao/` (PNG, SVG, `graficos.md`) |
+| `uv run python executar_testes.py` | Testes unitários (recuo para o pai, política de decisão, colunas do `publicacao.csv`, régua e corte do limiar); também rodam no portão | Resumo no terminal |
 | `uv run python executar_checagem.py` | Portão de qualidade: ruff, formatação, mypy estrito, anotações e docstrings | Resumo no terminal; código de saída 1 se algo falhar |
 
 As próximas etapas (preparar, cartões, classificar, decidir, avaliar) entram nesta tabela à medida que forem implementadas.
@@ -112,7 +114,8 @@ Definido na [ADR-001](docs/adr/00-fundacao/ADR-001-stack-e-ambiente.md) e confer
 - **Tudo tipado**, inclusive variáveis locais. Alvos de `for` e `with` são declarados antes; aliases usam `type X = ...`.
 - **Docstrings** em módulos, classes e funções, em português.
 - **Dependências** fixadas com `==`: execução em `requirements.txt`, desenvolvimento em `requirements-dev.txt`.
-- O portão precisa passar antes de cada entrega:
+- Testes unitários com o `unittest` da biblioteca padrão, em `testes/` (métodos `teste_*`).
+- O portão (ruff, mypy estrito, testes e anotações) precisa passar antes de cada entrega:
 
 ```bash
 uv run python executar_checagem.py
@@ -155,6 +158,7 @@ uv run python executar_checagem.py
 ├── prompts/                   ← prompts versionados de cada papel (a versão entra na chave do cache)
 ├── runs/                      ← cache de chamadas a modelos, só de acréscimo (respostas brutas)
 ├── ferramentas/               ← verificador de anotações e portão de qualidade
+├── testes/                    ← testes unitários (unittest)
 ├── docs/
 │   ├── adr/                   ← plano de implementação (ADRs por fase)
 │   └── enunciado/             ← README original do case e PDF
