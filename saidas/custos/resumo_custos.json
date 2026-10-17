@@ -22,11 +22,11 @@
       "classificador_plano@6673d99f94f0",
       "classificador_plano@ac91b7aada10"
     ],
-    "chamadas": 95,
-    "tokens_entrada": 4256884,
-    "tokens_saida": 17806,
-    "latencia_total_s": 803.1,
-    "latencia_media_s": 8.45,
+    "chamadas": 369,
+    "tokens_entrada": 16546108,
+    "tokens_saida": 74913,
+    "latencia_total_s": 3035.1,
+    "latencia_media_s": 8.23,
     "custo_usd": null,
     "tipo_custo": "assinatura"
   },
@@ -38,11 +38,27 @@
       "classificador_hierarquico_subtema@e2f7b76531f3",
       "classificador_hierarquico_tema@2b4d1941ddd1"
     ],
-    "chamadas": 641,
-    "tokens_entrada": 19894379,
-    "tokens_saida": 1084551,
-    "latencia_total_s": 11615.5,
-    "latencia_media_s": 18.12,
+    "chamadas": 642,
+    "tokens_entrada": 19947886,
+    "tokens_saida": 1084805,
+    "latencia_total_s": 11627.2,
+    "latencia_media_s": 18.11,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
+    "papel": "e4_b_so_titulos",
+    "provedor": "gemini-agy",
+    "modelo": "gemini-3.8-flash-low",
+    "versoes_prompt": [
+      "classificador_hierarquico_subtema@e2f7b76531f3",
+      "classificador_hierarquico_tema@2b4d1941ddd1"
+    ],
+    "chamadas": 107,
+    "tokens_entrada": 2450802,
+    "tokens_saida": 221605,
+    "latencia_total_s": 2172.4,
+    "latencia_media_s": 20.3,
     "custo_usd": null,
     "tipo_custo": "assinatura"
   },
@@ -68,11 +84,11 @@
     "versoes_prompt": [
       "verificador@583862d6ac7b"
     ],
-    "chamadas": 75,
-    "tokens_entrada": 2182797,
-    "tokens_saida": 484547,
-    "latencia_total_s": 2287.5,
-    "latencia_media_s": 30.5,
+    "chamadas": 326,
+    "tokens_entrada": 9314026,
+    "tokens_saida": 2461933,
+    "latencia_total_s": 10858.8,
+    "latencia_media_s": 33.31,
     "custo_usd": null,
     "tipo_custo": "assinatura"
   },
@@ -83,11 +99,11 @@
     "versoes_prompt": [
       "voto_barato@ce6f10ebdfab"
     ],
-    "chamadas": 80,
-    "tokens_entrada": 4951231,
-    "tokens_saida": 91534,
-    "latencia_total_s": 1640.1,
-    "latencia_media_s": 20.5,
+    "chamadas": 374,
+    "tokens_entrada": 24191658,
+    "tokens_saida": 456584,
+    "latencia_total_s": 6837.6,
+    "latencia_media_s": 18.28,
     "custo_usd": null,
     "tipo_custo": "assinatura"
   },

@@ -1,7 +1,7 @@
 # Registro dos experimentos (ADR-014)
 
 Cada experimento: hipótese → resultado → decisão, inclusive quando a hipótese caiu. Os números
-vêm de `resultados.csv`. Base de todos: gold set, leva 1 (60 questões rotuladas à mão).
+vêm de `resultados.csv`. Base de todos: gold set (60 questões rotuladas à mão).
 
 - **Régua estrita:** só o tema que rotulamos (ou o pai ou um filho direto dele).
 - **Régua tolerante:** vale também qualquer tema que o rotulador listou como plausível.
@@ -66,7 +66,7 @@ vêm de `resultados.csv`. Base de todos: gold set, leva 1 (60 questões rotulada
 - **Resultado:** com 6 erros em 60, a regressão empata com um palpite constante (Brier 0,089 × 0,090).
   As faixas de sinais com suavização de Jeffreys ganham na validação cruzada (log-loss 0,287 × 0,312).
 - **Decisão:** a regressão foi **derrubada**; usamos as faixas. A regressão continua no código e entra se
-  ganhar na validação cruzada com as duas levas.
+  ganhar na validação cruzada.
 
 ## Pendentes
 
@@ -76,7 +76,29 @@ vêm de `resultados.csv`. Base de todos: gold set, leva 1 (60 questões rotulada
 
 ## Congelamento (2026-10-16T13:02:14)
 
-Prompts, cartões (rascunhos do modelo, sem revisão manual: D7), regras de decisão (D9, D10), modelos por papel (D8) e parâmetros congelados antes do sorteio da leva 2 (decisão do autor, 16/10).
+Prompts, cartões (rascunhos do modelo, sem revisão manual: D7), regras de decisão (D9, D10), modelos por papel (D8) e parâmetros congelados antes da rodada final (decisão do autor, 16/10).
 
 34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
-daqui, nenhum prompt, cartão, regra, modelo ou parâmetro muda; a leva 2 só mede.
+daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.
+
+## Congelamento (2026-10-17T14:37:45)
+
+Recongelamento em 17/10, sem efeito nas decisões: (1) os testes unitários entraram no portão de qualidade (ParametrosQualidade em configuracao.py); (2) o texto explicativo do previsao.txt foi corrigido (calibração por faixas e sorteios da Beta). Nenhum prompt, cartão, regra de decisão, parâmetro de calibração ou modelo mudou.
+
+34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
+daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.
+
+
+## Congelamento (2026-10-17T14:43:39)
+
+Recongelamento em 17/10, sem efeito nas decisões: remoção de código sem uso e ordem estável dos extras_ids empatados (o conjunto de extras não muda; antes a ordem variava entre execuções, porque dependia da ordem de iteração de conjuntos). Conferido: duas execuções geram o mesmo publicacao.csv, byte a byte; em relação à execução anterior, só a ordem dos extras de 4 questões mudou.
+
+34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
+daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.
+
+## Congelamento (2026-10-17T14:45:39)
+
+Recongelamento em 17/10, sem efeito nas decisões: só docstrings e mensagens (o gold set passou a ser descrito como uma amostra única).
+
+34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
+daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.

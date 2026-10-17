@@ -1,0 +1,360 @@
+id,decisao,tema_central_id,extras_ids,confianca,motivo
+Q0001,publicar,5524,,0.98,
+Q0002,revisar,4378,,0.85,"baixa confiança (P = 0,85)"
+Q0003,revisar,5562,5534,0.58,verificador sugere 5534
+Q0004,revisar,5480,,0.95,"baixa confiança (P = 0,95)"
+Q0005,revisar,5199,5203,0.81,"baixa confiança (P = 0,81)"
+Q0006,revisar,5157,,0.95,"baixa confiança (P = 0,95)"
+Q0007,revisar,5063,5468,0.53,verificador sugere 5468
+Q0008,revisar,5201,4703,0.83,"baixa confiança (P = 0,83)"
+Q0009,revisar,5158,5159,0.83,"baixa confiança (P = 0,83)"
+Q0010,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
+Q0011,revisar,4702,,0.79,"baixa confiança (P = 0,79)"
+Q0012,revisar,5569,4701;5539;5562,0.83,"baixa confiança (P = 0,83)"
+Q0013,revisar,5503,,0.85,"baixa confiança (P = 0,85)"
+Q0014,publicar,5477,,0.98,
+Q0015,revisar,5498,5500,0.83,"baixa confiança (P = 0,83)"
+Q0016,revisar,5584,,0.85,"baixa confiança (P = 0,85)"
+Q0017,revisar,5533,,0.85,"baixa confiança (P = 0,85)"
+Q0018,revisar,5540,4701,0.77,"baixa confiança (P = 0,77)"
+Q0019,revisar,5475,,0.88,"baixa confiança (P = 0,88)"
+Q0020,revisar,4709,5199;5203,0.59,dúvida entre 4709 e 5199
+Q0021,revisar,5503,,0.85,"baixa confiança (P = 0,85)"
+Q0022,revisar,5089,,0.95,"baixa confiança (P = 0,95)"
+Q0023,publicar,5524,,0.98,
+Q0024,revisar,4387,4388,0.85,"baixa confiança (P = 0,85)"
+Q0025,revisar,5101,5093,0.83,"baixa confiança (P = 0,83)"
+Q0026,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0027,revisar,5488,,0.85,"baixa confiança (P = 0,85)"
+Q0028,revisar,5524,5526,0.83,"baixa confiança (P = 0,83)"
+Q0029,revisar,4684,,0.79,"baixa confiança (P = 0,79)"
+Q0030,revisar,5135,5128,0.85,"baixa confiança (P = 0,85)"
+Q0031,revisar,4387,4388,0.85,"baixa confiança (P = 0,85)"
+Q0032,revisar,5497,5500,0.85,"baixa confiança (P = 0,85)"
+Q0033,publicar,5519,,0.98,
+Q0034,publicar,5477,,0.98,
+Q0035,publicar,4706,,0.98,
+Q0036,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0037,revisar,5118,5132;5128,0.59,dúvida entre 5118 e 5132
+Q0038,revisar,5549,5583,0.58,dúvida entre 5549 e 5583
+Q0039,publicar,4687,4694,0.98,
+Q0040,revisar,5562,,0.95,"baixa confiança (P = 0,95)"
+Q0041,publicar,5184,,0.98,
+Q0042,revisar,5222,,0.85,"baixa confiança (P = 0,85)"
+Q0043,revisar,5199,,0.95,"baixa confiança (P = 0,95)"
+Q0044,revisar,5488,5583,0.85,"baixa confiança (P = 0,85)"
+Q0045,revisar,5091,,0.95,"baixa confiança (P = 0,95)"
+Q0046,publicar,5510,,0.98,
+Q0047,revisar,5164,,0.95,"baixa confiança (P = 0,95)"
+Q0048,revisar,5193,4703,0.85,"baixa confiança (P = 0,85)"
+Q0049,publicar,5152,,0.98,
+Q0050,revisar,4708,5557,0.47,verificador sugere 5557
+Q0051,publicar,5182,,0.98,
+Q0052,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0053,revisar,5541,4701,0.88,"baixa confiança (P = 0,88)"
+Q0054,publicar,5174,,0.98,
+Q0055,revisar,5550,,0.95,"baixa confiança (P = 0,95)"
+Q0056,publicar,5066,,0.98,
+Q0057,publicar,5176,,0.98,
+Q0058,publicar,4378,4390,0.98,
+Q0059,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
+Q0060,revisar,5087,,0.95,"baixa confiança (P = 0,95)"
+Q0061,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0062,publicar,5182,,0.98,
+Q0063,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0064,revisar,5165,4695,0.83,"baixa confiança (P = 0,83)"
+Q0065,revisar,5161,,0.95,"baixa confiança (P = 0,95)"
+Q0066,publicar,4373,,0.98,
+Q0067,revisar,5091,,0.95,"baixa confiança (P = 0,95)"
+Q0068,revisar,5096,5116,0.58,dúvida entre 5096 e 5116
+Q0069,publicar,5173,,0.98,
+Q0070,revisar,5193,4703,0.59,dúvida entre 5193 e 4703
+Q0071,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
+Q0072,revisar,5592,,0.85,"baixa confiança (P = 0,85)"
+Q0073,revisar,5087,5079;5147,0.95,"baixa confiança (P = 0,95)"
+Q0074,revisar,4703,5181,0.47,dúvida entre 4703 e 5181
+Q0075,publicar,5191,,0.98,
+Q0076,publicar,4373,,0.98,
+Q0077,revisar,5170,,0.85,"baixa confiança (P = 0,85)"
+Q0078,revisar,4697,4691,0.85,"baixa confiança (P = 0,85)"
+Q0079,publicar,5581,,0.98,
+Q0080,publicar,4370,,0.98,
+Q0081,publicar,4373,,0.98,
+Q0082,revisar,5100,,0.95,"baixa confiança (P = 0,95)"
+Q0083,revisar,5224,,0.85,"baixa confiança (P = 0,85)"
+Q0084,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0085,revisar,5076,,0.85,"baixa confiança (P = 0,85)"
+Q0086,revisar,5092,,0.95,"baixa confiança (P = 0,95)"
+Q0087,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0088,publicar,4389,,0.98,
+Q0089,revisar,5172,5227,0.85,"baixa confiança (P = 0,85)"
+Q0090,revisar,5530,,0.83,questão cobre vários temas: 5530
+Q0091,revisar,4703,5201,0.68,"baixa confiança (P = 0,68)"
+Q0092,revisar,5511,5510,0.85,"baixa confiança (P = 0,85)"
+Q0093,revisar,5223,,0.85,"baixa confiança (P = 0,85)"
+Q0094,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
+Q0095,publicar,5197,,0.98,
+Q0096,revisar,5486,5483,0.83,"baixa confiança (P = 0,83)"
+Q0097,revisar,4708,4705;4702,0.47,dúvida entre 4708 e 4705
+Q0098,revisar,5548,,0.83,"baixa confiança (P = 0,83)"
+Q0099,revisar,5100,,0.95,"baixa confiança (P = 0,95)"
+Q0100,revisar,5224,5103,0.59,dúvida entre 5224 e 5103
+Q0101,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0102,revisar,5572,5209,0.77,"baixa confiança (P = 0,77)"
+Q0103,publicar,5478,,0.98,
+Q0104,revisar,5500,5477,0.59,verificador sugere 5477
+Q0105,revisar,4387,4388,0.85,"baixa confiança (P = 0,85)"
+Q0106,revisar,5166,,0.95,"baixa confiança (P = 0,95)"
+Q0107,revisar,5119,,0.85,"baixa confiança (P = 0,85)"
+Q0108,revisar,5561,,0.95,"baixa confiança (P = 0,95)"
+Q0109,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0110,revisar,5480,,0.95,"baixa confiança (P = 0,95)"
+Q0111,publicar,4373,,0.98,
+Q0112,revisar,4705,,0.79,"baixa confiança (P = 0,79)"
+Q0113,revisar,5186,,0.59,possível fora do recorte
+Q0114,revisar,5507,,0.85,"baixa confiança (P = 0,85)"
+Q0115,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
+Q0116,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0117,revisar,4384,5199,0.77,"baixa confiança (P = 0,77)"
+Q0118,revisar,5507,5181,0.85,"baixa confiança (P = 0,85)"
+Q0119,revisar,5194,5181,0.59,dúvida entre 5194 e 5181
+Q0120,revisar,5533,5547,0.59,dúvida entre 5533 e 5547
+Q0121,revisar,5469,5065;5472,0.77,sobreposição: 5469 × 5065
+Q0122,revisar,4703,5199,0.68,"baixa confiança (P = 0,68)"
+Q0123,revisar,4378,4387,0.59,dúvida entre 4378 e 4387
+Q0124,revisar,4384,5199,0.77,"baixa confiança (P = 0,77)"
+Q0125,revisar,5181,4708,0.85,"baixa confiança (P = 0,85)"
+Q0126,revisar,5182,5213,0.85,"baixa confiança (P = 0,85)"
+Q0127,revisar,5578,4708,0.77,"baixa confiança (P = 0,77)"
+Q0128,revisar,5468,5184,0.77,"baixa confiança (P = 0,77)"
+Q0129,revisar,5550,,0.95,"baixa confiança (P = 0,95)"
+Q0130,revisar,5160,5205,0.83,"baixa confiança (P = 0,83)"
+Q0131,publicar,5072,,0.98,
+Q0132,revisar,5543,5550,0.81,"baixa confiança (P = 0,81)"
+Q0133,publicar,5528,,0.98,
+Q0134,revisar,5092,,0.83,"baixa confiança (P = 0,83)"
+Q0135,revisar,5169,,0.95,"baixa confiança (P = 0,95)"
+Q0136,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0137,revisar,5498,5500,0.83,"baixa confiança (P = 0,83)"
+Q0138,revisar,5199,5205,0.81,"baixa confiança (P = 0,81)"
+Q0139,publicar,5212,,0.98,
+Q0140,revisar,5157,,0.95,"baixa confiança (P = 0,95)"
+Q0141,publicar,4387,4388,0.98,
+Q0142,fora,,,1.00,nenhum tema do recorte serve
+Q0143,revisar,5507,,0.85,"baixa confiança (P = 0,85)"
+Q0144,revisar,5562,,0.83,"baixa confiança (P = 0,83)"
+Q0145,revisar,4702,4695,0.79,"baixa confiança (P = 0,79)"
+Q0146,publicar,5594,,0.98,
+Q0147,publicar,5498,,0.98,
+Q0148,revisar,5203,,0.95,"baixa confiança (P = 0,95)"
+Q0149,publicar,5500,,0.98,
+Q0150,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0151,revisar,5517,,0.85,"baixa confiança (P = 0,85)"
+Q0152,revisar,5472,,0.88,"baixa confiança (P = 0,88)"
+Q0153,revisar,5222,5224,0.85,"baixa confiança (P = 0,85)"
+Q0154,revisar,5135,,0.59,possível fora do recorte
+Q0155,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0156,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
+Q0157,revisar,5520,4693,0.59,dúvida entre 5520 e 4693
+Q0158,publicar,4707,,0.98,
+Q0159,revisar,5226,,0.85,"baixa confiança (P = 0,85)"
+Q0160,revisar,5205,,0.95,"baixa confiança (P = 0,95)"
+Q0161,revisar,5588,5554,0.85,"baixa confiança (P = 0,85)"
+Q0162,revisar,4381,,0.85,"baixa confiança (P = 0,85)"
+Q0163,revisar,5133,4684,0.85,"baixa confiança (P = 0,85)"
+Q0164,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0165,revisar,4705,,0.68,"baixa confiança (P = 0,68)"
+Q0166,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0167,revisar,5528,5486,0.85,"baixa confiança (P = 0,85)"
+Q0168,fora,,,1.00,nenhum tema do recorte serve
+Q0169,revisar,5492,5583,0.59,dúvida entre 5492 e 5583
+Q0170,revisar,5203,,0.83,"baixa confiança (P = 0,83)"
+Q0171,revisar,4693,4699,0.59,possível fora do recorte
+Q0172,revisar,5484,5466;5473,0.58,dúvida entre 5484 e 5466
+Q0173,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0174,revisar,5133,4709,0.59,possível fora do recorte
+Q0175,revisar,5092,5091,0.95,"baixa confiança (P = 0,95)"
+Q0176,publicar,5081,,0.98,
+Q0177,revisar,5547,,0.95,"baixa confiança (P = 0,95)"
+Q0178,publicar,4697,,0.98,
+Q0179,publicar,4369,,0.98,
+Q0180,revisar,5594,5554,0.59,verificador sugere 5554
+Q0181,publicar,4695,4687,0.98,
+Q0182,revisar,5138,,0.59,possível fora do recorte
+Q0183,revisar,5561,,0.83,"baixa confiança (P = 0,83)"
+Q0184,revisar,4708,,0.68,"baixa confiança (P = 0,68)"
+Q0185,revisar,4703,,0.79,"baixa confiança (P = 0,79)"
+Q0186,revisar,5202,,0.95,"baixa confiança (P = 0,95)"
+Q0187,revisar,5209,,0.95,"baixa confiança (P = 0,95)"
+Q0188,publicar,5229,,0.98,
+Q0189,revisar,5469,5472,0.53,dúvida entre 5469 e 5472
+Q0190,revisar,4701,5539;5540,0.53,dúvida entre 4701 e 5539
+Q0191,revisar,5560,,0.95,"baixa confiança (P = 0,95)"
+Q0192,revisar,5087,,0.95,"baixa confiança (P = 0,95)"
+Q0193,revisar,5557,4705,0.77,"baixa confiança (P = 0,77)"
+Q0194,revisar,5076,,0.85,"baixa confiança (P = 0,85)"
+Q0195,publicar,4373,,0.98,
+Q0196,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
+Q0197,revisar,5482,5500,0.58,dúvida entre 5482 e 5500
+Q0198,publicar,5073,5072,0.98,
+Q0199,revisar,5218,,0.59,possível fora do recorte
+Q0200,revisar,4705,,0.79,"baixa confiança (P = 0,79)"
+Q0201,publicar,5103,,0.98,
+Q0202,revisar,5224,5109,0.59,dúvida entre 5224 e 5109
+Q0203,revisar,4702,,0.79,"baixa confiança (P = 0,79)"
+Q0204,revisar,5507,,0.85,"baixa confiança (P = 0,85)"
+Q0205,revisar,5512,5560;5567,0.59,dúvida entre 5512 e 5560
+Q0206,revisar,5583,5466,0.85,"baixa confiança (P = 0,85)"
+Q0207,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0208,publicar,5072,,0.98,
+Q0209,revisar,5499,5582,0.59,dúvida entre 5499 e 5582
+Q0210,publicar,4697,,0.98,
+Q0211,revisar,5583,,0.59,possível fora do recorte
+Q0212,publicar,5488,,0.98,
+Q0213,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0214,publicar,5494,,0.98,
+Q0215,revisar,5201,,0.83,"baixa confiança (P = 0,83)"
+Q0216,revisar,4701,5539,0.53,verificador sugere 5539
+Q0217,revisar,4372,4373;4384,0.59,dúvida entre 4372 e 4373
+Q0218,revisar,5518,,0.85,"baixa confiança (P = 0,85)"
+Q0219,revisar,5072,5074,0.85,"baixa confiança (P = 0,85)"
+Q0220,publicar,5501,,0.98,
+Q0221,revisar,5199,5200;5184,0.81,"baixa confiança (P = 0,81)"
+Q0222,revisar,4375,5171;4376,0.59,verificador sugere 5171
+Q0223,revisar,5086,,0.85,"baixa confiança (P = 0,85)"
+Q0224,revisar,5199,4686,0.95,"baixa confiança (P = 0,95)"
+Q0225,publicar,5478,,0.98,
+Q0226,revisar,5544,,0.95,"baixa confiança (P = 0,95)"
+Q0227,revisar,5103,4709,0.85,"baixa confiança (P = 0,85)"
+Q0228,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0229,revisar,5584,5517;5519,0.59,dúvida entre 5584 e 5517
+Q0230,revisar,5214,5184,0.85,"baixa confiança (P = 0,85)"
+Q0231,publicar,5224,,0.98,
+Q0232,publicar,5079,,0.98,
+Q0233,publicar,5178,,0.98,
+Q0234,revisar,4382,4381,0.85,"baixa confiança (P = 0,85)"
+Q0235,revisar,5561,,0.83,"baixa confiança (P = 0,83)"
+Q0236,revisar,5490,5582,0.59,possível fora do recorte
+Q0237,publicar,5178,,0.98,
+Q0238,revisar,5523,,0.85,"baixa confiança (P = 0,85)"
+Q0239,revisar,5199,,0.95,"baixa confiança (P = 0,95)"
+Q0240,revisar,5473,5500,0.53,dúvida entre 5473 e 5500
+Q0241,publicar,5224,,0.98,
+Q0242,revisar,5512,,0.85,"baixa confiança (P = 0,85)"
+Q0243,revisar,5178,,0.85,"baixa confiança (P = 0,85)"
+Q0244,revisar,5091,5092,0.83,"baixa confiança (P = 0,83)"
+Q0245,publicar,5185,,0.98,
+Q0246,publicar,5527,,0.98,
+Q0247,publicar,5502,,0.98,
+Q0248,revisar,5087,,0.95,"baixa confiança (P = 0,95)"
+Q0249,revisar,5492,5583,0.59,dúvida entre 5492 e 5583
+Q0250,revisar,5201,,0.95,"baixa confiança (P = 0,95)"
+Q0251,publicar,5191,,0.98,
+Q0252,revisar,5199,4703,0.58,dúvida entre 5199 e 4703
+Q0253,publicar,4373,,0.98,
+Q0254,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0255,publicar,5213,,0.98,
+Q0256,revisar,5224,,0.59,possível fora do recorte
+Q0257,publicar,5218,,0.98,
+Q0258,revisar,5545,5546,0.83,"baixa confiança (P = 0,83)"
+Q0259,revisar,5183,,0.85,"baixa confiança (P = 0,85)"
+Q0260,revisar,4376,4370,0.59,possível fora do recorte
+Q0261,revisar,5136,,0.85,"baixa confiança (P = 0,85)"
+Q0262,revisar,4703,5184,0.68,"baixa confiança (P = 0,68)"
+Q0263,revisar,5492,5583,0.59,dúvida entre 5492 e 5583
+Q0264,publicar,5102,,0.98,
+Q0265,revisar,5186,,0.85,"baixa confiança (P = 0,85)"
+Q0266,revisar,5482,5486,0.95,"baixa confiança (P = 0,95)"
+Q0267,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0268,revisar,5118,4684;5120,0.98,questão cobre vários temas: 5118; 4684; 5120
+Q0269,revisar,4375,4368,0.59,dúvida entre 4375 e 4368
+Q0270,revisar,5091,5092,0.95,"baixa confiança (P = 0,95)"
+Q0271,revisar,5562,5515,0.58,dúvida entre 5562 e 5515
+Q0272,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
+Q0273,revisar,5089,,0.83,"baixa confiança (P = 0,83)"
+Q0274,revisar,5160,,0.95,"baixa confiança (P = 0,95)"
+Q0275,revisar,5540,4701;5488,0.53,dúvida entre 5540 e 4701
+Q0276,revisar,5543,,0.95,"baixa confiança (P = 0,95)"
+Q0277,revisar,4696,,0.68,"baixa confiança (P = 0,68)"
+Q0278,revisar,5542,4701,0.77,sobreposição: 5542 × 4701
+Q0279,revisar,5188,5186,0.85,"baixa confiança (P = 0,85)"
+Q0280,revisar,5120,5466,0.59,dúvida entre 5120 e 5466
+Q0281,revisar,5543,,0.95,"baixa confiança (P = 0,95)"
+Q0282,revisar,4704,4690;4697,0.47,possível fora do recorte
+Q0283,revisar,5496,,0.85,"baixa confiança (P = 0,85)"
+Q0284,revisar,5224,5231,0.85,"baixa confiança (P = 0,85)"
+Q0285,publicar,4376,,0.98,
+Q0286,revisar,5199,,0.95,"baixa confiança (P = 0,95)"
+Q0287,revisar,5229,5230,0.85,"baixa confiança (P = 0,85)"
+Q0288,revisar,5103,4688;4695;5068,0.59,possível fora do recorte
+Q0289,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
+Q0290,revisar,4701,5539,0.53,verificador sugere 5539
+Q0291,revisar,4708,5500,0.47,verificador sugere 5500
+Q0292,publicar,4374,4368,0.98,
+Q0293,revisar,5185,5189,0.83,"baixa confiança (P = 0,83)"
+Q0294,publicar,5211,,0.98,
+Q0295,publicar,5489,,0.98,
+Q0296,revisar,5472,,0.88,"baixa confiança (P = 0,88)"
+Q0297,revisar,4695,4689,0.59,possível fora do recorte
+Q0298,publicar,4687,4695,0.98,
+Q0299,revisar,4387,,0.98,questão cobre vários temas: 4387
+Q0300,revisar,5084,,0.85,"baixa confiança (P = 0,85)"
+Q0301,publicar,5197,,0.98,
+Q0302,revisar,5224,5222,0.85,"baixa confiança (P = 0,85)"
+Q0303,publicar,5180,,0.98,
+Q0304,revisar,5540,4701,0.77,"baixa confiança (P = 0,77)"
+Q0305,revisar,5466,,0.88,"baixa confiança (P = 0,88)"
+Q0306,revisar,5146,,0.85,"baixa confiança (P = 0,85)"
+Q0307,publicar,4707,,0.98,
+Q0308,publicar,5501,,0.98,
+Q0309,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
+Q0310,revisar,5505,,0.85,"baixa confiança (P = 0,85)"
+Q0311,revisar,5488,,0.85,"baixa confiança (P = 0,85)"
+Q0312,revisar,4384,,0.88,"baixa confiança (P = 0,88)"
+Q0313,revisar,5209,5475,0.83,"baixa confiança (P = 0,83)"
+Q0314,publicar,5477,,0.98,
+Q0315,publicar,5189,5187,0.98,
+Q0316,revisar,5224,,0.85,"baixa confiança (P = 0,85)"
+Q0317,revisar,5198,5064,0.53,dúvida entre 5198 e 5064
+Q0318,publicar,5178,,0.98,
+Q0319,revisar,5073,5072,0.85,"baixa confiança (P = 0,85)"
+Q0320,revisar,5550,,0.95,"baixa confiança (P = 0,95)"
+Q0321,publicar,5071,,0.98,
+Q0322,revisar,5569,5561,0.58,dúvida entre 5569 e 5561
+Q0323,revisar,5590,5543,0.85,"baixa confiança (P = 0,85)"
+Q0324,revisar,5199,4703;5184,0.95,"baixa confiança (P = 0,95)"
+Q0325,revisar,5467,5531;4704;4688,0.53,verificador sugere 5531
+Q0326,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0327,revisar,5203,,0.95,"baixa confiança (P = 0,95)"
+Q0328,revisar,4374,4381;4382,0.59,dúvida entre 4374 e 4381
+Q0329,revisar,5557,4705,0.77,"baixa confiança (P = 0,77)"
+Q0330,revisar,5498,5501,0.83,"baixa confiança (P = 0,83)"
+Q0331,publicar,5477,,0.98,
+Q0332,revisar,5541,,0.88,"baixa confiança (P = 0,88)"
+Q0333,revisar,4373,,0.98,questão cobre vários temas: 4373
+Q0334,publicar,4381,,0.98,
+Q0335,publicar,5218,,0.98,
+Q0336,revisar,5159,,0.95,"baixa confiança (P = 0,95)"
+Q0337,revisar,4684,,0.79,"baixa confiança (P = 0,79)"
+Q0338,revisar,5595,5543,0.59,verificador sugere 5543
+Q0339,revisar,5572,,0.88,"baixa confiança (P = 0,88)"
+Q0340,publicar,5071,,0.98,
+Q0341,revisar,5157,,0.95,"baixa confiança (P = 0,95)"
+Q0342,revisar,5546,5545,0.83,"baixa confiança (P = 0,83)"
+Q0343,revisar,5195,5065,0.59,dúvida entre 5195 e 5065
+Q0344,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
+Q0345,revisar,5102,5103,0.83,"baixa confiança (P = 0,83)"
+Q0346,revisar,5583,4694,0.85,"baixa confiança (P = 0,85)"
+Q0347,revisar,5207,,0.58,possível fora do recorte
+Q0348,revisar,5093,,0.95,"baixa confiança (P = 0,95)"
+Q0349,revisar,5178,,0.85,"baixa confiança (P = 0,85)"
+Q0350,revisar,4702,,0.79,"baixa confiança (P = 0,79)"
+Q0351,publicar,5118,,0.98,
+Q0352,revisar,5512,,0.85,"baixa confiança (P = 0,85)"
+Q0353,revisar,5535,,0.85,"baixa confiança (P = 0,85)"
+Q0354,revisar,5218,5220,0.83,"baixa confiança (P = 0,83)"
+Q0355,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
+Q0356,publicar,5066,,0.98,
+Q0357,revisar,5135,,0.85,"baixa confiança (P = 0,85)"
+Q0358,revisar,5133,,0.85,"baixa confiança (P = 0,85)"
+Q0359,revisar,4696,4701,0.79,"baixa confiança (P = 0,79)"
