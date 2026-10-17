@@ -13,3 +13,6 @@ openai==3.31.0
 # Cálculo numérico e calibração da confiança / estimativa de precisão (passos 07 e 08).
 numpy==2.5.4
 scikit-learn==1.9.1
+
+# Gráficos de confiabilidade e de precisão × cobertura (ADR-013; executar_graficos.py).
+matplotlib==3.11.2

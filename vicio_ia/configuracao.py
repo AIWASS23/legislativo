@@ -372,9 +372,9 @@ class ParametrosQualidade:
             de anotações e docstrings.
     """
 
-    pacotes: tuple[str, ...] = ("vicio_ia", "ferramentas")
+    pacotes: tuple[str, ...] = ("vicio_ia", "ferramentas", "testes")
     pontos_de_entrada: tuple[str, ...] = ("executar_*.py",)
-    padroes_anotacoes: tuple[str, ...] = ("vicio_ia/**/*.py", "ferramentas/**/*.py", "executar_*.py")
+    padroes_anotacoes: tuple[str, ...] = ("vicio_ia/**/*.py", "ferramentas/**/*.py", "testes/**/*.py", "executar_*.py")
 
 
 def _qualidade_minima_padrao() -> dict[str, int]:
@@ -482,14 +482,8 @@ class ParametrosGold:
     """Parâmetros do gold set manual cego (ADR-012).
 
     Attributes:
-        semente: Semente dos sorteios das amostras (fixa, para reprodutibilidade).
-        tamanho_leva1: Questões da leva 1 (desenvolvimento), estratificada por
-            disciplina de origem normalizada e formato.
-        leva2_publicacao: Questões da leva 2 sorteadas entre as que seriam publicadas (P calibrada
-            igual ou acima do limiar provisório).
-        leva2_fronteira: Questões da leva 2 sorteadas logo abaixo do limiar.
-        largura_fronteira: Distância máxima abaixo do limiar para a questão estar na fronteira (com
-            faixas, as P são discretas: 0,15 alcança a faixa seguinte).
+        semente: Semente do sorteio da amostra (fixa, para reprodutibilidade).
+        tamanho_leva1: Questões do gold set, estratificadas por disciplina de origem normalizada e formato.
         niveis_certeza: Valores aceitos na coluna ``certeza``.
         max_resultados_busca: Temas exibidos por busca na rotulagem interativa.
         rotulo_fora_do_recorte: Estrato das questões cuja disciplina de origem não está no recorte.
@@ -497,9 +491,6 @@ class ParametrosGold:
 
     semente: int = 20261015
     tamanho_leva1: int = 60
-    leva2_publicacao: int = 40
-    leva2_fronteira: int = 20
-    largura_fronteira: float = 0.15
     niveis_certeza: tuple[str, ...] = ("alta", "media", "baixa")
     max_resultados_busca: int = 15
     rotulo_fora_do_recorte: str = "(fora do recorte)"

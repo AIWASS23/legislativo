@@ -42,7 +42,7 @@ class ResultadoEtapa:
 
 
 class PortaoQualidade:
-    """Executa ruff (lint e formatação), mypy estrito e o verificador de anotações.
+    """Executa ruff (lint e formatação), mypy estrito, os testes unitários e o verificador de anotações.
 
     As ferramentas externas são chamadas com o mesmo interpretador que roda este
     código (``python -m ruff``, ``python -m mypy``); com ``uv run``, é o do ``.venv``.
@@ -82,6 +82,7 @@ class PortaoQualidade:
             Etapa("ruff check", (python, "-m", "ruff", "check", ".")),
             Etapa("ruff format --check", (python, "-m", "ruff", "format", "--check", ".")),
             Etapa("mypy --strict", (python, "-m", "mypy", "--strict", *self.alvos_python())),
+            Etapa("testes unitários", (python, "executar_testes.py")),
         ]
 
     def executar(self) -> bool:
