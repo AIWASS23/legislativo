@@ -1,4 +1,4 @@
-"""Experimentos no gold, leva 1 (ADR-014). Uso: ``uv run python executar_experimentos.py`` (sem argumentos).
+"""Experimentos no gold set (ADR-014). Uso: ``uv run python executar_experimentos.py`` (sem argumentos).
 
 Roda E0 (assunto de origem), E2 (classificador A sozinho) e E3 (B e voto barato sozinhos, e
 erros em comum de A e B) com os rótulos já feitos e ``dados/classificacao/sinais.jsonl``.

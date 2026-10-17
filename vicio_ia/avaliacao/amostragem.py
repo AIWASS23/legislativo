@@ -8,13 +8,10 @@ import random
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import ClassVar, Literal, TextIO
+from typing import ClassVar, TextIO
 
 from vicio_ia.configuracao import ParametrosEDA, ParametrosGold
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
-
-type EstratoLeva2 = Literal["publicacao", "fronteira"]
-"""Estratos da leva 2: acima do limiar mais a fronteira, ou perto do limiar."""
 
 
 class ErroAmostra(Exception):
@@ -28,8 +25,8 @@ class ItemAmostra:
     Attributes:
         ordem: Posição na ordem de rotulagem (1, 2, ...); embaralhada para não rotular por estrato.
         id: ID da questão.
-        leva: 1 (desenvolvimento) ou 2 (estimativa).
-        estrato: Estrato do sorteio (``"Penal | multipla_escolha_5"``, ``"publicacao"``...).
+        leva: Identificador do sorteio (coluna ``leva`` do ``amostra_leva1.csv``; sempre 1).
+        estrato: Estrato do sorteio (``"Penal | multipla_escolha_5"``...).
         tamanho_estrato: Questões do estrato na população (``N_h``).
         sorteadas_estrato: Questões sorteadas no estrato (``n_h``).
         prob_inclusao: ``n_h / N_h``; o peso da questão nas estimativas é o inverso.
@@ -44,29 +41,11 @@ class ItemAmostra:
     prob_inclusao: float
 
 
-@dataclass(frozen=True)
-class CandidatoLeva2:
-    """Questão disponível para a leva 2, com a probabilidade calibrada de acerto (ADR-013).
-
-    A probabilidade só serve para o sorteio; ela nunca aparece para quem rotula.
-
-    Attributes:
-        id: ID da questão.
-        probabilidade: Probabilidade calibrada de a publicação estar certa.
-    """
-
-    id: str
-    probabilidade: float
-
-
 class AmostradorGold:
-    """Sorteia as levas do gold set com semente fixa.
+    """Sorteia o gold set com semente fixa.
 
-    * **Leva 1:** estratificada por disciplina de origem normalizada e formato, com alocação
-      proporcional pelo método do maior resto. Questões duplicadas ficam fora (herdam o rótulo).
-    * **Leva 2:** depois do congelamento; ``leva2_publicacao`` questões com ``P ≥ limiar`` (onde o
-      pipeline publicaria) e ``leva2_fronteira`` com ``limiar - largura_fronteira ≤ P < limiar``, sem
-      repetir a leva 1. Estrato menor que o pedido entra inteiro.
+    Amostra estratificada por disciplina de origem normalizada e formato, com alocação proporcional
+    pelo método do maior resto. Questões duplicadas ficam fora (herdam o rótulo).
     """
 
     COLUNAS: ClassVar[tuple[str, ...]] = (
@@ -90,7 +69,7 @@ class AmostradorGold:
         self._mapa_disciplinas: dict[str, str] = parametros_eda.mapa_disciplinas
 
     def estrato_leva1(self, questao: QuestaoPreparada) -> str:
-        """Estrato da leva 1: disciplina de origem normalizada e formato.
+        """Estrato do sorteio: disciplina de origem normalizada e formato.
 
         Args:
             questao: Questão preparada.
@@ -102,8 +81,8 @@ class AmostradorGold:
         disciplina: str = self._mapa_disciplinas.get(str(bruta).strip(), "") or self._parametros.rotulo_fora_do_recorte
         return f"{disciplina} | {questao.formato}"
 
-    def leva1(self, questoes: Sequence[QuestaoPreparada]) -> list[ItemAmostra]:
-        """Sorteia a leva 1.
+    def sortear(self, questoes: Sequence[QuestaoPreparada]) -> list[ItemAmostra]:
+        """Sorteia a amostra do gold.
 
         Args:
             questoes: Todas as questões preparadas.
@@ -122,43 +101,6 @@ class AmostradorGold:
         tamanho: int = self._parametros.tamanho_leva1
         alocacao: dict[str, int] = self._alocar(estratos, tamanho)
         return self._sortear(estratos, alocacao, 1, self._parametros.semente)
-
-    def leva2(self, candidatos: Sequence[CandidatoLeva2], limiar: float, excluir: frozenset[str]) -> list[ItemAmostra]:
-        """Sorteia a leva 2 nos estratos de publicação e de fronteira.
-
-        Se um estrato tiver menos questões que o pedido, entram todas (probabilidade de
-        inclusão 1) e um aviso é impresso.
-
-        Args:
-            candidatos: Questões com a probabilidade calibrada (depois do congelamento).
-            limiar: Limiar de publicação escolhido (ADR-011).
-            excluir: IDs já rotulados (leva 1).
-
-        Returns:
-            Itens na ordem de rotulagem.
-        """
-        largura: float = self._parametros.largura_fronteira
-        estratos: dict[str, list[str]] = {"publicacao": [], "fronteira": []}
-        candidato: CandidatoLeva2
-        for candidato in candidatos:
-            if candidato.id in excluir:
-                continue
-            if candidato.probabilidade >= limiar:
-                estratos["publicacao"].append(candidato.id)
-            elif candidato.probabilidade >= limiar - largura:
-                estratos["fronteira"].append(candidato.id)
-        pedidos: dict[str, int] = {
-            "publicacao": self._parametros.leva2_publicacao,
-            "fronteira": self._parametros.leva2_fronteira,
-        }
-        alocacao: dict[str, int] = {nome: min(pedido, len(estratos[nome])) for nome, pedido in pedidos.items()}
-        nome: str
-        for nome in sorted(pedidos):
-            if alocacao[nome] < pedidos[nome]:
-                print(
-                    f"AVISO: leva 2, estrato {nome}: só {alocacao[nome]} questões (pedidas {pedidos[nome]}); entram todas"
-                )
-        return self._sortear(estratos, alocacao, 2, self._parametros.semente + 2)
 
     @staticmethod
     def _alocar(estratos: dict[str, list[str]], tamanho: int) -> dict[str, int]:
@@ -198,7 +140,7 @@ class AmostradorGold:
         Args:
             estratos: Estrato -> IDs da população.
             alocacao: Estrato -> questões a sortear.
-            leva: Número da leva.
+            leva: Identificador do sorteio (coluna ``leva``).
             semente: Semente do gerador.
 
         Returns:
@@ -234,7 +176,7 @@ class AmostradorGold:
 
 
 class ArquivoAmostra:
-    """Grava e lê o CSV de uma amostra (``dados/gold/amostra_leva<N>.csv``)."""
+    """Grava e lê o CSV da amostra (``dados/gold/amostra_leva1.csv``)."""
 
     def __init__(self, caminho: Path) -> None:
         """Define o arquivo.

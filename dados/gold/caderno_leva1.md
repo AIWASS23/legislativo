@@ -1,4 +1,4 @@
-# Gold set, leva 1: caderno de rotulagem
+# Gold set: caderno de rotulagem
 
 60 questões na ordem de rotulagem; 60 já rotuladas (marcadas com [x]).
 

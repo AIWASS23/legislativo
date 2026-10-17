@@ -418,9 +418,9 @@ class CalibradorFaixas(CalibradorBase):
     * ``verificador_vizinho``: o verificador escolheu o pai, um filho ou um irmão (houve recuo ou ajuste);
     * ``outros``: o resto (revisões forçadas, falhas).
 
-    A taxa de cada faixa usa o peso amostral (inverso da probabilidade de inclusão), porque a leva 2 é
-    sorteada pela chance efetiva, que mistura faixa e tipo de convenção. A incerteza usa o tamanho
-    efetivo de Kish, ``(Σw)² / Σw²``: com pesos iguais, é o próprio número de questões.
+    A taxa de cada faixa usa o peso amostral (inverso da probabilidade de inclusão), para continuar
+    correta se a amostra do gold tiver estratos com probabilidades diferentes. A incerteza usa o
+    tamanho efetivo de Kish, ``(Σw)² / Σw²``: com pesos iguais, é o próprio número de questões.
     """
 
     FAIXAS: ClassVar[tuple[str, ...]] = ("consenso_total", "confirma_parcial", "verificador_vizinho", "outros")

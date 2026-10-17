@@ -1,4 +1,4 @@
-"""Experimentos no gold, leva 1 (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B × A), E5 (pipeline).
+"""Experimentos no gold set (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B × A), E5 (pipeline).
 
 Cada execução acrescenta uma linha por experimento e modo da régua em
 ``saidas/experimentos/resultados.csv``. As métricas são agregadas: nenhuma questão
@@ -111,7 +111,7 @@ class PipelineExperimentos:
         self._gold: ParametrosGold = parametros_gold if parametros_gold is not None else ParametrosGold()
 
     def executar(self) -> Path:
-        """Roda E0, E2, E3 e E5 na leva 1 rotulada.
+        """Roda E0, E2, E3 e E5 no gold rotulado.
 
         Returns:
             Caminho de ``resultados.csv``.
@@ -124,7 +124,7 @@ class PipelineExperimentos:
             PontuadorRegua(ArvoreTemas(CarregadorDados(self._caminhos).carregar_temas()))
         )
         registro: RegistroExperimentos = RegistroExperimentos(self._caminhos.raiz / "saidas" / "experimentos")
-        print(f"Gold, leva 1: {len(rotulos)} questões rotuladas e válidas")
+        print(f"Gold set: {len(rotulos)} questões rotuladas e válidas")
         if not rotulos:
             print("Nada a avaliar ainda.")
             return registro.arquivo
@@ -238,7 +238,7 @@ class PipelineExperimentos:
             )
 
     def _rotulos(self, temas: Sequence[TemaPreparado]) -> list[RotuloGold]:
-        """Lê os rótulos válidos da leva 1.
+        """Lê os rótulos válidos do gold.
 
         Args:
             temas: Árvore preparada.

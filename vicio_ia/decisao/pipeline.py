@@ -138,8 +138,8 @@ class PipelineDecisao:
         linhas: list[LinhaPublicacao] = self._linhas(questoes, preliminares, sinais, previsao)
         self._validar(linhas, temas, len(questoes))
         destino: Path = self._gravar_csv(linhas)
-        self._gravar_previsao(previsao, validacao, len(exemplos))
-        self._gravar_preliminares(list(preliminares.values()), previsao)
+        self._gravar_previsao(previsao, validacao, len(exemplos), calibrador.nome)
+        self._gravar_preliminares(list(preliminares.values()))
         relatorio: Path = self._relatorio(
             linhas, preliminares, previsao, validacao, detalhes, len(exemplos), calibrador.nome, grade
         )
@@ -178,7 +178,7 @@ class PipelineDecisao:
         return sinais
 
     def _rotulos(self, temas: Sequence[TemaPreparado]) -> dict[str, tuple[RotuloGold, float]]:
-        """Lê os rótulos válidos das levas, com o peso amostral (inverso da probabilidade de inclusão).
+        """Lê os rótulos válidos do gold, com o peso amostral (inverso da probabilidade de inclusão).
 
         Args:
             temas: Árvore preparada.
@@ -187,20 +187,16 @@ class PipelineDecisao:
             ``ID -> (rótulo, peso)``.
         """
         rotulos: dict[str, tuple[RotuloGold, float]] = {}
-        leva: int
-        for leva in (1, 2):
-            amostra: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / f"amostra_leva{leva}.csv")
-            planilha: PlanilhaRotulos = PlanilhaRotulos(
-                self._caminhos.dados_gold / f"rotulos_leva{leva}.csv", self._gold, temas
-            )
-            if not amostra.existe() or not planilha.caminho.is_file():
-                continue
-            pesos: dict[str, float] = {item.id: 1.0 / item.prob_inclusao for item in amostra.ler()}
-            situacoes: list[SituacaoLinha] = planilha.validar(planilha.ler())
-            situacao: SituacaoLinha
-            for situacao in situacoes:
-                if situacao.situacao == "rotulada":
-                    rotulos[situacao.rotulo.id] = (situacao.rotulo, pesos.get(situacao.rotulo.id, 1.0))
+        amostra: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / "amostra_leva1.csv")
+        planilha: PlanilhaRotulos = PlanilhaRotulos(self._caminhos.dados_gold / "rotulos_leva1.csv", self._gold, temas)
+        if not amostra.existe() or not planilha.caminho.is_file():
+            return rotulos
+        pesos: dict[str, float] = {item.id: 1.0 / item.prob_inclusao for item in amostra.ler()}
+        situacoes: list[SituacaoLinha] = planilha.validar(planilha.ler())
+        situacao: SituacaoLinha
+        for situacao in situacoes:
+            if situacao.situacao == "rotulada":
+                rotulos[situacao.rotulo.id] = (situacao.rotulo, pesos.get(situacao.rotulo.id, 1.0))
         return rotulos
 
     def _linhas(
@@ -305,13 +301,16 @@ class PipelineDecisao:
             )
         return destino
 
-    def _gravar_previsao(self, previsao: ResultadoPrevisao, validacao: ValidacaoCalibracao, exemplos: int) -> Path:
+    def _gravar_previsao(
+        self, previsao: ResultadoPrevisao, validacao: ValidacaoCalibracao, exemplos: int, metodo: str
+    ) -> Path:
         """Grava ``previsao.txt`` na raiz, no formato do LEIA-ME, com a explicação.
 
         Args:
             previsao: Previsão.
             validacao: Validação cruzada da calibração.
             exemplos: Exemplos do gold usados.
+            metodo: Calibrador escolhido na validação cruzada.
 
         Returns:
             Caminho gravado.
@@ -339,16 +338,18 @@ class PipelineDecisao:
             "",
             (
                 f"1. Rotulamos à mão, sem ver a resposta dos modelos, {exemplos} questões sorteadas (gold set). Elas "
-                "medem se o tema escolhido pelo pipeline acerta pela régua do case (tema do especialista, pai ou filho direto)."
+                "medem se o tema escolhido pelo pipeline acerta pela régua do case (tema do especialista, pai ou filho "
+                "direto)."
             ),
             (
                 "2. Cada questão foi classificada por quatro fontes diferentes (dois classificadores de famílias distintas, "
                 "um voto barato e as leis citadas) e conferida por um verificador que compara o candidato com os vizinhos."
             ),
             (
-                f"3. Uma regressão logística aprendeu, no gold, a chance de acerto a partir da concordância entre as fontes, "
-                f"do veredito do verificador e de marcas de risco. Na validação cruzada, o erro quadrático (Brier) foi "
-                f"{validacao.brier:.3f}, contra {validacao.brier_base:.3f} de um palpite constante."
+                "3. A chance de acerto de cada questão vem do gold: a taxa de acerto observada nas questões com o mesmo "
+                "padrão de sinais (concordância entre as fontes e veredito do verificador). O método foi escolhido na "
+                f"validação cruzada ({metodo}); o erro quadrático (Brier) fora da amostra foi {validacao.brier:.3f}, "
+                f"contra {validacao.brier_base:.3f} de um palpite constante."
             ),
             (
                 f"4. Publicamos as questões de maior chance de acerto enquanto o limite inferior da precisão estimada ficou "
@@ -360,14 +361,16 @@ class PipelineDecisao:
                 f"com o acerto direto no gold ({direta})."
             ),
             (
-                f"6. Descontamos {previsao.margem_convencao:.3f} pelo risco de convenção: em temas duplicados ou "
-                "sobrepostos, o especialista pode ter usado o outro nó, e o nosso gold não mede isso. As taxas de "
-                f"discordância são hipóteses ({sensibilidade})."
+                "6. A chance de cada questão já desconta o risco de convenção do tema: em temas duplicados ou "
+                "sobrepostos, o especialista pode ter usado o outro nó, e o nosso gold não mede isso. Por isso, temas "
+                "de risco exigem mais confiança para serem publicados. Nas publicadas, o desconto médio é "
+                f"{previsao.margem_convencao:.3f}; as taxas de discordância são hipóteses ({sensibilidade})."
             ),
             (
-                f"7. O intervalo vem de {previsao.reamostras_validas} reamostras do gold (bootstrap), com o limite inferior "
-                f"alargado também pela ambiguidade dos rótulos ({previsao.margem_ambiguidade:.3f}: diferença entre a "
-                "régua tolerante e a estrita no gold)."
+                f"7. O intervalo vem de {previsao.reamostras_validas} sorteios da incerteza da calibração (quanto menos "
+                "questões do gold sustentam uma faixa, mais larga ela fica), com o limite inferior alargado também pela "
+                f"ambiguidade dos rótulos ({previsao.margem_ambiguidade:.3f}: diferença entre a régua tolerante e a "
+                "estrita no gold)."
             ),
             (
                 f"8. Cobertura: {len(previsao.publicadas)} publicadas de {p.total_questoes}. É um número exato se a avaliação "
@@ -375,8 +378,10 @@ class PipelineDecisao:
             ),
             "",
             (
-                "O que não foi medido: a convenção real dos especialistas nos nós duplicados (só suposta) e a variação "
-                "das respostas dos modelos entre execuções (as respostas estão gravadas no cache e não mudam)."
+                "O que não foi medido: a precisão numa amostra independente da usada na calibração (a previsão foi "
+                "calibrada e conferida no mesmo gold, com validação cruzada); a convenção real dos especialistas nos nós "
+                "duplicados (só suposta); e a variação das respostas dos modelos entre execuções (as respostas estão "
+                "gravadas no cache e não mudam)."
             ),
             "",
         ]
@@ -408,37 +413,17 @@ class PipelineDecisao:
             ]
         return []
 
-    def _gravar_preliminares(self, preliminares: Sequence[DecisaoPreliminar], previsao: ResultadoPrevisao) -> Path:
-        """Grava as decisões preliminares e as probabilidades das candidatas (para a leva 2 do gold).
+    def _gravar_preliminares(self, preliminares: Sequence[DecisaoPreliminar]) -> Path:
+        """Grava as decisões preliminares (para diagnóstico e auditoria).
 
         Args:
             preliminares: Decisões preliminares.
-            previsao: Limiar e probabilidades.
 
         Returns:
-            Caminho das decisões preliminares.
+            Caminho gravado.
         """
         destino: Path = self._caminhos.raiz / "dados" / "decisao" / "preliminares.jsonl"
         destino.parent.mkdir(parents=True, exist_ok=True)
-        candidatas: dict[str, float] = {
-            d.id: previsao.probabilidades[d.id]
-            for d in preliminares
-            if d.acao == "candidata" and d.id in previsao.probabilidades
-        }
-        (destino.parent / "probabilidades.json").write_text(
-            json.dumps(
-                {
-                    "limiar": previsao.limiar,
-                    "limiar_leva2": previsao.limiar_provisorio,
-                    "gerado_em": datetime.now().isoformat(timespec="seconds"),
-                    "candidatas": candidatas,
-                },
-                ensure_ascii=False,
-                indent=1,
-            )
-            + "\n",
-            encoding="utf-8",
-        )
         destino.write_text(
             "".join(json.dumps(d.como_dict(), ensure_ascii=False) + "\n" for d in preliminares), encoding="utf-8"
         )
@@ -520,8 +505,6 @@ class PipelineDecisao:
             *(f"| {nome} | {v.brier:.4f} | {v.log_loss:.4f} |" for nome, v in grade),
             "",
             *detalhes,
-            "",
-            f"Limiar provisório para sortear a leva 2: P = {previsao.limiar_provisorio:.3f}.",
             "",
         ]
         destino: Path = self._caminhos.raiz / "saidas" / "decisao" / "relatorio_decisao.md"

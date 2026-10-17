@@ -1,6 +1,6 @@
 """Experimento E4 (ADR-014): cartões de tema × só títulos. Uso: ``uv run python executar_experimento_cartoes.py``.
 
-Classifica as questões rotuladas da leva 1 com o classificador B nas duas versões do material
+Classifica as questões rotuladas do gold com o classificador B nas duas versões do material
 (com cache) e acrescenta o resultado em ``saidas/experimentos/resultados.csv``.
 """
 

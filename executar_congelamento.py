@@ -2,7 +2,7 @@
 
 Grava a impressão digital de prompts, cartões, árvores, decisões da árvore, escolha de modelos e do
 código de classificação, decisão e calibração em ``saidas/experimentos/congelamento.json`` e marca o
-congelamento em ``registro.md``. Depois disso, a leva 2 do gold pode ser sorteada (``executar_gold.py``).
+congelamento em ``registro.md``. O passo 07 avisa se algo mudar depois disso.
 """
 
 from pathlib import Path
@@ -16,7 +16,7 @@ def main() -> None:
     registro: RegistroCongelamento = RegistroCongelamento(Caminhos.padrao())
     destino: Path = registro.registrar(
         "Prompts, cartões (rascunhos do modelo, sem revisão manual: D7), regras de decisão (D9, D10), "
-        "modelos por papel (D8) e parâmetros congelados antes do sorteio da leva 2 (decisão do autor, 16/10)."
+        "modelos por papel (D8) e parâmetros congelados antes da rodada final (decisão do autor, 16/10)."
     )
     print(f"Congelado: {destino}")
 

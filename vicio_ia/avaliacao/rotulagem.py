@@ -74,7 +74,7 @@ class BuscadorTemas:
 
 
 class RotuladorInterativo:
-    """Conduz a rotulagem no terminal, uma questão por vez (a primeira leva com pendências: 1, depois 2)."""
+    """Conduz a rotulagem do gold set no terminal, uma questão por vez."""
 
     AJUDA: ClassVar[str] = (
         "Digite um ID de tema, ou palavras para buscar na árvore (ex.: 'furto', 'acao penal privada').\n"
@@ -96,7 +96,7 @@ class RotuladorInterativo:
         self._buscador: BuscadorTemas | None = None
 
     def executar(self) -> None:
-        """Rotula as questões pendentes da primeira leva que tiver pendências, gravando cada uma ao confirmar."""
+        """Rotula as questões pendentes do gold set, gravando cada uma ao confirmar."""
         if not sys.stdin.isatty():
             print("A rotulagem é interativa: rode `uv run python executar_rotulagem.py` num terminal.")
             return
@@ -105,31 +105,21 @@ class RotuladorInterativo:
         temas: list[TemaPreparado] = leitor.temas()
         self._temas = {tema.tema_id: tema for tema in temas}
         self._buscador = BuscadorTemas(temas, ProcessadorTexto(), self._parametros.max_resultados_busca)
-        leva: int = 0
-        amostra: list[ItemAmostra] = []
-        planilha: PlanilhaRotulos | None = None
-        feitos: set[str] = set()
-        pendentes: list[ItemAmostra] = []
-        numero: int
-        for numero in (1, 2):
-            arquivo: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / f"amostra_leva{numero}.csv")
-            if not arquivo.existe():
-                continue
-            amostra = arquivo.ler()
-            planilha = PlanilhaRotulos(self._caminhos.dados_gold / f"rotulos_leva{numero}.csv", self._parametros, temas)
-            planilha.garantir(amostra)
-            feitos = {rotulo.id for rotulo in planilha.ler() if rotulo.preenchido}
-            pendentes = [item for item in amostra if item.id not in feitos]
-            leva = numero
-            if pendentes:
-                break
-        if planilha is None:
-            print("Nenhuma amostra encontrada: rode antes `uv run python executar_gold.py`.")
+        arquivo: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / "amostra_leva1.csv")
+        if not arquivo.existe():
+            print("Amostra do gold não encontrada: rode antes `uv run python executar_gold.py`.")
             return
+        amostra: list[ItemAmostra] = arquivo.ler()
+        planilha: PlanilhaRotulos = PlanilhaRotulos(
+            self._caminhos.dados_gold / "rotulos_leva1.csv", self._parametros, temas
+        )
+        planilha.garantir(amostra)
+        feitos: set[str] = {rotulo.id for rotulo in planilha.ler() if rotulo.preenchido}
+        pendentes: list[ItemAmostra] = [item for item in amostra if item.id not in feitos]
         if not pendentes:
-            print(f"Leva {leva}: todas as {len(amostra)} questões já estão rotuladas.")
+            print(f"Gold set: todas as {len(amostra)} questões já estão rotuladas.")
             return
-        print(f"Leva {leva}: {len(feitos)}/{len(amostra)} rotuladas; {len(pendentes)} pendentes.\n{self.AJUDA}")
+        print(f"Gold set: {len(feitos)}/{len(amostra)} rotuladas; {len(pendentes)} pendentes.\n{self.AJUDA}")
         gravadas: int = 0
         item: ItemAmostra
         try:
@@ -145,14 +135,14 @@ class RotuladorInterativo:
         except _Sair:
             print("\nSaindo; o que foi confirmado já está gravado.")
         total: int = len(feitos) + gravadas
-        print(f"Leva {leva}: {total}/{len(amostra)} rotuladas ({gravadas} nesta sessão).")
+        print(f"Gold set: {total}/{len(amostra)} rotuladas ({gravadas} nesta sessão).")
 
     def _rotular(self, item: ItemAmostra, total: int, questao: QuestaoPreparada) -> RotuloGold:
         """Mostra a questão e coleta o rótulo.
 
         Args:
             item: Item da amostra.
-            total: Tamanho da leva.
+            total: Tamanho do gold set.
             questao: Questão preparada.
 
         Returns:

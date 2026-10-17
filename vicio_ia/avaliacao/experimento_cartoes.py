@@ -31,7 +31,7 @@ from vicio_ia.temas.cartoes import ArquivoCartoes
 
 
 class ExperimentoCartoes:
-    """Roda o E4 nas questões rotuladas da leva 1 e registra o resultado."""
+    """Roda o E4 nas questões rotuladas do gold e registra o resultado."""
 
     def __init__(self, caminhos: Caminhos | None = None) -> None:
         """Define a configuração; sem parâmetros, usa os padrões do projeto.

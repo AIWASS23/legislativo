@@ -1,6 +1,6 @@
 """Planilha de rótulos manuais e caderno de rotulagem do gold set (ADR-012).
 
-A planilha (``dados/gold/rotulos_leva<N>.csv``) é a única fonte dos rótulos. O código
+A planilha (``dados/gold/rotulos_leva1.csv``) é a única fonte dos rótulos. O código
 cria a planilha vazia e acrescenta linhas, mas **nunca apaga nem sobrescreve um rótulo**.
 """
 
@@ -86,7 +86,7 @@ class SituacaoLinha:
 
 
 class PlanilhaRotulos:
-    """Lê, valida e grava a planilha de rótulos de uma leva."""
+    """Lê, valida e grava a planilha de rótulos do gold set."""
 
     COLUNAS: ClassVar[tuple[str, ...]] = (
         "id",
@@ -105,7 +105,7 @@ class PlanilhaRotulos:
         """Define o arquivo e os temas aceitos.
 
         Args:
-            caminho: ``dados/gold/rotulos_leva<N>.csv``.
+            caminho: ``dados/gold/rotulos_leva1.csv``.
             parametros: Parâmetros do gold set (níveis de certeza).
             temas: Árvore preparada (só os publicáveis valem como rótulo).
         """
@@ -125,7 +125,7 @@ class PlanilhaRotulos:
         """Cria a planilha se não existir; se existir, só acrescenta IDs novos da amostra.
 
         Args:
-            amostra: Itens da leva, na ordem de rotulagem.
+            amostra: Itens sorteados, na ordem de rotulagem.
 
         Returns:
             Número de linhas acrescentadas.
@@ -307,7 +307,7 @@ class PlanilhaRotulos:
 
 
 class CadernoRotulagem:
-    """Gera o caderno em Markdown com as questões de uma leva, na ordem de rotulagem.
+    """Gera o caderno em Markdown com as questões do gold set, na ordem de rotulagem.
 
     O caderno mostra **só o texto canônico** (ADR-004): nada de saída de modelo, nem os
     rótulos de origem, para o rótulo ficar cego e independente (ADR-006, ADR-012).
@@ -316,7 +316,6 @@ class CadernoRotulagem:
     def escrever(
         self,
         destino: Path,
-        leva: int,
         amostra: Sequence[ItemAmostra],
         questoes: Mapping[str, QuestaoPreparada],
         rotulos: Mapping[str, RotuloGold],
@@ -325,7 +324,6 @@ class CadernoRotulagem:
 
         Args:
             destino: Caminho do ``.md``.
-            leva: Número da leva.
             amostra: Itens na ordem de rotulagem.
             questoes: Questões preparadas por ID.
             rotulos: Rótulos já gravados por ID (para marcar o que falta).
@@ -335,7 +333,7 @@ class CadernoRotulagem:
         """
         feitas: int = sum(1 for item in amostra if item.id in rotulos and rotulos[item.id].preenchido)
         linhas: list[str] = [
-            f"# Gold set, leva {leva}: caderno de rotulagem",
+            "# Gold set: caderno de rotulagem",
             "",
             f"{len(amostra)} questões na ordem de rotulagem; {feitas} já rotuladas (marcadas com [x]).",
             "",

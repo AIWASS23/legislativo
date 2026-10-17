@@ -1,4 +1,4 @@
-"""Rotulagem interativa da leva 1 do gold set (ADR-012). Uso: ``uv run python executar_rotulagem.py``.
+"""Rotulagem interativa do gold set (ADR-012). Uso: ``uv run python executar_rotulagem.py``.
 
 Mostra cada questão pendente só com o texto canônico, ajuda a buscar o tema na árvore e
 grava o rótulo assim que ele é confirmado. Pode ser interrompida (``q`` ou Ctrl+C) e retomada.

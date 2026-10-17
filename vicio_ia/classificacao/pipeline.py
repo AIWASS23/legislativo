@@ -192,7 +192,7 @@ class PipelineClassificacao:
         return escolhidas, adiadas
 
     def _gold_leva1(self) -> set[str]:
-        """IDs da leva 1 do gold (classificados primeiro, para os experimentos começarem cedo).
+        """IDs do gold set (classificados primeiro, para os experimentos começarem cedo).
 
         Returns:
             IDs da amostra, ou vazio se ela não existir.
@@ -201,10 +201,7 @@ class PipelineClassificacao:
         return {item.id for item in amostra.ler()} if amostra.existe() else set()
 
     def _gold_pendente(self, temas: Sequence[TemaPreparado]) -> set[str]:
-        """Lista as questões da leva 1 do gold ainda sem rótulo.
-
-        A leva 2 é sorteada depois da classificação (pela probabilidade calibrada), então não
-        entra aqui; a predição dela fica escondida de quem rotula (ADR-012).
+        """Lista as questões do gold ainda sem rótulo (rótulo cego, ADR-012).
 
         Args:
             temas: Árvore preparada.

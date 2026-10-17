@@ -43,7 +43,6 @@ class ResultadoPrevisao:
         cobertura_intervalo: Intervalo da cobertura.
         sensibilidade: ``(fator das taxas, ponto, limite inferior)``.
         reamostras_validas: Reamostras do bootstrap com as duas classes.
-        limiar_provisorio: Limiar que a leva 2 usa para sortear a zona de publicação.
     """
 
     probabilidades: dict[str, float]
@@ -61,7 +60,6 @@ class ResultadoPrevisao:
     cobertura_intervalo: tuple[float, float]
     sensibilidade: tuple[tuple[float, float, float], ...]
     reamostras_validas: int
-    limiar_provisorio: float
 
 
 class PrevisorPrecisao:
@@ -128,7 +126,6 @@ class PrevisorPrecisao:
         ids_publicados: set[str] = {d.id for d in publicadas}
         no_conjunto: list[ExemploCalibracao] = [e for e in exemplos if e.decisao.id in ids_publicados]
         ambiguidade_publicadas: float = self._ambiguidade(no_conjunto, acerto_tolerante) if no_conjunto else ambiguidade
-        provisorio: float = self._limiar_provisorio(candidatas, probabilidades, pontos, cortes)
         return self._resultado(
             probabilidades,
             publicadas,
@@ -137,7 +134,6 @@ class PrevisorPrecisao:
             exemplos,
             ambiguidade_publicadas,
             sum(calibradas[d.id] for d in candidatas[:k]) / k if k else 0.0,
-            provisorio,
         )
 
     @staticmethod
@@ -160,33 +156,6 @@ class PrevisorPrecisao:
             if k == len(candidatas) or probabilidades[candidatas[k].id] != probabilidades[candidatas[k - 1].id]
         ]
         return sorted(cortes, reverse=True)
-
-    def _limiar_provisorio(
-        self,
-        candidatas: Sequence[DecisaoPreliminar],
-        probabilidades: Mapping[str, float],
-        pontos: Sequence[float],
-        cortes: Sequence[int],
-    ) -> float:
-        """Limiar que a leva 2 usa para sortear a zona de publicação.
-
-        É a menor ``P`` do maior conjunto cuja estimativa pontual (sem margens) chega à precisão-alvo:
-        onde o pipeline publicaria se houvesse evidência suficiente. É isso que a leva 2 precisa medir.
-
-        Args:
-            candidatas: Candidatas ordenadas pela ``P``.
-            probabilidades: ``P`` por ID.
-            pontos: Média da ``P`` de cada prefixo.
-            cortes: Tamanhos de conjunto permitidos.
-
-        Returns:
-            Limiar provisório (a maior ``P`` se nenhum prefixo chegar ao alvo; 1,0 sem candidatas).
-        """
-        indice: int
-        for indice in cortes:
-            if pontos[indice - 1] >= self._parametros.alvo_precisao:
-                return round(probabilidades[candidatas[indice - 1].id], 4)
-        return round(probabilidades[candidatas[0].id], 4) if candidatas else 1.0
 
     def _margens_convencao(self, candidatas: Sequence[DecisaoPreliminar], fator: float) -> list[float]:
         """Margem de convenção de cada prefixo das candidatas (ADR-013, margem b).
@@ -234,7 +203,6 @@ class PrevisorPrecisao:
         exemplos: Sequence[ExemploCalibracao],
         ambiguidade: float,
         precisao_modelo: float,
-        limiar_provisorio: float,
     ) -> ResultadoPrevisao:
         """Monta a previsão do conjunto escolhido.
 
@@ -246,7 +214,6 @@ class PrevisorPrecisao:
             exemplos: Gold rotulado.
             ambiguidade: Margem de ambiguidade (medida no gold que cai nas publicadas).
             precisao_modelo: Média da ``P`` das publicadas.
-            limiar_provisorio: Limiar da leva 2.
 
         Returns:
             Previsão.
@@ -296,5 +263,4 @@ class PrevisorPrecisao:
             cobertura_intervalo=(round(max(0.0, cobertura - 0.01), 4), round(min(1.0, cobertura + 0.01), 4)),
             sensibilidade=tuple(sensibilidade),
             reamostras_validas=int(reamostras.shape[0]),
-            limiar_provisorio=limiar_provisorio,
         )

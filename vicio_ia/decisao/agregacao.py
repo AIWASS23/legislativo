@@ -291,15 +291,15 @@ class AgregadorSinais:
             tema: Tema consolidado.
 
         Returns:
-            IDs, do mais ao menos indicado.
+            IDs, do mais ao menos indicado; empates em ordem de ID, para o resultado não depender da
+            ordem de iteração de conjuntos (que muda a cada execução do Python).
         """
         fontes: list[set[str]] = [set(v.extras_ids) | {v.tema_id, v.segundo_id} for v in sinais.votos if v.ok]
         fontes.append(set(sinais.regras))
         contagem: Counter[str] = Counter(item for fonte in fontes for item in fonte if item)
+        ordenados: list[tuple[str, int]] = sorted(contagem.items(), key=lambda par: (-par[1], par[0]))
         return tuple(
-            item
-            for item, quantidade in contagem.most_common()
-            if quantidade >= 2 and not self._arvore.mesmo_ramo(item, tema)
+            item for item, quantidade in ordenados if quantidade >= 2 and not self._arvore.mesmo_ramo(item, tema)
         )[:3]
 
     def _montar(

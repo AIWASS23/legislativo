@@ -1,9 +1,8 @@
-"""Congelamento do pipeline antes da leva 2 do gold (ADR-012, ADR-014).
+"""Congelamento do pipeline antes da rodada final (ADR-014).
 
 Grava a impressão digital (SHA-256) de tudo o que decide a resposta: prompts, cartões, árvores,
 decisões manuais da árvore, escolha de modelos por papel e o código de classificação, decisão e
-calibração. A leva 2 só é sorteada com um congelamento registrado e sem nenhuma diferença desde
-então: ela mede o pipeline entregue, não ajusta.
+calibração. Depois do congelamento, nada disso muda; o passo 07 avisa se algo mudar.
 """
 
 from __future__ import annotations
@@ -98,7 +97,7 @@ class RegistroCongelamento:
             f"{motivo}",
             "",
             f"{len(impressoes)} arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir",
-            "daqui, nenhum prompt, cartão, regra, modelo ou parâmetro muda; a leva 2 só mede.",
+            "daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.",
             "",
         ]
         arquivo: TextIO

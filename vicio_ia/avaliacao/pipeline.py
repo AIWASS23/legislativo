@@ -1,14 +1,12 @@
-"""Orquestração do gold set (ADR-012): sorteio, planilha, caderno e situação da rotulagem, levas 1 e 2."""
+"""Orquestração do gold set (ADR-012): sorteio, planilha, caderno e situação da rotulagem."""
 
 from __future__ import annotations
 
-import json
 from collections import Counter
 from collections.abc import Sequence
 from pathlib import Path
 
-from vicio_ia.avaliacao.amostragem import AmostradorGold, ArquivoAmostra, CandidatoLeva2, ItemAmostra
-from vicio_ia.avaliacao.congelamento import RegistroCongelamento
+from vicio_ia.avaliacao.amostragem import AmostradorGold, ArquivoAmostra, ItemAmostra
 from vicio_ia.avaliacao.planilha import CadernoRotulagem, PlanilhaRotulos, RotuloGold, SituacaoLinha
 from vicio_ia.configuracao import Caminhos, ParametrosEDA, ParametrosGold
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
@@ -17,7 +15,7 @@ from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
 
 
 class PipelineGold:
-    """Prepara e acompanha a leva 1 do gold set.
+    """Prepara e acompanha o gold set.
 
     Saídas em ``dados/gold/``:
 
@@ -25,10 +23,6 @@ class PipelineGold:
       existir, é mantida (e o sorteio atual é só conferido contra ela);
     * ``rotulos_leva1.csv``: planilha de rótulos; criada vazia se não existir, **nunca sobrescrita**;
     * ``caderno_leva1.md``: as questões na ordem de rotulagem, só com o texto canônico.
-
-    A leva 2 (``amostra_leva2.csv``, ``rotulos_leva2.csv``, ``caderno_leva2.md``) só é sorteada com um
-    congelamento registrado e sem diferenças (``executar_congelamento.py``) e com as probabilidades
-    calibradas gravadas pelo passo 07 (``dados/decisao/probabilidades.json``).
     """
 
     def __init__(
@@ -49,7 +43,7 @@ class PipelineGold:
         self._parametros_eda: ParametrosEDA = parametros_eda if parametros_eda is not None else ParametrosEDA()
 
     def executar(self) -> list[SituacaoLinha]:
-        """Sorteia (ou reaproveita) a leva 1, garante a planilha, grava o caderno e mostra a situação.
+        """Sorteia (ou reaproveita) a amostra, garante a planilha, grava o caderno e mostra a situação.
 
         Returns:
             Situação de cada linha da planilha.
@@ -58,147 +52,51 @@ class PipelineGold:
         questoes: list[QuestaoPreparada] = leitor.questoes()
         temas: list[TemaPreparado] = leitor.temas()
         amostrador: AmostradorGold = AmostradorGold(self._parametros, self._parametros_eda)
-        amostra: list[ItemAmostra] = self._amostra_leva1(amostrador, questoes)
-        situacoes: list[SituacaoLinha] = self._processar(1, amostra, questoes, temas)
-        segunda: list[ItemAmostra] = self._amostra_leva2(amostrador, {item.id for item in amostra})
-        if segunda:
-            situacoes = situacoes + self._processar(2, segunda, questoes, temas)
-        return situacoes
+        amostra: list[ItemAmostra] = self._amostra(amostrador, questoes)
+        return self._processar(amostra, questoes, temas)
 
     def _processar(
-        self,
-        leva: int,
-        amostra: Sequence[ItemAmostra],
-        questoes: Sequence[QuestaoPreparada],
-        temas: Sequence[TemaPreparado],
+        self, amostra: Sequence[ItemAmostra], questoes: Sequence[QuestaoPreparada], temas: Sequence[TemaPreparado]
     ) -> list[SituacaoLinha]:
-        """Garante a planilha, grava o caderno e mostra a situação de uma leva.
+        """Garante a planilha, grava o caderno e mostra a situação do gold set.
 
         Args:
-            leva: Número da leva.
-            amostra: Itens da leva.
+            amostra: Itens sorteados.
             questoes: Questões preparadas.
             temas: Árvore preparada.
 
         Returns:
-            Situação de cada linha da planilha da leva.
+            Situação de cada linha da planilha.
         """
         pasta: Path = self._caminhos.dados_gold
-        planilha: PlanilhaRotulos = PlanilhaRotulos(pasta / f"rotulos_leva{leva}.csv", self._parametros, temas)
+        planilha: PlanilhaRotulos = PlanilhaRotulos(pasta / "rotulos_leva1.csv", self._parametros, temas)
         acrescentadas: int = planilha.garantir(amostra)
         rotulos: list[RotuloGold] = planilha.ler()
         situacoes: list[SituacaoLinha] = planilha.validar(rotulos)
         caderno: Path = CadernoRotulagem().escrever(
-            pasta / f"caderno_leva{leva}.md",
-            leva,
+            pasta / "caderno_leva1.md",
             amostra,
             {questao.id: questao for questao in questoes},
             {rotulo.id: rotulo for rotulo in rotulos},
         )
-        self._imprimir(leva, amostra, situacoes, planilha.caminho, caderno, acrescentadas)
+        self._imprimir(amostra, situacoes, planilha.caminho, caderno, acrescentadas)
         return situacoes
 
-    def _amostra_leva2(self, amostrador: AmostradorGold, leva1: set[str]) -> list[ItemAmostra]:
-        """Reaproveita a leva 2 gravada ou, se liberada, sorteia pelas probabilidades calibradas.
-
-        Args:
-            amostrador: Amostrador configurado.
-            leva1: IDs da leva 1 (não se repetem).
-
-        Returns:
-            Itens da leva 2, ou vazio se ela não existe nem foi liberada.
-        """
-        arquivo: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / "amostra_leva2.csv")
-        if arquivo.existe():
-            return arquivo.ler()
-        origem: Path = self._caminhos.raiz / "dados" / "decisao" / "probabilidades.json"
-        congelado: bool
-        diferencas: list[str]
-        congelado, diferencas = RegistroCongelamento(self._caminhos).conferir()
-        if not congelado:
-            print("\nLeva 2: bloqueada até o congelamento (rode `uv run python executar_congelamento.py`).")
-            return []
-        if diferencas:
-            print(f"\nLeva 2: bloqueada; o pipeline mudou desde o congelamento: {'; '.join(diferencas[:10])}")
-            return []
-        pendencia: str = self._classificacao_incompleta(origem)
-        if pendencia:
-            print(f"\nLeva 2: bloqueada; {pendencia}")
-            return []
-        if not origem.is_file():
-            print(f"\nLeva 2: liberada, mas falta {origem}; rode antes `uv run python executar_decisao.py`.")
-            return []
-        conteudo: object = json.loads(origem.read_text(encoding="utf-8"))
-        if not isinstance(conteudo, dict):
-            return []
-        limiar: object = conteudo.get("limiar_leva2", conteudo.get("limiar"))
-        brutas: object = conteudo.get("candidatas")
-        if not isinstance(limiar, (int, float)) or not isinstance(brutas, dict):
-            return []
-        candidatos: list[CandidatoLeva2] = [
-            CandidatoLeva2(str(i), float(v)) for i, v in brutas.items() if isinstance(v, (int, float))
-        ]
-        sorteio: list[ItemAmostra] = amostrador.leva2(candidatos, float(limiar), frozenset(leva1))
-        arquivo.gravar(sorteio)
-        print(f"\nAmostra da leva 2 sorteada (limiar {float(limiar):.3f}): {arquivo.caminho}")
-        return sorteio
-
-    def _classificacao_incompleta(self, probabilidades: Path) -> str:
-        """Confere que a leva 2 vai ser sorteada sobre a classificação completa e congelada.
-
-        Exige ``sinais.jsonl`` com as questões todas, com votos válidos de A e de B, e probabilidades
-        calculadas depois do congelamento e depois dos sinais.
-
-        Args:
-            probabilidades: ``dados/decisao/probabilidades.json``.
-
-        Returns:
-            O problema encontrado, ou ``""`` se estiver tudo pronto.
-        """
-        sinais: Path = self._caminhos.dados_classificacao / "sinais.jsonl"
-        congelamento: Path = RegistroCongelamento(self._caminhos).arquivo
-        if not sinais.is_file():
-            return "falta dados/classificacao/sinais.jsonl"
-        incompletas: int = 0
-        total: int = 0
-        linha: str
-        for linha in sinais.read_text(encoding="utf-8").splitlines():
-            if not linha.strip():
-                continue
-            total += 1
-            objeto: object = json.loads(linha)
-            votos: object = objeto.get("votos", []) if isinstance(objeto, dict) else []
-            validos: set[str] = {
-                str(v.get("papel"))
-                for v in (votos if isinstance(votos, list) else [])
-                if isinstance(v, dict) and v.get("ok") is True
-            }
-            incompletas += not {"classificador_a", "classificador_b"} <= validos
-        esperadas: int = len(LeitorPreparados(self._caminhos).questoes())
-        if total < esperadas or incompletas:
-            return (
-                f"classificação incompleta ({total} de {esperadas} questões em sinais.jsonl; "
-                f"{incompletas} sem voto válido de A ou de B). Rode executar_classificacao.py e executar_decisao.py."
-            )
-        if probabilidades.stat().st_mtime < max(sinais.stat().st_mtime, congelamento.stat().st_mtime):
-            return "probabilidades.json é anterior aos sinais ou ao congelamento; rode executar_decisao.py."
-        return ""
-
-    def _amostra_leva1(self, amostrador: AmostradorGold, questoes: Sequence[QuestaoPreparada]) -> list[ItemAmostra]:
-        """Sorteia a leva 1, ou reaproveita a gravada.
+    def _amostra(self, amostrador: AmostradorGold, questoes: Sequence[QuestaoPreparada]) -> list[ItemAmostra]:
+        """Sorteia a amostra do gold, ou reaproveita a gravada.
 
         Args:
             amostrador: Amostrador configurado.
             questoes: Questões preparadas.
 
         Returns:
-            Itens da leva 1 na ordem de rotulagem.
+            Itens na ordem de rotulagem.
         """
         arquivo: ArquivoAmostra = ArquivoAmostra(self._caminhos.dados_gold / "amostra_leva1.csv")
-        sorteio: list[ItemAmostra] = amostrador.leva1(questoes)
+        sorteio: list[ItemAmostra] = amostrador.sortear(questoes)
         if not arquivo.existe():
             arquivo.gravar(sorteio)
-            print(f"Amostra da leva 1 sorteada (semente {self._parametros.semente}): {arquivo.caminho}")
+            print(f"Amostra do gold sorteada (semente {self._parametros.semente}): {arquivo.caminho}")
             return sorteio
         gravada: list[ItemAmostra] = arquivo.ler()
         if [item.id for item in gravada] != [item.id for item in sorteio]:
@@ -210,7 +108,6 @@ class PipelineGold:
 
     @staticmethod
     def _imprimir(
-        leva: int,
         amostra: Sequence[ItemAmostra],
         situacoes: Sequence[SituacaoLinha],
         planilha: Path,
@@ -220,14 +117,13 @@ class PipelineGold:
         """Mostra os estratos e a situação da rotulagem.
 
         Args:
-            leva: Número da leva.
-            amostra: Itens da leva.
+            amostra: Itens sorteados.
             situacoes: Situação de cada linha da planilha.
             planilha: Caminho da planilha.
             caderno: Caminho do caderno.
             acrescentadas: Linhas novas acrescentadas à planilha nesta execução.
         """
-        print(f"\nEstratos da leva {leva} (sorteadas / população):")
+        print("\nEstratos do gold set (sorteadas / população):")
         vistos: dict[str, tuple[int, int]] = {}
         item: ItemAmostra
         for item in amostra:
@@ -241,7 +137,7 @@ class PipelineGold:
         minutos: float = sum(rotulo.minutos or 0.0 for rotulo in rotuladas)
         certezas: Counter[str] = Counter(rotulo.certeza for rotulo in rotuladas)
         print(
-            f"\nRotulagem da leva {leva}: {contagem['rotulada']}/{len(amostra)} rotuladas, {contagem['pendente']} pendentes, "
+            f"\nRotulagem do gold set: {contagem['rotulada']}/{len(amostra)} rotuladas, {contagem['pendente']} pendentes, "
             f"{contagem['invalida']} inválidas"
             + (f" ({acrescentadas} linhas novas na planilha)" if acrescentadas else "")
         )
