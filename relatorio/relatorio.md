@@ -69,8 +69,8 @@ fonte discorda), 19 em 22. Publicar exige a primeira faixa.
   cruzada (log-loss 0,29 × 0,31).
 - **A primeira prévia publicou zero.** A regressão comprimia tudo em ~0,92, e eu descontava a ambiguidade do
   rótulo no lugar errado.
-- **Modelos.** Comecei com Claude por API. A máquina não tinha chave paga, e repetir o mesmo modelo não dá
-  opiniões independentes. Criei uma camada de provedores plugáveis e escolhi um modelo por papel.
+- **Modelos.** Comecei com Claude por API, mas repetir o mesmo modelo não dá opiniões independentes.
+  Criei uma camada de provedores plugáveis e escolhi um modelo por papel.
   Descartados: o modelo local (4B), que gerava 2 tokens/s; o Gemini "high", que levaria 27 h; e um modelo
   do Hugging Face treinado em projetos de lei, que não classifica.
 - **Cotas das assinaturas.** Foram o gargalo real. A CLI do Claude esgotou no meio dos cartões, e o
@@ -81,19 +81,29 @@ fonte discorda), 19 em 22. Publicar exige a primeira faixa.
 - **Chance de acerto de cada candidata:** a taxa da sua faixa, multiplicada por (1 − taxa suposta de
   discordância de convenção do nó). As taxas supostas são 20% para cópia em outra disciplina, 10% para
   sobreposição e 3% para "(Parte N)".
-- **Limiar:** publico o maior conjunto cujo **percentil 10** da precisão fica em 95% ou mais (1.000
-  sorteios da incerteza das faixas).
-- **Resultado:** as 81 questões de consenso total em temas sem risco de convenção.
+- **Limiar:** a régua vale para o **conjunto** das publicadas, não para cada questão: pelo menos 95% delas
+  precisam estar certas. Publico o maior conjunto cujo **percentil 10** da precisão (1.000 sorteios da
+  incerteza das faixas) fica em 95% ou mais. O corte só cai entre faixas:
+
+  | Publicadas | Cobertura | Precisão estimada | Percentil 10 | Decisão |
+  |---:|---:|---:|---:|---|
+  | **81** | 23% | 0,983 | **0,955** | publicado |
+  | 127 | 35% | 0,972 | 0,945 | não passou |
+  | 135 | 38% | 0,967 | 0,940 | não passou |
+  | 207 | 58% | 0,925 | 0,886 | não passou |
+
+- **Resultado:** as 81 de consenso total em temas sem risco de convenção. As 46 seguintes (consenso em
+  temas "(Parte N)", chance de 0,95) só entram com a confirmação da convenção (memo).
+- **Alternativa descartada:** publicar enquanto a média estimada ficasse em 95% ou mais. Daria 135
+  questões (38%), mas com percentil 10 de 0,94: mais de 10% de chance de o resultado real ficar abaixo da
+  régua, o erro mais caro do case.
 - **Ponto previsto:** a média de dois estimadores. Um é a taxa da faixa (0,983). O outro é o acerto do gold
   que caiu nas publicadas: 13 de 13, suavizado para 0,964, para não tratar 13 acertos como certeza (D12).
   A média dá **0,97**. O intervalo vem dos sorteios.
 - **O que não medi:** a precisão numa amostra independente (a mesma amostra calibra e confere), a convenção
   real dos especialistas e a variação dos modelos entre execuções.
 
-<img src="../saidas/avaliacao/precisao_cobertura_359.png" alt="Precisão estimada × cobertura nas 359" width="340">
-
-*A faixa seguinte (consenso em temas "(Parte N)") levaria a cobertura a 35%, com ponto de 0,97. Mas o
-percentil 10 cai para ~0,945, abaixo da régua. Só a confirmação da convenção resolve isso (memo).*
+Gráficos de confiabilidade e de precisão × cobertura em [`saidas/avaliacao/graficos.md`](../saidas/avaliacao/graficos.md).
 
 ## b) Diagnóstico
 
@@ -111,11 +121,10 @@ percentil 10 cai para ~0,945, abaixo da régua. Só a confirmação da convenç�
 **Nos temas.**
 - **Sem definição:** o título é a única pista, para máquina e para humano. "Conceitos e Espécies de
   Prisão", "Prisão Preventiva" e "Medidas Cautelares Diversas" só se separam com uma regra escrita.
-- **Duplicados:** 20 fantasmas (ativos, sem descrição e sem questões).
-  - Exemplos: "Penal > Lei Maria da Penha" ao lado de "Legislação Especial > Lei Maria da Penha";
-    "Teoria da Pena (Parte 1)" e "(Parte 2)".
-  - A equipe disse que a escolha fica a critério do candidato. Adotei o nó com histórico (D1), mas o
-    gabarito pode ter usado o outro.
+- **Duplicados:** 20 fantasmas (ativos, sem descrição e sem questões), como "Penal > Lei Maria da Penha"
+  ao lado de "Legislação Especial > Lei Maria da Penha", e "Teoria da Pena (Parte 1)" e "(Parte 2)". A
+  equipe disse que a escolha fica a critério do candidato. Adotei o nó com histórico (D1), mas o gabarito
+  pode ter usado o outro.
 - **Sobreposições:** "Ação Penal" em Penal e em Processo Penal; Juizados; interceptação; "Teoria da Pena" ×
   "Teorias Legitimadoras da Pena".
 - **Lixeiras:** "Conceito e Fontes do Direito Penal" concentra 74% das questões do tema; "Lei Penal no
@@ -136,8 +145,10 @@ percentil 10 cai para ~0,945, abaixo da régua. Só a confirmação da convenç�
   - 46 têm consenso total, mas em temas "(Parte N)";
   - 51 estão em temas com cópia em outra disciplina (30 delas com consenso total);
   - 28 estão em sobreposições;
+  - 4 cobrem vários temas e têm enunciado genérico. Três delas têm confiança de 0,98: foram para revisão
+    por essa regra, não por dúvida sobre o tema;
   - o resto é discordância entre as fontes (na faixa "confirma parcial", 86% de acerto no gold), dúvida do
-    verificador, multitema e 14 "possível fora do recorte".
+    verificador e 14 "possível fora do recorte".
 
 ## c) Produção: 50 mil questões por semana
 
@@ -150,7 +161,7 @@ O case deixou três lições:
 **Arquitetura: cascata de custo crescente, com humano no ciclo.**
 ```
 importação → texto canônico → duplicatas (hash, embeddings): duplicata validada herda o tema
-  → cache por (questão, versão da árvore, versão do pipeline): só segue o novo, mudado ou reportado
+  → cache por (questão, versão da árvore e do pipeline): só segue o novo ou o reportado
   → N1: classificador treinado + voto barato; se concordam com P alta, decide
   → N2 (o resto): dois LLMs de famílias diferentes + verificador, em lote, árvore em cache
   → limiar por disciplina → publicar | fila do professor (acessos × incerteza) | fora
@@ -226,7 +237,10 @@ quando várias "opiniões" independentes concordam e um conferente confirma. Con
 grupo e não encontrei erro. O resto vai para você, sempre com uma sugestão.
 
 **Resultado.**
-- **81 publicadas (23%).** Estimo 97% de acerto (entre 93% e 100%).
+- **81 publicadas (23%).** Estimo 97% de acerto (entre 93% e 100%): de 81, cerca de 2 erradas; no pior
+  cenário razoável, 6. A meta de 95% vale para o conjunto das publicadas, não para cada questão. Por isso
+  parei em 81: com as 46 seguintes, a média continuaria perto de 97%, mas a margem de segurança cairia
+  abaixo de 95%.
 - **276 na sua fila**, cada uma com o tema sugerido, as alternativas e o motivo da dúvida.
 - **2 fora do recorte:**
   - Q0142: isenção de ITCD, Direito Tributário;
@@ -265,7 +279,8 @@ grupo e não encontrei erro. O resto vai para você, sempre com uma sugestão.
 2. **Validar as definições dos temas de risco** (~2 h): as cópias, as 6 sobreposições e as 11 lixeiras
    mais fortes.
 3. **Revisar a fila de 276 questões**, a 1 ou 2 min cada (a sugestão já vem pronta). A coluna de confiança
-   mostra por onde começar: nas 46 de consenso, deve bastar confirmar.
+   mostra por onde começar: nas 46 de consenso, deve bastar confirmar. Três questões têm confiança alta
+   (0,98) e mesmo assim estão na fila, porque cobrem vários temas: nelas, falta escolher o tema central.
 4. **Confirmar os 2 "fora"** e olhar 14 questões que talvez sejam de outra matéria.
 5. **Daqui para a frente:** revisar uma amostra de ~150 publicadas por semana, para saber se os 95% se
    mantêm.
