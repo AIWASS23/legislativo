@@ -1,8 +1,9 @@
 """Fase de conhecimento da etapa 2: orquestrador (ADR-019, ADR-020).
 
-Por enquanto, um passo: as propostas de mapa lei/artigo → tema e de termos, por LLM, gravadas em
-``dados/conhecimento/propostas/`` para a revisão do autor. Os próximos passos (citações das questões e
-embeddings, ADR-021) entram aqui.
+Este passo gera as propostas de mapa lei/artigo → tema e de termos, por LLM, gravadas em
+``dados/conhecimento/propostas/`` para a revisão do autor. As citações das questões
+(``executar_citacoes.py``) e os embeddings (``executar_embeddings.py``) são passos próprios da mesma fase,
+para que cada artefato tenha o seu comando no manifesto (ADR-021, ADR-026).
 """
 
 from __future__ import annotations

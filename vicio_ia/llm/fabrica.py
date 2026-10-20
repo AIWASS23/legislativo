@@ -8,12 +8,14 @@ from typing import ClassVar
 from vicio_ia.ambiente import CarregadorAmbiente
 from vicio_ia.configuracao import Caminhos, ParametrosLLM, ParametrosSistema
 from vicio_ia.llm.contratos import ErroProvedor, ProvedorLLM
+from vicio_ia.llm.embeddings import ProvedorEmbedding
 from vicio_ia.llm.provedores.claude_api import ProvedorClaudeAPI
 from vicio_ia.llm.provedores.claude_cli import ProvedorClaudeCLI
 from vicio_ia.llm.provedores.codex_cli import ProvedorCodexCLI
 from vicio_ia.llm.provedores.gemini_agy import ProvedorGeminiAgy
 from vicio_ia.llm.provedores.huggingface import ProvedorHuggingFace
 from vicio_ia.llm.provedores.ollama import ProvedorOllama
+from vicio_ia.llm.provedores.ollama_embedding import ProvedorEmbeddingOllama
 from vicio_ia.llm.provedores.openai_api import ProvedorOpenAI
 
 
@@ -29,6 +31,7 @@ class FabricaProvedores:
         "openai",
         "huggingface",
     )
+    NOMES_EMBEDDING: ClassVar[tuple[str, ...]] = ("ollama",)
 
     def __init__(self, caminhos: Caminhos, parametros: ParametrosLLM) -> None:
         """Recebe a configuração e carrega o ``.env``.
@@ -49,6 +52,7 @@ class FabricaProvedores:
         self._ambiente: CarregadorAmbiente = CarregadorAmbiente(caminhos.env)
         self._ambiente.carregar_env()
         self._criados: dict[str, ProvedorLLM] = {}
+        self._embeddings: dict[str, ProvedorEmbedding] = {}
 
     def obter(self, nome: str) -> ProvedorLLM:
         """Devolve o provedor pedido, criando-o na primeira vez.
@@ -65,6 +69,27 @@ class FabricaProvedores:
         if nome not in self._criados:
             self._criados[nome] = self._criar(nome)
         return self._criados[nome]
+
+    def obter_embedding(self, nome: str, timeout_segundos: int) -> ProvedorEmbedding:
+        """Devolve o provedor de embedding pedido, criando-o na primeira vez (ADR-021).
+
+        Args:
+            nome: Um de :attr:`NOMES_EMBEDDING`.
+            timeout_segundos: Tempo máximo por lote.
+
+        Returns:
+            Instância do provedor.
+
+        Raises:
+            ErroProvedor: Se o nome for desconhecido.
+        """
+        if nome not in self._embeddings:
+            if nome != "ollama":
+                raise ErroProvedor(
+                    f"provedor de embedding desconhecido: {nome!r} (opções: {', '.join(self.NOMES_EMBEDDING)})"
+                )
+            self._embeddings[nome] = ProvedorEmbeddingOllama(self._parametros.ollama_url, timeout_segundos)
+        return self._embeddings[nome]
 
     def _criar(self, nome: str) -> ProvedorLLM:
         """Instancia um provedor.

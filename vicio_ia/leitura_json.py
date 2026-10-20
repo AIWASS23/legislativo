@@ -150,6 +150,20 @@ class CamposJSON:
             raise self._erro(chave, "objeto")
         return {str(k): v for k, v in valor.items()}
 
+    def objetos(self, chave: str) -> tuple[dict[str, object], ...]:
+        """Lê uma lista de objetos aninhados.
+
+        Args:
+            chave: Nome do campo.
+
+        Returns:
+            Tupla de dicionários com as chaves como texto.
+        """
+        valor: object = self._objeto.get(chave)
+        if not isinstance(valor, list) or not all(isinstance(item, dict) for item in valor):
+            raise self._erro(chave, "lista de objetos")
+        return tuple({str(k): v for k, v in item.items()} for item in valor if isinstance(item, dict))
+
     def objeto_opcional(self, chave: str) -> dict[str, object] | None:
         """Lê um objeto aninhado que pode ser ``null``.
 

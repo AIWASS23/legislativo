@@ -172,3 +172,60 @@ Arquivos: `saidas/etapa2/experimentos_etapa2.md`, `resultados_etapa2.csv` e `e7_
 - **Decisão:** com atributos lexicais, o fora **não é separável** (abaixo do limite de 0,7 pré-registrado).
   - Repetir com embeddings e kNN (E8, E9) antes de acionar o plano B da ADR-023.
   - Se continuar inseparável, só se publica onde a folha mostrar uma taxa de fora compatível com 95%.
+
+## E8 e E9: pré-registro detalhado (20/10, antes de rodar)
+
+- **Candidatos do E8:** cinco modelos multilíngues de embedding, todos pelo Ollama local, sem custo e sem
+  PyTorch no projeto: `bge-m3` (o padrão da ADR-021), `qwen3-embedding:0.6b`, `qwen3-embedding:4b`,
+  `snowflake-arctic-embed2` e `granite-embedding:278m`. O `multilingual-e5-large` via sentence-transformers
+  ficou de fora, porque traria o PyTorch; não há crédito de API de embedding.
+- **Entrada:** a questão inteira (enunciado, comando e alternativas) contra o mesmo documento de tema do E7
+  (título, caminho e cartão). Os prefixos de consulta seguem a recomendação de cada modelo.
+- **Métricas:** as do E7 (acerto no top-1 nas 100 e nas 92; recall@5 e @10 nas 92; top-1 por nível). Não há
+  parâmetro aprendido, então a medição é direta na folha.
+- **Regra de escolha:** vence o maior recall@10 do denso nas 92, porque o papel dos embeddings é gerar
+  candidatos para o ranqueador. Diferença de até uma questão é empate, decidido pelo maior acerto no top-1;
+  persistindo o empate, vale a ordem da lista acima.
+- **Medido junto, sem entrar na regra:** a fusão BM25 + denso por posição recíproca (RRF, k = 60), para saber
+  se os dois sinais se complementam.
+- **E9:** kNN deixa-uma-fora entre as 100 questões da folha (k = 10 vizinhos; cada vizinho com tema vota no
+  central e nos extras, com o peso da similaridade), com os vetores de cada candidato. Também é medido o teto:
+  quantas das 92 têm o tema certo entre os temas de outra questão da folha.
+
+## E8. Escolha do modelo de embedding: resultado (20/10)
+
+Arquivos: `saidas/etapa2/e8_embeddings.md` e `e8_resultados.csv`. Comando: `uv run python executar_embeddings.py`.
+
+| Variante (92 com tema) | Top-1 | Recall@5 | Recall@10 | Top-1, nível 1 | Top-1, nível 2 |
+|---|---:|---:|---:|---:|---:|
+| BM25 com cartão (E7, referência) | 67% | 92% | 93% | 81% | 49% |
+| `bge-m3`, denso | 66% | 86% | 91% | 72% | 59% |
+| `qwen3-embedding:0.6b`, denso | 66% | 88% | 93% | 74% | 56% |
+| **`qwen3-embedding:4b`, denso** | **79%** | **97%** | **98%** | 92% | 62% |
+| `snowflake-arctic-embed2`, denso | 70% | 88% | 92% | 77% | 59% |
+| `granite-embedding:278m`, denso | 57% | 80% | 88% | 68% | 41% |
+| `qwen3-embedding:0.6b`, BM25 + denso (RRF) | 80% | 95% | 97% | 92% | 64% |
+| `qwen3-embedding:4b`, BM25 + denso (RRF) | 79% | 98% | 99% | 91% | 64% |
+
+- **Vencedor pela regra pré-registrada:** `qwen3-embedding:4b`, com recall@10 de 98% (90 de 92) e top-1 de
+  79% (73 de 92). É o único modelo que, sozinho, supera o BM25 no top-1 e no recall, o que confirma a hipótese
+  do E8 para ele. O `bge-m3`, padrão provisório da ADR-021, fica abaixo do BM25.
+- **Os sinais se complementam:** a fusão por posição recíproca melhora todos os modelos menores. Com o
+  `qwen3-embedding:4b`, ela leva o recall@10 a 99%, e o top-1 fica igual.
+- **Custo:** os 3.478 vetores (659 questões, 2.604 alternativas e 351 temas) levaram 488 s na GPU de 6 GB,
+  contra 99 s do `qwen3-embedding:0.6b`. A fase de decisão só lê os `.npy`, então não precisa de GPU.
+  - **Plano B:** se o tempo de geração pesar na produção, o `qwen3-embedding:0.6b` com fusão chega perto do
+    4b (top-1 de 80% e recall@10 de 97%).
+- **Exportação:** `dados/conhecimento/embeddings/` (36 MB, dimensão 2560, `float32`), com o digest
+  `df5bd2e3c74c` e o hash dos textos no `modelo.json` e no manifesto. Conferido que a leitura do artefato,
+  com a trava `VICIO_SEM_LLM=1` e a rede bloqueada, reproduz o top-1 de 73 de 92.
+
+## E9. kNN na folha: resultado (20/10)
+
+- **Teto:** 77 das 92 questões com tema (84%) têm o tema certo entre os temas de outra questão da folha. As
+  outras 15 não podem ser acertadas por kNN.
+- **kNN deixa-uma-fora, k = 10:** o top-1 fica entre 28% e 37% conforme o modelo, e o recall@10, entre 68% e
+  77% (77% com o `qwen3-embedding:4b`).
+- **Hipótese confirmada:** sozinho, o kNN fica muito abaixo do denso contra os documentos de tema, porque a
+  folha cobre só 61 temas. Ele entra no ranqueador como atributo (a similaridade com o vizinho rotulado mais
+  próximo de cada tema candidato), e não como fonte principal de candidatos.

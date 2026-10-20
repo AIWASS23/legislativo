@@ -626,6 +626,8 @@ class ParametrosSistema:
         top_k_recall: Tamanhos de lista para o recall@k nos experimentos.
         reamostras_auc: Reamostras do bootstrap do intervalo da AUC (E11).
         variavel_sem_llm: Variável de ambiente que, com valor ``"1"``, proíbe criar provedores de LLM (ADR-019).
+        questoes_etapa1: Questões da etapa 1 (Q0001 a Q0359); as demais são as novas da etapa 2 (ADR-018).
+        amostra_conferencia: Citações sorteadas para a conferência do autor (ADR-021).
     """
 
     partes_validacao: int = 5
@@ -636,6 +638,66 @@ class ParametrosSistema:
     top_k_recall: tuple[int, ...] = (1, 5, 10)
     reamostras_auc: int = 1000
     variavel_sem_llm: str = "VICIO_SEM_LLM"
+    questoes_etapa1: int = 359
+    amostra_conferencia: int = 20
+
+
+@dataclass(frozen=True)
+class ModeloEmbedding:
+    """Um modelo de embedding candidato (ADR-021, experimento E8).
+
+    Attributes:
+        nome: Nome do modelo no provedor.
+        prefixo_consulta: Prefixo das questões e alternativas (instrução de busca, quando o modelo pede).
+        prefixo_documento: Prefixo dos documentos de tema.
+        contexto_tokens: Janela de contexto usada (o excedente é truncado).
+    """
+
+    nome: str
+    prefixo_consulta: str = ""
+    prefixo_documento: str = ""
+    contexto_tokens: int = 8192
+
+
+def _candidatos_embedding_padrao() -> tuple[ModeloEmbedding, ...]:
+    """Candidatos do E8: modelos multilíngues que rodam no Ollama local (GPU de 6 GB ou CPU).
+
+    Returns:
+        Modelos na ordem do relatório.
+    """
+    instrucao_qwen: str = (
+        "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: "
+    )
+    return (
+        ModeloEmbedding("bge-m3"),
+        ModeloEmbedding("qwen3-embedding:0.6b", prefixo_consulta=instrucao_qwen),
+        ModeloEmbedding("qwen3-embedding:4b", prefixo_consulta=instrucao_qwen),
+        ModeloEmbedding("snowflake-arctic-embed2", prefixo_consulta="query: "),
+        ModeloEmbedding("granite-embedding:278m", contexto_tokens=512),
+    )
+
+
+@dataclass(frozen=True)
+class ParametrosEmbeddings:
+    """Parâmetros dos embeddings da fase de conhecimento (ADR-021).
+
+    Attributes:
+        provedor: Provedor de embedding (pela camada ``vicio_ia/llm``).
+        candidatos: Modelos comparados no E8.
+        escolhido: Modelo exportado para ``dados/conhecimento/embeddings/`` (o vencedor do E8, 20/10).
+        lote: Textos por chamada.
+        timeout_segundos: Tempo máximo por lote.
+        rrf_k: Constante da fusão por posição recíproca (BM25 + denso) medida no E8.
+        vizinhos_knn: Vizinhos rotulados considerados no kNN do E9.
+    """
+
+    provedor: str = "ollama"
+    candidatos: tuple[ModeloEmbedding, ...] = field(default_factory=_candidatos_embedding_padrao)
+    escolhido: str = "qwen3-embedding:4b"
+    lote: int = 32
+    timeout_segundos: int = 600
+    rrf_k: int = 60
+    vizinhos_knn: int = 10
 
 
 @dataclass(frozen=True)

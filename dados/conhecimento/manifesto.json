@@ -1,4 +1,151 @@
 {
+  "dados/conhecimento/citacoes.jsonl": {
+    "sha256": "64f8a32ddbd59409fde152ff480a6ec857f1377d39ac2b47b0ad86aed3185b96",
+    "origem": "regra",
+    "comando": "uv run python executar_citacoes.py",
+    "detalhes": {
+      "artigos": "206",
+      "entrada": "dados/preparados/questoes.jsonl (enunciado, comando e alternativas)",
+      "modelo": "nenhum",
+      "pendentes": "3",
+      "questoes": "659",
+      "regra": "vicio_ia/enriquecimento/citacoes.py@b4fa3a9a7bc4"
+    },
+    "atualizado_em": "2026-10-20T15:22:51"
+  },
+  "dados/conhecimento/embeddings/alternativas.npy": {
+    "sha256": "7b9ae0720e4146edf5851af133232e5567a59454664cb03d3a0d43437f23f5bf",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
+  "dados/conhecimento/embeddings/alternativas_ids.json": {
+    "sha256": "275f18bf1ff8dd72406bf57bae5cad467039e9d9bd0a911cb240606c33528426",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
+  "dados/conhecimento/embeddings/modelo.json": {
+    "sha256": "badfa549c35d1d7e22b95a04962ba9f37489117bf639d739d12892a3b517eac0",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
+  "dados/conhecimento/embeddings/questoes.npy": {
+    "sha256": "25346ec93bb0c3d530c7d078deddaf27a906751f74de24be08040fce9f41c532",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
+  "dados/conhecimento/embeddings/questoes_ids.json": {
+    "sha256": "3a6305164afc98efb84ebcc81c9a17a74b81033c41db9b047b9f0a8c8b51f3c8",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
+  "dados/conhecimento/embeddings/temas.npy": {
+    "sha256": "71c892e1f24d2105dbf191263960da45816f8fc5b9449a72399c4f2dc11a07a8",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
+  "dados/conhecimento/embeddings/temas_ids.json": {
+    "sha256": "7ec9258954cb65eedad05f842fd9d6302d3fd0a93fde6e8a53b772a1856af678",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+    },
+    "atualizado_em": "2026-10-20T15:22:18"
+  },
   "dados/conhecimento/propostas/mapa_artigos.csv": {
     "sha256": "cfef876080011e193d084612c9ef1f321db4ddc23264d73332fb6f51c5dfb129",
     "origem": "llm (proposta, sem revisão)",

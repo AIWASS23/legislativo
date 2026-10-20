@@ -23,48 +23,13 @@ from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
 from vicio_ia.sistema.documentos import DocumentoTema, MontadorDocumentos
-from vicio_ia.sistema.folha import LeitorFolha, ReguaEtapa2, RotuloFolha
+from vicio_ia.sistema.folha import LeitorFolha, RotuloFolha
 from vicio_ia.sistema.lexical import IndiceBM25, TokenizadorLexical
 from vicio_ia.sistema.metricas import MetricasBinarias
+from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao
 from vicio_ia.sistema.validacao import Particao, ValidacaoCruzadaRepetida
 from vicio_ia.temas.cartoes import ArquivoCartoes, CartaoTema
 from vicio_ia.texto import ProcessadorTexto
-
-
-@dataclass(frozen=True)
-class Metrica:
-    """Um número de um experimento.
-
-    Attributes:
-        experimento: ``E7``, ``E11``...
-        variante: Variante medida.
-        nome: Nome da métrica.
-        valor: Valor.
-        detalhe: Texto livre (intervalo, contagem).
-    """
-
-    experimento: str
-    variante: str
-    nome: str
-    valor: float
-    detalhe: str = ""
-
-
-@dataclass(frozen=True)
-class RankingQuestao:
-    """Ranking lexical de uma questão da folha.
-
-    Attributes:
-        id: ID da questão.
-        ordem: Temas do melhor para o pior.
-        pontos: Pontuações BM25 na mesma ordem.
-        primeiro_acerto: Posição (1 em diante) do primeiro tema certo pela régua; 0 se nenhum.
-    """
-
-    id: str
-    ordem: tuple[str, ...]
-    pontos: tuple[float, ...]
-    primeiro_acerto: int
 
 
 @dataclass(frozen=True)
@@ -118,7 +83,7 @@ class ExperimentosEtapa2:
         temas: list[TemaPreparado] = leitor.temas()
         cartoes: list[CartaoTema] = ArquivoCartoes(self._caminhos.dados_temas / "cartoes.jsonl").ler()
         folha: list[RotuloFolha] = LeitorFolha(self._caminhos.folha_verdade, temas, questoes.keys()).ler()
-        regua: ReguaEtapa2 = ReguaEtapa2(temas)
+        avaliador: AvaliadorRanking = AvaliadorRanking(temas, self._parametros.top_k_recall)
         montador: MontadorDocumentos = MontadorDocumentos(temas, cartoes)
         metricas: list[Metrica] = []
         rankings: dict[str, list[RankingQuestao]] = {}
@@ -127,8 +92,8 @@ class ExperimentosEtapa2:
         for variante, com_cartao in (("títulos e caminho", False), ("com cartão", True)):
             documentos: list[DocumentoTema] = montador.documentos(com_cartao)
             indice: IndiceBM25 = self._indice(documentos)
-            rankings[variante] = [self._ranking(questoes[r.id], r, documentos, indice, regua) for r in folha]
-            metricas.extend(self._metricas_e7(variante, folha, rankings[variante], temas))
+            rankings[variante] = [self._ranking(questoes[r.id], r, documentos, indice, avaliador) for r in folha]
+            metricas.extend(avaliador.metricas("E7", variante, folha, rankings[variante]))
         documentos_cartao: list[DocumentoTema] = montador.documentos(True)
         indice_cartao: IndiceBM25 = self._indice(documentos_cartao)
         atributos: list[AtributosFora] = [
@@ -155,80 +120,22 @@ class ExperimentosEtapa2:
         rotulo: RotuloFolha,
         documentos: Sequence[DocumentoTema],
         indice: IndiceBM25,
-        regua: ReguaEtapa2,
+        avaliador: AvaliadorRanking,
     ) -> RankingQuestao:
-        """Ordena os temas para uma questão e acha a posição do primeiro acerto.
+        """Ordena os temas pelo BM25 para uma questão e acha a posição do primeiro acerto.
 
         Args:
             questao: Questão.
             rotulo: Rótulo da equipe.
             documentos: Documentos indexados.
             indice: Índice BM25.
-            regua: Régua da etapa 2.
+            avaliador: Avaliador de rankings.
 
         Returns:
             Ranking.
         """
         pontos: Matriz = indice.pontuar(self._tokenizador.termos(MontadorDocumentos.texto_questao(questao)))
-        ordem: list[int] = [int(i) for i in np.argsort(-pontos, kind="stable")]
-        temas_ordem: tuple[str, ...] = tuple(documentos[i].tema_id for i in ordem)
-        primeiro: int = next((k + 1 for k, t in enumerate(temas_ordem) if regua.acerta(t, rotulo)), 0)
-        return RankingQuestao(rotulo.id, temas_ordem, tuple(float(pontos[i]) for i in ordem), primeiro)
-
-    def _metricas_e7(
-        self,
-        variante: str,
-        folha: Sequence[RotuloFolha],
-        rankings: Sequence[RankingQuestao],
-        temas: Sequence[TemaPreparado],
-    ) -> list[Metrica]:
-        """Acerto no top-1 e recall@k da variante.
-
-        Args:
-            variante: Nome da variante.
-            folha: Rótulos.
-            rankings: Rankings, na ordem da folha.
-            temas: Árvore preparada.
-
-        Returns:
-            Métricas do E7.
-        """
-        nivel: dict[str, int] = {t.tema_id: t.nivel for t in temas}
-        com_tema: list[tuple[RotuloFolha, RankingQuestao]] = [
-            (r, k) for r, k in zip(folha, rankings, strict=True) if not r.fora
-        ]
-        acertos_top1: int = sum(1 for k in rankings if k.primeiro_acerto == 1)
-        metricas: list[Metrica] = [
-            Metrica("E7", variante, "acerto top-1 (100)", acertos_top1 / len(folha), f"{acertos_top1}/{len(folha)}"),
-            Metrica(
-                "E7",
-                variante,
-                "acerto top-1 (92 com tema)",
-                acertos_top1 / len(com_tema),
-                f"{acertos_top1}/{len(com_tema)}",
-            ),
-        ]
-        k: int
-        for k in self._parametros.top_k_recall[1:]:
-            dentro: int = sum(1 for _, rk in com_tema if 0 < rk.primeiro_acerto <= k)
-            metricas.append(
-                Metrica("E7", variante, f"recall@{k} (92)", dentro / len(com_tema), f"{dentro}/{len(com_tema)}")
-            )
-        nivel_rotulo: int
-        for nivel_rotulo in (1, 2):
-            grupo: list[RankingQuestao] = [rk for r, rk in com_tema if nivel.get(r.tema_central_id) == nivel_rotulo]
-            if grupo:
-                certos: int = sum(1 for rk in grupo if rk.primeiro_acerto == 1)
-                metricas.append(
-                    Metrica(
-                        "E7",
-                        variante,
-                        f"acerto top-1, tema central de nível {nivel_rotulo}",
-                        certos / len(grupo),
-                        f"{certos}/{len(grupo)}",
-                    )
-                )
-        return metricas
+        return avaliador.ordenar(rotulo, pontos, [d.tema_id for d in documentos])
 
     def _ramo_nivel1(self, tema_id: str, temas: Mapping[str, TemaPreparado]) -> str:
         """Tema de nível 1 do ramo (o próprio tema, ou o pai de um subtema).

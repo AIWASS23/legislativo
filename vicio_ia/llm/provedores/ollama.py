@@ -12,6 +12,49 @@ from typing import ClassVar
 from vicio_ia.llm.contratos import ErroProvedor, ProvedorLLM, RequisicaoLLM, RespostaLLM, UsoTokens
 
 
+class ServidorOllama:
+    """Acesso HTTP ao servidor Ollama local, sem dependências externas (chat e embeddings usam o mesmo)."""
+
+    def __init__(self, url: str) -> None:
+        """Guarda o endereço.
+
+        Args:
+            url: Endereço do Ollama (``http://localhost:11434``).
+        """
+        self.url: str = url.rstrip("/")
+
+    def requisitar(self, caminho: str, corpo: dict[str, object] | None, timeout: float) -> dict[str, object]:
+        """Faz um POST JSON (ou um GET, sem corpo) ao Ollama.
+
+        Args:
+            caminho: Caminho da API.
+            corpo: Corpo da requisição; ``None`` para GET.
+            timeout: Tempo máximo em segundos.
+
+        Returns:
+            Resposta decodificada.
+
+        Raises:
+            ErroProvedor: Se o servidor não responder ou devolver erro.
+        """
+        dados: bytes | None = None if corpo is None else json.dumps(corpo).encode("utf-8")
+        requisicao: urllib.request.Request = urllib.request.Request(
+            self.url + caminho, data=dados, headers={"Content-Type": "application/json"}
+        )
+        resposta: HTTPResponse
+        try:
+            with urllib.request.urlopen(requisicao, timeout=timeout) as resposta:
+                valor: object = json.loads(resposta.read().decode("utf-8"))
+        except urllib.error.HTTPError as erro:
+            detalhe: str = erro.read().decode("utf-8", errors="replace")[:300]
+            raise ErroProvedor(f"ollama: HTTP {erro.code} em {caminho}: {detalhe}") from erro
+        except (urllib.error.URLError, OSError, ValueError) as erro:
+            raise ErroProvedor(f"ollama: servidor indisponível em {self.url} ({erro})") from erro
+        if not isinstance(valor, dict):
+            raise ErroProvedor(f"ollama: resposta inesperada em {caminho}")
+        return {str(chave): item for chave, item in valor.items()}
+
+
 class ProvedorOllama(ProvedorLLM):
     """Chama o servidor Ollama local pela API HTTP (``/api/chat``), sem dependências externas.
 
@@ -31,7 +74,7 @@ class ProvedorOllama(ProvedorLLM):
             pensar: Liga o raciocínio nos modelos que o suportam.
             timeout_segundos: Tempo máximo por chamada.
         """
-        self._url: str = url.rstrip("/")
+        self._servidor: ServidorOllama = ServidorOllama(url)
         self._contexto: int = contexto_tokens
         self._pensar: bool = pensar
         self._timeout: int = timeout_segundos
@@ -121,21 +164,7 @@ class ProvedorOllama(ProvedorLLM):
         Raises:
             ErroProvedor: Se o servidor não responder ou devolver erro.
         """
-        requisicao: urllib.request.Request = urllib.request.Request(
-            self._url + caminho, data=json.dumps(corpo).encode("utf-8"), headers={"Content-Type": "application/json"}
-        )
-        resposta: HTTPResponse
-        try:
-            with urllib.request.urlopen(requisicao, timeout=timeout) as resposta:
-                valor: object = json.loads(resposta.read().decode("utf-8"))
-        except urllib.error.HTTPError as erro:
-            detalhe: str = erro.read().decode("utf-8", errors="replace")[:300]
-            raise ErroProvedor(f"ollama: HTTP {erro.code} em {caminho}: {detalhe}") from erro
-        except (urllib.error.URLError, OSError, ValueError) as erro:
-            raise ErroProvedor(f"ollama: servidor indisponível em {self._url} ({erro})") from erro
-        if not isinstance(valor, dict):
-            raise ErroProvedor(f"ollama: resposta inesperada em {caminho}")
-        return {str(chave): item for chave, item in valor.items()}
+        return self._servidor.requisitar(caminho, corpo, timeout)
 
     @staticmethod
     def _inteiro(valor: object) -> int:

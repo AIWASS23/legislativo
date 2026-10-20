@@ -16,3 +16,7 @@ relatorio/arquitetura_producao.png
 
 # Logs das execuções em segundo plano (o resultado fica no cache runs/ e nos relatórios)
 *.log
+
+# Cache de embeddings por conteúdo (regerado pelo executar_embeddings.py); o artefato versionado é a
+# exportação do modelo escolhido em dados/conhecimento/embeddings/
+runs/embeddings/

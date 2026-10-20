@@ -1,6 +1,6 @@
 # Experimentos da etapa 2 (folha-verdade)
 
-Gerado em 20/10/2026 10:09. Base: 100 questões da folha-verdade (92 com tema, 8 fora). Régua da etapa 2: tema central, extra, ou pai ou filho de um deles. Nenhum modelo foi chamado.
+Gerado em 20/10/2026 15:05. Base: 100 questões da folha-verdade (92 com tema, 8 fora). Régua da etapa 2: tema central, extra, ou pai ou filho de um deles. Nenhum modelo foi chamado.
 
 | Experimento | Variante | Métrica | Valor | Detalhe |
 |---|---|---|---:|---|
