@@ -1,6 +1,7 @@
 # ADR-016: Arquitetura de produção (50 mil questões por semana)
 
 **Status:** Proposto (desenho da seção c do relatório; não implementado no case). Custos revisados em 17/10/2026 com o perfil de tokens medido
+**Etapa 2:** Sem LLM na decisão, a produção é revista pela ADR-027.
 **Data:** 14/10/2026 · revisada em 14/10/2026: modelos por papel e escolha de provedor em produção ([ADR-002](../00-fundacao/ADR-002-provedor-e-modelos-de-llm.md), revisão 2)
 **Decisores:** Autor do case; equipe Vício
 **Fase:** 07-producao

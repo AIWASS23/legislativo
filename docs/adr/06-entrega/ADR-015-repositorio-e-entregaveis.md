@@ -1,6 +1,7 @@
 # ADR-015: Repositório e entregáveis
 
 **Status:** Aceito (entregáveis, README, relatório e memo prontos em 17/10/2026; faltam o push público e o e-mail)
+**Etapa 2:** A entrega é revista pela ADR-026.
 **Data:** 14/10/2026
 **Decisores:** Autor do case
 **Fase:** 06-entrega (passo 09)

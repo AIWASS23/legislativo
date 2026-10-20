@@ -1,6 +1,7 @@
 # ADR-002: Provedores e modelos de LLM
 
 **Status:** Aceito (revisão 2: independência de provedor)
+**Etapa 2:** Os provedores servem só à fase de conhecimento (ADR-019).
 **Data:** 14/10/2026 (revisão 1) · revisada em 14/10/2026 (revisão 2)
 **Decisores:** Autor do case
 **Fase:** 00-fundacao (passos 02, 05 e 06)

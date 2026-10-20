@@ -1,6 +1,7 @@
 # ADR-013: Calibração da confiança e previsão de precisão e cobertura
 
 **Status:** Aceito (implementado em 15/10/2026; o intervalo de cobertura supõe avaliação nas 359)
+**Etapa 2:** A calibração e a previsão são revistas pela ADR-025.
 **Data:** 14/10/2026 · revisada em 15/10/2026: margem de convenção por tipo de risco (ADR-005, `decisoes_manuais.md` D1) · em 17/10/2026: estimador direto suavizado (D12)
 **Decisores:** Autor do case
 **Fase:** 05-avaliacao (passo 08)

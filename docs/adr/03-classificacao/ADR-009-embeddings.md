@@ -1,6 +1,7 @@
 # ADR-009: Embeddings como sinal opcional no case
 
 **Status:** Proposto
+**Etapa 2:** substituída pela ADR-021. Os embeddings passam a ser centrais, em cache.
 **Data:** 14/10/2026
 **Decisores:** Autor do case
 **Fase:** 03-classificacao (passo 04)

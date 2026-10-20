@@ -1,6 +1,7 @@
 # ADR-017: Provedores de LLM plugáveis e escolha de modelos pela infraestrutura
 
 **Status:** Aceito (implementado em 14/10/2026). Implementa a escolha de provedores e modelos da [ADR-002 (revisão 2)](ADR-002-provedor-e-modelos-de-llm.md).
+**Etapa 2:** Os provedores servem só à fase de conhecimento (ADR-019).
 **Data:** 14/10/2026
 **Decisores:** Autor do case
 **Fase:** 00-fundacao (passos 02, 05 e 06)

@@ -1,6 +1,7 @@
 # ADR-011: Política de decisão publicar / revisar / fora
 
 **Status:** Aceito (implementado em 15/10/2026: `vicio_ia/decisao/`, `executar_decisao.py`)
+**Etapa 2:** A política é revista pelas ADR-023 (fora e multitema) e ADR-025 (limiar).
 **Data:** 14/10/2026 · revisada em 15/10/2026: duplicados publicados no canônico, lixeiras em dois níveis, desempate das sobreposições (ADR-005, `decisoes_manuais.md` D1–D3)
 **Decisores:** Autor do case
 **Fase:** 04-decisao (passo 07)

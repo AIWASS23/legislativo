@@ -1,6 +1,7 @@
 # ADR-007: Cartões de tema
 
 **Status:** Aceito (código e rascunhos em 15/10/2026; revisão manual não feita antes do congelamento: D7, D11)
+**Etapa 2:** Os cartões viram parte dos documentos de tema, com revisão priorizada (ADR-020).
 **Data:** 14/10/2026 · revisada em 14/10/2026: modelos por papel e limites de prompt por provedor ([ADR-002](../00-fundacao/ADR-002-provedor-e-modelos-de-llm.md), revisão 2)
 **Decisores:** Autor do case
 **Fase:** 02-temas (passo 02)

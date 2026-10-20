@@ -1,6 +1,7 @@
 # ADR-014: Experimentos e registro dos becos sem saída
 
 **Status:** Aceito (E0, E2, E3 e E4 em 15/10/2026; E5 em 16/10/2026; E6 e E1 não rodados)
+**Etapa 2:** Os experimentos E7 a E12 seguem o protocolo da ADR-024.
 **Data:** 14/10/2026 · revisada em 14/10/2026: E6 compara provedores e modelos por papel ([ADR-002](../00-fundacao/ADR-002-provedor-e-modelos-de-llm.md), revisão 2)
 **Decisores:** Autor do case
 **Fase:** 05-avaliacao (passos 05 a 08)

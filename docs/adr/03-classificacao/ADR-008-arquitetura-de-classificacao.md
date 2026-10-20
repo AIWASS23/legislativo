@@ -1,6 +1,7 @@
 # ADR-008: Arquitetura de classificação (ensemble heterogêneo + verificador contrastivo)
 
 **Status:** Aceito (código implementado em 15/10/2026; rodada completa das 359 em 17/10/2026)
+**Etapa 2:** O ensemble de LLMs não pode decidir. Substituída na decisão pela ADR-022.
 **Data:** 14/10/2026 · revisada em 14/10/2026: componentes por papel, orçamento de prompt por provedor ([ADR-002](../00-fundacao/ADR-002-provedor-e-modelos-de-llm.md), revisão 2) · revisada em 15/10/2026: A no `codex` e verificador no `agy`, fora da cota do Claude Code
 **Decisores:** Autor do case
 **Fase:** 03-classificacao (passos 03, 05 e 06)

@@ -1,6 +1,7 @@
 # ADR-012: Gold set manual cego
 
 **Status:** Aceito (implementado; 60 questões rotuladas à mão em 15/10/2026)
+**Etapa 2:** O gold manual vira só medida secundária; a calibração usa a folha-verdade (ADR-024).
 **Data:** 14/10/2026 · revisada em 17/10/2026: o gold é uma amostra única de 60 questões
 **Decisores:** Autor do case
 **Fase:** 05-avaliacao (do passo 01 em diante)
