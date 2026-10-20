@@ -1,27 +1,27 @@
 {
   "Formatos": {
-    "questoes": 359,
-    "multipla_escolha_5": 255,
-    "certo_errado": 58,
-    "multipla_escolha_4": 46
+    "questoes": 659,
+    "multipla_escolha_5": 440,
+    "certo_errado": 118,
+    "multipla_escolha_4": 101
   },
   "Comando no texto canônico": {
     "comando_incluido": 50,
     "comando_suspeito": 62,
     "comando_so_frase_padrao": 74,
     "comando_repete_enunciado": 72,
-    "comando_vazio": 101
+    "comando_vazio": 401
   },
   "Tamanho do texto canônico": {
-    "tokens_total": 97915,
-    "tokens_mediana": 250.0,
+    "tokens_total": 165514,
+    "tokens_mediana": 230.0,
     "tokens_max": 1175.0
   },
   "Marcas guardadas para decisão e calibração": {
     "enunciado genérico": 18,
     "HTML colado do Word no original": 1,
-    "cita alguma lei": 95,
-    "cita jurisprudência": 49,
+    "cita alguma lei": 173,
+    "cita jurisprudência": 96,
     "duplicata de outra questão (texto completo)": 0
   },
   "Checagens automáticas: questões": {

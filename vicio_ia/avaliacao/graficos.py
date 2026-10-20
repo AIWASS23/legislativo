@@ -33,7 +33,6 @@ from vicio_ia.avaliacao.calibracao import (
     CalibradorBase,
     CalibradorFaixas,
     ExemploCalibracao,
-    Matriz,
     SeletorCalibrador,
     VetorizadorDecisao,
 )
@@ -45,6 +44,7 @@ from vicio_ia.carregamento import CarregadorDados
 from vicio_ia.classificacao.respostas import SinaisQuestao, VotoClassificador
 from vicio_ia.configuracao import Caminhos, ParametrosCalibracao, ParametrosGold
 from vicio_ia.decisao.agregacao import AgregadorSinais, DecisaoPreliminar
+from vicio_ia.estatistica import Matriz
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada

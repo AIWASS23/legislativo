@@ -21,6 +21,7 @@ from vicio_ia.classificacao.montador_prompt import MontadorPrompt
 from vicio_ia.classificacao.respostas import VotoClassificador
 from vicio_ia.classificacao.schemas import FabricaSchemas
 from vicio_ia.configuracao import Caminhos, ParametrosClassificacao, ParametrosGold, ParametrosLLM
+from vicio_ia.etapa import GuardaEtapa
 from vicio_ia.llm.cliente import FabricaClientes
 from vicio_ia.llm.prompts import ArquivoPrompt
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
@@ -43,6 +44,7 @@ class ExperimentoCartoes:
 
     def executar(self) -> None:
         """Classifica o gold com B nas duas versões do material e compara pela régua."""
+        GuardaEtapa.exigir_etapa1(self._caminhos, "O experimento E4 (classificador B por LLM)")
         leitor: LeitorPreparados = LeitorPreparados(self._caminhos)
         temas: list[TemaPreparado] = leitor.temas()
         questoes: dict[str, QuestaoPreparada] = {q.id: q for q in leitor.questoes()}

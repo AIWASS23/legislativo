@@ -1,0 +1,20 @@
+experimento,variante,metrica,valor,detalhe
+E7,títulos e caminho,acerto top-1 (100),0.4700,47/100
+E7,títulos e caminho,acerto top-1 (92 com tema),0.5109,47/92
+E7,títulos e caminho,recall@5 (92),0.7609,70/92
+E7,títulos e caminho,recall@10 (92),0.8587,79/92
+E7,títulos e caminho,"acerto top-1, tema central de nível 1",0.5472,29/53
+E7,títulos e caminho,"acerto top-1, tema central de nível 2",0.4615,18/39
+E7,com cartão,acerto top-1 (100),0.6200,62/100
+E7,com cartão,acerto top-1 (92 com tema),0.6739,62/92
+E7,com cartão,recall@5 (92),0.9239,85/92
+E7,com cartão,recall@10 (92),0.9348,86/92
+E7,com cartão,"acerto top-1, tema central de nível 1",0.8113,43/53
+E7,com cartão,"acerto top-1, tema central de nível 2",0.4872,19/39
+E11,pontuação máxima baixa,AUC,0.6685,IC 90%: 0.52–0.80
+E11,margem baixa,AUC,0.6264,IC 90%: 0.43–0.79
+E11,dispersão entre alternativas,AUC,0.5938,IC 90%: 0.41–0.77
+E11,enunciado genérico,AUC,0.4783,IC 90%: 0.46–0.49
+E11,(Parte N) no assunto de origem,AUC,0.5788,IC 90%: 0.44–0.73
+E11,disciplina de origem fora do recorte,AUC,0.4891,IC 90%: 0.47–0.50
+E11,"logística: pontuação máxima baixa, margem baixa, dispersão entre alternativas",AUC fora da amostra,0.5367,IC 90%: 0.35–0.72; 5 partes × 10 repetições

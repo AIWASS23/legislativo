@@ -8,6 +8,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Final
+
+ETAPA_ATUAL: Final[int] = 2
+"""Etapa do case em vigor (ADR-018). Os anexos de cada etapa ficam em ``anexos/<etapa>-ENTREGA/``."""
 
 
 @dataclass(frozen=True)
@@ -37,6 +41,10 @@ class Caminhos:
         dados_classificacao: Respostas e sinais por questão (ADR-008).
         saida_classificacao: Resumo agregado da classificação.
         entregaveis: Pasta do ``publicacao.csv``, do ``previsao.txt`` e do relatório (ADR-015).
+        etapa: Etapa do case cujos anexos são lidos (1 ou 2, ADR-026).
+        folha_verdade: ``folha_verdade.csv`` da etapa 2 (100 questões rotuladas pela equipe, ADR-024).
+        dados_conhecimento: Artefatos da fase de conhecimento da etapa 2, com manifesto (ADR-019, ADR-020).
+        saida_etapa2: Relatórios e experimentos da etapa 2 (E7 em diante, ADR-024).
     """
 
     raiz: Path
@@ -60,16 +68,23 @@ class Caminhos:
     dados_classificacao: Path
     saida_classificacao: Path
     entregaveis: Path
+    etapa: int
+    folha_verdade: Path
+    dados_conhecimento: Path
+    saida_etapa2: Path
 
     @classmethod
-    def padrao(cls) -> Caminhos:
+    def padrao(cls, etapa: int = ETAPA_ATUAL) -> Caminhos:
         """Monta os caminhos a partir da localização deste arquivo.
+
+        Args:
+            etapa: Etapa do case cujos anexos são lidos (padrão: a etapa em vigor).
 
         Returns:
             Instância com os caminhos padrão do projeto.
         """
         raiz: Path = Path(__file__).resolve().parent.parent
-        anexos: Path = raiz / "anexos"
+        anexos: Path = raiz / "anexos" / f"{etapa}-ENTREGA"
         config: Path = raiz / "config"
         return cls(
             raiz=raiz,
@@ -93,6 +108,10 @@ class Caminhos:
             dados_classificacao=raiz / "dados" / "classificacao",
             saida_classificacao=raiz / "saidas" / "classificacao",
             entregaveis=raiz / "relatorio",
+            etapa=etapa,
+            folha_verdade=anexos / "folha_verdade.csv",
+            dados_conhecimento=raiz / "dados" / "conhecimento",
+            saida_etapa2=raiz / "saidas" / "etapa2",
         )
 
 
@@ -592,3 +611,28 @@ class ParametrosCalibracao:
     fatores_sensibilidade: tuple[float, ...] = (0.0, 1.0, 2.0)
     margem_ambiguidade_no_limiar: bool = False
     total_questoes: int = 359
+
+
+@dataclass(frozen=True)
+class ParametrosSistema:
+    """Parâmetros do sistema de classificação da etapa 2, que decide sem LLM (ADR-019 a ADR-025).
+
+    Attributes:
+        partes_validacao: Partes da validação cruzada estratificada (ADR-024).
+        repeticoes_validacao: Repetições da validação cruzada; a repetição ``r`` usa a semente ``semente + r``.
+        semente: Semente base da validação cruzada e dos sorteios.
+        bm25_k1: Saturação da frequência do termo no BM25 (ADR-021).
+        bm25_b: Peso da normalização pelo tamanho do documento no BM25.
+        top_k_recall: Tamanhos de lista para o recall@k nos experimentos.
+        reamostras_auc: Reamostras do bootstrap do intervalo da AUC (E11).
+        variavel_sem_llm: Variável de ambiente que, com valor ``"1"``, proíbe criar provedores de LLM (ADR-019).
+    """
+
+    partes_validacao: int = 5
+    repeticoes_validacao: int = 10
+    semente: int = 20261020
+    bm25_k1: float = 1.2
+    bm25_b: float = 0.75
+    top_k_recall: tuple[int, ...] = (1, 5, 10)
+    reamostras_auc: int = 1000
+    variavel_sem_llm: str = "VICIO_SEM_LLM"

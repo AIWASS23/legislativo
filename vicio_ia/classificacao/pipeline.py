@@ -25,6 +25,7 @@ from vicio_ia.classificacao.schemas import FabricaSchemas
 from vicio_ia.classificacao.verificador import VerificadorContrastivo
 from vicio_ia.configuracao import Caminhos, ParametrosClassificacao, ParametrosGold, ParametrosLLM
 from vicio_ia.conhecimento import MapaLegislacao
+from vicio_ia.etapa import GuardaEtapa
 from vicio_ia.llm.cliente import FabricaClientes
 from vicio_ia.llm.prompts import ArquivoPrompt
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
@@ -80,6 +81,7 @@ class PipelineClassificacao:
         Returns:
             Caminho de ``sinais.jsonl``.
         """
+        GuardaEtapa.exigir_etapa1(self._caminhos, "A classificação por LLM (passos 05 e 06)")
         leitor: LeitorPreparados = LeitorPreparados(self._caminhos)
         questoes: list[QuestaoPreparada] = leitor.questoes()
         temas: list[TemaPreparado] = leitor.temas()

@@ -116,3 +116,59 @@ Recongelamento em 17/10, sem efeito nas decisões: publicacao.csv e previsao.txt
 
 34 arquivos com impressão digital em `saidas/experimentos/congelamento.json`. A partir
 daqui, nenhum prompt, cartão, regra, modelo ou parâmetro de decisão muda.
+
+---
+
+# Etapa 2: pré-registro dos experimentos (20/10/2026, antes de rodar)
+
+Base: a folha-verdade (100 questões rotuladas pela equipe; 92 com tema, 8 fora). Régua da etapa 2: acerta
+quem publica no tema central, num extra, ou no pai ou filho de um deles; questão fora publicada é sempre erro.
+Tudo o que tiver parâmetro aprendido é medido fora da amostra (validação cruzada estratificada, 5 partes,
+10 repetições; ADR-024). Nenhum experimento usa resposta de LLM sobre questão (ADR-019).
+
+- **E7. Só lexical (BM25 contra os documentos de tema).** Hipótese: o BM25 acerta o tema no top-1 bem menos
+  que o LLM da etapa 1 (88% na folha), mas tem recall@10 alto o bastante para gerar candidatos. Variantes:
+  documento só com título e caminho; documento com o cartão. Métricas: acerto no top-1 (nas 100 e nas 92),
+  recall@5 e @10 nas 92. Sem parâmetro aprendido: medido direto na folha.
+- **E8. Só embeddings; escolha do modelo de embedding** (ADR-021). Hipótese: supera o E7 no top-1 e no recall.
+- **E9. Só kNN na folha.** Hipótese: ajuda nos temas frequentes, não cobre os temas sem exemplo.
+- **E10. Ranqueador completo × soma ponderada sem treino** (ADR-022). Hipótese: o treino com a folha melhora
+  a log-loss e o acerto no top-1.
+- **E11. Separabilidade do "fora"** (ADR-023). Hipótese: a dispersão entre as alternativas e a margem do
+  melhor candidato separam as questões fora (AUC fora da amostra ≥ 0,7). Se não separarem, vale o plano B
+  da ADR-023. Métricas: AUC de cada atributo, com intervalo de 90% por bootstrap; AUC fora da amostra de uma
+  logística com 2 ou 3 atributos.
+- **E12. Deriva entre as questões antigas e as novas** (ADR-024). Hipótese: as novas têm distribuição
+  diferente de similaridade e margem; se tiverem, o intervalo da previsão para elas é alargado.
+
+## E7. Só lexical: resultado (20/10)
+
+Arquivos: `saidas/etapa2/experimentos_etapa2.md`, `resultados_etapa2.csv` e `e7_ranking_folha.csv`.
+
+| Documento do tema | Top-1 (92 com tema) | Recall@5 | Recall@10 | Top-1, central nível 1 | Top-1, central nível 2 |
+|---|---:|---:|---:|---:|---:|
+| Título e caminho | 47/92 (51%) | 76% | 86% | 29/53 | 18/39 |
+| Com o cartão | 62/92 (67%) | 92% | 93% | 43/53 (81%) | 19/39 (49%) |
+
+- **Hipótese confirmada.** No top-1, o BM25 fica bem abaixo da sugestão do LLM da etapa 1 (88% na folha).
+  Mas o recall@10 de 93% basta para gerar os candidatos do ranqueador.
+- **Os cartões valem 16 pontos no top-1** e ficam no documento de tema (ADR-020).
+- **O erro se concentra nos subtemas** (49%). É ali que a escolha do nó pela régua (ADR-022) deve render.
+
+## E11. Separabilidade do fora, só com atributos lexicais: resultado (20/10)
+
+- **AUC de cada atributo isolado,** com intervalo de 90%:
+
+  | Atributo | AUC | Intervalo |
+  |---|---:|---|
+  | Pontuação máxima baixa | 0,67 | 0,52–0,80 |
+  | Margem baixa | 0,63 | 0,43–0,79 |
+  | Dispersão entre as alternativas | 0,59 | 0,41–0,77 |
+  | "(Parte N)" no assunto de origem | 0,58 | 0,44–0,73 |
+
+  O enunciado genérico e a disciplina de origem fora do recorte ficam em ~0,5, porque nenhuma questão fora
+  da folha tem essas marcas.
+- **Logística com os três primeiros atributos, fora da amostra:** AUC de 0,54 (0,35–0,72).
+- **Decisão:** com atributos lexicais, o fora **não é separável** (abaixo do limite de 0,7 pré-registrado).
+  - Repetir com embeddings e kNN (E8, E9) antes de acionar o plano B da ADR-023.
+  - Se continuar inseparável, só se publica onde a folha mostrar uma taxa de fora compatível com 95%.

@@ -30,6 +30,7 @@ from vicio_ia.carregamento import CarregadorDados
 from vicio_ia.classificacao.respostas import SinaisQuestao
 from vicio_ia.configuracao import Caminhos, ParametrosCalibracao, ParametrosGold
 from vicio_ia.decisao.agregacao import AgregadorSinais, DecisaoPreliminar
+from vicio_ia.etapa import GuardaEtapa
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
@@ -93,6 +94,7 @@ class PipelineDecisao:
         Raises:
             ErroPublicacao: Se o arquivo gerado não passar no validador.
         """
+        GuardaEtapa.exigir_etapa1(self._caminhos, "O passo 07 da etapa 1 (decisão sobre os votos dos LLMs)")
         congelado: bool
         diferencas: list[str]
         congelado, diferencas = RegistroCongelamento(self._caminhos).conferir()

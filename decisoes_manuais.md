@@ -5,7 +5,7 @@ lista todas elas. Cada decisão que afeta o pipeline está num arquivo de dados 
 (`dados/temas/`), lido pelo código e conferido por checagens automáticas a cada
 `uv run python executar_preparacao.py`.
 
-Última atualização: 17/10/2026.
+Última atualização: 20/10/2026.
 
 ---
 
@@ -334,3 +334,27 @@ estimadores ficam no mesmo critério, e o ponto fica menos otimista.
 **O que não mudou.** O limiar, as 81 publicadas, a coluna `confianca` e o intervalo (0,93–1,00), que vem
 dos sorteios da Beta. A mudança foi feita depois do congelamento (D11), com recongelamento registrado.
 Ela muda só o número informado, não as decisões.
+
+---
+
+## D13. Etapa 2: anexos novos e conferência das 300 questões novas (20/10/2026)
+
+**Anexos.**
+- O autor moveu os anexos para `anexos/1-ENTREGA/` (etapa 1) e `anexos/2-ENTREGA/` (etapa 2).
+- `Caminhos` lê a pasta da etapa em vigor (`ETAPA_ATUAL = 2`, em `vicio_ia/configuracao.py`).
+- A classificação por LLM, o experimento E4 e o passo 07 da etapa 1 recusam rodar na etapa 2
+  (`GuardaEtapa`). Para reproduzir a etapa 1, use a tag `entrega-1`.
+
+**Passo 01 nas 659 questões.**
+- As 8 checagens passaram.
+- As 359 questões antigas saem idênticas, byte a byte, ao texto canônico da etapa 1.
+
+**Conferência manual de 20 questões novas,** sorteadas com a semente 20261020:
+- **Nenhum defeito muda o conteúdo.**
+- **Único defeito, cosmético:** quebras de linha no meio da frase, herdadas do HTML (Q0486).
+- **As 300 novas não têm comando** (300 vazios), nem enunciado genérico, nem HTML de editor.
+- **O assunto de origem das novas é mais específico** (ex.: "Lei do Colarinho Branco - Lei nº 7.492",
+  "Desacato").
+- **Dez novas são de Direito Penal Militar ou Processual Penal Militar,** e não há nó militar na árvore
+  (ADR-023).
+

@@ -21,9 +21,10 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from vicio_ia.avaliacao.calibracao import CalibradorBase, ExemploCalibracao, Matriz
+from vicio_ia.avaliacao.calibracao import CalibradorBase, ExemploCalibracao
 from vicio_ia.configuracao import ParametrosCalibracao
 from vicio_ia.decisao.agregacao import DecisaoPreliminar
+from vicio_ia.estatistica import Matriz
 
 
 @dataclass(frozen=True)

@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import os
 from typing import ClassVar
 
 from vicio_ia.ambiente import CarregadorAmbiente
-from vicio_ia.configuracao import Caminhos, ParametrosLLM
+from vicio_ia.configuracao import Caminhos, ParametrosLLM, ParametrosSistema
 from vicio_ia.llm.contratos import ErroProvedor, ProvedorLLM
 from vicio_ia.llm.provedores.claude_api import ProvedorClaudeAPI
 from vicio_ia.llm.provedores.claude_cli import ProvedorClaudeCLI
@@ -35,7 +36,15 @@ class FabricaProvedores:
         Args:
             caminhos: Caminhos do projeto.
             parametros: Parâmetros de LLM.
+
+        Raises:
+            ErroProvedor: Se a trava da fase de decisão estiver ativa (``VICIO_SEM_LLM=1``).
         """
+        variavel: str = ParametrosSistema().variavel_sem_llm
+        if os.environ.get(variavel) == "1":
+            raise ErroProvedor(
+                f"{variavel}=1: a fase de decisão da etapa 2 não pode chamar modelo de linguagem (ADR-019)"
+            )
         self._parametros: ParametrosLLM = parametros
         self._ambiente: CarregadorAmbiente = CarregadorAmbiente(caminhos.env)
         self._ambiente.carregar_env()
