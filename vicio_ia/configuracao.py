@@ -636,3 +636,26 @@ class ParametrosSistema:
     top_k_recall: tuple[int, ...] = (1, 5, 10)
     reamostras_auc: int = 1000
     variavel_sem_llm: str = "VICIO_SEM_LLM"
+
+
+@dataclass(frozen=True)
+class ParametrosConhecimento:
+    """Parâmetros da fase de conhecimento da etapa 2 (ADR-019, ADR-020).
+
+    Attributes:
+        provedor: Provedor que propõe o mapa de artigos e os termos. Fora da cota do Claude Code (D8).
+        modelo: Modelo que propõe.
+        papel: Papel registrado no cache (pasta de ``runs/``).
+        max_temas_por_chamada: Máximo de temas pedidos numa chamada (blocos maiores são divididos).
+        max_tokens_saida: Limite de tokens de saída por chamada.
+        artigo_maximo: Maior número de artigo aceito numa proposta (o CP vai até o 361; o CPP, até o 811).
+        max_chars_termo: Tamanho máximo de um termo proposto.
+    """
+
+    provedor: str = "codex-cli"
+    modelo: str = "gpt-6.1-sol"
+    papel: str = "conhecimento"
+    max_temas_por_chamada: int = 12
+    max_tokens_saida: int = 16000
+    artigo_maximo: int = 1000
+    max_chars_termo: int = 60

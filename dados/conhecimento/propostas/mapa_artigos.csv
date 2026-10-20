@@ -1,0 +1,569 @@
+lei,art_inicio,art_fim,tema_id,caminho,forca,origem
+CP,59,59,4384,Criminologia > Teorias Legitimadoras da Pena,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.869/2019,1,38,4684,Direito Penal - Legislação Especial > Abuso de Autoridade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.105/2005,5,5,4685,Direito Penal - Legislação Especial > Biossegurança,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.105/2005,24,29,4685,Direito Penal - Legislação Especial > Biossegurança,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,109,109,4686,Direito Penal - Legislação Especial > Contravenções Penais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 4.737/1965,284,355,4692,Direito Penal - Legislação Especial > Crimes Eleitorais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.504/1997,33,33,4692,Direito Penal - Legislação Especial > Crimes Eleitorais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.504/1997,39,40,4692,Direito Penal - Legislação Especial > Crimes Eleitorais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.504/1997,72,72,4692,Direito Penal - Legislação Especial > Crimes Eleitorais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,4693,Direito Penal - Legislação Especial > Crimes Hediondos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.072/1990,1,2,4693,Direito Penal - Legislação Especial > Crimes Hediondos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.072/1990,8,8,4693,Direito Penal - Legislação Especial > Crimes Hediondos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.684/2003,9,9,4695,Direito Penal - Legislação Especial > Crimes Tributários,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.137/1990,1,3,4695,Direito Penal - Legislação Especial > Crimes Tributários,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.430/1996,83,83,4695,Direito Penal - Legislação Especial > Crimes Tributários,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 1.521/1951,1,4,4687,Direito Penal - Legislação Especial > Crimes contra a Economia Popular,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.137/1990,4,4,4687,Direito Penal - Legislação Especial > Crimes contra a Economia Popular,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.137/1990,7,7,4687,Direito Penal - Legislação Especial > Crimes contra a Economia Popular,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,109,109,4689,Direito Penal - Legislação Especial > Crimes contra o Sistema Financeiro,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.492/1986,1,26,4689,Direito Penal - Legislação Especial > Crimes contra o Sistema Financeiro,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,225,225,4688,Direito Penal - Legislação Especial > Crimes contra o meio ambiente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.605/1998,1,69,4688,Direito Penal - Legislação Especial > Crimes contra o meio ambiente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,4690,Direito Penal - Legislação Especial > Crimes de Racismo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.716/1989,1,20,4690,Direito Penal - Legislação Especial > Crimes de Racismo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.503/1997,291,312,4691,Direito Penal - Legislação Especial > Crimes de Trânsito,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.078/1990,61,80,4694,Direito Penal - Legislação Especial > Crimes previstos no CDC,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.826/2003,12,21,4697,Direito Penal - Legislação Especial > Estatuto do Desarmamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.826/2003,30,32,4697,Direito Penal - Legislação Especial > Estatuto do Desarmamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.741/2003,93,108,4696,Direito Penal - Legislação Especial > Estatuto do Idoso - Crimes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,7,7,4698,Direito Penal - Legislação Especial > Genocídio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 2.889/1956,1,7,4698,Direito Penal - Legislação Especial > Genocídio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.072/1990,1,1,4698,Direito Penal - Legislação Especial > Genocídio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,4699,Direito Penal - Legislação Especial > Identificação Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.037/2009,1,7,4699,Direito Penal - Legislação Especial > Identificação Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,4700,Direito Penal - Legislação Especial > Interceptação Telefônica,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,1,11,4700,Direito Penal - Legislação Especial > Interceptação Telefônica,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,98,98,4701,Direito Penal - Legislação Especial > Juizado Especial Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,60,92,4701,Direito Penal - Legislação Especial > Juizado Especial Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.613/1998,1,17,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,1,46,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+LEP,1,204,4703,Direito Penal - Legislação Especial > Lei de Execução Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,1,3,4705,Direito Penal - Legislação Especial > Organizações Criminosas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,18,21,4705,Direito Penal - Legislação Especial > Organizações Criminosas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.260/2016,2,3,4706,Direito Penal - Legislação Especial > Terrorismo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.260/2016,5,16,4706,Direito Penal - Legislação Especial > Terrorismo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.455/1997,1,2,4707,Direito Penal - Legislação Especial > Tortura,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,27,64,4708,Direito Penal - Legislação Especial > Tráfico de Drogas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,70,70,4708,Direito Penal - Legislação Especial > Tráfico de Drogas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.431/2017,1,25,4709,Direito Penal - Legislação Especial > Violência contra Criança e Adolescente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 14.344/2022,1,26,4709,Direito Penal - Legislação Especial > Violência contra Criança e Adolescente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.069/1990,225,244,4709,Direito Penal - Legislação Especial > Violência contra Criança e Adolescente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,100,106,5063,Penal > Ação Penal,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,100,100,5065,Penal > Ação Penal > Ação Penal Privada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,103,106,5065,Penal > Ação Penal > Ação Penal Privada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,100,103,5064,Penal > Ação Penal > Ação Penal Pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,69,72,5066,Penal > Concurso de Crimes,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,75,75,5066,Penal > Concurso de Crimes,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,119,119,5066,Penal > Concurso de Crimes,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,70,70,5068,Penal > Concurso de Crimes > Concurso Formal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,73,74,5068,Penal > Concurso de Crimes > Concurso Formal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,69,69,5067,Penal > Concurso de Crimes > Concurso Material,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,76,76,5067,Penal > Concurso de Crimes > Concurso Material,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,71,71,5069,Penal > Concurso de Crimes > Crime Continuado,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,72,72,5070,Penal > Concurso de Crimes > Pena de Multa no Concurso de Crimes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,31,5071,Penal > Concurso de Pessoas,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5072,Penal > Concurso de Pessoas > Autores e Partícipes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,62,62,5072,Penal > Concurso de Pessoas > Autores e Partícipes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,20,20,5073,"Penal > Concurso de Pessoas > Autoria Mediata, Colateral e Coautoria",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,22,22,5073,"Penal > Concurso de Pessoas > Autoria Mediata, Colateral e Coautoria",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5073,"Penal > Concurso de Pessoas > Autoria Mediata, Colateral e Coautoria",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,62,62,5073,"Penal > Concurso de Pessoas > Autoria Mediata, Colateral e Coautoria",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,30,30,5076,"Penal > Concurso de Pessoas > Comunicabilidade de Circunstâncias, Condições e Elementares",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5075,Penal > Concurso de Pessoas > Cooperação Dolosamente Distinta,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5074,Penal > Concurso de Pessoas > Participação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,31,31,5074,Penal > Concurso de Pessoas > Participação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,129,129,5077,Penal > Das Lesões Corporais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,338,359,5079,Penal > Dos Crimes Contra a Administração Judicial,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,339,341,5080,"Penal > Dos Crimes Contra a Administração Judicial > Denunciação Caluniosa, Comunicação Falsa de Crime ou Contravenção e Autoacusação Falsa",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,345,346,5082,Penal > Dos Crimes Contra a Administração Judicial > Exercício Arbitrário das Próprias Razões,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,350,350,5085,Penal > Dos Crimes Contra a Administração Judicial > Exercício Arbitrário ou Abuso de Poder,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.869/2019,44,44,5085,Penal > Dos Crimes Contra a Administração Judicial > Exercício Arbitrário ou Abuso de Poder,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,342,343,5081,Penal > Dos Crimes Contra a Administração Judicial > Falso Testemunho ou Falsa Perícia e Corrupção Ativa de Testemunha ou Perito,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,348,349,5084,Penal > Dos Crimes Contra a Administração Judicial > Favorecimento Pessoal e Real,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,347,347,5083,Penal > Dos Crimes Contra a Administração Judicial > Fraude Processual,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,338,338,5086,Penal > Dos Crimes Contra a Administração Judicial > Outros crimes contra a Administração Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,344,344,5086,Penal > Dos Crimes Contra a Administração Judicial > Outros crimes contra a Administração Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,351,359,5086,Penal > Dos Crimes Contra a Administração Judicial > Outros crimes contra a Administração Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,312,337,5087,Penal > Dos Crimes Contra a Administração Pública,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,321,321,5097,Penal > Dos Crimes Contra a Administração Pública > Advocacia Administrativa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,316,316,5091,Penal > Dos Crimes Contra a Administração Pública > Concussão e Excesso de Exação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,320,320,5096,Penal > Dos Crimes Contra a Administração Pública > Condescendência Criminosa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,318,318,5094,Penal > Dos Crimes Contra a Administração Pública > Contrabando ou Descaminho,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,334,334,5094,Penal > Dos Crimes Contra a Administração Pública > Contrabando ou Descaminho,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,333,333,5093,Penal > Dos Crimes Contra a Administração Pública > Corrupção Ativa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,317,317,5092,Penal > Dos Crimes Contra a Administração Pública > Corrupção Passiva,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,315,315,5090,Penal > Dos Crimes Contra a Administração Pública > Emprego Irregular de Verbas ou Rendas Públicas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,33,33,5088,Penal > Dos Crimes Contra a Administração Pública > Noções gerais dos crimes praticados contra a administração pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,327,327,5088,Penal > Dos Crimes Contra a Administração Pública > Noções gerais dos crimes praticados contra a administração pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,312,313,5089,Penal > Dos Crimes Contra a Administração Pública > Peculato e Peculato Mediante Erro de Outrem,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,319,319,5095,Penal > Dos Crimes Contra a Administração Pública > Prevaricação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,329,331,5100,"Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,332,332,5101,Penal > Dos Crimes Contra a Administração Pública > Tráfico de Influência,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,328,328,5099,Penal > Dos Crimes Contra a Administração Pública > Usurpação de Função Pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,322,322,5098,Penal > Dos Crimes Contra a Administração Pública > Violência Arbitrária,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,213,234,5102,Penal > Dos Crimes Contra a Dignidade Sexual,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,218,218,5108,Penal > Dos Crimes Contra a Dignidade Sexual > Corrupção de Menores,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,225,226,5110,Penal > Dos Crimes Contra a Dignidade Sexual > Disposições Gerais dos Crimes Contra a Dignidade Sexual,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,213,213,5103,Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,227,230,5109,Penal > Dos Crimes Contra a Dignidade Sexual > Outros Crimes Contra a Dignidade Sexual,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,233,234,5109,Penal > Dos Crimes Contra a Dignidade Sexual > Outros Crimes Contra a Dignidade Sexual,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,215,215,5104,Penal > Dos Crimes Contra a Dignidade Sexual > Violação Sexual Mediante Fraude,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,289,311,5116,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,296,305,5118,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Da Falsidade Documental,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,306,311,5119,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,289,295,5117,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Dos Crimes contra a Fé Pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,138,145,5120,Penal > Dos Crimes Contra a Honra,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,138,138,5122,Penal > Dos Crimes Contra a Honra > Calúnia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,139,139,5123,Penal > Dos Crimes Contra a Honra > Difamação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,141,145,5121,Penal > Dos Crimes Contra a Honra > Disposições Gerais e Comuns aos Crimes Contra a Honra,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,140,140,5124,Penal > Dos Crimes Contra a Honra > Injúria,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,250,266,5125,Penal > Dos Crimes Contra a Incolumidade Pública,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,260,266,5127,Penal > Dos Crimes Contra a Incolumidade Pública > Dos Crimes Contra a Segurança dos Meios de Comunicação e Transporte e Outros Serviços Públicos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,250,259,5126,Penal > Dos Crimes Contra a Incolumidade Pública > Dos Crimes de Perigo Comum,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,146,154,5128,Penal > Dos Crimes Contra a Liberdade Pessoal,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,147,147,5130,Penal > Dos Crimes Contra a Liberdade Pessoal > Ameaça e Perseguição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,150,154,5133,"Penal > Dos Crimes Contra a Liberdade Pessoal > Dos Crimes contra a Inviolabilidade do Domicílio, Contra a Inviolabilidade da Correspondência e Contra a Inviolabilidade dos Segredos",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,146,146,5129,Penal > Dos Crimes Contra a Liberdade Pessoal > Intimidação Sistemática (Bullying),exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.185/2015,1,3,5129,Penal > Dos Crimes Contra a Liberdade Pessoal > Intimidação Sistemática (Bullying),exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,148,149,5132,"Penal > Dos Crimes Contra a Liberdade Pessoal > Sequestro, Cárcere Privado, Redução à Condição Análoga à de Escravo e Tráfico de Pessoas",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,147,147,5131,Penal > Dos Crimes Contra a Liberdade Pessoal > Violência Psicológica contra a Mulher,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,130,136,5138,Penal > Dos Crimes Contra a Periclitação da Vida e da Saúde,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,133,134,5141,Penal > Dos Crimes Contra a Periclitação da Vida e da Saúde > Abandono de Incapaz e Exposição ou Abandono de Recém-Nascido,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,136,136,5143,Penal > Dos Crimes Contra a Periclitação da Vida e da Saúde > Maus-Tratos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,135,135,5142,Penal > Dos Crimes Contra a Periclitação da Vida e da Saúde > Omissão de Socorro,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,130,131,5139,Penal > Dos Crimes Contra a Periclitação da Vida e da Saúde > Perigo de Contágio Venéreo e de Moléstia Grave,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,132,132,5140,Penal > Dos Crimes Contra a Periclitação da Vida e da Saúde > Perigo para a Vida ou a Saúde de Outrem,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,267,288,5144,Penal > Dos Crimes Contra a Saúde Pública e Dos Crimes Contra à Paz Pública,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,286,288,5146,Penal > Dos Crimes Contra a Saúde Pública e Dos Crimes Contra à Paz Pública > Crimes Contra à Paz Pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,267,285,5145,Penal > Dos Crimes Contra a Saúde Pública e Dos Crimes Contra à Paz Pública > Dos Crimes Contra a Saúde Pública,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,121,128,5149,Penal > Dos Crimes Contra a Vida,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,124,128,5154,Penal > Dos Crimes Contra a Vida > Aborto,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 14.994/2024,2,2,5151,Penal > Dos Crimes Contra a Vida > Feminicídio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,121,121,5150,Penal > Dos Crimes Contra a Vida > Homicídio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,122,122,5152,"Penal > Dos Crimes Contra a Vida > Induzimento, Instigação ou Auxílio ao Suicídio",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,123,123,5153,Penal > Dos Crimes Contra a Vida > Infanticídio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,155,183,5157,Penal > Dos Crimes Contra o Patrimônio,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,173,173,5167,Penal > Dos Crimes Contra o Patrimônio > Abuso de Incapazes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,168,170,5165,Penal > Dos Crimes Contra o Patrimônio > Apropriação indébita,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,163,167,5164,Penal > Dos Crimes Contra o Patrimônio > Dano,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,181,183,5158,Penal > Dos Crimes Contra o Patrimônio > Disposições Gerais dos Crimes Contra o Patrimônio,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,161,161,5162,Penal > Dos Crimes Contra o Patrimônio > Esbulho Possessório,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,171,172,5166,Penal > Dos Crimes Contra o Patrimônio > Estelionato,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,174,178,5166,Penal > Dos Crimes Contra o Patrimônio > Estelionato,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,158,160,5161,Penal > Dos Crimes Contra o Patrimônio > Extorsão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,179,179,5168,Penal > Dos Crimes Contra o Patrimônio > Fraude à Execução,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,155,156,5159,Penal > Dos Crimes Contra o Patrimônio > Furto,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,180,180,5169,Penal > Dos Crimes Contra o Patrimônio > Receptação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,157,157,5160,Penal > Dos Crimes Contra o Patrimônio > Roubo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,161,162,5163,Penal > Dos Crimes Contra o Patrimônio > Usurpação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,235,249,5111,Penal > Dos Crimes contra a Família,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,244,247,5114,Penal > Dos Crimes contra a Família > Dos Crimes Contra a Assistência Familiar,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,235,239,5112,Penal > Dos Crimes contra a Família > Dos Crimes Contra o Casamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,241,243,5113,Penal > Dos Crimes contra a Família > Dos Crimes Contra o Estado de Filiação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,248,249,5115,"Penal > Dos Crimes contra a Família > Dos Crimes Contra o Pátrio Poder, a Tutela e a Curatela",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,184,184,5134,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso",ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,186,186,5134,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso",ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,197,212,5134,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso",ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,197,207,5135,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso > Dos Crimes Contra a Organização do Trabalho",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,208,212,5137,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso > Dos Crimes Contra o Sentimento Religioso e Respeito aos Mortos",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,184,184,5136,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso > Dos Crimes contra a Propriedade Imaterial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,186,186,5136,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso > Dos Crimes contra a Propriedade Imaterial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.279/1996,183,195,5136,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso > Dos Crimes contra a Propriedade Imaterial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.609/1998,12,12,5136,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso > Dos Crimes contra a Propriedade Imaterial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,1,5170,Penal > Introdução ao Estudo do Direito Penal,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,22,22,5171,Penal > Introdução ao Estudo do Direito Penal > Conceito e Fontes do Direito Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,1,5171,Penal > Introdução ao Estudo do Direito Penal > Conceito e Fontes do Direito Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5173,Penal > Introdução ao Estudo do Direito Penal > Interpretação da Norma Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,1,5173,Penal > Introdução ao Estudo do Direito Penal > Interpretação da Norma Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5172,Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,1,5172,Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,14,17,5175,Penal > Iter Criminis,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,14,14,5177,Penal > Iter Criminis > Crime Consumado e Tentado,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,17,17,5179,Penal > Iter Criminis > Crime Impossível,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,15,16,5178,"Penal > Iter Criminis > Desistência Voluntária, Arrependimento Eficaz e Arrependimento posterior",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,14,14,5176,Penal > Iter Criminis > Fases do Iter Criminis,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,12,5180,Penal > Lei Penal no Tempo e no Espaço,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,5,9,5182,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5181,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Tempo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,2,4,5181,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Tempo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,10,11,5181,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Tempo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,96,99,5184,Penal > Medida de Segurança,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,109,119,5185,Penal > Prescrição,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5186,"Penal > Prescrição > Conceito, Regras Gerais e Fundamentos da Prescrição",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,109,5186,"Penal > Prescrição > Conceito, Regras Gerais e Fundamentos da Prescrição",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,115,115,5186,"Penal > Prescrição > Conceito, Regras Gerais e Fundamentos da Prescrição",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,119,119,5186,"Penal > Prescrição > Conceito, Regras Gerais e Fundamentos da Prescrição",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,10,10,5187,Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,111,112,5187,Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,116,117,5187,Penal > Prescrição > Contagem dos Prazos e Causas Suspensivas e Interruptivas da Prescrição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,109,109,5190,Penal > Prescrição > Outras Prescrições,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,114,114,5190,Penal > Prescrição > Outras Prescrições,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,110,110,5189,Penal > Prescrição > Prescrição da Pretensão Executória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,112,113,5189,Penal > Prescrição > Prescrição da Pretensão Executória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,109,110,5188,Penal > Prescrição > Prescrição da Pretensão Punitiva,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,108,5191,Penal > Punibilidade,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,2,2,5194,Penal > Punibilidade > Abolitio Criminis,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,107,5194,Penal > Punibilidade > Abolitio Criminis,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5193,"Penal > Punibilidade > Anistia, Graça e Indulto",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,21,21,5193,"Penal > Punibilidade > Anistia, Graça e Indulto",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,48,48,5193,"Penal > Punibilidade > Anistia, Graça e Indulto",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,84,84,5193,"Penal > Punibilidade > Anistia, Graça e Indulto",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,107,5193,"Penal > Punibilidade > Anistia, Graça e Indulto",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,103,103,5198,Penal > Punibilidade > Decadência,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,107,5198,Penal > Punibilidade > Decadência,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5192,Penal > Punibilidade > Morte do agente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,107,5192,Penal > Punibilidade > Morte do agente,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,107,5197,Penal > Punibilidade > Perdão Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,120,120,5197,Penal > Punibilidade > Perdão Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,121,121,5197,Penal > Punibilidade > Perdão Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,129,129,5197,Penal > Punibilidade > Perdão Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,107,5195,Penal > Punibilidade > Perempção,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,104,107,5196,"Penal > Punibilidade > Renúncia, Perdão do Ofendido e Retratação",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,143,143,5196,"Penal > Punibilidade > Renúncia, Perdão do Ofendido e Retratação",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,342,342,5196,"Penal > Punibilidade > Renúncia, Perdão do Ofendido e Retratação",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,32,95,5199,Penal > Teoria da Pena,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,15,15,5209,Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,91,92,5209,Penal > Teoria da Pena > Efeitos da Condenação Penais e Extrapenais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,83,90,5208,Penal > Teoria da Pena > Livramento Condicional,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,49,52,5206,Penal > Teoria da Pena > Pena de Multa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,60,60,5206,Penal > Teoria da Pena > Pena de Multa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,33,42,5201,Penal > Teoria da Pena > Penas Privativas de Liberdade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,75,75,5201,Penal > Teoria da Pena > Penas Privativas de Liberdade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,43,48,5205,Penal > Teoria da Pena > Penas Restritivas de Direitos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,59,59,5202,Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,68,68,5202,Penal > Teoria da Pena > Primeira Fase da Dosimetria: Circunstâncias Judiciais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,93,95,5210,Penal > Teoria da Pena > Reabilitação Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5200,"Penal > Teoria da Pena > Sanção Penal: Conceito, Finalidade e Modalidades",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,32,32,5200,"Penal > Teoria da Pena > Sanção Penal: Conceito, Finalidade e Modalidades",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,59,59,5200,"Penal > Teoria da Pena > Sanção Penal: Conceito, Finalidade e Modalidades",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,61,67,5203,Penal > Teoria da Pena > Segunda Fase da Dosimetria: Agravantes e Atenuantes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,77,82,5207,Penal > Teoria da Pena > Suspensão Condicional da Pena,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,68,68,5204,Penal > Teoria da Pena > Terceira fase da Dosimetria: Causas de Aumento e de Diminuição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,21,22,5211,Penal > Teoria do Crime: Culpabilidade,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,26,28,5211,Penal > Teoria do Crime: Culpabilidade,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,22,22,5215,Penal > Teoria do Crime: Culpabilidade > Coação Moral Irresistível,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,62,62,5215,Penal > Teoria do Crime: Culpabilidade > Coação Moral Irresistível,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,65,65,5215,Penal > Teoria do Crime: Culpabilidade > Coação Moral Irresistível,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,21,21,5214,Penal > Teoria do Crime: Culpabilidade > Erro de Proibição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,65,65,5214,Penal > Teoria do Crime: Culpabilidade > Erro de Proibição,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,228,228,5213,Penal > Teoria do Crime: Culpabilidade > Inimputabilidade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,26,28,5213,Penal > Teoria do Crime: Culpabilidade > Inimputabilidade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,22,22,5216,Penal > Teoria do Crime: Culpabilidade > Obediência Hierárquica,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,62,62,5216,Penal > Teoria do Crime: Culpabilidade > Obediência Hierárquica,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,65,65,5216,Penal > Teoria do Crime: Culpabilidade > Obediência Hierárquica,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,13,13,5218,Penal > Teoria do Crime: Fato Típico,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,18,20,5218,Penal > Teoria do Crime: Fato Típico,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,18,19,5222,Penal > Teoria do Crime: Fato Típico > Crime Doloso e Culposo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,13,13,5223,Penal > Teoria do Crime: Fato Típico > Crimes Omissivos e Comissivos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,20,20,5224,Penal > Teoria do Crime: Fato Típico > Erro de Tipo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,73,74,5224,Penal > Teoria do Crime: Fato Típico > Erro de Tipo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,13,13,5226,Penal > Teoria do Crime: Fato Típico > Nexo Causal e Imputação Objetiva,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,23,25,5228,Penal > Teoria do Crime: Ilicitude,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,23,23,5229,Penal > Teoria do Crime: Ilicitude > Conceito e Elementos da Ilicitude,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,24,24,5230,Penal > Teoria do Crime: Ilicitude > Estado de Necessidade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,23,23,5232,Penal > Teoria do Crime: Ilicitude > Estrito Cumprimento do Dever Legal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,25,25,5231,Penal > Teoria do Crime: Ilicitude > Legítima Defesa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5466,Processo Penal > Ação Penal,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,68,5466,Processo Penal > Ação Penal,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,63,68,5475,Processo Penal > Ação Penal > Ação Civil Ex Delicto,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5475,Processo Penal > Ação Penal > Ação Civil Ex Delicto,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,25,5471,Processo Penal > Ação Penal > Ação Penal Pública Condicionada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,38,39,5471,Processo Penal > Ação Penal > Ação Penal Pública Condicionada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5470,Processo Penal > Ação Penal > Ação Penal Pública Incondicionada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,24,5470,Processo Penal > Ação Penal > Ação Penal Pública Incondicionada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,27,27,5470,Processo Penal > Ação Penal > Ação Penal Pública Incondicionada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5472,Processo Penal > Ação Penal > Ação Penal de Iniciativa Privada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,29,33,5472,Processo Penal > Ação Penal > Ação Penal de Iniciativa Privada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,36,38,5472,Processo Penal > Ação Penal > Ação Penal de Iniciativa Privada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,48,60,5472,Processo Penal > Ação Penal > Ação Penal de Iniciativa Privada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,24,5467,Processo Penal > Ação Penal > Características e Condições da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,395,395,5467,Processo Penal > Ação Penal > Características e Condições da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,24,5468,Processo Penal > Ação Penal > Classificação da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,29,30,5468,Processo Penal > Ação Penal > Classificação da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5473,Processo Penal > Ação Penal > Denúncia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,39,41,5473,Processo Penal > Ação Penal > Denúncia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,46,47,5473,Processo Penal > Ação Penal > Denúncia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,569,569,5473,Processo Penal > Ação Penal > Denúncia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,42,42,5469,Processo Penal > Ação Penal > Princípios da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,48,51,5469,Processo Penal > Ação Penal > Princípios da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,576,576,5469,Processo Penal > Ação Penal > Princípios da Ação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,38,38,5474,Processo Penal > Ação Penal > Queixa Crime,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,41,41,5474,Processo Penal > Ação Penal > Queixa Crime,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,44,46,5474,Processo Penal > Ação Penal > Queixa Crime,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,48,49,5474,Processo Penal > Ação Penal > Queixa Crime,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,569,569,5474,Processo Penal > Ação Penal > Queixa Crime,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,621,631,5476,Processo Penal > Ações Autônomas de Impugnação,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,647,667,5476,Processo Penal > Ações Autônomas de Impugnação,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.016/2009,1,25,5476,Processo Penal > Ações Autônomas de Impugnação,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,142,142,5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,647,667,5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5479,Processo Penal > Ações Autônomas de Impugnação > Mandado de Segurança,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.016/2009,1,29,5479,Processo Penal > Ações Autônomas de Impugnação > Mandado de Segurança,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5478,Processo Penal > Ações Autônomas de Impugnação > Revisão Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,621,631,5478,Processo Penal > Ações Autônomas de Impugnação > Revisão Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5480,Processo Penal > Competência,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5480,Processo Penal > Competência,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,108,109,5480,Processo Penal > Competência,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,124,125,5480,Processo Penal > Competência,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,69,91,5480,Processo Penal > Competência,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,113,117,5480,Processo Penal > Competência,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,70,73,5483,Processo Penal > Competência > Competência Territorial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,88,90,5483,Processo Penal > Competência > Competência Territorial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,75,75,5485,Processo Penal > Competência > Competência de Juízo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,83,83,5485,Processo Penal > Competência > Competência de Juízo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5482,Processo Penal > Competência > Competência em Razão da Matéria,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,109,109,5482,Processo Penal > Competência > Competência em Razão da Matéria,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,124,125,5482,Processo Penal > Competência > Competência em Razão da Matéria,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,74,74,5482,Processo Penal > Competência > Competência em Razão da Matéria,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,29,29,5484,Processo Penal > Competência > Competência por Prerrogativa de Função,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,96,96,5484,Processo Penal > Competência > Competência por Prerrogativa de Função,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5484,Processo Penal > Competência > Competência por Prerrogativa de Função,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5484,Processo Penal > Competência > Competência por Prerrogativa de Função,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,108,108,5484,Processo Penal > Competência > Competência por Prerrogativa de Função,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,84,87,5484,Processo Penal > Competência > Competência por Prerrogativa de Função,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5481,Processo Penal > Competência > Espécies e Fixação de Competência Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,69,69,5481,Processo Penal > Competência > Espécies e Fixação de Competência Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,113,117,5481,Processo Penal > Competência > Espécies e Fixação de Competência Criminal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,109,109,5486,"Processo Penal > Competência > Prorrogação, Perpetuação e Modificação de Competência",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,76,82,5486,"Processo Penal > Competência > Prorrogação, Perpetuação e Modificação de Competência",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,427,428,5486,"Processo Penal > Competência > Prorrogação, Perpetuação e Modificação de Competência",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,351,372,5487,Processo Penal > Comunicação dos Atos Processuais,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5487,Processo Penal > Comunicação dos Atos Processuais,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,351,369,5488,Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,396,396,5488,Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5488,Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,370,372,5489,Processo Penal > Comunicação dos Atos Processuais > Intimação e Contagem dos Prazos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,390,392,5489,Processo Penal > Comunicação dos Atos Processuais > Intimação e Contagem dos Prazos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5489,Processo Penal > Comunicação dos Atos Processuais > Intimação e Contagem dos Prazos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,92,112,5490,Processo Penal > Das Questões e Processos Incidentes,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,118,154,5490,Processo Penal > Das Questões e Processos Incidentes,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,95,95,5493,Processo Penal > Das Questões e Processos Incidentes > Exceção de Incompetência e de Ilegitimidade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,108,111,5493,Processo Penal > Das Questões e Processos Incidentes > Exceção de Incompetência e de Ilegitimidade,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,95,95,5494,Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,110,111,5494,Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,95,107,5492,"Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,112,112,5492,"Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,252,256,5492,"Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,258,258,5492,"Processo Penal > Das Questões e Processos Incidentes > Exceção de Suspeição, de Impedimento ou de Incompatibilidade",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,145,154,5497,Processo Penal > Das Questões e Processos Incidentes > Incidente de Falsidade e de Insanidade Mental,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,125,144,5496,"Processo Penal > Das Questões e Processos Incidentes > Medidas Assecuratórias: Sequestro, Hipoteca Legal e Arresto",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,92,94,5491,Processo Penal > Das Questões e Processos Incidentes > Questões Prejudiciais e Preliminares,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,118,124,5495,Processo Penal > Das Questões e Processos Incidentes > Restituição de Coisas Apreendidas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,4,23,5498,Processo Penal > Inquérito Policial,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,28,28,5498,Processo Penal > Inquérito Policial,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.830/2013,2,2,5498,Processo Penal > Inquérito Policial,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.347/1985,8,9,5498,Processo Penal > Inquérito Policial,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,4,4,5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,9,9,5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,12,12,5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,17,17,5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,20,20,5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,155,155,5499,"Processo Penal > Inquérito Policial > Conceito, Finalidade e Características do Inquérito Policial",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,10,10,5501,Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,16,18,5501,Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,28,28,5501,Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5504,Processo Penal > Inquérito Policial > Inquérito Civil,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.347/1985,5,5,5504,Processo Penal > Inquérito Policial > Inquérito Civil,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.347/1985,8,10,5504,Processo Penal > Inquérito Policial > Inquérito Civil,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,5,7,5500,Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,10,10,5500,Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,13,14,5500,Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,21,21,5500,Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.830/2013,2,2,5500,Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,1,3,5505,Processo Penal > Lei Processual no Tempo e no Espaço,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,3,3,5508,Processo Penal > Lei Processual no Tempo e no Espaço > Interpretação da Lei processual Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,1,1,5506,Processo Penal > Lei Processual no Tempo e no Espaço > Lei Processual no Espaço,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,2,2,5507,Processo Penal > Lei Processual no Tempo e no Espaço > Lei processual no Tempo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,563,573,5509,Processo Penal > Nulidades,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,563,563,5510,Processo Penal > Nulidades > Nulidade Absoluta e Relativa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,565,566,5510,Processo Penal > Nulidades > Nulidade Absoluta e Relativa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,571,573,5510,Processo Penal > Nulidades > Nulidade Absoluta e Relativa,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,564,564,5511,Processo Penal > Nulidades > Nulidades em Espécie,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,567,570,5511,Processo Penal > Nulidades > Nulidades em Espécie,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,574,580,5512,Processo Penal > Parte Geral dos Recursos,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,617,617,5512,Processo Penal > Parte Geral dos Recursos,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,574,574,5516,Processo Penal > Parte Geral dos Recursos > Classificação dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,599,599,5516,Processo Penal > Parte Geral dos Recursos > Classificação dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,580,580,5515,Processo Penal > Parte Geral dos Recursos > Efeito dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,584,584,5515,Processo Penal > Parte Geral dos Recursos > Efeito dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,589,589,5515,Processo Penal > Parte Geral dos Recursos > Efeito dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,596,597,5515,Processo Penal > Parte Geral dos Recursos > Efeito dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,599,599,5515,Processo Penal > Parte Geral dos Recursos > Efeito dos Recursos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,575,575,5514,Processo Penal > Parte Geral dos Recursos > Pressupostos Objetivos e Subjetivos de Admissibilidade Recursal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,577,578,5514,Processo Penal > Parte Geral dos Recursos > Pressupostos Objetivos e Subjetivos de Admissibilidade Recursal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,598,598,5514,Processo Penal > Parte Geral dos Recursos > Pressupostos Objetivos e Subjetivos de Admissibilidade Recursal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5514,Processo Penal > Parte Geral dos Recursos > Pressupostos Objetivos e Subjetivos de Admissibilidade Recursal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,806,806,5514,Processo Penal > Parte Geral dos Recursos > Pressupostos Objetivos e Subjetivos de Admissibilidade Recursal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,574,574,5513,Processo Penal > Parte Geral dos Recursos > Princípios Recursais no Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,576,576,5513,Processo Penal > Parte Geral dos Recursos > Princípios Recursais no Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,579,579,5513,Processo Penal > Parte Geral dos Recursos > Princípios Recursais no Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,617,617,5513,Processo Penal > Parte Geral dos Recursos > Princípios Recursais no Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,282,5517,Processo Penal > Prisões em Espécie,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,301,350,5517,Processo Penal > Prisões em Espécie,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.960/1989,1,3,5517,Processo Penal > Prisões em Espécie,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5523,Processo Penal > Prisões em Espécie > Liberdade Provisória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5523,Processo Penal > Prisões em Espécie > Liberdade Provisória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,321,350,5523,Processo Penal > Prisões em Espécie > Liberdade Provisória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,282,5522,Processo Penal > Prisões em Espécie > Medidas Cautelares Diversas da Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,319,320,5522,Processo Penal > Prisões em Espécie > Medidas Cautelares Diversas da Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,317,318,5521,Processo Penal > Prisões em Espécie > Prisão Domiciliar,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,282,5519,Processo Penal > Prisões em Espécie > Prisão Preventiva,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,316,5519,Processo Penal > Prisões em Espécie > Prisão Preventiva,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.960/1989,1,2,5520,Processo Penal > Prisões em Espécie > Prisão Temporária,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.072/1990,2,2,5520,Processo Penal > Prisões em Espécie > Prisão Temporária,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5518,Processo Penal > Prisões em Espécie > Prisão em Flagrante,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,301,310,5518,Processo Penal > Prisões em Espécie > Prisão em Flagrante,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,394,405,5530,Processo Penal > Procedimento Ordinário,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,397,397,5534,Processo Penal > Procedimento Ordinário > Absolvição Sumária,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,403,404,5536,Processo Penal > Procedimento Ordinário > Alegações Orais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,399,402,5535,Processo Penal > Procedimento Ordinário > Audiência de Instrução e Julgamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,405,405,5535,Processo Penal > Procedimento Ordinário > Audiência de Instrução e Julgamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,394,394,5532,Processo Penal > Procedimento Ordinário > Classificação dos Procedimentos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,396,396,5533,Processo Penal > Procedimento Ordinário > Defesa Preliminar,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,514,514,5533,Processo Penal > Procedimento Ordinário > Defesa Preliminar,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,395,396,5531,"Processo Penal > Procedimento Ordinário > Oferecimento, Rejeição e Recebimento da Peça Acusatória",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,399,399,5531,"Processo Penal > Procedimento Ordinário > Oferecimento, Rejeição e Recebimento da Peça Acusatória",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,93,93,5537,Processo Penal > Procedimento Ordinário > Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,381,382,5537,Processo Penal > Procedimento Ordinário > Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,389,389,5537,Processo Penal > Procedimento Ordinário > Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,403,404,5537,Processo Penal > Procedimento Ordinário > Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,98,98,5539,Processo Penal > Procedimento Sumaríssimo,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,60,92,5539,Processo Penal > Procedimento Sumaríssimo,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,98,98,5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,41,41,5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,60,68,5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,69,75,5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,77,81,5540,Processo Penal > Procedimento Sumaríssimo > Competência dos Juizados Especiais Criminais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,41,41,5542,Processo Penal > Procedimento Sumaríssimo > Suspensão Condicional do Processo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,89,89,5542,Processo Penal > Procedimento Sumaríssimo > Suspensão Condicional do Processo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,41,41,5541,Processo Penal > Procedimento Sumaríssimo > Transação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,76,76,5541,Processo Penal > Procedimento Sumaríssimo > Transação Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,394,394,5538,Processo Penal > Procedimento Sumário,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,531,538,5538,Processo Penal > Procedimento Sumário,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5524,Processo Penal > Procedimento do Tribunal do Júri,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,406,497,5524,Processo Penal > Procedimento do Tribunal do Júri,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,413,421,5527,"Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,425,491,5528,Processo Penal > Procedimento do Tribunal do Júri > Organização do Júri e Sessão de Julgamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,494,497,5528,Processo Penal > Procedimento do Tribunal do Júri > Organização do Júri e Sessão de Julgamento,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5525,Processo Penal > Procedimento do Tribunal do Júri > Princípios Constitucionais do Júri,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,74,74,5525,Processo Penal > Procedimento do Tribunal do Júri > Princípios Constitucionais do Júri,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,406,412,5526,Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,422,424,5526,Processo Penal > Procedimento do Tribunal do Júri > Procedimento Bifásico do Tribunal do Júri,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,492,493,5529,Processo Penal > Procedimento do Tribunal do Júri > Sentença do Júri,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,158,250,5543,Processo Penal > Provas em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,3,14,5543,Processo Penal > Provas em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,1,9,5543,Processo Penal > Provas em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,6,6,5552,Processo Penal > Provas em Espécies > Acareação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,229,230,5552,Processo Penal > Provas em Espécies > Acareação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,53,53,5558,Processo Penal > Provas em Espécies > Ação Controlada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,3,3,5558,Processo Penal > Provas em Espécies > Ação Controlada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,8,9,5558,Processo Penal > Provas em Espécies > Ação Controlada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5554,Processo Penal > Provas em Espécies > Busca e Apreensão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,240,250,5554,Processo Penal > Provas em Espécies > Busca e Apreensão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.906/1994,7,7,5554,Processo Penal > Provas em Espécies > Busca e Apreensão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,3,3,5556,Processo Penal > Provas em Espécies > Captação Ambiental,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,41,41,5557,Processo Penal > Provas em Espécies > Colaboração Premiada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,3,7,5557,Processo Penal > Provas em Espécies > Colaboração Premiada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.613/1998,1,1,5557,Processo Penal > Provas em Espécies > Colaboração Premiada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,197,200,5548,Processo Penal > Provas em Espécies > Confissão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,201,201,5549,Processo Penal > Provas em Espécies > Declaração do Ofendido,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,158,158,5545,Processo Penal > Provas em Espécies > Exame de Corpo de Delito,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,167,168,5545,Processo Penal > Provas em Espécies > Exame de Corpo de Delito,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,564,564,5545,Processo Penal > Provas em Espécies > Exame de Corpo de Delito,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,53,53,5559,Processo Penal > Provas em Espécies > Infiltração de Agentes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,10,14,5559,Processo Penal > Provas em Espécies > Infiltração de Agentes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5555,Processo Penal > Provas em Espécies > Interceptação Telefônica e Quebra do Sigilo de Dados Telefônicos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,1,9,5555,Processo Penal > Provas em Espécies > Interceptação Telefônica e Quebra do Sigilo de Dados Telefônicos,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5547,Processo Penal > Provas em Espécies > Interrogatório Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,185,196,5547,Processo Penal > Provas em Espécies > Interrogatório Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,400,400,5547,Processo Penal > Provas em Espécies > Interrogatório Judicial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,159,166,5546,Processo Penal > Provas em Espécies > Perícia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,169,184,5546,Processo Penal > Provas em Espécies > Perícia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,231,238,5553,Processo Penal > Provas em Espécies > Prova Documental,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,479,479,5553,Processo Penal > Provas em Espécies > Prova Documental,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,202,225,5550,Processo Penal > Provas em Espécies > Prova Testemunhal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,226,228,5551,Processo Penal > Provas em Espécies > Reconhecimento de Pessoas e Coisas,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5560,Processo Penal > Recursos em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5560,Processo Penal > Recursos em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,581,620,5560,Processo Penal > Recursos em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,637,646,5560,Processo Penal > Recursos em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+LEP,197,197,5560,Processo Penal > Recursos em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,82,83,5560,Processo Penal > Recursos em Espécies,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+LEP,197,197,5566,Processo Penal > Recursos em Espécies > Agravo em Execução,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,593,603,5562,Processo Penal > Recursos em Espécies > Apelação,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,639,646,5567,Processo Penal > Recursos em Espécies > Carta Testemunhavel,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 5.010/1966,6,6,5568,Processo Penal > Recursos em Espécies > Correição Parcial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,609,609,5564,Processo Penal > Recursos em Espécies > Embargos Infringentes,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,382,382,5565,Processo Penal > Recursos em Espécies > Embargos de Declaração,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,619,620,5565,Processo Penal > Recursos em Espécies > Embargos de Declaração,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5571,Processo Penal > Recursos em Espécies > Recurso Especial,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5570,Processo Penal > Recursos em Espécies > Recurso Extraordinário,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,581,592,5561,Processo Penal > Recursos em Espécies > Recurso em sentido estrito (RESE),exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,76,76,5569,Processo Penal > Recursos em Espécies > Recursos no Âmbito dos Juizados Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,82,83,5569,Processo Penal > Recursos em Espécies > Recursos no Âmbito dos Juizados Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,381,392,5572,Processo Penal > Sentença Penal,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,93,93,5573,Processo Penal > Sentença Penal > Classificação dos Provimentos Judiciais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,381,381,5573,Processo Penal > Sentença Penal > Classificação dos Provimentos Judiciais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,800,800,5573,Processo Penal > Sentença Penal > Classificação dos Provimentos Judiciais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5577,Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,63,63,5577,Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5577,Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,492,492,5577,Processo Penal > Sentença Penal > Efeitos Decorrentes da Sentença Penal Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,28,28,5579,Processo Penal > Sentença Penal > Emendatio Libelli e Mutatio Libelli,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,383,384,5579,Processo Penal > Sentença Penal > Emendatio Libelli e Mutatio Libelli,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5576,Processo Penal > Sentença Penal > Fixação da Pena e do Regime Penitenciário,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5578,Processo Penal > Sentença Penal > Princípio da Correlação entre Acusação e Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,41,41,5578,Processo Penal > Sentença Penal > Princípio da Correlação entre Acusação e Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,385,385,5578,Processo Penal > Sentença Penal > Princípio da Correlação entre Acusação e Sentença,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,386,386,5574,Processo Penal > Sentença Penal > Sentença Absolutória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,93,93,5575,Processo Penal > Sentença Penal > Sentença Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5575,Processo Penal > Sentença Penal > Sentença Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,389,390,5575,Processo Penal > Sentença Penal > Sentença Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,392,392,5575,Processo Penal > Sentença Penal > Sentença Condenatória,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5580,Processo Penal > Sistemas e Princípios Processuais Penais,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5580,Processo Penal > Sistemas e Princípios Processuais Penais,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,93,93,5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,186,186,5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5581,Processo Penal > Sistemas e Princípios Processuais Penais > Sistemas Processuais Penais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,251,281,5583,Processo Penal > Sujeitos do Processo,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5584,Processo Penal > Teoria Geral das Prisões,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,300,5584,Processo Penal > Teoria Geral das Prisões,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5584,Processo Penal > Teoria Geral das Prisões,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,287,287,5589,Processo Penal > Teoria Geral das Prisões > Audiência de Custódia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5589,Processo Penal > Teoria Geral das Prisões > Audiência de Custódia,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5585,Processo Penal > Teoria Geral das Prisões > Conceitos e Espécies de Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,283,283,5585,Processo Penal > Teoria Geral das Prisões > Conceitos e Espécies de Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5587,Processo Penal > Teoria Geral das Prisões > Direitos e Garantias sobre a Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,283,286,5587,Processo Penal > Teoria Geral das Prisões > Direitos e Garantias sobre a Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,288,293,5587,Processo Penal > Teoria Geral das Prisões > Direitos e Garantias sobre a Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,300,300,5587,Processo Penal > Teoria Geral das Prisões > Direitos e Garantias sobre a Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,306,306,5587,Processo Penal > Teoria Geral das Prisões > Direitos e Garantias sobre a Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,27,27,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,53,53,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,86,86,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,295,295,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 4.737/1965,236,236,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.625/1993,40,40,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.906/1994,7,7,5586,Processo Penal > Teoria Geral das Prisões > Imunidades Prisionais e Prisões Especiais,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5588,Processo Penal > Teoria Geral das Prisões > Relaxamento da Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5588,Processo Penal > Teoria Geral das Prisões > Relaxamento da Prisão,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5590,Processo Penal > Teoria Geral das Provas,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,155,157,5590,Processo Penal > Teoria Geral das Provas,ramo,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,156,156,5591,"Processo Penal > Teoria Geral das Provas > Finalidade, Sujeitos e Ônus da Prova",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,386,386,5591,"Processo Penal > Teoria Geral das Provas > Finalidade, Sujeitos e Ônus da Prova",exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5595,Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,155,155,5595,Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,186,186,5595,Processo Penal > Teoria Geral das Provas > Princípios Relativos à Prova Penal,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.105/2015,372,372,5593,Processo Penal > Teoria Geral das Provas > Prova Emprestada,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,5,5,5594,Processo Penal > Teoria Geral das Provas > Prova Ilegal e Prova Ilícita,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,157,157,5594,Processo Penal > Teoria Geral das Provas > Prova Ilegal e Prova Ilícita,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,93,93,5592,Processo Penal > Teoria Geral das Provas > Sistemas de Avaliação da Prova,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,155,155,5592,Processo Penal > Teoria Geral das Provas > Sistemas de Avaliação da Prova,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,158,158,5592,Processo Penal > Teoria Geral das Provas > Sistemas de Avaliação da Prova,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,182,182,5592,Processo Penal > Teoria Geral das Provas > Sistemas de Avaliação da Prova,exata,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee

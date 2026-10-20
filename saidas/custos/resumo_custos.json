@@ -47,6 +47,21 @@
     "tipo_custo": "assinatura"
   },
   {
+    "papel": "conhecimento",
+    "provedor": "codex-cli",
+    "modelo": "gpt-6.1-sol",
+    "versoes_prompt": [
+      "conhecimento_tema@152fcf4e12ee"
+    ],
+    "chamadas": 62,
+    "tokens_entrada": 1690389,
+    "tokens_saida": 164358,
+    "latencia_total_s": 2995.3,
+    "latencia_media_s": 48.31,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
     "papel": "e4_b_so_titulos",
     "provedor": "gemini-agy",
     "modelo": "gemini-3.8-flash-low",

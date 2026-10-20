@@ -1,0 +1,220 @@
+# Propostas de conhecimento dos temas (para revisão)
+
+Gerado em 20/10/2026 10:47 por `llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee`. Entrada: árvore e cartões; nenhuma questão.
+
+- Referências legais: 568, em 306 de 351 temas publicáveis.
+- Leis: CPP (201), CP (199), CF (80), Lei 9.099/1995 (10), Lei 12.850/2013 (8), Lei 11.343/2006 (5), Lei 8.072/1990 (4), Lei 11.340/2006 (4), Lei 9.504/1997 (3), Lei 8.137/1990 (3), Lei 9.296/1996 (3), LEP (3), Lei 7.347/1985 (3), Lei 13.869/2019 (2), Lei 11.105/2005 (2), Lei 4.737/1965 (2), Lei 10.826/2003 (2), Lei 9.613/1998 (2), Lei 13.260/2016 (2), Lei 12.016/2009 (2), Lei 12.830/2013 (2), Lei 7.960/1989 (2), Lei 8.906/1994 (2), Lei 10.684/2003 (1), Lei 9.430/1996 (1), Lei 1.521/1951 (1), Lei 7.492/1986 (1), Lei 9.605/1998 (1), Lei 7.716/1989 (1), Lei 9.503/1997 (1), Lei 8.078/1990 (1), Lei 10.741/2003 (1), Lei 2.889/1956 (1), Lei 12.037/2009 (1), Lei 9.455/1997 (1), Lei 13.431/2017 (1), Lei 14.344/2022 (1), Lei 8.069/1990 (1), Lei 13.185/2015 (1), Lei 14.994/2024 (1), Lei 9.279/1996 (1), Lei 9.609/1998 (1), Lei 5.010/1966 (1), Lei 8.625/1993 (1), Lei 13.105/2015 (1).
+- Termos: 3945 (exclui 597, forte 2500, fraco 848).
+- Termos `forte` repetidos em mais de um tema (conflitos a resolver na revisão): 206.
+- Itens descartados na conversão: 0.
+
+Arquivos: `dados/conhecimento/propostas/mapa_artigos.csv` e `termos.csv`.
+
+## Termos fortes em mais de um tema
+
+- abandono de incapaz
+- abandono intelectual
+- abandono material
+- abolitio criminis
+- abolitio criminis temporaria
+- acao civil ex delicto
+- acao penal no crime complexo
+- acao penal privada
+- acao penal publica
+- acao privada subsidiaria da publica
+- acordo de nao persecucao penal
+- actio libera in causa
+- aliciamento de trabalhadores
+- anistia
+- antijuridicidade
+- aplicacao imediata da lei processual
+- apropriacao indebita
+- arremesso de projetil
+- arrependimento eficaz
+- arrependimento posterior
+- assedio sexual
+- associacao criminosa
+- atos preparatorios
+- ausencia de guardiao capaz
+- auxilio ao suicidio
+- bigamia
+- calunia
+- citacao pessoal
+- citacao por edital
+- citacao por hora certa
+- coacao moral irresistivel
+- coacao no curso do processo
+- composicao civil dos danos
+- comunicabilidade das elementares
+- comunicacao falsa de crime
+- concurso formal
+- concurso material
+- concurso material benefico
+- concussao
+- condicao analoga a de escravo
+- conflito aparente de normas
+- conflito de jurisdicao
+- constituicao de milicia privada
+- cooperacao dolosamente distinta
+- corrupcao ativa
+- corrupcao passiva
+- crime consumado
+- crime continuado
+- crime impossivel
+- crime preterdoloso
+- crime tentado
+- culpa consciente
+- cumprimento do mandado de prisao
+- decadencia
+- decadencia do direito de representacao
+- denuncia oral
+- denunciacao caluniosa
+- desabamento ou desmoronamento
+- desacato
+- desaforamento
+- descaminho
+- desistencia voluntaria
+- difamacao
+- difusao de doenca ou praga
+- dispensabilidade do inquerito
+- dolo eventual
+- efeito devolutivo
+- efeito extensivo
+- efeito regressivo
+- efeito suspensivo
+- efeitos da condenacao
+- elementos negativos do tipo
+- epidemia
+- erro de proibicao
+- especies de pena
+- estado de necessidade
+- estelionato
+- estrito cumprimento do dever legal
+- estupro de vulneravel
+- excecao de coisa julgada
+- excecao de ilegitimidade
+- excecao de incompetencia
+- excecao de litispendencia
+- excecao de suspeicao
+- excecoes pluralistas
+- exercicio arbitrario das proprias razoes
+- exercicio regular de direito
+- exploracao de prestigio
+- extorsao
+- falsa identidade
+- falsidade ideologica
+- falsificacao de papeis publicos
+- falso testemunho
+- favorecimento da prostituicao
+- favorecimento pessoal
+- fe publica
+- feminicidio
+- fontes do direito penal
+- foro por prerrogativa de funcao
+- fraude processual
+- fraudes em certames
+- frustracao de direito trabalhista
+- funcionario publico por equiparacao
+- fungibilidade recursal
+- garantia da ordem publica
+- habeas corpus
+- hipoteca legal
+- honra subjetiva
+- importunacao sexual
+- imputacao objetiva
+- incidente de falsidade
+- incidente de insanidade mental
+- indiciamento
+- induzimento a automutilacao
+- ineficacia absoluta do meio
+- infanticidio
+- infracao de medida sanitaria preventiva
+- injuria
+- inquerito civil
+- interesse recursal
+- interpretacao extensiva
+- intimacao da sentenca
+- intimidacao sistematica
+- invasao de dispositivo informatico
+- isolamento dos atos processuais
+- juiz das garantias
+- legitima defesa
+- liberdade provisoria
+- livramento condicional
+- lugar do crime
+- maus tratos
+- moeda falsa
+- morte do agente
+- nemo tenetur se detegere
+- nota de culpa
+- novatio legis in mellius
+- nulidade absoluta
+- nulidade relativa
+- obediencia hierarquica
+- participacao de menor importancia
+- parto suposto
+- pas de nullite sans grief
+- patrocinio infiel
+- pena cumprida no estrangeiro
+- pena de multa
+- penas privativas de liberdade
+- penas restritivas de direitos
+- perdao do ofendido
+- perdao judicial
+- perempcao
+- perpetuatio jurisdictionis
+- perseguicao reiterada
+- perturbacao de cerimonia funeraria
+- prescricao da pretensao executoria
+- prescricao da pretensao punitiva
+- prescricao em abstrato
+- prescricao intercorrente
+- prescricao retroativa
+- prescricao virtual
+- pressupostos de admissibilidade recursal
+- prevaricacao
+- prisao preventiva
+- prisao temporaria
+- procedimento sumarissimo
+- queixa crime
+- ratio cognoscendi
+- ratio essendi
+- reabilitacao criminal
+- reformatio in pejus
+- regime inicial de cumprimento
+- rejeicao da denuncia ou queixa
+- relatorio fundamentacao e dispositivo
+- renuncia ao direito de queixa
+- representacao do ofendido
+- requisicao do ministro da justica
+- requisitos da denuncia
+- resposta a acusacao
+- restituicao de coisas apreendidas
+- revisao criminal
+- salvo conduto
+- seletividade do sistema penal
+- sequestro e carcere privado
+- sonegacao de estado de filiacao
+- subtracao de incapazes
+- supressao de documento
+- suspensao condicional da pena
+- tempo do crime
+- tempus regit actum
+- teoria das atividades rotineiras
+- teoria monista
+- teoria normativa pura
+- teorias do conflito
+- teorias do consenso
+- termo circunstanciado
+- tipicidade conglobante
+- trafico de pessoas
+- ultraje a culto
+- ultratividade da lei penal
+- unirrecorribilidade
+- uso de documento falso
+- velocidades do direito penal
+- vilipendio a cadaver
+- violacao de direito autoral
+- violacao de domicilio
+- violacao de sepultura
+- violacao sexual mediante fraude

@@ -1,0 +1,30 @@
+{
+  "dados/conhecimento/propostas/mapa_artigos.csv": {
+    "sha256": "cfef876080011e193d084612c9ef1f321db4ddc23264d73332fb6f51c5dfb129",
+    "origem": "llm (proposta, sem revisão)",
+    "comando": "uv run python executar_enriquecimento.py",
+    "detalhes": {
+      "chamadas": "62",
+      "entrada": "árvore preparada e cartões da etapa 1; nenhuma questão",
+      "modelo": "gpt-6.1-sol",
+      "prompt": "conhecimento_tema@152fcf4e12ee",
+      "provedor": "codex-cli",
+      "revisao": "pendente"
+    },
+    "atualizado_em": "2026-10-20T10:47:47"
+  },
+  "dados/conhecimento/propostas/termos.csv": {
+    "sha256": "f612dc72ae13826c561f3fc5fc76c3f28be46d5fb831a8a10595127a52ff8b5d",
+    "origem": "llm (proposta, sem revisão)",
+    "comando": "uv run python executar_enriquecimento.py",
+    "detalhes": {
+      "chamadas": "62",
+      "entrada": "árvore preparada e cartões da etapa 1; nenhuma questão",
+      "modelo": "gpt-6.1-sol",
+      "prompt": "conhecimento_tema@152fcf4e12ee",
+      "provedor": "codex-cli",
+      "revisao": "pendente"
+    },
+    "atualizado_em": "2026-10-20T10:47:47"
+  }
+}
