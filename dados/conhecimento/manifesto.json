@@ -38,11 +38,12 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/alternativas_ids.json": {
     "sha256": "275f18bf1ff8dd72406bf57bae5cad467039e9d9bd0a911cb240606c33528426",
@@ -58,11 +59,54 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
+  },
+  "dados/conhecimento/embeddings/exemplos.npy": {
+    "sha256": "fafa3ecee68dcb1b5bde7e56ba88cd0f9413d3cd8b87344b4bdf7f896a239e71",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
+    },
+    "atualizado_em": "2026-10-21T09:58:03"
+  },
+  "dados/conhecimento/embeddings/exemplos_ids.json": {
+    "sha256": "5cc2d205bcee51e1890eb9d7003f6574eb3cdfc38c804eed88c9a8a30b74ba74",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
+    },
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/inativos.npy": {
     "sha256": "1bbd75075a1c599972d376ecb4eae93fce13cc6d0bf416aec0b724b85d4e8075",
@@ -78,11 +122,12 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/inativos_ids.json": {
     "sha256": "c8996a9ea2606c8920e097201cca61f9d43625324740c9fc57cbbf09ac225d9d",
@@ -98,14 +143,15 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/modelo.json": {
-    "sha256": "b1d83b13d6d2e224060866344eee573eda26d530855193d0a8b1f9d6290f31fc",
+    "sha256": "64e3714db72c62fae64699f1cc01824a14ba0f9b055eeadee94dfc110badf3f8",
     "origem": "embedding",
     "comando": "uv run python executar_embeddings.py",
     "detalhes": {
@@ -118,11 +164,12 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/questoes.npy": {
     "sha256": "25346ec93bb0c3d530c7d078deddaf27a906751f74de24be08040fce9f41c532",
@@ -138,11 +185,12 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/questoes_ids.json": {
     "sha256": "3a6305164afc98efb84ebcc81c9a17a74b81033c41db9b047b9f0a8c8b51f3c8",
@@ -158,11 +206,12 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/temas.npy": {
     "sha256": "c4566afc4eda860d7e50c6372149a6a4bb686886edc7d291b3ac83b4268b1415",
@@ -178,11 +227,12 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
   },
   "dados/conhecimento/embeddings/temas_ids.json": {
     "sha256": "7ec9258954cb65eedad05f842fd9d6302d3fd0a93fde6e8a53b772a1856af678",
@@ -198,11 +248,27 @@
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1",
       "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
       "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-21T07:21:01"
+    "atualizado_em": "2026-10-21T09:58:03"
+  },
+  "dados/conhecimento/exemplos_sinteticos.jsonl": {
+    "sha256": "1b75c1ab85ee102e9f09f517ae84ed6c4ddbcc024f2e8284063542529a77514c",
+    "origem": "llm (proposta, sem revisão)",
+    "comando": "uv run python executar_exemplos.py",
+    "detalhes": {
+      "entrada": "árvore preparada e cartões da etapa 1; nenhuma questão real",
+      "modelo": "gpt-6.1-sol",
+      "prompt": "exemplos_tema@93adfb7c873a",
+      "provedor": "codex-cli",
+      "revisao": "amostra de 30 (semente 20261021) conferida pelo assistente (LLM), 30/30; conferência revisada e aceita pelo autor em 21/10",
+      "temas": "351",
+      "uso": "atributos do ranqueador (E13, adotado)"
+    },
+    "atualizado_em": "2026-10-21T10:18:40"
   },
   "dados/conhecimento/mapa_artigos.csv": {
     "sha256": "3a350046e0c35a3e88eae4b927d7238a2d2fa17d1f072e14def8af3e70206e7b",
@@ -218,6 +284,17 @@
       "termos_propostos": "3945"
     },
     "atualizado_em": "2026-10-20T16:04:53"
+  },
+  "dados/conhecimento/propostas/antitemas.csv": {
+    "sha256": "6a14d4a4581b449cc020acf9e2060e2abdd6552971482d1f320927ecf2261ddd",
+    "origem": "llm (proposta, sem revisão)",
+    "comando": "escrito pelo assistente de código (Claude) a pedido do autor, em 21/10",
+    "detalhes": {
+      "entrada": "nenhuma questão",
+      "revisao": "pendente",
+      "uso": "nenhum no sistema; medido como exploração (registro de 21/10)"
+    },
+    "atualizado_em": "2026-10-21T09:05:30"
   },
   "dados/conhecimento/propostas/mapa_artigos.csv": {
     "sha256": "cfef876080011e193d084612c9ef1f321db4ddc23264d73332fb6f51c5dfb129",
@@ -246,6 +323,17 @@
       "revisao": "pendente"
     },
     "atualizado_em": "2026-10-20T10:47:47"
+  },
+  "dados/conhecimento/revisao_exemplos.csv": {
+    "sha256": "c5705eeb76be1ecdf9a9c2667883ac8365d119433aaac744ea2bcc90a49764fc",
+    "origem": "conferência do assistente (LLM), aceita pelo autor",
+    "comando": "amostra sorteada pelo assistente; conferência registrada em 21/10",
+    "detalhes": {
+      "amostra": "30 de 1.053, semente 20261021",
+      "autor": "revisou a conferência do assistente e aceitou (21/10)",
+      "resultado": "30/30 cobrem o tema"
+    },
+    "atualizado_em": "2026-10-21T10:18:40"
   },
   "dados/conhecimento/temas.jsonl": {
     "sha256": "03633fd423941f33e0a6c6be505365130ba66737a3e47312dcb4a9d61199ce3f",

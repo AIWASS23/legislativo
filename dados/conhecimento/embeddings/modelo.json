@@ -7,9 +7,10 @@
   "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
   "prefixo_documento": "",
   "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
-  "gerado_em": "2026-10-21T07:21:01",
+  "gerado_em": "2026-10-21T09:58:02",
   "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
   "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
   "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2",
-  "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14"
+  "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
+  "sha256_textos_exemplos": "000d1fc1f41edd7068720c1abe4c6b2ca1d606a6cb27e71cc9240b58d2dddba1"
 }
