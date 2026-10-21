@@ -1,6 +1,6 @@
 # ADR-024: Uso dos 100 rótulos da folha-verdade e protocolo de avaliação
 
-**Status:** Proposto. Revisa o papel do gold manual (ADR-012) e dos experimentos (ADR-014) na etapa 2.
+**Status:** Implementado (21/10/2026). Revisa o papel do gold manual (ADR-012) e dos experimentos (ADR-014) na etapa 2.
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (avaliação)
@@ -112,9 +112,12 @@ dizer isso.
 
 ## Itens de ação
 
-1. [ ] `vicio_ia/sistema/folha.py`: leitura e validação da folha, com o acerto pela régua nova (central,
+1. [x] `vicio_ia/sistema/folha.py`: leitura e validação da folha, com o acerto pela régua nova (central,
    extras, pai e filho).
-2. [ ] `vicio_ia/sistema/validacao.py`: validação cruzada repetida e estratificada, sem vazamento no kNN.
-3. [ ] Pré-registrar E7 a E12 em `saidas/experimentos/registro.md` antes de rodar.
-4. [ ] Medir a convenção (nível, extras, duplicados, fora) e as taxas de desvio por tipo de convenção.
-5. [ ] Experimento E12 (deriva entre antigas e novas).
+2. [x] `vicio_ia/sistema/validacao.py`: validação cruzada repetida e estratificada, sem vazamento no kNN.
+3. [x] Pré-registrar E7 a E12 em `saidas/experimentos/registro.md` antes de rodar.
+4. [x] Medir a convenção: os "(Parte N)" nunca aparecem, a LEP fantasma aparece duas vezes, 39 das 92 têm
+   extras e o gold do autor bate com a folha em 12 de 14. As taxas de desvio por tipo de nó não foram medidas
+   (D15).
+5. [x] Experimento E12 (deriva entre antigas e novas). Não há deriva pelo critério pré-registrado (AUC da
+   similaridade máxima de 0,58; da margem, 0,51).

@@ -1,6 +1,6 @@
 # ADR-022: Classificador sem LLM: candidatos, ranqueamento e escolha do nó
 
-**Status:** Proposto. Substitui a ADR-008 na decisão da etapa 2.
+**Status:** Implementado com ajustes (21/10/2026; ver D15). Substitui a ADR-008 na decisão da etapa 2.
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (fase de decisão)
@@ -115,10 +115,21 @@ régua aceita. Isso já era o recuo para o pai da etapa 1, agora com uma conta e
 
 ## Itens de ação
 
-1. [ ] `vicio_ia/sistema/candidatos.py`: união das fontes, com o top-k configurável em `configuracao.py`.
-2. [ ] `vicio_ia/sistema/atributos.py`: os atributos por par.
-3. [ ] `vicio_ia/sistema/ranqueador.py`: regressão logística em pares (numpy, IRLS com L2, como na etapa 1)
+1. [x] `vicio_ia/sistema/pares.py` (no lugar de `candidatos.py`): união das fontes, com o top-k configurável em `configuracao.py`.
+2. [x] `vicio_ia/sistema/pares.py` (no lugar de `atributos.py`; 20 atributos): os atributos por par.
+3. [x] `vicio_ia/sistema/ranqueador.py` (logística e gradient boosting; o boosting venceu o E10): regressão logística em pares (numpy, IRLS com L2, como na etapa 1)
    e o baseline com pesos fixos.
-4. [ ] `vicio_ia/sistema/no_pela_regua.py`: `P(certo | n)` e a escolha do nó, com testes unitários
+4. [x] `vicio_ia/sistema/politica.py` (no lugar de `no_pela_regua.py`; o par rotulado pela régua dá P(certo | nó) direto): `P(certo | n)` e a escolha do nó, com testes unitários
    (irmãos, pai, filho e extras).
-5. [ ] Experimentos E7, E9 e E10 no registro.
+5. [x] Experimentos E7, E9 e E10 no registro, e também E10b (LambdaMART) e E13 (exemplos sintéticos). A soma
+   ponderada sem treino, a referência original do E10, ficou de fora.
+
+## Implementação (21/10/2026)
+
+Implementado em `vicio_ia/sistema/` (`pares.py`, `ranqueador.py`, `politica.py` e `pipeline.py`) e rodado por
+`executar_sistema.py`, sem LLM e com a trava de rede.
+- **Ajustes da implementação e regra de publicação** adotada pelo autor (reserva pontual de 97%): na D15 de
+  `decisoes_manuais.md`.
+- **Ranqueador:** gradient boosting (E10), com os atributos dos exemplos sintéticos (E13, D16).
+- **Resultado final:** 127 das 559 avaliadas publicadas, com previsão de 0,96 (0,91–0,99). No gold do autor, as 10
+  publicadas estão certas.

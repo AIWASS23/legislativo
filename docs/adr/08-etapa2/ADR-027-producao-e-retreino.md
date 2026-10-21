@@ -1,6 +1,6 @@
 # ADR-027: Produção na etapa 2: custo, ciclo do professor e retreino
 
-**Status:** Proposto. Revisa a ADR-016 para a etapa 2.
+**Status:** Implementado no desenho (21/10/2026). Revisa a ADR-016 para a etapa 2.
 **Data:** 20/10/2026
 **Decisores:** Autor do case; equipe Vício
 **Fase:** 08-etapa2 (produção; seção d do relatório)
@@ -104,7 +104,8 @@ questões do tema, e a auditoria aleatória mantém a calibração honesta.
 
 ## Itens de ação
 
-1. [ ] Medir no case: tempo de embedding por questão e tempo de decisão para as 659.
-2. [ ] Seção d do relatório com a tabela de custo e tempo e o ciclo do professor.
-3. [ ] Atualizar o diagrama de produção (`relatorio/arquitetura_producao`) sem LLM na decisão.
-4. [ ] Marcar a ADR-016 como revista por esta ADR.
+1. [x] Medir no case: tempo de embedding por questão e tempo de decisão para as 659. Embeddings: ~7 textos/s no
+   `qwen3-embedding:4b`, numa GPU de 6 GB. Decisão: ~47 s para as 659, quase tudo treino da validação cruzada.
+2. [x] Seção d do relatório com a tabela de custo e tempo e o ciclo do professor.
+3. [x] Atualizar o diagrama de produção (`relatorio/etapa2/arquitetura_producao.png`) sem LLM na decisão.
+4. [x] Marcar a ADR-016 como revista por esta ADR.

@@ -1,6 +1,6 @@
 # ADR-025: Calibração, limiar e previsão na etapa 2
 
-**Status:** Proposto. Revisa as ADR-011 e ADR-013 para a etapa 2.
+**Status:** Implementado com ajustes (21/10/2026; ver D15). Revisa as ADR-011 e ADR-013 para a etapa 2.
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (decisão e avaliação)
@@ -98,8 +98,21 @@ riscos e mostrar o efeito de cada um.
 
 ## Itens de ação
 
-1. [ ] Redefinir as faixas de calibração por âncora de evidência, em `vicio_ia/sistema/calibracao.py`,
-   reaproveitando `CalibradorFaixas` e o Platt da etapa 1.
-2. [ ] `PrevisorPrecisao` para as 559: margens de fora e de deriva e cobertura separada (antigas e novas).
-3. [ ] Testes: o limiar respeita os empates; a previsão exclui a folha; as margens entram só no limite inferior.
-4. [ ] Gráficos de confiabilidade e de precisão × cobertura para a etapa 2 (fora da amostra).
+1. [x] Calibração em `vicio_ia/sistema/politica.py`: identidade, Platt ou Platt com a faixa de concordância,
+   escolhidos pela log-loss fora da amostra. A identidade venceu.
+2. [x] `EstimadorLimiar` para as 559, com cobertura separada para antigas e novas. O fora entra pelo estimador
+   direto, e não há margem de deriva, porque o E12 não mostrou deriva.
+3. [x] Testes do limiar e do determinismo (`testes/teste_sistema.py`). A previsão exclui a folha, como confere
+   o validador.
+4. [ ] Gráficos de confiabilidade e de precisão × cobertura para a etapa 2: não feitos. A curva de precisão ×
+   cobertura está em tabela, em `saidas/sistema/diagnostico.md`.
+
+## Implementação (21/10/2026)
+
+Implementado em `vicio_ia/sistema/` (`pares.py`, `ranqueador.py`, `politica.py` e `pipeline.py`) e rodado por
+`executar_sistema.py`, sem LLM e com a trava de rede.
+- **Ajustes da implementação e regra de publicação** adotada pelo autor (reserva pontual de 97%): na D15 de
+  `decisoes_manuais.md`.
+- **Ranqueador:** gradient boosting (E10), com os atributos dos exemplos sintéticos (E13, D16).
+- **Resultado final:** 127 das 559 avaliadas publicadas, com previsão de 0,96 (0,91–0,99). No gold do autor, as 10
+  publicadas estão certas.

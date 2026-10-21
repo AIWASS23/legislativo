@@ -1,6 +1,6 @@
 # ADR-026: Entrega, reprodutibilidade e repositório na etapa 2
 
-**Status:** Proposto. Revisa a ADR-015 para a etapa 2.
+**Status:** Implementado (21/10/2026; falta a reprodução num clone limpo). Revisa a ADR-015 para a etapa 2.
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (entrega)
@@ -30,15 +30,17 @@
 - Tag `entrega-1` no commit `02d7e19`.
 - Os entregáveis da etapa 1 vão para `relatorio/etapa1/`: `publicacao.csv`, `previsao.txt`,
   `relatorio.md`, `relatorio.pdf` e `arquitetura.png`.
-- Os da etapa 2 ocupam `relatorio/`.
+- Os da etapa 2 ocupam `relatorio/etapa2/` (`Caminhos.entregaveis` depende da etapa).
 
 **3. Comandos.**
 
 | Comando | Fase | O que faz | Chama modelo? |
 |---|---|---|---|
-| `uv run python executar_enriquecimento.py` | Conhecimento | Texto canônico, citações, documentos de tema, propostas de termos e mapa, embeddings, manifesto | Sim (cache) |
+| `uv run python executar_enriquecimento.py` | Conhecimento | Propostas de termos e de mapa de artigos para revisão (ADR-020), manifesto | Sim (cache) |
+| `uv run python executar_citacoes.py` | Conhecimento | Citações de lei e artigo das 659 questões, por regex (`dados/conhecimento/citacoes.jsonl`) | Não |
+| `uv run python executar_embeddings.py` | Conhecimento | Vetores dos candidatos (cache em `runs/embeddings/`), E8 e E9, exportação do modelo escolhido para `dados/conhecimento/embeddings/` | Embedding local (Ollama), com cache |
 | `uv run python executar_revisao_conhecimento.py` | Conhecimento | Revisão interativa das propostas (ADR-020) | Não |
-| `uv run python executar_sistema.py` | Decisão | Treina com a folha, calibra, decide; grava `relatorio/publicacao.csv` e `relatorio/previsao.txt` | **Não** (trava da ADR-019) |
+| `uv run python executar_sistema.py` | Decisão | Treina com a folha, calibra, decide; grava `relatorio/etapa2/publicacao.csv` e `relatorio/etapa2/previsao.txt` | **Não** (trava da ADR-019) |
 | `uv run python executar_avaliacao_etapa2.py` | Avaliação | Experimentos E7 a E12, gráficos e métricas fora da amostra | Não |
 | `uv run python executar_validacao.py` | Entrega | Confere os entregáveis contra o LEIA-ME novo | Não |
 
@@ -63,7 +65,7 @@
 - **Decisões tomadas à mão:** D13 em diante, em `decisoes_manuais.md`.
 
 **7. Relatório.**
-- `relatorio/relatorio.md` e o PDF, com até 4 páginas, nas seções a–e do enunciado:
+- `relatorio/etapa2/relatorio.md` e o PDF, com até 4 páginas, nas seções a–e do enunciado:
   - a) o sistema;
   - b) os 100 rótulos;
   - c) diagnóstico;
@@ -86,7 +88,7 @@
 
 ### Opção B: tag mais pasta de arquivo (escolhida)
 
-**Prós:** a etapa 1 fica acessível pela tag e legível no repositório. A etapa 2 fica limpa em `relatorio/`.
+**Prós:** a etapa 1 fica acessível pela tag e legível no repositório. A etapa 2 fica limpa em `relatorio/etapa2/`.
 
 ### Opção C: um repositório novo para a etapa 2
 
@@ -107,9 +109,9 @@ arquivo. A tag e a pasta de arquivo mantêm a etapa 1 visível sem atrapalhar a 
 
 ## Itens de ação
 
-1. [ ] `Caminhos`: pasta da etapa configurável; passo 01 lendo `anexos/2-ENTREGA`.
-2. [ ] Tag `entrega-1` e a pasta `relatorio/etapa1/` (comandos git executados pelo autor).
-3. [ ] Pontos de entrada da tabela acima, sem argumentos, no padrão da ADR-001.
-4. [ ] Validador para 659 linhas e para a previsão das 559.
-5. [ ] Medida de tempo, roteiro de reprodução do zero e hash no README.
-6. [ ] README e relatório da etapa 2.
+1. [x] `Caminhos`: pasta da etapa configurável; passo 01 lendo `anexos/2-ENTREGA`.
+2. [ ] Tag `entrega-1` (pendente, comando do autor) e a pasta `relatorio/etapa1/` (feita).
+3. [x] Pontos de entrada da tabela acima, sem argumentos, no padrão da ADR-001.
+4. [x] Validador para 659 linhas e para a previsão das 559.
+5. [ ] Medida de tempo no README (feita); reprodução num clone limpo e hash no README (pendentes).
+6. [x] README e relatório da etapa 2 (`relatorio/etapa2/`).

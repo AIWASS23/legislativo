@@ -1,6 +1,6 @@
 # ADR-023: "Fora" e multitema
 
-**Status:** Proposto
+**Status:** Implementado com o plano B (21/10/2026; ver E11b e D15)
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (fase de decisão)
@@ -113,7 +113,21 @@ LEIA-ME e a árvore justificam. Com só 8 exemplos, a postura conservadora é: n
 
 ## Itens de ação
 
-1. [ ] `vicio_ia/sistema/fora.py`: atributos, modelo de P(fora), regras de militar e de tema inativo.
-2. [ ] `vicio_ia/sistema/multitema.py`: melhor tema por alternativa, dispersão e entropia.
-3. [ ] Experimento E11 (separabilidade do fora) e decisão sobre o plano B.
-4. [ ] Testes unitários das regras de fora e da composição de P(certo).
+1. [x] Regras de militar e de tema inativo em `vicio_ia/sistema/politica.py` (`RegrasFora`). No plano B, P(fora)
+   não tem modelo próprio: as questões fora entram no treino como negativos.
+2. [x] Multitema: os extras saem do ranqueador (outro ramo com P ≥ 0,5), e a fração das alternativas no ramo é
+   atributo. A dispersão foi medida no E11b (AUC de 0,61) e não ganhou módulo próprio.
+3. [x] Experimento E11 (separabilidade do fora) e decisão sobre o plano B. O E11 lexical deu AUC de 0,54, e
+   o E11b, com embeddings e kNN, deu 0,61 fora da amostra, os dois abaixo de 0,7. Vale o plano B (registro de
+   21/10). A proximidade com um tema inativo (AUC isolada de 0,83, exploratória) entra como sinal de `revisar`.
+4. [x] Testes unitários das regras de fora e da escolha do nó (`testes/teste_sistema.py`).
+
+## Implementação (21/10/2026)
+
+Implementado em `vicio_ia/sistema/` (`pares.py`, `ranqueador.py`, `politica.py` e `pipeline.py`) e rodado por
+`executar_sistema.py`, sem LLM e com a trava de rede.
+- **Ajustes da implementação e regra de publicação** adotada pelo autor (reserva pontual de 97%): na D15 de
+  `decisoes_manuais.md`.
+- **Ranqueador:** gradient boosting (E10), com os atributos dos exemplos sintéticos (E13, D16).
+- **Resultado final:** 127 das 559 avaliadas publicadas, com previsão de 0,96 (0,91–0,99). No gold do autor, as 10
+  publicadas estão certas.

@@ -32,20 +32,20 @@ entre pastas (ADR-001 a ADR-027), para que as referências não quebrem se um ar
   - relatório de até 4 páginas, com as seções a–e;
   - um comando que regenera a saída sem LLM;
   - artefatos versionados, e um README com o tempo de execução e a origem de cada artefato.
-- **Prazo:** pedir mais prazo antes de quinta, 22/10. O limite é segunda, 26/10.
+- **Prazo:** a Carla não prorrogou; a entrega foi antecipada para quinta, 22/10.
 
 | Nº | Decisão | Status |
 |---|---|---|
 | [018](08-etapa2/ADR-018-etapa-2-escopo-e-regras.md) | Escopo, regras novas e o que muda; achados da folha | Aceito |
-| [019](08-etapa2/ADR-019-fronteira-llm-e-decisao.md) | Fronteira LLM × decisão: duas fases, proveniência e trava técnica | Proposto |
-| [020](08-etapa2/ADR-020-base-de-conhecimento-dos-temas.md) | Base de conhecimento dos temas: documentos, mapa de artigos e termos, com revisão | Proposto |
-| [021](08-etapa2/ADR-021-representacao-das-questoes-e-embeddings.md) | Representação das questões e embeddings em cache (substitui a ADR-009) | Proposto |
-| [022](08-etapa2/ADR-022-classificador-sem-llm.md) | Classificador sem LLM: candidatos, ranqueamento e escolha do nó pela régua (substitui a ADR-008 na decisão) | Proposto |
-| [023](08-etapa2/ADR-023-fora-e-multitema.md) | "Fora" e multitema: P(fora), regras e dispersão entre as alternativas | Proposto |
-| [024](08-etapa2/ADR-024-uso-da-folha-verdade.md) | Uso dos 100 rótulos e protocolo de avaliação; deriva entre antigas e novas | Proposto |
-| [025](08-etapa2/ADR-025-calibracao-limiar-e-previsao.md) | Calibração, limiar e previsão para as 559 | Proposto |
-| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodução do zero e repositório | Proposto |
-| [027](08-etapa2/ADR-027-producao-e-retreino.md) | Produção: custo, ciclo do professor e retreino | Proposto |
+| [019](08-etapa2/ADR-019-fronteira-llm-e-decisao.md) | Fronteira LLM × decisão: duas fases, proveniência e trava técnica | Implementado |
+| [020](08-etapa2/ADR-020-base-de-conhecimento-dos-temas.md) | Base de conhecimento dos temas: documentos, mapa de artigos e termos, com revisão | Implementado (D14, D16) |
+| [021](08-etapa2/ADR-021-representacao-das-questoes-e-embeddings.md) | Representação das questões e embeddings em cache (substitui a ADR-009) | Implementado |
+| [022](08-etapa2/ADR-022-classificador-sem-llm.md) | Classificador sem LLM: candidatos, ranqueamento e escolha do nó pela régua (substitui a ADR-008 na decisão) | Implementado com ajustes (D15) |
+| [023](08-etapa2/ADR-023-fora-e-multitema.md) | "Fora" e multitema: P(fora), regras e dispersão entre as alternativas | Implementado com o plano B |
+| [024](08-etapa2/ADR-024-uso-da-folha-verdade.md) | Uso dos 100 rótulos e protocolo de avaliação; deriva entre antigas e novas | Implementado |
+| [025](08-etapa2/ADR-025-calibracao-limiar-e-previsao.md) | Calibração, limiar e previsão para as 559 | Implementado com ajustes (D15) |
+| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodução do zero e repositório | Implementado; falta o clone limpo |
+| [027](08-etapa2/ADR-027-producao-e-retreino.md) | Produção: custo, ciclo do professor e retreino | Implementado no desenho |
 
 **Achados de 20/10, antes de qualquer modelo** (detalhes na ADR-018):
 - a folha só tem questões antigas;
@@ -64,8 +64,27 @@ entre pastas (ADR-001 a ADR-027), para que as referências não quebrem se um ar
 | E10 | Ranqueador completo × soma ponderada sem treino | 022 |
 | E11 | Separabilidade do fora (AUC) e taxa de fora por faixa | 023 |
 | E12 | Deriva entre as questões antigas e as novas | 024 |
+| E7b, E8b | Documento do tema (cartão, termos, leis) no BM25 e no denso | 020, 021 |
+| E10b | Ranqueador por lista (LambdaMART) | 022 |
+| E13 | Exemplos sintéticos por tema como atributos | 021, 022 |
+| E14 | Curva de aprendizado e fila de rotulagem ativa | 024, 027 |
 
-**Cronograma:**
+**Situação em 21/10** (resultados em `saidas/experimentos/registro.md`):
+- **Sistema implementado** (`executar_sistema.py`, sem LLM e sem rede, ~47 s, determinístico).
+  - Nas 559 avaliadas: 127 publicadas (23%), com previsão de 0,96 (0,91–0,99).
+  - No gold do autor: as 10 publicadas estão certas.
+- **Experimentos que formaram o sistema:**
+  - embeddings `qwen3-embedding:4b` (E8);
+  - documento do tema com termos e leis (E7b, E8b);
+  - gradient boosting no lugar da logística (E10);
+  - exemplos sintéticos (E13).
+- **Experimentos que confirmaram o plano B:** o fora não é separável (E11, E11b) e não há deriva (E12).
+- **Descartados:** LambdaMART (E10b), embeddings extras, filtro de concordância, antitemas e gold no treino. O
+  E9 (kNN) entrou só como atributo.
+- **Ficou de fora:** a soma ponderada sem treino, o desconto de convenção por tipo de nó e os gráficos da etapa 2
+  (D15).
+
+**Cronograma** (o planejado em 20/10; com a entrega antecipada, tudo foi feito entre 20 e 22/10):
 
 | Dia | Trabalho |
 |---|---|
@@ -78,12 +97,13 @@ entre pastas (ADR-001 a ADR-027), para que as referências não quebrem se um ar
 | Seg 26/10 | Folga; data-limite |
 
 **Definição de pronto da etapa 2:**
-- [ ] `relatorio/publicacao.csv` com 659 linhas e `relatorio/previsao.txt` para as 559, aprovados pelo validador.
+- [x] `relatorio/etapa2/publicacao.csv` com 659 linhas e `relatorio/etapa2/previsao.txt` para as 559, aprovados pelo validador.
 - [ ] `executar_sistema.py` regenera os dois arquivos sem LLM e sem rede, byte a byte, num clone limpo; tempo medido.
-- [ ] Manifesto de artefatos, com a origem e a revisão de cada um; tabela no README.
-- [ ] Relatório de até 4 páginas (a–e), com o memo de 1 página.
-- [ ] `decisoes_manuais.md` com D13 em diante.
-- [ ] Portão de qualidade aprovado, com os testes da fronteira do LLM, da escolha do nó, do fora e do determinismo.
+  Feito na máquina do autor, com a trava e o tempo medido; falta o clone limpo.
+- [x] Manifesto de artefatos, com a origem e a revisão de cada um; tabela no README.
+- [x] Relatório de até 4 páginas (a–e), com o memo de 1 página.
+- [x] `decisoes_manuais.md` com D13 em diante (D13 a D16).
+- [x] Portão de qualidade aprovado, com os testes da fronteira do LLM, da escolha do nó, do fora e do determinismo.
 - [ ] Repositório público atualizado e e-mail para a Carla.
 
 ---
@@ -159,15 +179,15 @@ anexos/ ──► [01] preparar ──► questões limpas + árvore marcada (fa
 | [016](07-producao/ADR-016-arquitetura-de-producao.md) | Arquitetura de produção (50 mil questões/semana) | 07-producao | Proposto (etapa 1). Etapa 2: revista pela ADR-027 |
 | [017](00-fundacao/ADR-017-provedores-plugaveis-e-analise-de-infra.md) | Análise da máquina e recomendação de modelos (implementa a ADR-002) | 00-fundacao | Aceito. Etapa 2: só na fase de conhecimento (ADR-019) |
 | [018](08-etapa2/ADR-018-etapa-2-escopo-e-regras.md) | Etapa 2: escopo, regras novas e o que muda | 08-etapa2 | Aceito |
-| [019](08-etapa2/ADR-019-fronteira-llm-e-decisao.md) | Fronteira entre o LLM e a decisão | 08-etapa2 | Proposto |
-| [020](08-etapa2/ADR-020-base-de-conhecimento-dos-temas.md) | Base de conhecimento dos temas | 08-etapa2 | Proposto |
-| [021](08-etapa2/ADR-021-representacao-das-questoes-e-embeddings.md) | Representação das questões e embeddings | 08-etapa2 | Proposto |
-| [022](08-etapa2/ADR-022-classificador-sem-llm.md) | Classificador sem LLM | 08-etapa2 | Proposto |
-| [023](08-etapa2/ADR-023-fora-e-multitema.md) | "Fora" e multitema | 08-etapa2 | Proposto |
-| [024](08-etapa2/ADR-024-uso-da-folha-verdade.md) | Uso dos 100 rótulos e protocolo de avaliação | 08-etapa2 | Proposto |
-| [025](08-etapa2/ADR-025-calibracao-limiar-e-previsao.md) | Calibração, limiar e previsão na etapa 2 | 08-etapa2 | Proposto |
-| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodutibilidade e repositório na etapa 2 | 08-etapa2 | Proposto |
-| [027](08-etapa2/ADR-027-producao-e-retreino.md) | Produção na etapa 2: custo, ciclo do professor e retreino | 08-etapa2 | Proposto |
+| [019](08-etapa2/ADR-019-fronteira-llm-e-decisao.md) | Fronteira entre o LLM e a decisão | 08-etapa2 | Implementado |
+| [020](08-etapa2/ADR-020-base-de-conhecimento-dos-temas.md) | Base de conhecimento dos temas | 08-etapa2 | Implementado (D14, D16) |
+| [021](08-etapa2/ADR-021-representacao-das-questoes-e-embeddings.md) | Representação das questões e embeddings | 08-etapa2 | Implementado |
+| [022](08-etapa2/ADR-022-classificador-sem-llm.md) | Classificador sem LLM | 08-etapa2 | Implementado com ajustes (D15) |
+| [023](08-etapa2/ADR-023-fora-e-multitema.md) | "Fora" e multitema | 08-etapa2 | Implementado com o plano B |
+| [024](08-etapa2/ADR-024-uso-da-folha-verdade.md) | Uso dos 100 rótulos e protocolo de avaliação | 08-etapa2 | Implementado |
+| [025](08-etapa2/ADR-025-calibracao-limiar-e-previsao.md) | Calibração, limiar e previsão na etapa 2 | 08-etapa2 | Implementado com ajustes (D15) |
+| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodutibilidade e repositório na etapa 2 | 08-etapa2 | Implementado; falta o clone limpo |
+| [027](08-etapa2/ADR-027-producao-e-retreino.md) | Produção na etapa 2: custo, ciclo do professor e retreino | 08-etapa2 | Implementado no desenho |
 
 **Status:** *Proposto* = decidido para implementar, pode mudar com os experimentos;
 *Aceito* = implementado ou em vigor; *Substituído* = trocado por outra ADR (indicar qual).

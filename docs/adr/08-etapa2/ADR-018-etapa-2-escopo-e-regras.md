@@ -175,6 +175,6 @@ passa a decidir se algum conjunto pode ser certificado em 95%.
 
 1. [x] Ler o enunciado novo e analisar os anexos (folha, questões novas, temas): 20/10.
 2. [x] Medir o sistema da etapa 1 na folha, para o diagnóstico e o relatório: 20/10.
-3. [ ] Escrever e implementar as ADR-019 a ADR-027.
-4. [ ] Atualizar o índice (`docs/adr/README.md`) com a etapa 2, o cronograma e a definição de pronto.
-5. [ ] Quarta, 21/10, à noite: decidir se é preciso pedir mais prazo à Carla.
+3. [x] Escrever e implementar as ADR-019 a ADR-027 (21/10).
+4. [x] Atualizar o índice (`docs/adr/README.md`) com a etapa 2, o cronograma e a definição de pronto.
+5. [x] Quarta, 21/10: a Carla não prorrogou o prazo, e a entrega foi antecipada para quinta, 22/10.

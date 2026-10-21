@@ -1,6 +1,6 @@
 # ADR-020: Base de conhecimento dos temas
 
-**Status:** Proposto
+**Status:** Implementado (21/10/2026; revisão do autor na D14, exemplos sintéticos na D16)
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (fase de conhecimento)
@@ -125,8 +125,8 @@ exemplo. A revisão priorizada coloca o tempo humano onde o erro custa mais.
 
 ## Itens de ação
 
-1. [ ] Prompt versionado `prompts/propor_conhecimento_tema.md`, com schema JSON sem nenhum campo de questão.
-2. [ ] `vicio_ia/enriquecimento/temas.py`: gerar as propostas por tema, com cache e manifesto.
-3. [ ] Ferramenta de revisão interativa e o registro da revisão no manifesto.
-4. [ ] Revisar o mapa de artigos (100%), os termos das zonas de risco e a amostra de 10%.
-5. [ ] Registrar em `decisoes_manuais.md` (D14): o protocolo de revisão, o tempo gasto e as taxas medidas.
+1. [x] Prompt versionado `prompts/conhecimento_tema.md`, com schema JSON sem nenhum campo de questão.
+2. [x] `vicio_ia/enriquecimento/propostas.py`: gerar as propostas por tema, com cache e manifesto.
+3. [x] Ferramenta de revisão interativa e o registro da revisão no manifesto (`executar_revisao_conhecimento.py`).
+4. [x] Revisar o mapa de artigos (100%), os termos das zonas de risco e a amostra de 10% (20/10, 3 h).
+5. [x] Registrar em `decisoes_manuais.md` (D14): o protocolo de revisão, o tempo gasto e as taxas medidas.

@@ -1,6 +1,6 @@
 # ADR-019: Fronteira entre o modelo de linguagem e a decisão
 
-**Status:** Proposto
+**Status:** Implementado (21/10/2026)
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (arquitetura)
@@ -38,7 +38,7 @@ Separar o sistema em **duas fases, com dois comandos e uma trava técnica** entr
 **2. Fase de decisão** (`uv run python executar_sistema.py`, pacote `vicio_ia/sistema/`)
 - Lê os anexos e os artefatos versionados.
 - Treina os pesos leves com a folha, calibra e decide.
-- Grava `relatorio/publicacao.csv` e `relatorio/previsao.txt`.
+- Grava `relatorio/etapa2/publicacao.csv` e `relatorio/etapa2/previsao.txt`.
 - **Não importa `vicio_ia.llm` nem `vicio_ia.classificacao`, e não abre conexão de rede.**
 
 **3. Proibido em qualquer fase:**
@@ -124,10 +124,11 @@ demonstrável. O custo é pequeno: um teste AST e um guarda de socket.
 
 ## Itens de ação
 
-1. [ ] `vicio_ia/enriquecimento/`: orquestrador da fase de conhecimento e `executar_enriquecimento.py`.
-2. [ ] `vicio_ia/sistema/`: orquestrador da decisão e `executar_sistema.py`, com `VICIO_SEM_LLM=1` e o
+1. [x] `vicio_ia/enriquecimento/`: orquestrador da fase de conhecimento e `executar_enriquecimento.py`.
+2. [x] `vicio_ia/sistema/`: orquestrador da decisão e `executar_sistema.py`, com `VICIO_SEM_LLM=1` e o
    guarda de socket.
-3. [ ] `FabricaProvedores`: levantar erro quando `VICIO_SEM_LLM=1`.
-4. [ ] `dados/conhecimento/manifesto.json` e a classe que o grava e confere.
-5. [ ] Teste `testes/teste_fronteira_llm.py`: AST dos imports, caminhos proibidos, guarda de rede.
-6. [ ] Roteiro de reprodução do zero (clone limpo, sem rede), com o hash do `publicacao.csv` no README.
+3. [x] `FabricaProvedores`: levantar erro quando `VICIO_SEM_LLM=1`.
+4. [x] `dados/conhecimento/manifesto.json` e a classe que o grava e confere.
+5. [x] Teste `testes/teste_fronteira_llm.py`: AST dos imports, caminhos proibidos, guarda de rede.
+6. [ ] Roteiro de reprodução do zero (clone limpo, sem rede), com o hash do `publicacao.csv` no README. O
+   determinismo e a trava já estão conferidos na máquina do autor; falta o clone limpo.
