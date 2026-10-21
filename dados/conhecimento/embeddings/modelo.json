@@ -6,9 +6,10 @@
   "contexto_tokens": "8192",
   "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
   "prefixo_documento": "",
-  "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
-  "gerado_em": "2026-10-20T15:22:18",
+  "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
+  "gerado_em": "2026-10-21T07:21:01",
   "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
   "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
-  "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+  "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2",
+  "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14"
 }

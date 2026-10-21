@@ -641,7 +641,7 @@ class ParametrosSistema:
     variavel_sem_llm: str = "VICIO_SEM_LLM"
     questoes_etapa1: int = 359
     amostra_conferencia: int = 20
-    documento_tema_bm25: str = "cartao"
+    documento_tema_bm25: str = "cartao_termos"
 
 
 @dataclass(frozen=True)
@@ -703,7 +703,7 @@ class ParametrosEmbeddings:
     rrf_k: int = 60
     vizinhos_knn: int = 10
     documento_e8: str = "cartao"
-    documento_tema: str = "cartao"
+    documento_tema: str = "cartao_termos_leis"
 
 
 @dataclass(frozen=True)

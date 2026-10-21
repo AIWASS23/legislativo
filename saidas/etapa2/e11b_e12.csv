@@ -1,0 +1,19 @@
+experimento,variante,metrica,valor,detalhe
+E11b,similaridade máxima baixa,AUC,0.7364,IC 90%: 0.58–0.88
+E11b,margem densa baixa,AUC,0.6087,IC 90%: 0.48–0.73
+E11b,dispersão densa entre alternativas,AUC,0.6067,IC 90%: 0.43–0.78
+E11b,tema inativo perto do melhor tema,AUC,0.8274,IC 90%: 0.73–0.91
+E11b,kNN: mais perto de fora que de tema,AUC,0.5394,IC 90%: 0.40–0.68
+E11b,sem regra forte (artigo no mapa ou termo forte),AUC,0.5707,IC 90%: 0.45–0.70
+E11b,"logística: similaridade máxima baixa, dispersão densa entre alternativas, kNN: mais perto de fora que de tema",AUC fora da amostra,0.6114,IC 90%: 0.42–0.78; 5 partes × 10 repetições
+E11b,fora com regra forte,questões fora com artigo no mapa ou termo forte,6.0000,6/8
+E12,similaridade máxima,AUC nova × antiga,0.5768,"IC 90%: 0.54–0.62; mediana antigas 0.699, novas 0.718"
+E12,margem densa,AUC nova × antiga,0.5129,"IC 90%: 0.47–0.56; mediana antigas 0.035, novas 0.037"
+E12,dispersão densa,AUC nova × antiga,0.4854,"IC 90%: 0.45–0.53; mediana antigas 0.400, novas 0.400"
+E12,BM25 máximo,AUC nova × antiga,0.4872,"IC 90%: 0.45–0.53; mediana antigas 43.754, novas 43.619"
+E12,tamanho em tokens,AUC nova × antiga,0.4031,"IC 90%: 0.36–0.44; mediana antigas 251.000, novas 210.500"
+E12,cita artigo,diferença de proporção (novas − antigas),-0.0460,"antigas 43/259, novas 36/300"
+E12,certo/errado,diferença de proporção (novas − antigas),0.0301,"antigas 44/259, novas 60/300"
+E12,regra forte,diferença de proporção (novas − antigas),0.0141,"antigas 226/259, novas 266/300"
+E12,disciplina origem,variação total (0 a 1),0.1892,(vazio): 1 → 0; Criminologia: 20 → 25; Direito Ambiental: 1 → 0; Direito Constitucional: 2 → 0; Direito Penal: 92 → 150; Direito Penal - Legislação Especial: 25 → 0; Direito Penal Militar: 0 → 5; Direito Processual Penal Militar: 0 → 5; Direito Tributário: 1 → 0; Disciplina Unificada: 1 → 0; Penal: 18 → 0; Processo Penal: 98 → 115
+E12,disciplina melhor,variação total (0 a 1),0.0640,Criminologia: 20 → 23; Direito Penal - Legislação Especial: 57 → 47; Penal: 110 → 141; Processo Penal: 72 → 89

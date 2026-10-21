@@ -101,3 +101,39 @@ E9,granite-embedding:278m: kNN (k=10),recall@10 (92),0.6848,63/92
 E9,granite-embedding:278m: kNN (k=10),"acerto top-1, tema central de nível 1",0.3774,20/53
 E9,granite-embedding:278m: kNN (k=10),"acerto top-1, tema central de nível 2",0.3333,13/39
 E8,granite-embedding:278m: denso,segundos para gerar os vetores,0.0000,
+E8b,cartao: denso,acerto top-1 (100),0.7300,73/100
+E8b,cartao: denso,acerto top-1 (92 com tema),0.7935,73/92
+E8b,cartao: denso,recall@5 (92),0.9674,89/92
+E8b,cartao: denso,recall@10 (92),0.9783,90/92
+E8b,cartao: denso,"acerto top-1, tema central de nível 1",0.9245,49/53
+E8b,cartao: denso,"acerto top-1, tema central de nível 2",0.6154,24/39
+E8b,cartao: BM25 + denso (RRF),acerto top-1 (100),0.7300,73/100
+E8b,cartao: BM25 + denso (RRF),acerto top-1 (92 com tema),0.7935,73/92
+E8b,cartao: BM25 + denso (RRF),recall@5 (92),0.9783,90/92
+E8b,cartao: BM25 + denso (RRF),recall@10 (92),0.9891,91/92
+E8b,cartao: BM25 + denso (RRF),"acerto top-1, tema central de nível 1",0.9057,48/53
+E8b,cartao: BM25 + denso (RRF),"acerto top-1, tema central de nível 2",0.6410,25/39
+E8b,cartao_termos: denso,acerto top-1 (100),0.7700,77/100
+E8b,cartao_termos: denso,acerto top-1 (92 com tema),0.8370,77/92
+E8b,cartao_termos: denso,recall@5 (92),0.9674,89/92
+E8b,cartao_termos: denso,recall@10 (92),0.9783,90/92
+E8b,cartao_termos: denso,"acerto top-1, tema central de nível 1",0.9434,50/53
+E8b,cartao_termos: denso,"acerto top-1, tema central de nível 2",0.6923,27/39
+E8b,cartao_termos: BM25 + denso (RRF),acerto top-1 (100),0.7600,76/100
+E8b,cartao_termos: BM25 + denso (RRF),acerto top-1 (92 com tema),0.8261,76/92
+E8b,cartao_termos: BM25 + denso (RRF),recall@5 (92),0.9783,90/92
+E8b,cartao_termos: BM25 + denso (RRF),recall@10 (92),0.9891,91/92
+E8b,cartao_termos: BM25 + denso (RRF),"acerto top-1, tema central de nível 1",0.9057,48/53
+E8b,cartao_termos: BM25 + denso (RRF),"acerto top-1, tema central de nível 2",0.7179,28/39
+E8b,cartao_termos_leis: denso,acerto top-1 (100),0.7900,79/100
+E8b,cartao_termos_leis: denso,acerto top-1 (92 com tema),0.8587,79/92
+E8b,cartao_termos_leis: denso,recall@5 (92),0.9674,89/92
+E8b,cartao_termos_leis: denso,recall@10 (92),0.9783,90/92
+E8b,cartao_termos_leis: denso,"acerto top-1, tema central de nível 1",0.9623,51/53
+E8b,cartao_termos_leis: denso,"acerto top-1, tema central de nível 2",0.7179,28/39
+E8b,cartao_termos_leis: BM25 + denso (RRF),acerto top-1 (100),0.7700,77/100
+E8b,cartao_termos_leis: BM25 + denso (RRF),acerto top-1 (92 com tema),0.8370,77/92
+E8b,cartao_termos_leis: BM25 + denso (RRF),recall@5 (92),0.9783,90/92
+E8b,cartao_termos_leis: BM25 + denso (RRF),recall@10 (92),0.9891,91/92
+E8b,cartao_termos_leis: BM25 + denso (RRF),"acerto top-1, tema central de nível 1",0.9057,48/53
+E8b,cartao_termos_leis: BM25 + denso (RRF),"acerto top-1, tema central de nível 2",0.7436,29/39

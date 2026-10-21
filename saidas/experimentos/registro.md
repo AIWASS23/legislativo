@@ -274,3 +274,70 @@ Arquivos: `saidas/etapa2/e8_embeddings.md` e `e8_resultados.csv`. Comando: `uv r
 - **Critério:** há deriva se, na similaridade máxima ou na margem, o intervalo da AUC excluir 0,5 e
   |AUC − 0,5| ≥ 0,1. Havendo deriva, a previsão das novas é alargada (ADR-025), e a cobertura é informada
   separadamente para antigas e novas.
+
+## E7b e E8b. Documento de tema final: resultado (21/10)
+
+Arquivos: `saidas/etapa2/experimentos_etapa2.md` (E7b) e `saidas/etapa2/e8_embeddings.md` (E8b).
+
+| Variante (92 com tema) | BM25: top-1 | BM25: recall@10 | Denso (`qwen3-embedding:4b`): top-1 | Denso: recall@10 |
+|---|---:|---:|---:|---:|
+| `cartao` (o documento do E7 e do E8) | 67% | 93% | 79% | 98% |
+| `cartao_termos` | **73%** | **97%** | 84% | 98% |
+| `cartao_termos_leis` | 73% | 97% | **86%** | **98%** |
+
+- **BM25:** vence `cartao_termos`. Os dois documentos com termos empatam (89 de 92 no recall@10 e 67 de 92 no
+  top-1), e o desempate vai para o mais simples.
+- **Denso:** vence `cartao_termos_leis`. O recall@10 empata nos três (90 de 92), e o top-1 sobe de 73 para 79
+  questões; nos subtemas, de 62% para 72%.
+- **Os termos revisados são o maior ganho da base de conhecimento:** +6 pontos no top-1 do BM25 e +5 no denso.
+  As referências legais por extenso somam mais 2 pontos no denso.
+- **Configuração:** `ParametrosSistema.documento_tema_bm25 = "cartao_termos"` e
+  `ParametrosEmbeddings.documento_tema = "cartao_termos_leis"`. Os vetores dos temas foram exportados de novo
+  com esse documento, junto com os dos 2 temas inativos.
+
+## E11b. Fora com embeddings e kNN: resultado (21/10)
+
+Arquivo: `saidas/etapa2/e11b_e12.md`.
+
+| Atributo (8 fora × 92 com tema) | AUC | Intervalo de 90% |
+|---|---:|---|
+| Similaridade máxima baixa | 0,74 | 0,58–0,88 |
+| Margem densa baixa | 0,61 | 0,48–0,73 |
+| Dispersão densa entre as alternativas | 0,61 | 0,43–0,78 |
+| Tema inativo perto do melhor tema | 0,83 | 0,73–0,91 |
+| kNN: mais perto de fora que de tema | 0,54 | 0,40–0,68 |
+| Sem regra forte | 0,57 | 0,45–0,70 |
+| **Logística pré-registrada** (atributos 1, 3 e 5), fora da amostra | **0,61** | 0,42–0,78 |
+
+- **Decisão, pelo critério pré-registrado:** o fora **não é separável** (AUC fora da amostra de 0,61, abaixo
+  de 0,7). Vale o plano B da ADR-023:
+  - P(fora) fica igual à taxa da folha, Beta(8,5; 92,5);
+  - só se publica onde a folha mostrar taxa de fora compatível com 95%.
+- **As regras fortes não protegem do fora:** 6 das 8 questões fora têm artigo no mapa ou termo `forte`.
+- **Achado exploratório, fora da regra:** a proximidade com um tema inativo, isolada, chega a uma AUC de 0,83.
+  - Ela não entrou na logística pré-registrada e foi medida em só 8 positivos, então não muda a decisão.
+  - Ela já está prevista como regra na ADR-023 (decisão 2, "tema inativo"). Entra como sinal de `revisar`, que
+    só pode custar cobertura, e não precisão. O limiar será escolhido na validação cruzada do ranqueador.
+- **O kNN não ajuda no fora:** as questões fora da folha não se parecem entre si.
+
+## E12. Deriva entre antigas e novas: resultado (21/10)
+
+| Atributo (259 antigas avaliadas × 300 novas) | AUC nova × antiga | Intervalo de 90% | Medianas (antigas → novas) |
+|---|---:|---|---|
+| Similaridade máxima | 0,58 | 0,54–0,62 | 0,699 → 0,718 |
+| Margem densa | 0,51 | 0,47–0,56 | 0,035 → 0,037 |
+| Dispersão densa | 0,49 | 0,45–0,53 | 0,40 → 0,40 |
+| BM25 máximo | 0,49 | 0,45–0,53 | 43,8 → 43,6 |
+| Tamanho em tokens | 0,40 | 0,36–0,44 | 251 → 210 |
+
+- **Decisão, pelo critério pré-registrado:** **não há deriva.**
+  - Na similaridade máxima, o intervalo exclui 0,5, mas o efeito (|0,58 − 0,5| = 0,08) fica abaixo de 0,1.
+  - Na margem, não há diferença.
+  - O intervalo da previsão das novas não é alargado por deriva. A cobertura continua informada em separado
+    para antigas e novas (ADR-024).
+- **A diferença está no rótulo de origem, não no conteúdo:**
+  - as novas usam "Direito Penal" no lugar de "Penal" e "Legislação Especial" (variação total de 0,19);
+  - a disciplina do melhor tema denso quase não muda (0,06);
+  - as novas são mais curtas (mediana de 210 tokens, contra 251), citam artigo um pouco menos (12% contra
+    17%) e têm um pouco mais de certo/errado (20% contra 17%).
+- **10 novas são de direito militar,** sem nó na árvore. Ficam com a regra de fora da ADR-023.

@@ -32,16 +32,17 @@
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
   },
   "dados/conhecimento/embeddings/alternativas_ids.json": {
     "sha256": "275f18bf1ff8dd72406bf57bae5cad467039e9d9bd0a911cb240606c33528426",
@@ -51,35 +52,77 @@
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
   },
-  "dados/conhecimento/embeddings/modelo.json": {
-    "sha256": "badfa549c35d1d7e22b95a04962ba9f37489117bf639d739d12892a3b517eac0",
+  "dados/conhecimento/embeddings/inativos.npy": {
+    "sha256": "1bbd75075a1c599972d376ecb4eae93fce13cc6d0bf416aec0b724b85d4e8075",
     "origem": "embedding",
     "comando": "uv run python executar_embeddings.py",
     "detalhes": {
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
+  },
+  "dados/conhecimento/embeddings/inativos_ids.json": {
+    "sha256": "c8996a9ea2606c8920e097201cca61f9d43625324740c9fc57cbbf09ac225d9d",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
+    },
+    "atualizado_em": "2026-10-21T07:21:01"
+  },
+  "dados/conhecimento/embeddings/modelo.json": {
+    "sha256": "b1d83b13d6d2e224060866344eee573eda26d530855193d0a8b1f9d6290f31fc",
+    "origem": "embedding",
+    "comando": "uv run python executar_embeddings.py",
+    "detalhes": {
+      "contexto_tokens": "8192",
+      "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
+      "dimensao": "2560",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
+      "modelo": "qwen3-embedding:4b",
+      "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
+      "prefixo_documento": "",
+      "provedor": "ollama",
+      "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
+      "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
+    },
+    "atualizado_em": "2026-10-21T07:21:01"
   },
   "dados/conhecimento/embeddings/questoes.npy": {
     "sha256": "25346ec93bb0c3d530c7d078deddaf27a906751f74de24be08040fce9f41c532",
@@ -89,16 +132,17 @@
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
   },
   "dados/conhecimento/embeddings/questoes_ids.json": {
     "sha256": "3a6305164afc98efb84ebcc81c9a17a74b81033c41db9b047b9f0a8c8b51f3c8",
@@ -108,35 +152,37 @@
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
   },
   "dados/conhecimento/embeddings/temas.npy": {
-    "sha256": "71c892e1f24d2105dbf191263960da45816f8fc5b9449a72399c4f2dc11a07a8",
+    "sha256": "c4566afc4eda860d7e50c6372149a6a4bb686886edc7d291b3ac83b4268b1415",
     "origem": "embedding",
     "comando": "uv run python executar_embeddings.py",
     "detalhes": {
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
   },
   "dados/conhecimento/embeddings/temas_ids.json": {
     "sha256": "7ec9258954cb65eedad05f842fd9d6302d3fd0a93fde6e8a53b772a1856af678",
@@ -146,16 +192,17 @@
       "contexto_tokens": "8192",
       "digest": "df5bd2e3c74cd8d069d21dc038f1b359fcdc9458fce1c99bd43c9eb1518ff907",
       "dimensao": "2560",
-      "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+      "documento_tema": "cartao_termos_leis (TemaBase.texto, dados/conhecimento/temas.jsonl)",
       "modelo": "qwen3-embedding:4b",
       "prefixo_consulta": "Instruct: Given a Brazilian criminal law exam question, retrieve the syllabus topic it assesses\nQuery: ",
       "prefixo_documento": "",
       "provedor": "ollama",
       "sha256_textos_alternativas": "009b3a6c1179eae947947d96726a9af5eecb0fcd85db3a6466031de4aa3c3aca",
+      "sha256_textos_inativos": "9de20e99529077d251af1f68b8e0973500242a5eab9d47fb1a53644bb7679f14",
       "sha256_textos_questoes": "df219795bce0366a5b0525aa933706df64be17374bb537981f56e7af97c826fa",
-      "sha256_textos_temas": "e96eb5c397bfd7fe2246f9e871b219bf816421cd4f07f0a5bbbe8a65b53dcb7c"
+      "sha256_textos_temas": "97737a0db58625f6c5ada0e48ed4df599e955fb8010c9e010372bc1e2c2f97e2"
     },
-    "atualizado_em": "2026-10-20T15:22:18"
+    "atualizado_em": "2026-10-21T07:21:01"
   },
   "dados/conhecimento/mapa_artigos.csv": {
     "sha256": "3a350046e0c35a3e88eae4b927d7238a2d2fa17d1f072e14def8af3e70206e7b",

@@ -1,6 +1,6 @@
 # Experimentos da etapa 2 (folha-verdade)
 
-Gerado em 21/10/2026 06:52. Base: 100 questões da folha-verdade (92 com tema, 8 fora). Régua da etapa 2: tema central, extra, ou pai ou filho de um deles. Nenhum modelo foi chamado.
+Gerado em 21/10/2026 07:21. Base: 100 questões da folha-verdade (92 com tema, 8 fora). Régua da etapa 2: tema central, extra, ou pai ou filho de um deles. Nenhum modelo foi chamado.
 
 | Experimento | Variante | Métrica | Valor | Detalhe |
 |---|---|---|---:|---|
@@ -42,7 +42,7 @@ Gerado em 21/10/2026 06:52. Base: 100 questões da folha-verdade (92 com tema, 8
 | E11 | disciplina de origem fora do recorte | AUC | 0.489 | IC 90%: 0.47–0.50 |
 | E11 | logística: pontuação máxima baixa, margem baixa, dispersão entre alternativas | AUC fora da amostra | 0.537 | IC 90%: 0.35–0.72; 5 partes × 10 repetições |
 
-**E7b, documento de tema no BM25:** vence `cartao_termos` pela regra pré-registrada (maior recall@10; até uma questão de diferença é empate, decidido pelo top-1; depois, a variante mais simples). Documento do BM25 em uso no sistema: `cartao`.
+**E7b, documento de tema no BM25:** vence `cartao_termos` pela regra pré-registrada (maior recall@10; até uma questão de diferença é empate, decidido pelo top-1; depois, a variante mais simples). Documento do BM25 em uso no sistema: `cartao_termos`.
 
 ## E11: atributos das questões fora × mediana das questões com tema
 
