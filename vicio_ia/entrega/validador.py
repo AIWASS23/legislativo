@@ -50,9 +50,25 @@ class ValidadorEntrega:
         ]
         problemas: list[str] = []
         linhas: list[dict[str, str]] = self._ler_csv(problemas)
-        publicadas: int = self._checar_csv(linhas, ids_questoes, publicaveis, problemas)
-        self._checar_previsao(publicadas, len(ids_questoes), problemas)
+        self._checar_csv(linhas, ids_questoes, publicaveis, problemas)
+        folha: set[str] = self._ids_folha()
+        avaliadas: list[str] = [i for i in ids_questoes if i not in folha]
+        publicadas: int = sum(1 for linha in linhas if linha["decisao"] == "publicar" and linha["id"] not in folha)
+        self._checar_previsao(publicadas, len(avaliadas), problemas)
         return problemas
+
+    def _ids_folha(self) -> set[str]:
+        """IDs da folha-verdade, que não entram na avaliação nem na cobertura (etapa 2).
+
+        Returns:
+            IDs da folha (vazio na etapa 1, que não tem folha).
+        """
+        arquivo_folha: Path = self._caminhos.folha_verdade
+        if not arquivo_folha.is_file():
+            return set()
+        arquivo: TextIO
+        with arquivo_folha.open(encoding="utf-8", newline="") as arquivo:
+            return {linha["id"].strip() for linha in csv.DictReader(arquivo)}
 
     def _ler_csv(self, problemas: list[str]) -> list[dict[str, str]]:
         """Lê o ``publicacao.csv``.
@@ -83,7 +99,7 @@ class ValidadorEntrega:
 
         Args:
             linhas: Linhas lidas.
-            ids_questoes: IDs das 359 questões.
+            ids_questoes: IDs de todas as questões dos anexos.
             publicaveis: IDs de temas publicáveis.
             problemas: Acumulador de problemas.
 
@@ -134,7 +150,7 @@ class ValidadorEntrega:
 
         Args:
             publicadas: Publicadas no CSV.
-            total: Total de questões.
+            total: Total de questões avaliadas (fora da folha-verdade, na etapa 2).
             problemas: Acumulador de problemas.
         """
         arquivo: Path = self._caminhos.entregaveis / "previsao.txt"

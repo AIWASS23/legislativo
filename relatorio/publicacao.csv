@@ -1,360 +1,660 @@
 id,decisao,tema_central_id,extras_ids,confianca,motivo
-Q0001,publicar,5524,,0.98,
-Q0002,revisar,4378,,0.85,"baixa confiança (P = 0,85)"
-Q0003,revisar,5562,5534,0.58,verificador sugere 5534
-Q0004,revisar,5480,,0.95,"baixa confiança (P = 0,95)"
-Q0005,revisar,5199,5203,0.81,"baixa confiança (P = 0,81)"
-Q0006,revisar,5157,,0.95,"baixa confiança (P = 0,95)"
-Q0007,revisar,5063,5468,0.53,verificador sugere 5468
-Q0008,revisar,5201,4703,0.83,"baixa confiança (P = 0,83)"
-Q0009,revisar,5158,5159,0.83,"baixa confiança (P = 0,83)"
-Q0010,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
-Q0011,revisar,4702,,0.79,"baixa confiança (P = 0,79)"
-Q0012,revisar,5569,4701;5539;5562,0.83,"baixa confiança (P = 0,83)"
-Q0013,revisar,5503,,0.85,"baixa confiança (P = 0,85)"
-Q0014,publicar,5477,,0.98,
-Q0015,revisar,5498,5500,0.83,"baixa confiança (P = 0,83)"
-Q0016,revisar,5584,,0.85,"baixa confiança (P = 0,85)"
-Q0017,revisar,5533,,0.85,"baixa confiança (P = 0,85)"
-Q0018,revisar,5540,4701,0.77,"baixa confiança (P = 0,77)"
-Q0019,revisar,5475,,0.88,"baixa confiança (P = 0,88)"
-Q0020,revisar,4709,5199;5203,0.59,dúvida entre 4709 e 5199
-Q0021,revisar,5503,,0.85,"baixa confiança (P = 0,85)"
-Q0022,revisar,5089,,0.95,"baixa confiança (P = 0,95)"
-Q0023,publicar,5524,,0.98,
-Q0024,revisar,4387,4388,0.85,"baixa confiança (P = 0,85)"
-Q0025,revisar,5101,5093,0.83,"baixa confiança (P = 0,83)"
-Q0026,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0027,revisar,5488,,0.85,"baixa confiança (P = 0,85)"
-Q0028,revisar,5524,5526,0.83,"baixa confiança (P = 0,83)"
-Q0029,revisar,4684,,0.79,"baixa confiança (P = 0,79)"
-Q0030,revisar,5135,5128,0.85,"baixa confiança (P = 0,85)"
-Q0031,revisar,4387,4388,0.85,"baixa confiança (P = 0,85)"
-Q0032,revisar,5497,5500,0.85,"baixa confiança (P = 0,85)"
-Q0033,publicar,5519,,0.98,
-Q0034,publicar,5477,,0.98,
-Q0035,publicar,4706,,0.98,
-Q0036,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0037,revisar,5118,5132;5128,0.59,dúvida entre 5118 e 5132
-Q0038,revisar,5549,5583,0.58,dúvida entre 5549 e 5583
-Q0039,publicar,4687,4694,0.98,
-Q0040,revisar,5562,,0.95,"baixa confiança (P = 0,95)"
-Q0041,publicar,5184,,0.98,
-Q0042,revisar,5222,,0.85,"baixa confiança (P = 0,85)"
-Q0043,revisar,5199,,0.95,"baixa confiança (P = 0,95)"
-Q0044,revisar,5488,5583,0.85,"baixa confiança (P = 0,85)"
-Q0045,revisar,5091,,0.95,"baixa confiança (P = 0,95)"
-Q0046,publicar,5510,,0.98,
-Q0047,revisar,5164,,0.95,"baixa confiança (P = 0,95)"
-Q0048,revisar,5193,4703,0.85,"baixa confiança (P = 0,85)"
-Q0049,publicar,5152,,0.98,
-Q0050,revisar,4708,5557,0.47,verificador sugere 5557
-Q0051,publicar,5182,,0.98,
-Q0052,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0053,revisar,5541,4701,0.88,"baixa confiança (P = 0,88)"
-Q0054,publicar,5174,,0.98,
-Q0055,revisar,5550,,0.95,"baixa confiança (P = 0,95)"
-Q0056,publicar,5066,,0.98,
-Q0057,publicar,5176,,0.98,
-Q0058,publicar,4378,4390,0.98,
-Q0059,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
-Q0060,revisar,5087,,0.95,"baixa confiança (P = 0,95)"
-Q0061,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0062,publicar,5182,,0.98,
-Q0063,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0064,revisar,5165,4695,0.83,"baixa confiança (P = 0,83)"
-Q0065,revisar,5161,,0.95,"baixa confiança (P = 0,95)"
-Q0066,publicar,4373,,0.98,
-Q0067,revisar,5091,,0.95,"baixa confiança (P = 0,95)"
-Q0068,revisar,5096,5116,0.58,dúvida entre 5096 e 5116
-Q0069,publicar,5173,,0.98,
-Q0070,revisar,5193,4703,0.59,dúvida entre 5193 e 4703
-Q0071,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
-Q0072,revisar,5592,,0.85,"baixa confiança (P = 0,85)"
-Q0073,revisar,5087,5079;5147,0.95,"baixa confiança (P = 0,95)"
-Q0074,revisar,4703,5181,0.47,dúvida entre 4703 e 5181
-Q0075,publicar,5191,,0.98,
-Q0076,publicar,4373,,0.98,
-Q0077,revisar,5170,,0.85,"baixa confiança (P = 0,85)"
-Q0078,revisar,4697,4691,0.85,"baixa confiança (P = 0,85)"
-Q0079,publicar,5581,,0.98,
-Q0080,publicar,4370,,0.98,
-Q0081,publicar,4373,,0.98,
-Q0082,revisar,5100,,0.95,"baixa confiança (P = 0,95)"
-Q0083,revisar,5224,,0.85,"baixa confiança (P = 0,85)"
-Q0084,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0085,revisar,5076,,0.85,"baixa confiança (P = 0,85)"
-Q0086,revisar,5092,,0.95,"baixa confiança (P = 0,95)"
-Q0087,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0088,publicar,4389,,0.98,
-Q0089,revisar,5172,5227,0.85,"baixa confiança (P = 0,85)"
-Q0090,revisar,5530,,0.83,questão cobre vários temas: 5530
-Q0091,revisar,4703,5201,0.68,"baixa confiança (P = 0,68)"
-Q0092,revisar,5511,5510,0.85,"baixa confiança (P = 0,85)"
-Q0093,revisar,5223,,0.85,"baixa confiança (P = 0,85)"
-Q0094,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
-Q0095,publicar,5197,,0.98,
-Q0096,revisar,5486,5483,0.83,"baixa confiança (P = 0,83)"
-Q0097,revisar,4708,4705;4702,0.47,dúvida entre 4708 e 4705
-Q0098,revisar,5548,,0.83,"baixa confiança (P = 0,83)"
-Q0099,revisar,5100,,0.95,"baixa confiança (P = 0,95)"
-Q0100,revisar,5224,5103,0.59,dúvida entre 5224 e 5103
-Q0101,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0102,revisar,5572,5209,0.77,"baixa confiança (P = 0,77)"
-Q0103,publicar,5478,,0.98,
-Q0104,revisar,5500,5477,0.59,verificador sugere 5477
-Q0105,revisar,4387,4388,0.85,"baixa confiança (P = 0,85)"
-Q0106,revisar,5166,,0.95,"baixa confiança (P = 0,95)"
-Q0107,revisar,5119,,0.85,"baixa confiança (P = 0,85)"
-Q0108,revisar,5561,,0.95,"baixa confiança (P = 0,95)"
-Q0109,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0110,revisar,5480,,0.95,"baixa confiança (P = 0,95)"
-Q0111,publicar,4373,,0.98,
-Q0112,revisar,4705,,0.79,"baixa confiança (P = 0,79)"
-Q0113,revisar,5186,,0.59,possível fora do recorte
-Q0114,revisar,5507,,0.85,"baixa confiança (P = 0,85)"
-Q0115,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
-Q0116,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0117,revisar,4384,5199,0.77,"baixa confiança (P = 0,77)"
-Q0118,revisar,5507,5181,0.85,"baixa confiança (P = 0,85)"
-Q0119,revisar,5194,5181,0.59,dúvida entre 5194 e 5181
-Q0120,revisar,5533,5547,0.59,dúvida entre 5533 e 5547
-Q0121,revisar,5469,5065;5472,0.77,sobreposição: 5469 × 5065
-Q0122,revisar,4703,5199,0.68,"baixa confiança (P = 0,68)"
-Q0123,revisar,4378,4387,0.59,dúvida entre 4378 e 4387
-Q0124,revisar,4384,5199,0.77,"baixa confiança (P = 0,77)"
-Q0125,revisar,5181,4708,0.85,"baixa confiança (P = 0,85)"
-Q0126,revisar,5182,5213,0.85,"baixa confiança (P = 0,85)"
-Q0127,revisar,5578,4708,0.77,"baixa confiança (P = 0,77)"
-Q0128,revisar,5468,5184,0.77,"baixa confiança (P = 0,77)"
-Q0129,revisar,5550,,0.95,"baixa confiança (P = 0,95)"
-Q0130,revisar,5160,5205,0.83,"baixa confiança (P = 0,83)"
-Q0131,publicar,5072,,0.98,
-Q0132,revisar,5543,5550,0.81,"baixa confiança (P = 0,81)"
-Q0133,publicar,5528,,0.98,
-Q0134,revisar,5092,,0.83,"baixa confiança (P = 0,83)"
-Q0135,revisar,5169,,0.95,"baixa confiança (P = 0,95)"
-Q0136,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0137,revisar,5498,5500,0.83,"baixa confiança (P = 0,83)"
-Q0138,revisar,5199,5205,0.81,"baixa confiança (P = 0,81)"
-Q0139,publicar,5212,,0.98,
-Q0140,revisar,5157,,0.95,"baixa confiança (P = 0,95)"
-Q0141,publicar,4387,4388,0.98,
-Q0142,fora,,,1.00,nenhum tema do recorte serve
-Q0143,revisar,5507,,0.85,"baixa confiança (P = 0,85)"
-Q0144,revisar,5562,,0.83,"baixa confiança (P = 0,83)"
-Q0145,revisar,4702,4695,0.79,"baixa confiança (P = 0,79)"
-Q0146,publicar,5594,,0.98,
-Q0147,publicar,5498,,0.98,
-Q0148,revisar,5203,,0.95,"baixa confiança (P = 0,95)"
-Q0149,publicar,5500,,0.98,
-Q0150,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0151,revisar,5517,,0.85,"baixa confiança (P = 0,85)"
-Q0152,revisar,5472,,0.88,"baixa confiança (P = 0,88)"
-Q0153,revisar,5222,5224,0.85,"baixa confiança (P = 0,85)"
-Q0154,revisar,5135,,0.59,possível fora do recorte
-Q0155,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0156,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
-Q0157,revisar,5520,4693,0.59,dúvida entre 5520 e 4693
-Q0158,publicar,4707,,0.98,
-Q0159,revisar,5226,,0.85,"baixa confiança (P = 0,85)"
-Q0160,revisar,5205,,0.95,"baixa confiança (P = 0,95)"
-Q0161,revisar,5588,5554,0.85,"baixa confiança (P = 0,85)"
-Q0162,revisar,4381,,0.85,"baixa confiança (P = 0,85)"
-Q0163,revisar,5133,4684,0.85,"baixa confiança (P = 0,85)"
-Q0164,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0165,revisar,4705,,0.68,"baixa confiança (P = 0,68)"
-Q0166,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0167,revisar,5528,5486,0.85,"baixa confiança (P = 0,85)"
-Q0168,fora,,,1.00,nenhum tema do recorte serve
-Q0169,revisar,5492,5583,0.59,dúvida entre 5492 e 5583
-Q0170,revisar,5203,,0.83,"baixa confiança (P = 0,83)"
-Q0171,revisar,4693,4699,0.59,possível fora do recorte
-Q0172,revisar,5484,5466;5473,0.58,dúvida entre 5484 e 5466
-Q0173,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0174,revisar,5133,4709,0.59,possível fora do recorte
-Q0175,revisar,5092,5091,0.95,"baixa confiança (P = 0,95)"
-Q0176,publicar,5081,,0.98,
-Q0177,revisar,5547,,0.95,"baixa confiança (P = 0,95)"
-Q0178,publicar,4697,,0.98,
-Q0179,publicar,4369,,0.98,
-Q0180,revisar,5594,5554,0.59,verificador sugere 5554
-Q0181,publicar,4695,4687,0.98,
-Q0182,revisar,5138,,0.59,possível fora do recorte
-Q0183,revisar,5561,,0.83,"baixa confiança (P = 0,83)"
-Q0184,revisar,4708,,0.68,"baixa confiança (P = 0,68)"
-Q0185,revisar,4703,,0.79,"baixa confiança (P = 0,79)"
-Q0186,revisar,5202,,0.95,"baixa confiança (P = 0,95)"
-Q0187,revisar,5209,,0.95,"baixa confiança (P = 0,95)"
-Q0188,publicar,5229,,0.98,
-Q0189,revisar,5469,5472,0.53,dúvida entre 5469 e 5472
-Q0190,revisar,4701,5539;5540,0.53,dúvida entre 4701 e 5539
-Q0191,revisar,5560,,0.95,"baixa confiança (P = 0,95)"
-Q0192,revisar,5087,,0.95,"baixa confiança (P = 0,95)"
-Q0193,revisar,5557,4705,0.77,"baixa confiança (P = 0,77)"
-Q0194,revisar,5076,,0.85,"baixa confiança (P = 0,85)"
-Q0195,publicar,4373,,0.98,
-Q0196,revisar,4387,,0.85,"baixa confiança (P = 0,85)"
-Q0197,revisar,5482,5500,0.58,dúvida entre 5482 e 5500
-Q0198,publicar,5073,5072,0.98,
-Q0199,revisar,5218,,0.59,possível fora do recorte
-Q0200,revisar,4705,,0.79,"baixa confiança (P = 0,79)"
-Q0201,publicar,5103,,0.98,
-Q0202,revisar,5224,5109,0.59,dúvida entre 5224 e 5109
-Q0203,revisar,4702,,0.79,"baixa confiança (P = 0,79)"
-Q0204,revisar,5507,,0.85,"baixa confiança (P = 0,85)"
-Q0205,revisar,5512,5560;5567,0.59,dúvida entre 5512 e 5560
-Q0206,revisar,5583,5466,0.85,"baixa confiança (P = 0,85)"
-Q0207,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0208,publicar,5072,,0.98,
-Q0209,revisar,5499,5582,0.59,dúvida entre 5499 e 5582
-Q0210,publicar,4697,,0.98,
-Q0211,revisar,5583,,0.59,possível fora do recorte
-Q0212,publicar,5488,,0.98,
-Q0213,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0214,publicar,5494,,0.98,
-Q0215,revisar,5201,,0.83,"baixa confiança (P = 0,83)"
-Q0216,revisar,4701,5539,0.53,verificador sugere 5539
-Q0217,revisar,4372,4373;4384,0.59,dúvida entre 4372 e 4373
-Q0218,revisar,5518,,0.85,"baixa confiança (P = 0,85)"
-Q0219,revisar,5072,5074,0.85,"baixa confiança (P = 0,85)"
-Q0220,publicar,5501,,0.98,
-Q0221,revisar,5199,5200;5184,0.81,"baixa confiança (P = 0,81)"
-Q0222,revisar,4375,5171;4376,0.59,verificador sugere 5171
-Q0223,revisar,5086,,0.85,"baixa confiança (P = 0,85)"
-Q0224,revisar,5199,4686,0.95,"baixa confiança (P = 0,95)"
-Q0225,publicar,5478,,0.98,
-Q0226,revisar,5544,,0.95,"baixa confiança (P = 0,95)"
-Q0227,revisar,5103,4709,0.85,"baixa confiança (P = 0,85)"
-Q0228,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0229,revisar,5584,5517;5519,0.59,dúvida entre 5584 e 5517
-Q0230,revisar,5214,5184,0.85,"baixa confiança (P = 0,85)"
-Q0231,publicar,5224,,0.98,
-Q0232,publicar,5079,,0.98,
-Q0233,publicar,5178,,0.98,
-Q0234,revisar,4382,4381,0.85,"baixa confiança (P = 0,85)"
-Q0235,revisar,5561,,0.83,"baixa confiança (P = 0,83)"
-Q0236,revisar,5490,5582,0.59,possível fora do recorte
-Q0237,publicar,5178,,0.98,
-Q0238,revisar,5523,,0.85,"baixa confiança (P = 0,85)"
-Q0239,revisar,5199,,0.95,"baixa confiança (P = 0,95)"
-Q0240,revisar,5473,5500,0.53,dúvida entre 5473 e 5500
-Q0241,publicar,5224,,0.98,
-Q0242,revisar,5512,,0.85,"baixa confiança (P = 0,85)"
-Q0243,revisar,5178,,0.85,"baixa confiança (P = 0,85)"
-Q0244,revisar,5091,5092,0.83,"baixa confiança (P = 0,83)"
-Q0245,publicar,5185,,0.98,
-Q0246,publicar,5527,,0.98,
-Q0247,publicar,5502,,0.98,
-Q0248,revisar,5087,,0.95,"baixa confiança (P = 0,95)"
-Q0249,revisar,5492,5583,0.59,dúvida entre 5492 e 5583
-Q0250,revisar,5201,,0.95,"baixa confiança (P = 0,95)"
-Q0251,publicar,5191,,0.98,
-Q0252,revisar,5199,4703,0.58,dúvida entre 5199 e 4703
-Q0253,publicar,4373,,0.98,
-Q0254,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0255,publicar,5213,,0.98,
-Q0256,revisar,5224,,0.59,possível fora do recorte
-Q0257,publicar,5218,,0.98,
-Q0258,revisar,5545,5546,0.83,"baixa confiança (P = 0,83)"
-Q0259,revisar,5183,,0.85,"baixa confiança (P = 0,85)"
-Q0260,revisar,4376,4370,0.59,possível fora do recorte
-Q0261,revisar,5136,,0.85,"baixa confiança (P = 0,85)"
-Q0262,revisar,4703,5184,0.68,"baixa confiança (P = 0,68)"
-Q0263,revisar,5492,5583,0.59,dúvida entre 5492 e 5583
-Q0264,publicar,5102,,0.98,
-Q0265,revisar,5186,,0.85,"baixa confiança (P = 0,85)"
-Q0266,revisar,5482,5486,0.95,"baixa confiança (P = 0,95)"
-Q0267,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0268,revisar,5118,4684;5120,0.98,questão cobre vários temas: 5118; 4684; 5120
-Q0269,revisar,4375,4368,0.59,dúvida entre 4375 e 4368
-Q0270,revisar,5091,5092,0.95,"baixa confiança (P = 0,95)"
-Q0271,revisar,5562,5515,0.58,dúvida entre 5562 e 5515
-Q0272,revisar,4703,,0.68,"baixa confiança (P = 0,68)"
-Q0273,revisar,5089,,0.83,"baixa confiança (P = 0,83)"
-Q0274,revisar,5160,,0.95,"baixa confiança (P = 0,95)"
-Q0275,revisar,5540,4701;5488,0.53,dúvida entre 5540 e 4701
-Q0276,revisar,5543,,0.95,"baixa confiança (P = 0,95)"
-Q0277,revisar,4696,,0.68,"baixa confiança (P = 0,68)"
-Q0278,revisar,5542,4701,0.77,sobreposição: 5542 × 4701
-Q0279,revisar,5188,5186,0.85,"baixa confiança (P = 0,85)"
-Q0280,revisar,5120,5466,0.59,dúvida entre 5120 e 5466
-Q0281,revisar,5543,,0.95,"baixa confiança (P = 0,95)"
-Q0282,revisar,4704,4690;4697,0.47,possível fora do recorte
-Q0283,revisar,5496,,0.85,"baixa confiança (P = 0,85)"
-Q0284,revisar,5224,5231,0.85,"baixa confiança (P = 0,85)"
-Q0285,publicar,4376,,0.98,
-Q0286,revisar,5199,,0.95,"baixa confiança (P = 0,95)"
-Q0287,revisar,5229,5230,0.85,"baixa confiança (P = 0,85)"
-Q0288,revisar,5103,4688;4695;5068,0.59,possível fora do recorte
-Q0289,revisar,4704,,0.79,"baixa confiança (P = 0,79)"
-Q0290,revisar,4701,5539,0.53,verificador sugere 5539
-Q0291,revisar,4708,5500,0.47,verificador sugere 5500
-Q0292,publicar,4374,4368,0.98,
-Q0293,revisar,5185,5189,0.83,"baixa confiança (P = 0,83)"
-Q0294,publicar,5211,,0.98,
-Q0295,publicar,5489,,0.98,
-Q0296,revisar,5472,,0.88,"baixa confiança (P = 0,88)"
-Q0297,revisar,4695,4689,0.59,possível fora do recorte
-Q0298,publicar,4687,4695,0.98,
-Q0299,revisar,4387,,0.98,questão cobre vários temas: 4387
-Q0300,revisar,5084,,0.85,"baixa confiança (P = 0,85)"
-Q0301,publicar,5197,,0.98,
-Q0302,revisar,5224,5222,0.85,"baixa confiança (P = 0,85)"
-Q0303,publicar,5180,,0.98,
-Q0304,revisar,5540,4701,0.77,"baixa confiança (P = 0,77)"
-Q0305,revisar,5466,,0.88,"baixa confiança (P = 0,88)"
-Q0306,revisar,5146,,0.85,"baixa confiança (P = 0,85)"
-Q0307,publicar,4707,,0.98,
-Q0308,publicar,5501,,0.98,
-Q0309,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
-Q0310,revisar,5505,,0.85,"baixa confiança (P = 0,85)"
-Q0311,revisar,5488,,0.85,"baixa confiança (P = 0,85)"
-Q0312,revisar,4384,,0.88,"baixa confiança (P = 0,88)"
-Q0313,revisar,5209,5475,0.83,"baixa confiança (P = 0,83)"
-Q0314,publicar,5477,,0.98,
-Q0315,publicar,5189,5187,0.98,
-Q0316,revisar,5224,,0.85,"baixa confiança (P = 0,85)"
-Q0317,revisar,5198,5064,0.53,dúvida entre 5198 e 5064
-Q0318,publicar,5178,,0.98,
-Q0319,revisar,5073,5072,0.85,"baixa confiança (P = 0,85)"
-Q0320,revisar,5550,,0.95,"baixa confiança (P = 0,95)"
-Q0321,publicar,5071,,0.98,
-Q0322,revisar,5569,5561,0.58,dúvida entre 5569 e 5561
-Q0323,revisar,5590,5543,0.85,"baixa confiança (P = 0,85)"
-Q0324,revisar,5199,4703;5184,0.95,"baixa confiança (P = 0,95)"
-Q0325,revisar,5467,5531;4704;4688,0.53,verificador sugere 5531
-Q0326,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0327,revisar,5203,,0.95,"baixa confiança (P = 0,95)"
-Q0328,revisar,4374,4381;4382,0.59,dúvida entre 4374 e 4381
-Q0329,revisar,5557,4705,0.77,"baixa confiança (P = 0,77)"
-Q0330,revisar,5498,5501,0.83,"baixa confiança (P = 0,83)"
-Q0331,publicar,5477,,0.98,
-Q0332,revisar,5541,,0.88,"baixa confiança (P = 0,88)"
-Q0333,revisar,4373,,0.98,questão cobre vários temas: 4373
-Q0334,publicar,4381,,0.98,
-Q0335,publicar,5218,,0.98,
-Q0336,revisar,5159,,0.95,"baixa confiança (P = 0,95)"
-Q0337,revisar,4684,,0.79,"baixa confiança (P = 0,79)"
-Q0338,revisar,5595,5543,0.59,verificador sugere 5543
-Q0339,revisar,5572,,0.88,"baixa confiança (P = 0,88)"
-Q0340,publicar,5071,,0.98,
-Q0341,revisar,5157,,0.95,"baixa confiança (P = 0,95)"
-Q0342,revisar,5546,5545,0.83,"baixa confiança (P = 0,83)"
-Q0343,revisar,5195,5065,0.59,dúvida entre 5195 e 5065
-Q0344,revisar,4688,,0.79,"baixa confiança (P = 0,79)"
-Q0345,revisar,5102,5103,0.83,"baixa confiança (P = 0,83)"
-Q0346,revisar,5583,4694,0.85,"baixa confiança (P = 0,85)"
-Q0347,revisar,5207,,0.58,possível fora do recorte
-Q0348,revisar,5093,,0.95,"baixa confiança (P = 0,95)"
-Q0349,revisar,5178,,0.85,"baixa confiança (P = 0,85)"
-Q0350,revisar,4702,,0.79,"baixa confiança (P = 0,79)"
-Q0351,publicar,5118,,0.98,
-Q0352,revisar,5512,,0.85,"baixa confiança (P = 0,85)"
-Q0353,revisar,5535,,0.85,"baixa confiança (P = 0,85)"
-Q0354,revisar,5218,5220,0.83,"baixa confiança (P = 0,83)"
-Q0355,revisar,4708,,0.79,"baixa confiança (P = 0,79)"
-Q0356,publicar,5066,,0.98,
-Q0357,revisar,5135,,0.85,"baixa confiança (P = 0,85)"
-Q0358,revisar,5133,,0.85,"baixa confiança (P = 0,85)"
-Q0359,revisar,4696,4701,0.79,"baixa confiança (P = 0,79)"
+Q0001,revisar,5527,5528,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 5528
+Q0002,revisar,4388,4377,0.683,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0003,revisar,5560,,0.414,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0004,publicar,5480,,0.947,
+Q0005,revisar,5203,,0.824,confiança 0.824 abaixo do limiar de publicação (limiar 0.929); outra opção: 5201
+Q0006,revisar,5159,5160,0.875,confiança 0.875 abaixo do limiar de publicação (limiar 0.929); outra opção: 5160
+Q0007,revisar,5470,5063;5468,0.867,confiança 0.867 abaixo do limiar de publicação (limiar 0.929); outra opção: 5063
+Q0008,revisar,5088,5089,0.855,confiança 0.855 abaixo do limiar de publicação (limiar 0.929); outra opção: 5089
+Q0009,publicar,5159,,0.962,
+Q0010,revisar,4688,,0.914,confiança 0.914 abaixo do limiar de publicação (limiar 0.929); outra opção: 5223
+Q0011,revisar,4702,,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 4700
+Q0012,revisar,5531,,0.586,confiança 0.586 abaixo do limiar de publicação (limiar 0.929); outra opção: 5561
+Q0013,revisar,5503,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5581
+Q0014,revisar,5184,,0.394,confiança 0.394 abaixo do limiar de publicação (limiar 0.929); outra opção: 5111
+Q0015,publicar,5500,5499;5501;5503,0.944,
+Q0016,revisar,5517,5584,0.776,confiança 0.776 abaixo do limiar de publicação (limiar 0.929); outra opção: 5584
+Q0017,revisar,5473,,0.659,confiança 0.659 abaixo do limiar de publicação (limiar 0.929); outra opção: 5533
+Q0018,revisar,5540,,0.880,confiança 0.880 abaixo do limiar de publicação (limiar 0.929); outra opção: 5480
+Q0019,publicar,5475,,0.953,
+Q0020,revisar,5102,,0.255,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0021,revisar,5498,,0.677,confiança 0.677 abaixo do limiar de publicação (limiar 0.929); outra opção: 5528
+Q0022,revisar,5087,,0.702,confiança 0.702 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0023,publicar,5528,5527;5529;5526,0.947,
+Q0024,revisar,4388,4387,0.821,confiança 0.821 abaixo do limiar de publicação (limiar 0.929); outra opção: 4387
+Q0025,revisar,5093,5092,0.877,confiança 0.877 abaixo do limiar de publicação (limiar 0.929); outra opção: 5092
+Q0026,revisar,4704,,0.910,confiança 0.910 abaixo do limiar de publicação (limiar 0.929); outra opção: 5131
+Q0027,revisar,5487,,0.628,confiança 0.628 abaixo do limiar de publicação (limiar 0.929); outra opção: 5530
+Q0028,revisar,5487,5530,0.834,confiança 0.834 abaixo do limiar de publicação (limiar 0.929); outra opção: 5530
+Q0029,revisar,4684,,0.865,confiança 0.865 abaixo do limiar de publicação (limiar 0.929); outra opção: 5085
+Q0030,revisar,5135,,0.919,confiança 0.919 abaixo do limiar de publicação (limiar 0.929); outra opção: 5128
+Q0031,publicar,4387,4386;4388,0.938,
+Q0032,revisar,5500,5499;5504,0.631,confiança 0.631 abaixo do limiar de publicação (limiar 0.929); outra opção: 5499
+Q0033,revisar,5519,,0.857,confiança 0.857 abaixo do limiar de publicação (limiar 0.929); outra opção: 5588
+Q0034,revisar,5477,,0.929,confiança 0.929 abaixo do limiar de publicação (limiar 0.929); outra opção: 5479
+Q0035,publicar,4706,,0.946,
+Q0036,revisar,4704,,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5077
+Q0037,revisar,5132,,0.717,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0038,revisar,5549,,0.757,confiança 0.757 abaixo do limiar de publicação (limiar 0.929); outra opção: 5583
+Q0039,revisar,4694,,0.507,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0040,publicar,5562,,0.955,
+Q0041,publicar,5184,,0.941,
+Q0042,revisar,5218,,0.858,confiança 0.858 abaixo do limiar de publicação (limiar 0.929); outra opção: 5211
+Q0043,revisar,5201,5206;5204;5207,0.869,confiança 0.869 abaixo do limiar de publicação (limiar 0.929); outra opção: 5206
+Q0044,revisar,5488,,0.694,confiança 0.694 abaixo do limiar de publicação (limiar 0.929); outra opção: 5489
+Q0045,revisar,5091,,0.779,confiança 0.779 abaixo do limiar de publicação (limiar 0.929); outra opção: 5092
+Q0046,revisar,5509,,0.892,confiança 0.892 abaixo do limiar de publicação (limiar 0.929); outra opção: 5490
+Q0047,publicar,5164,,0.954,
+Q0048,revisar,5193,,0.746,confiança 0.746 abaixo do limiar de publicação (limiar 0.929); outra opção: 5205
+Q0049,revisar,5152,,0.898,confiança 0.898 abaixo do limiar de publicação (limiar 0.929); outra opção: 5138
+Q0050,revisar,5557,,0.823,confiança 0.823 abaixo do limiar de publicação (limiar 0.929); outra opção: 4708
+Q0051,revisar,5182,,0.642,confiança 0.642 abaixo do limiar de publicação (limiar 0.929); outra opção: 5506
+Q0052,revisar,4703,,0.914,confiança 0.914 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0053,revisar,5569,4701;5541,0.787,confiança 0.787 abaixo do limiar de publicação (limiar 0.929); outra opção: 4701
+Q0054,revisar,5174,,0.795,confiança 0.795 abaixo do limiar de publicação (limiar 0.929); outra opção: 5146
+Q0055,revisar,5535,5550,0.894,confiança 0.894 abaixo do limiar de publicação (limiar 0.929); outra opção: 5550
+Q0056,publicar,5066,,0.947,
+Q0057,publicar,5176,5177,0.955,
+Q0058,revisar,4379,4378,0.717,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0059,revisar,5201,5584,0.521,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0060,revisar,5087,,0.929,confiança 0.929 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0061,publicar,4703,,0.942,
+Q0062,revisar,5180,,0.597,confiança 0.597 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0063,revisar,4704,,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 5540
+Q0064,revisar,5166,,0.502,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0065,revisar,5161,,0.879,confiança 0.879 abaixo do limiar de publicação (limiar 0.929); outra opção: 5132
+Q0066,revisar,4373,,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 4372
+Q0067,revisar,5087,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0068,revisar,5103,,0.620,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0069,publicar,5173,,0.933,
+Q0070,revisar,5201,,0.513,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0071,revisar,4688,,0.887,confiança 0.887 abaixo do limiar de publicação (limiar 0.929); outra opção: 5126
+Q0072,revisar,5592,5593,0.718,confiança 0.718 abaixo do limiar de publicação (limiar 0.929); outra opção: 5593
+Q0073,revisar,5087,,0.899,confiança 0.899 abaixo do limiar de publicação (limiar 0.929); outra opção: 5147
+Q0074,revisar,5182,,0.505,confiança 0.505 abaixo do limiar de publicação (limiar 0.929); outra opção: 5181
+Q0075,revisar,5191,,0.852,confiança 0.852 abaixo do limiar de publicação (limiar 0.929); outra opção: 5186
+Q0076,revisar,4381,4382,0.799,confiança 0.799 abaixo do limiar de publicação (limiar 0.929); outra opção: 4382
+Q0077,revisar,5102,,0.423,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0078,publicar,4697,,0.941,
+Q0079,publicar,5581,,0.955,
+Q0080,revisar,4370,,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 4388
+Q0081,publicar,4373,,0.941,
+Q0082,publicar,5100,,0.949,
+Q0083,revisar,5150,,0.732,confiança 0.732 abaixo do limiar de publicação (limiar 0.929); outra opção: 5151
+Q0084,revisar,4704,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5131
+Q0085,revisar,5087,,0.657,confiança 0.657 abaixo do limiar de publicação (limiar 0.929); outra opção: 5071
+Q0086,revisar,5087,,0.827,confiança 0.827 abaixo do limiar de publicação (limiar 0.929); outra opção: 5147
+Q0087,revisar,4703,5521,0.742,confiança 0.742 abaixo do limiar de publicação (limiar 0.929); outra opção: 5521
+Q0088,revisar,4390,,0.550,confiança 0.550 abaixo do limiar de publicação (limiar 0.929); outra opção: 4381
+Q0089,publicar,5172,,0.948,
+Q0090,revisar,5532,5531;5536,0.768,confiança 0.768 abaixo do limiar de publicação (limiar 0.929); outra opção: 5531
+Q0091,revisar,4703,,0.640,confiança 0.640 abaixo do limiar de publicação (limiar 0.929); outra opção: 5201
+Q0092,revisar,5511,,0.855,confiança 0.855 abaixo do limiar de publicação (limiar 0.929); outra opção: 5490
+Q0093,revisar,5142,,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 5218
+Q0094,revisar,4387,4373,0.780,confiança 0.780 abaixo do limiar de publicação (limiar 0.929); outra opção: 4373
+Q0095,revisar,5197,,0.825,confiança 0.825 abaixo do limiar de publicação (limiar 0.929); outra opção: 5150
+Q0096,revisar,5483,5486;5481,0.916,confiança 0.916 abaixo do limiar de publicação (limiar 0.929); outra opção: 5486
+Q0097,revisar,4708,,0.920,confiança 0.920 abaixo do limiar de publicação (limiar 0.929); outra opção: 4705
+Q0098,revisar,5548,,0.928,confiança 0.928 abaixo do limiar de publicação (limiar 0.929); outra opção: 5233
+Q0099,revisar,5100,,0.801,confiança 0.801 abaixo do limiar de publicação (limiar 0.929); outra opção: 5233
+Q0100,revisar,5103,,0.852,confiança 0.852 abaixo do limiar de publicação (limiar 0.929); outra opção: 5109
+Q0101,revisar,4704,,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 5151
+Q0102,revisar,5577,5209,0.903,confiança 0.903 abaixo do limiar de publicação (limiar 0.929); outra opção: 5209
+Q0103,revisar,5478,,0.830,confiança 0.830 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0104,revisar,5500,,0.917,confiança 0.917 abaixo do limiar de publicação (limiar 0.929); outra opção: 5504
+Q0105,revisar,4378,,0.570,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0106,revisar,5166,,0.653,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0107,revisar,5119,,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 5110
+Q0108,revisar,5567,5566;5561;5512,0.773,confiança 0.773 abaixo do limiar de publicação (limiar 0.929); outra opção: 5566
+Q0109,revisar,4708,,0.762,confiança 0.762 abaixo do limiar de publicação (limiar 0.929); outra opção: 5190
+Q0110,revisar,5480,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5506
+Q0111,publicar,4373,4372,0.945,
+Q0112,publicar,4705,,0.932,
+Q0113,revisar,5186,5190;5187,0.586,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0114,revisar,5582,,0.342,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0115,revisar,4387,4388;4386,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 4388
+Q0116,revisar,4708,,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5558
+Q0117,revisar,4384,,0.846,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0118,revisar,5505,,0.633,confiança 0.633 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0119,revisar,5181,,0.839,confiança 0.839 abaixo do limiar de publicação (limiar 0.929); outra opção: 5194
+Q0120,revisar,5595,5582,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0121,publicar,5065,5472;5469;5474,0.949,
+Q0122,revisar,4703,,0.692,confiança 0.692 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0123,revisar,4377,,0.644,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0124,publicar,4384,,0.943,
+Q0125,revisar,4708,,0.545,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0126,revisar,5218,5182;5213;5076,0.653,confiança 0.653 abaixo do limiar de publicação (limiar 0.929); outra opção: 5182
+Q0127,revisar,5580,,0.510,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0128,revisar,5184,,0.598,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0129,revisar,5550,,0.731,confiança 0.731 abaixo do limiar de publicação (limiar 0.929); outra opção: 5549
+Q0130,revisar,5160,,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 5205
+Q0131,publicar,5072,,0.938,
+Q0132,revisar,5549,,0.444,confiança 0.444 abaixo do limiar de publicação (limiar 0.929); outra opção: 5550
+Q0133,revisar,5528,5525;5527;5526,0.904,confiança 0.904 abaixo do limiar de publicação (limiar 0.929); outra opção: 5525
+Q0134,revisar,5087,,0.726,confiança 0.726 abaixo do limiar de publicação (limiar 0.929); outra opção: 5108
+Q0135,publicar,5169,,0.936,
+Q0136,revisar,4704,,0.897,confiança 0.897 abaixo do limiar de publicação (limiar 0.929); outra opção: 5114
+Q0137,revisar,5500,,0.742,confiança 0.742 abaixo do limiar de publicação (limiar 0.929); outra opção: 5501
+Q0138,revisar,5205,5207,0.926,confiança 0.926 abaixo do limiar de publicação (limiar 0.929); outra opção: 5207
+Q0139,revisar,5212,5217;5213;5214,0.912,confiança 0.912 abaixo do limiar de publicação (limiar 0.929); outra opção: 5217
+Q0140,publicar,5159,5160,0.941,
+Q0141,revisar,4388,4387,0.846,confiança 0.846 abaixo do limiar de publicação (limiar 0.929); outra opção: 4387
+Q0142,revisar,4695,,0.232,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0143,revisar,5580,5507;5508,0.827,confiança 0.827 abaixo do limiar de publicação (limiar 0.929); outra opção: 5507
+Q0144,revisar,5524,5560,0.763,confiança 0.763 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0145,revisar,4702,,0.928,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0146,revisar,5594,,0.702,confiança 0.702 abaixo do limiar de publicação (limiar 0.929); outra opção: 5550
+Q0147,revisar,5502,5504;5499;5503,0.854,confiança 0.854 abaixo do limiar de publicação (limiar 0.929); outra opção: 5504
+Q0148,publicar,5203,,0.939,
+Q0149,revisar,5500,5499,0.742,confiança 0.742 abaixo do limiar de publicação (limiar 0.929); outra opção: 5499
+Q0150,revisar,4708,,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5558
+Q0151,revisar,5584,5517,0.867,confiança 0.867 abaixo do limiar de publicação (limiar 0.929); outra opção: 5517
+Q0152,publicar,5065,5472,0.930,
+Q0153,revisar,5222,,0.816,confiança 0.816 abaixo do limiar de publicação (limiar 0.929); outra opção: 5225
+Q0154,revisar,5135,,0.669,confiança 0.669 abaixo do limiar de publicação (limiar 0.929); outra opção: 5136
+Q0155,revisar,4703,,0.681,confiança 0.681 abaixo do limiar de publicação (limiar 0.929); outra opção: 5201
+Q0156,revisar,4688,,0.897,confiança 0.897 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0157,revisar,5520,,0.839,confiança 0.839 abaixo do limiar de publicação (limiar 0.929); outra opção: 5498
+Q0158,revisar,4684,,0.613,confiança 0.613 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0159,revisar,5160,,0.725,confiança 0.725 abaixo do limiar de publicação (limiar 0.929); outra opção: 5175
+Q0160,revisar,5199,,0.787,confiança 0.787 abaixo do limiar de publicação (limiar 0.929); outra opção: 5576
+Q0161,revisar,5517,,0.827,confiança 0.827 abaixo do limiar de publicação (limiar 0.929); outra opção: 5584
+Q0162,revisar,4380,,0.807,confiança 0.807 abaixo do limiar de publicação (limiar 0.929); outra opção: 4369
+Q0163,revisar,5086,,0.637,confiança 0.637 abaixo do limiar de publicação (limiar 0.929); outra opção: 5095
+Q0164,revisar,4703,,0.892,confiança 0.892 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0165,revisar,4705,,0.903,confiança 0.903 abaixo do limiar de publicação (limiar 0.929); outra opção: 5557
+Q0166,revisar,4703,5208,0.779,confiança 0.779 abaixo do limiar de publicação (limiar 0.929); outra opção: 5208
+Q0167,revisar,5529,5528;5527,0.816,confiança 0.816 abaixo do limiar de publicação (limiar 0.929); outra opção: 5528
+Q0168,revisar,5095,,0.305,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0169,publicar,5492,,0.946,
+Q0170,revisar,5199,,0.569,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0171,revisar,5185,,0.564,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0172,revisar,5473,,0.502,confiança 0.502 abaixo do limiar de publicação (limiar 0.929); outra opção: 5474
+Q0173,publicar,4703,,0.956,
+Q0174,revisar,5128,,0.727,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0175,revisar,5095,5093;5091;5092,0.773,confiança 0.773 abaixo do limiar de publicação (limiar 0.929); outra opção: 5093
+Q0176,revisar,5081,,0.921,confiança 0.921 abaixo do limiar de publicação (limiar 0.929); outra opção: 5082
+Q0177,revisar,5547,,0.909,confiança 0.909 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0178,revisar,4697,,0.704,confiança 0.704 abaixo do limiar de publicação (limiar 0.929); outra opção: 5079
+Q0179,publicar,4369,,0.944,
+Q0180,revisar,5554,,0.873,confiança 0.873 abaixo do limiar de publicação (limiar 0.929); outra opção: 5584
+Q0181,revisar,4695,,0.897,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0182,revisar,5138,,0.570,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0183,revisar,5185,,0.661,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0184,revisar,5518,,0.520,confiança 0.520 abaixo do limiar de publicação (limiar 0.929); outra opção: 5228
+Q0185,publicar,4703,,0.938,
+Q0186,publicar,5202,,0.953,
+Q0187,revisar,5088,5089,0.682,confiança 0.682 abaixo do limiar de publicação (limiar 0.929); outra opção: 5089
+Q0188,revisar,5228,,0.745,confiança 0.745 abaixo do limiar de publicação (limiar 0.929); outra opção: 5170
+Q0189,revisar,5065,5469,0.863,confiança 0.863 abaixo do limiar de publicação (limiar 0.929); outra opção: 5469
+Q0190,revisar,4701,5540;5541,0.896,confiança 0.896 abaixo do limiar de publicação (limiar 0.929); outra opção: 5540
+Q0191,publicar,5560,5516,0.939,
+Q0192,revisar,5087,,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0193,publicar,5557,,0.937,
+Q0194,publicar,5089,,0.948,
+Q0195,revisar,4371,,0.740,confiança 0.740 abaixo do limiar de publicação (limiar 0.929); outra opção: 4382
+Q0196,publicar,4387,4388;4386,0.952,
+Q0197,revisar,5499,,0.832,confiança 0.832 abaixo do limiar de publicação (limiar 0.929); outra opção: 5501
+Q0198,revisar,5072,5073,0.823,confiança 0.823 abaixo do limiar de publicação (limiar 0.929); outra opção: 5073
+Q0199,revisar,5218,,0.854,confiança 0.854 abaixo do limiar de publicação (limiar 0.929); outra opção: 5229
+Q0200,publicar,4705,,0.941,
+Q0201,publicar,5103,,0.962,
+Q0202,revisar,5102,,0.633,confiança 0.633 abaixo do limiar de publicação (limiar 0.929); outra opção: 5132
+Q0203,revisar,4702,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5557
+Q0204,revisar,5507,5508;5506,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 5508
+Q0205,revisar,5567,5515,0.671,confiança 0.671 abaixo do limiar de publicação (limiar 0.929); outra opção: 5515
+Q0206,revisar,5583,,0.906,confiança 0.906 abaixo do limiar de publicação (limiar 0.929); outra opção: 5536
+Q0207,revisar,4703,,0.749,confiança 0.749 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0208,revisar,5150,,0.846,confiança 0.846 abaixo do limiar de publicação (limiar 0.929); outra opção: 5152
+Q0209,publicar,5582,5595,0.935,
+Q0210,revisar,4697,,0.919,confiança 0.919 abaixo do limiar de publicação (limiar 0.929); outra opção: 5180
+Q0211,revisar,5530,,0.548,confiança 0.548 abaixo do limiar de publicação (limiar 0.929); outra opção: 5524
+Q0212,revisar,5488,,0.764,confiança 0.764 abaixo do limiar de publicação (limiar 0.929); outra opção: 5591
+Q0213,revisar,4708,,0.637,confiança 0.637 abaixo do limiar de publicação (limiar 0.929); outra opção: 5558
+Q0214,publicar,5494,,0.929,
+Q0215,revisar,5201,5576,0.818,confiança 0.818 abaixo do limiar de publicação (limiar 0.929); outra opção: 5576
+Q0216,publicar,4701,5540,0.931,
+Q0217,revisar,4375,,0.592,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0218,revisar,5518,,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 5558
+Q0219,publicar,5074,,0.938,
+Q0220,revisar,5498,,0.720,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0221,revisar,5205,5203;5201;5200,0.808,confiança 0.808 abaixo do limiar de publicação (limiar 0.929); outra opção: 5203
+Q0222,revisar,4376,,0.894,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0223,revisar,5079,,0.810,confiança 0.810 abaixo do limiar de publicação (limiar 0.929); outra opção: 5584
+Q0224,revisar,5199,,0.561,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0225,revisar,5478,,0.814,confiança 0.814 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0226,revisar,5544,,0.900,confiança 0.900 abaixo do limiar de publicação (limiar 0.929); outra opção: 5546
+Q0227,publicar,5103,,0.944,
+Q0228,revisar,5560,,0.428,confiança 0.428 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0229,revisar,5584,,0.878,confiança 0.878 abaixo do limiar de publicação (limiar 0.929); outra opção: 5519
+Q0230,revisar,5211,,0.783,confiança 0.783 abaixo do limiar de publicação (limiar 0.929); outra opção: 5071
+Q0231,revisar,5224,,0.831,confiança 0.831 abaixo do limiar de publicação (limiar 0.929); outra opção: 4708
+Q0232,revisar,5086,5084;5082;5080,0.911,confiança 0.911 abaixo do limiar de publicação (limiar 0.929); outra opção: 5084
+Q0233,publicar,5178,,0.957,
+Q0234,revisar,4380,,0.882,confiança 0.882 abaixo do limiar de publicação (limiar 0.929); outra opção: 4373
+Q0235,revisar,5569,5566;5567;5565,0.609,confiança 0.609 abaixo do limiar de publicação (limiar 0.929); outra opção: 5566
+Q0236,revisar,5582,,0.675,confiança 0.675 abaixo do limiar de publicação (limiar 0.929); outra opção: 5493
+Q0237,publicar,5178,,0.957,
+Q0238,revisar,5523,,0.818,confiança 0.818 abaixo do limiar de publicação (limiar 0.929); outra opção: 5079
+Q0239,revisar,5205,5207,0.644,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0240,revisar,5473,,0.807,confiança 0.807 abaixo do limiar de publicação (limiar 0.929); outra opção: 5500
+Q0241,publicar,5224,,0.956,
+Q0242,revisar,5512,5560,0.846,confiança 0.846 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0243,revisar,5178,5159,0.868,confiança 0.868 abaixo do limiar de publicação (limiar 0.929); outra opção: 5159
+Q0244,publicar,5087,,0.937,
+Q0245,revisar,5185,,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 5198
+Q0246,revisar,5527,,0.782,confiança 0.782 abaixo do limiar de publicação (limiar 0.929); outra opção: 5528
+Q0247,publicar,5502,,0.942,
+Q0248,revisar,5087,,0.879,confiança 0.879 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0249,revisar,5492,,0.509,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0250,revisar,5201,,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 5205
+Q0251,publicar,5191,,0.940,
+Q0252,revisar,5199,,0.821,confiança 0.821 abaixo do limiar de publicação (limiar 0.929); outra opção: 5579
+Q0253,revisar,4373,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 4372
+Q0254,revisar,4704,,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 5470
+Q0255,publicar,5213,,0.943,
+Q0256,revisar,5222,5214,0.920,confiança 0.920 abaixo do limiar de publicação (limiar 0.929); outra opção: 5214
+Q0257,revisar,5170,5218,0.596,confiança 0.596 abaixo do limiar de publicação (limiar 0.929); outra opção: 5218
+Q0258,revisar,5545,,0.927,confiança 0.927 abaixo do limiar de publicação (limiar 0.929); outra opção: 5546
+Q0259,revisar,5183,,0.831,confiança 0.831 abaixo do limiar de publicação (limiar 0.929); outra opção: 5157
+Q0260,revisar,4376,4375,0.739,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0261,revisar,5136,,0.872,confiança 0.872 abaixo do limiar de publicação (limiar 0.929); outra opção: 5128
+Q0262,revisar,4703,,0.292,confiança 0.292 abaixo do limiar de publicação (limiar 0.929); outra opção: 5184
+Q0263,revisar,5492,,0.791,confiança 0.791 abaixo do limiar de publicação (limiar 0.929); outra opção: 5528
+Q0264,revisar,5102,,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5167
+Q0265,publicar,5186,,0.949,
+Q0266,revisar,5482,,0.702,confiança 0.702 abaixo do limiar de publicação (limiar 0.929); outra opção: 5486
+Q0267,revisar,5558,,0.308,confiança 0.308 abaixo do limiar de publicação (limiar 0.929); outra opção: 4708
+Q0268,revisar,5120,,0.854,confiança 0.854 abaixo do limiar de publicação (limiar 0.929); outra opção: 5116
+Q0269,revisar,4375,,0.711,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0270,revisar,5091,5095;5089;5093,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5095
+Q0271,revisar,5513,,0.804,confiança 0.804 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0272,publicar,4703,,0.937,
+Q0273,revisar,5089,,0.743,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0274,revisar,5177,,0.656,confiança 0.656 abaixo do limiar de publicação (limiar 0.929); outra opção: 5157
+Q0275,revisar,5539,4701,0.851,confiança 0.851 abaixo do limiar de publicação (limiar 0.929); outra opção: 4701
+Q0276,revisar,5554,5552;5545;5550,0.837,confiança 0.837 abaixo do limiar de publicação (limiar 0.929); outra opção: 5552
+Q0277,revisar,4696,,0.898,confiança 0.898 abaixo do limiar de publicação (limiar 0.929); outra opção: 5142
+Q0278,revisar,5542,,0.716,confiança 0.716 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0279,revisar,5175,,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5159
+Q0280,revisar,5121,5123;5122;5124,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 5123
+Q0281,revisar,5555,,0.603,confiança 0.603 abaixo do limiar de publicação (limiar 0.929); outra opção: 5498
+Q0282,revisar,4704,,0.768,confiança 0.768 abaixo do limiar de publicação (limiar 0.929); outra opção: 4697
+Q0283,revisar,5496,,0.829,confiança 0.829 abaixo do limiar de publicação (limiar 0.929); outra opção: 5522
+Q0284,revisar,5228,,0.670,confiança 0.670 abaixo do limiar de publicação (limiar 0.929); outra opção: 5211
+Q0285,revisar,4376,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5184
+Q0286,revisar,5204,,0.554,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0287,revisar,5233,5229;5230;5232,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5229
+Q0288,revisar,5110,5103;5068;5105,0.606,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0289,revisar,4704,,0.912,confiança 0.912 abaixo do limiar de publicação (limiar 0.929); outra opção: 5540
+Q0290,revisar,4701,5540,0.832,confiança 0.832 abaixo do limiar de publicação (limiar 0.929); outra opção: 5540
+Q0291,revisar,5500,,0.449,confiança 0.449 abaixo do limiar de publicação (limiar 0.929); outra opção: 5499
+Q0292,revisar,4375,,0.680,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0293,revisar,5185,,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 5205
+Q0294,publicar,5211,,0.933,
+Q0295,revisar,5489,5488,0.830,confiança 0.830 abaixo do limiar de publicação (limiar 0.929); outra opção: 5488
+Q0296,revisar,5065,5466,0.928,confiança 0.928 abaixo do limiar de publicação (limiar 0.929); outra opção: 5466
+Q0297,revisar,4695,,0.839,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0298,revisar,4694,,0.902,confiança 0.902 abaixo do limiar de publicação (limiar 0.929); outra opção: 4687
+Q0299,revisar,4387,4373;4388,0.818,confiança 0.818 abaixo do limiar de publicação (limiar 0.929); outra opção: 4373
+Q0300,revisar,5079,,0.520,confiança 0.520 abaixo do limiar de publicação (limiar 0.929); outra opção: 5160
+Q0301,publicar,5197,,0.930,
+Q0302,publicar,5211,5218,0.946,
+Q0303,publicar,5180,,0.966,
+Q0304,revisar,5540,4701,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 4701
+Q0305,publicar,5064,5466,0.938,
+Q0306,revisar,5146,,0.851,confiança 0.851 abaixo do limiar de publicação (limiar 0.929); outra opção: 4705
+Q0307,revisar,4707,,0.822,confiança 0.822 abaixo do limiar de publicação (limiar 0.929); outra opção: 5143
+Q0308,publicar,5501,5504,0.937,
+Q0309,revisar,4688,,0.765,confiança 0.765 abaixo do limiar de publicação (limiar 0.929); outra opção: 5157
+Q0310,revisar,5508,5507;5506,0.884,confiança 0.884 abaixo do limiar de publicação (limiar 0.929); outra opção: 5507
+Q0311,revisar,5488,,0.926,confiança 0.926 abaixo do limiar de publicação (limiar 0.929); outra opção: 5489
+Q0312,revisar,4384,5199,0.685,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0313,revisar,5209,5572,0.846,confiança 0.846 abaixo do limiar de publicação (limiar 0.929); outra opção: 5572
+Q0314,revisar,5477,,0.860,confiança 0.860 abaixo do limiar de publicação (limiar 0.929); outra opção: 5479
+Q0315,revisar,5187,5190;5186;5189,0.893,confiança 0.893 abaixo do limiar de publicação (limiar 0.929); outra opção: 5190
+Q0316,revisar,5153,,0.546,confiança 0.546 abaixo do limiar de publicação (limiar 0.929); outra opção: 5218
+Q0317,revisar,5198,,0.834,confiança 0.834 abaixo do limiar de publicação (limiar 0.929); outra opção: 5065
+Q0318,revisar,5175,,0.780,confiança 0.780 abaixo do limiar de publicação (limiar 0.929); outra opção: 5150
+Q0319,revisar,5073,,0.891,confiança 0.891 abaixo do limiar de publicação (limiar 0.929); outra opção: 5072
+Q0320,revisar,5550,,0.818,confiança 0.818 abaixo do limiar de publicação (limiar 0.929); outra opção: 5557
+Q0321,publicar,5072,5075;5074;5073,0.933,
+Q0322,revisar,5561,5566;5562;5568,0.702,confiança 0.702 abaixo do limiar de publicação (limiar 0.929); outra opção: 5566
+Q0323,revisar,5590,,0.854,confiança 0.854 abaixo do limiar de publicação (limiar 0.929); outra opção: 5557
+Q0324,revisar,5201,,0.438,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0325,revisar,4688,,0.598,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0326,revisar,4708,,0.745,confiança 0.745 abaixo do limiar de publicação (limiar 0.929); outra opção: 5138
+Q0327,publicar,5203,,0.938,
+Q0328,revisar,4382,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 4381
+Q0329,revisar,5543,,0.500,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0330,revisar,5504,5501;5499;5500,0.810,confiança 0.810 abaixo do limiar de publicação (limiar 0.929); outra opção: 5501
+Q0331,publicar,5477,,0.947,
+Q0332,publicar,5541,,0.930,
+Q0333,revisar,5178,,0.831,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0334,revisar,4381,,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 4382
+Q0335,revisar,5218,,0.704,confiança 0.704 abaixo do limiar de publicação (limiar 0.929); outra opção: 5175
+Q0336,publicar,5157,,0.956,
+Q0337,publicar,4684,,0.942,
+Q0338,revisar,5595,5543;5592,0.788,confiança 0.788 abaixo do limiar de publicação (limiar 0.929); outra opção: 5543
+Q0339,revisar,5578,,0.896,confiança 0.896 abaixo do limiar de publicação (limiar 0.929); outra opção: 5579
+Q0340,publicar,5074,5076;5072;5075,0.940,
+Q0341,publicar,5157,,0.959,
+Q0342,publicar,5546,,0.944,
+Q0343,revisar,5196,5063,0.741,confiança 0.741 abaixo do limiar de publicação (limiar 0.929); outra opção: 5063
+Q0344,revisar,4688,,0.914,confiança 0.914 abaixo do limiar de publicação (limiar 0.929); outra opção: 5471
+Q0345,revisar,5102,,0.797,confiança 0.797 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0346,revisar,5583,,0.836,confiança 0.836 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0347,revisar,5228,,0.662,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0348,revisar,5093,,0.826,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0349,revisar,5175,,0.844,confiança 0.844 abaixo do limiar de publicação (limiar 0.929); outra opção: 5160
+Q0350,publicar,4702,,0.938,
+Q0351,publicar,5118,5119,0.945,
+Q0352,revisar,5512,5560,0.920,confiança 0.920 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0353,revisar,5185,,0.922,confiança 0.922 abaixo do limiar de publicação (limiar 0.929); outra opção: 5488
+Q0354,revisar,5226,,0.751,confiança 0.751 abaixo do limiar de publicação (limiar 0.929); outra opção: 5220
+Q0355,revisar,4708,,0.777,confiança 0.777 abaixo do limiar de publicação (limiar 0.929); outra opção: 5558
+Q0356,publicar,5068,5067;5070;5069,0.943,
+Q0357,revisar,5135,,0.905,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0358,revisar,5128,,0.846,confiança 0.846 abaixo do limiar de publicação (limiar 0.929); outra opção: 5127
+Q0359,revisar,4696,,0.909,confiança 0.909 abaixo do limiar de publicação (limiar 0.929); outra opção: 4701
+Q0360,revisar,4390,,0.733,confiança 0.733 abaixo do limiar de publicação (limiar 0.929); outra opção: 5581
+Q0361,publicar,5213,,0.963,
+Q0362,publicar,5557,,0.942,
+Q0363,revisar,5087,,0.877,confiança 0.877 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0364,revisar,5228,,0.909,confiança 0.909 abaixo do limiar de publicação (limiar 0.929); outra opção: 5214
+Q0365,revisar,5486,,0.636,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0366,revisar,5548,,0.916,confiança 0.916 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0367,revisar,5530,,0.907,confiança 0.907 abaixo do limiar de publicação (limiar 0.929); outra opção: 5538
+Q0368,revisar,5500,5499;5504;5501,0.828,confiança 0.828 abaixo do limiar de publicação (limiar 0.929); outra opção: 5499
+Q0369,publicar,4702,4689,0.945,
+Q0370,publicar,5523,,0.957,
+Q0371,revisar,5472,5065;5474,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 5065
+Q0372,revisar,5543,,0.693,confiança 0.693 abaixo do limiar de publicação (limiar 0.929); outra opção: 4700
+Q0373,publicar,5182,5506,0.942,
+Q0374,publicar,5147,,0.942,
+Q0375,publicar,5224,,0.937,
+Q0376,revisar,5222,5224,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5224
+Q0377,revisar,5477,,0.748,confiança 0.748 abaixo do limiar de publicação (limiar 0.929); outra opção: 5583
+Q0378,revisar,5117,,0.806,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0379,publicar,4704,,0.958,
+Q0380,revisar,5573,,0.829,confiança 0.829 abaixo do limiar de publicação (limiar 0.929); outra opção: 5575
+Q0381,revisar,5502,,0.713,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0382,revisar,5226,,0.823,confiança 0.823 abaixo do limiar de publicação (limiar 0.929); outra opção: 5222
+Q0383,revisar,4702,,0.921,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0384,revisar,5495,,0.898,confiança 0.898 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0385,revisar,5093,,0.420,confiança 0.420 abaixo do limiar de publicação (limiar 0.929); outra opção: 5088
+Q0386,revisar,4369,,0.525,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0387,publicar,5590,,0.934,
+Q0388,publicar,5532,,0.944,
+Q0389,revisar,5218,,0.876,confiança 0.876 abaixo do limiar de publicação (limiar 0.929); outra opção: 5175
+Q0390,revisar,4385,,0.610,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0391,revisar,5471,5064;5470;5469,0.842,confiança 0.842 abaixo do limiar de publicação (limiar 0.929); outra opção: 5064
+Q0392,publicar,5208,,0.938,
+Q0393,fora,,,0.398,direito militar: a árvore não tem tema militar
+Q0394,revisar,5480,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5539
+Q0395,publicar,5478,,0.944,
+Q0396,revisar,5087,,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 5147
+Q0397,revisar,5110,,0.513,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0398,publicar,5175,,0.941,
+Q0399,revisar,5095,,0.836,confiança 0.836 abaixo do limiar de publicação (limiar 0.929); outra opção: 5093
+Q0400,publicar,5213,,0.940,
+Q0401,revisar,5193,,0.829,confiança 0.829 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0402,publicar,4684,,0.943,
+Q0403,revisar,5180,,0.903,confiança 0.903 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0404,publicar,5119,5118;5117,0.961,
+Q0405,revisar,5583,,0.630,confiança 0.630 abaixo do limiar de publicação (limiar 0.929); outra opção: 5516
+Q0406,revisar,5087,,0.878,confiança 0.878 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0407,revisar,5578,5582,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0408,publicar,5495,,0.938,
+Q0409,publicar,5211,,0.943,
+Q0410,publicar,5213,,0.956,
+Q0411,publicar,5094,,0.944,
+Q0412,revisar,5087,,0.908,confiança 0.908 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0413,revisar,5094,5093;5100;5101,0.858,confiança 0.858 abaixo do limiar de publicação (limiar 0.929); outra opção: 5093
+Q0414,revisar,4695,,0.934,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0415,revisar,4695,,0.817,confiança 0.817 abaixo do limiar de publicação (limiar 0.929); outra opção: 5094
+Q0416,fora,,,0.330,direito militar: a árvore não tem tema militar
+Q0417,revisar,4377,,0.353,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0418,revisar,4704,,0.871,confiança 0.871 abaixo do limiar de publicação (limiar 0.929); outra opção: 5540
+Q0419,revisar,4387,4388,0.818,confiança 0.818 abaixo do limiar de publicação (limiar 0.929); outra opção: 4388
+Q0420,publicar,4704,,0.945,
+Q0421,revisar,5501,,0.764,confiança 0.764 abaixo do limiar de publicação (limiar 0.929); outra opção: 5502
+Q0422,revisar,5182,,0.709,confiança 0.709 abaixo do limiar de publicação (limiar 0.929); outra opção: 5483
+Q0423,publicar,4695,,0.934,
+Q0424,fora,,,0.381,direito militar: a árvore não tem tema militar
+Q0425,revisar,5577,5209,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 5209
+Q0426,revisar,5178,,0.768,confiança 0.768 abaixo do limiar de publicação (limiar 0.929); outra opção: 5204
+Q0427,revisar,5475,,0.822,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0428,revisar,5088,5097,0.607,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0429,revisar,5153,,0.418,confiança 0.418 abaixo do limiar de publicação (limiar 0.929); outra opção: 5175
+Q0430,publicar,4704,,0.945,
+Q0431,publicar,5471,5063,0.947,
+Q0432,publicar,5469,5471;5470;5473,0.930,
+Q0433,publicar,5071,,0.934,
+Q0434,revisar,5500,5499;5503;5504,0.789,confiança 0.789 abaixo do limiar de publicação (limiar 0.929); outra opção: 5499
+Q0435,revisar,4377,,0.715,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0436,publicar,4704,,0.945,
+Q0437,publicar,5181,,0.931,
+Q0438,revisar,5118,,0.911,confiança 0.911 abaixo do limiar de publicação (limiar 0.929); outra opção: 5117
+Q0439,revisar,5087,,0.891,confiança 0.891 abaixo do limiar de publicação (limiar 0.929); outra opção: 5147
+Q0440,publicar,5499,5500;5504;5501,0.942,
+Q0441,revisar,5542,5476,0.853,confiança 0.853 abaixo do limiar de publicação (limiar 0.929); outra opção: 5476
+Q0442,publicar,5468,,0.942,
+Q0443,publicar,5216,,0.935,
+Q0444,revisar,5545,5548;5550;5546,0.912,confiança 0.912 abaixo do limiar de publicação (limiar 0.929); outra opção: 5548
+Q0445,revisar,4705,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 4702
+Q0446,revisar,5518,5584,0.676,confiança 0.676 abaixo do limiar de publicação (limiar 0.929); outra opção: 5584
+Q0447,revisar,5185,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5228
+Q0448,revisar,5475,,0.830,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0449,revisar,5231,5232;5229;5233,0.875,confiança 0.875 abaixo do limiar de publicação (limiar 0.929); outra opção: 5232
+Q0450,publicar,5570,,0.958,
+Q0451,publicar,5498,,0.945,
+Q0452,revisar,5498,,0.923,confiança 0.923 abaixo do limiar de publicação (limiar 0.929); outra opção: 5473
+Q0453,revisar,4704,,0.924,confiança 0.924 abaixo do limiar de publicação (limiar 0.929); outra opção: 5131
+Q0454,revisar,5181,,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0455,revisar,5579,,0.651,confiança 0.651 abaixo do limiar de publicação (limiar 0.929); outra opção: 5466
+Q0456,revisar,5180,,0.890,confiança 0.890 abaixo do limiar de publicação (limiar 0.929); outra opção: 5170
+Q0457,revisar,5477,,0.822,confiança 0.822 abaixo do limiar de publicação (limiar 0.929); outra opção: 5479
+Q0458,revisar,5225,5177,0.815,confiança 0.815 abaixo do limiar de publicação (limiar 0.929); outra opção: 5177
+Q0459,revisar,4695,,0.903,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0460,publicar,5145,,0.957,
+Q0461,revisar,5562,5564,0.706,confiança 0.706 abaixo do limiar de publicação (limiar 0.929); outra opção: 5564
+Q0462,revisar,5071,,0.927,confiança 0.927 abaixo do limiar de publicação (limiar 0.929); outra opção: 5068
+Q0463,revisar,5087,,0.882,confiança 0.882 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0464,publicar,4689,,0.952,
+Q0465,revisar,5088,5089;5096,0.840,confiança 0.840 abaixo do limiar de publicação (limiar 0.929); outra opção: 5089
+Q0466,revisar,5222,,0.914,confiança 0.914 abaixo do limiar de publicação (limiar 0.929); outra opção: 5227
+Q0467,fora,,,0.211,direito militar: a árvore não tem tema militar
+Q0468,revisar,5086,,0.344,confiança 0.344 abaixo do limiar de publicação (limiar 0.929); outra opção: 5087
+Q0469,revisar,4374,,0.697,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0470,revisar,4703,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 5199
+Q0471,publicar,5089,,0.935,
+Q0472,publicar,5117,5118,0.945,
+Q0473,revisar,5500,5499,0.916,confiança 0.916 abaixo do limiar de publicação (limiar 0.929); outra opção: 5499
+Q0474,revisar,4379,4378,0.635,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0475,publicar,5177,,0.953,
+Q0476,revisar,5528,5525;5527;5529,0.912,confiança 0.912 abaixo do limiar de publicação (limiar 0.929); outra opção: 5525
+Q0477,revisar,5187,5188,0.815,confiança 0.815 abaixo do limiar de publicação (limiar 0.929); outra opção: 5188
+Q0478,revisar,5480,,0.922,confiança 0.922 abaixo do limiar de publicação (limiar 0.929); outra opção: 5506
+Q0479,fora,,,0.545,direito militar: a árvore não tem tema militar
+Q0480,revisar,5203,,0.845,confiança 0.845 abaixo do limiar de publicação (limiar 0.929); outra opção: 5202
+Q0481,publicar,5172,,0.932,
+Q0482,revisar,5506,5507;5508,0.904,confiança 0.904 abaixo do limiar de publicação (limiar 0.929); outra opção: 5507
+Q0483,revisar,5175,,0.890,confiança 0.890 abaixo do limiar de publicação (limiar 0.929); outra opção: 5157
+Q0484,revisar,4702,,0.925,confiança 0.925 abaixo do limiar de publicação (limiar 0.929); outra opção: 4705
+Q0485,revisar,5182,5181,0.850,confiança 0.850 abaixo do limiar de publicação (limiar 0.929); outra opção: 5181
+Q0486,revisar,5506,,0.283,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0487,revisar,5157,,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 5082
+Q0488,publicar,5090,,0.936,
+Q0489,revisar,5186,5188;5187,0.903,confiança 0.903 abaixo do limiar de publicação (limiar 0.929); outra opção: 5188
+Q0490,revisar,5212,5217;5213,0.808,confiança 0.808 abaixo do limiar de publicação (limiar 0.929); outra opção: 5217
+Q0491,publicar,5157,,0.950,
+Q0492,revisar,5159,,0.919,confiança 0.919 abaixo do limiar de publicação (limiar 0.929); outra opção: 5160
+Q0493,revisar,5502,,0.640,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0494,revisar,5503,,0.485,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0495,publicar,5088,5099;5093;5097,0.945,
+Q0496,revisar,5089,,0.842,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0497,revisar,5561,,0.441,confiança 0.441 abaixo do limiar de publicação (limiar 0.929); outra opção: 5566
+Q0498,revisar,5131,4704,0.791,confiança 0.791 abaixo do limiar de publicação (limiar 0.929); outra opção: 4704
+Q0499,revisar,5226,,0.859,confiança 0.859 abaixo do limiar de publicação (limiar 0.929); outra opção: 5222
+Q0500,revisar,4695,,0.914,confiança 0.914 abaixo do limiar de publicação (limiar 0.929); outra opção: 5119
+Q0501,publicar,4704,,0.945,
+Q0502,publicar,5100,,0.942,
+Q0503,publicar,4378,,0.949,
+Q0504,publicar,5222,5226;5220,0.933,
+Q0505,revisar,5092,5093,0.917,confiança 0.917 abaixo do limiar de publicação (limiar 0.929); outra opção: 5093
+Q0506,revisar,5180,,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0507,revisar,5214,5224,0.928,confiança 0.928 abaixo do limiar de publicação (limiar 0.929); outra opção: 5224
+Q0508,revisar,4700,5555,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 5555
+Q0509,publicar,5499,5500;5501;5504,0.933,
+Q0510,revisar,5590,,0.625,confiança 0.625 abaixo do limiar de publicação (limiar 0.929); outra opção: 5550
+Q0511,revisar,5506,,0.810,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0512,revisar,5480,,0.890,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0513,revisar,4688,,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 5543
+Q0514,revisar,4689,,0.679,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0515,revisar,4704,,0.895,confiança 0.895 abaixo do limiar de publicação (limiar 0.929); outra opção: 5131
+Q0516,revisar,4690,,0.674,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0517,revisar,5121,,0.913,confiança 0.913 abaixo do limiar de publicação (limiar 0.929); outra opção: 5123
+Q0518,revisar,5087,,0.870,confiança 0.870 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0519,revisar,5501,5500,0.911,confiança 0.911 abaixo do limiar de publicação (limiar 0.929); outra opção: 5500
+Q0520,revisar,5100,,0.706,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0521,revisar,4384,,0.931,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0522,revisar,5478,,0.688,confiança 0.688 abaixo do limiar de publicação (limiar 0.929); outra opção: 5576
+Q0523,revisar,5063,,0.810,confiança 0.810 abaixo do limiar de publicação (limiar 0.929); outra opção: 5466
+Q0524,revisar,5186,5187;5189;5190,0.911,confiança 0.911 abaixo do limiar de publicação (limiar 0.929); outra opção: 5187
+Q0525,revisar,5203,5204,0.609,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0526,revisar,4387,4386,0.790,confiança 0.790 abaixo do limiar de publicação (limiar 0.929); outra opção: 4386
+Q0527,fora,,,0.260,direito militar: a árvore não tem tema militar
+Q0528,publicar,5182,,0.938,
+Q0529,publicar,5089,5088,0.930,
+Q0530,revisar,5554,,0.854,confiança 0.854 abaixo do limiar de publicação (limiar 0.929); outra opção: 5593
+Q0531,revisar,5472,5469;5474;5473,0.893,confiança 0.893 abaixo do limiar de publicação (limiar 0.929); outra opção: 5469
+Q0532,revisar,5158,5164;5159,0.748,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0533,publicar,5134,,0.953,
+Q0534,revisar,4378,,0.887,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0535,revisar,4704,,0.726,confiança 0.726 abaixo do limiar de publicação (limiar 0.929); outra opção: 5135
+Q0536,publicar,5544,,0.942,
+Q0537,publicar,5484,,0.945,
+Q0538,publicar,5230,5217,0.940,
+Q0539,revisar,5165,,0.481,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0540,revisar,5177,,0.824,confiança 0.824 abaixo do limiar de publicação (limiar 0.929); outra opção: 5170
+Q0541,revisar,5095,5096,0.868,confiança 0.868 abaixo do limiar de publicação (limiar 0.929); outra opção: 5096
+Q0542,revisar,5517,5584,0.834,confiança 0.834 abaixo do limiar de publicação (limiar 0.929); outra opção: 5584
+Q0543,revisar,5509,,0.808,confiança 0.808 abaixo do limiar de publicação (limiar 0.929); outra opção: 5491
+Q0544,revisar,5480,,0.785,confiança 0.785 abaixo do limiar de publicação (limiar 0.929); outra opção: 5506
+Q0545,revisar,4381,4390,0.628,confiança 0.628 abaixo do limiar de publicação (limiar 0.929); outra opção: 4390
+Q0546,revisar,5128,,0.495,confiança 0.495 abaixo do limiar de publicação (limiar 0.929); outra opção: 5089
+Q0547,publicar,5185,,0.939,
+Q0548,revisar,5560,5512,0.900,confiança 0.900 abaixo do limiar de publicação (limiar 0.929); outra opção: 5512
+Q0549,revisar,4703,,0.820,confiança 0.820 abaixo do limiar de publicação (limiar 0.929); outra opção: 5560
+Q0550,publicar,5157,,0.930,
+Q0551,publicar,5467,5471;5468;5064,0.936,
+Q0552,revisar,5509,5582,0.911,confiança 0.911 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0553,revisar,5530,,0.528,confiança 0.528 abaixo do limiar de publicação (limiar 0.929); outra opção: 5087
+Q0554,revisar,5128,,0.576,confiança 0.576 abaixo do limiar de publicação (limiar 0.929); outra opção: 5135
+Q0555,revisar,5208,,0.886,confiança 0.886 abaixo do limiar de publicação (limiar 0.929); outra opção: 4703
+Q0556,revisar,4387,4388,0.928,confiança 0.928 abaixo do limiar de publicação (limiar 0.929); outra opção: 4388
+Q0557,revisar,5541,,0.929,confiança 0.929 abaixo do limiar de publicação (limiar 0.929); outra opção: 4701
+Q0558,revisar,5582,,0.917,confiança 0.917 abaixo do limiar de publicação (limiar 0.929); outra opção: 5581
+Q0559,revisar,5087,,0.909,confiança 0.909 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0560,revisar,5488,,0.579,confiança 0.579 abaixo do limiar de publicação (limiar 0.929); outra opção: 5519
+Q0561,publicar,5117,5118;5119,0.930,
+Q0562,revisar,5088,5097;5099,0.786,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0563,publicar,4387,4388;4386,0.950,
+Q0564,revisar,4387,4388,0.878,confiança 0.878 abaixo do limiar de publicação (limiar 0.929); outra opção: 4388
+Q0565,revisar,5466,5063,0.901,confiança 0.901 abaixo do limiar de publicação (limiar 0.929); outra opção: 5063
+Q0566,revisar,5087,,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 5086
+Q0567,revisar,4703,5201,0.723,confiança 0.723 abaixo do limiar de publicação (limiar 0.929); outra opção: 5201
+Q0568,revisar,5180,,0.896,confiança 0.896 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0569,revisar,5584,,0.467,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0570,revisar,5564,5567;5476;5566,0.632,confiança 0.632 abaixo do limiar de publicação (limiar 0.929); outra opção: 5567
+Q0571,revisar,5550,,0.927,confiança 0.927 abaixo do limiar de publicação (limiar 0.929); outra opção: 5535
+Q0572,revisar,4697,,0.878,confiança 0.878 abaixo do limiar de publicação (limiar 0.929); outra opção: 4686
+Q0573,revisar,5159,,0.900,confiança 0.900 abaixo do limiar de publicação (limiar 0.929); outra opção: 5160
+Q0574,revisar,4697,,0.499,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0575,revisar,5496,,0.816,confiança 0.816 abaixo do limiar de publicação (limiar 0.929); outra opção: 5158
+Q0576,revisar,5087,,0.642,confiança 0.642 abaixo do limiar de publicação (limiar 0.929); outra opção: 5170
+Q0577,publicar,4704,,0.945,
+Q0578,publicar,4702,,0.945,
+Q0579,revisar,5547,,0.831,confiança 0.831 abaixo do limiar de publicação (limiar 0.929); outra opção: 5550
+Q0580,revisar,4690,,0.915,confiança 0.915 abaixo do limiar de publicação (limiar 0.929); outra opção: 5146
+Q0581,revisar,5466,5505,0.631,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0582,revisar,4693,,0.907,confiança 0.907 abaixo do limiar de publicação (limiar 0.929); outra opção: 5077
+Q0583,revisar,5187,5186;5190;5188,0.917,confiança 0.917 abaixo do limiar de publicação (limiar 0.929); outra opção: 5186
+Q0584,revisar,5185,,0.912,confiança 0.912 abaixo do limiar de publicação (limiar 0.929); outra opção: 5191
+Q0585,revisar,5177,,0.929,confiança 0.929 abaixo do limiar de publicação (limiar 0.929); outra opção: 5179
+Q0586,revisar,5584,,0.800,confiança 0.800 abaixo do limiar de publicação (limiar 0.929); outra opção: 5517
+Q0587,revisar,5187,5186;5188,0.921,confiança 0.921 abaixo do limiar de publicação (limiar 0.929); outra opção: 5186
+Q0588,publicar,4387,4388,0.954,
+Q0589,revisar,5209,,0.803,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0590,revisar,5228,,0.874,confiança 0.874 abaixo do limiar de publicação (limiar 0.929); outra opção: 5211
+Q0591,revisar,5567,5564;5569;5561,0.753,confiança 0.753 abaixo do limiar de publicação (limiar 0.929); outra opção: 5564
+Q0592,revisar,5090,5088;5097;5093,0.661,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0593,publicar,5159,,0.936,
+Q0594,publicar,5089,,0.941,
+Q0595,publicar,5498,,0.949,
+Q0596,revisar,5180,,0.900,confiança 0.900 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0597,revisar,5581,,0.640,confiança 0.640 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0598,revisar,4381,4382,0.603,confiança 0.603 abaixo do limiar de publicação (limiar 0.929); outra opção: 4382
+Q0599,fora,,,0.586,direito militar: a árvore não tem tema militar
+Q0600,revisar,5206,5201,0.720,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0601,revisar,5541,,0.935,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0602,revisar,5470,,0.668,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0603,revisar,5087,,0.909,confiança 0.909 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0604,revisar,5087,,0.909,confiança 0.909 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0605,revisar,5488,,0.704,confiança 0.704 abaixo do limiar de publicação (limiar 0.929); outra opção: 5582
+Q0606,publicar,5101,,0.954,
+Q0607,revisar,4375,4387,0.659,confiança 0.659 abaixo do limiar de publicação (limiar 0.929); outra opção: 4387
+Q0608,publicar,5180,,0.935,
+Q0609,revisar,4695,,0.889,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0610,revisar,4700,5500,0.725,confiança 0.725 abaixo do limiar de publicação (limiar 0.929); outra opção: 5500
+Q0611,revisar,5118,,0.929,confiança 0.929 abaixo do limiar de publicação (limiar 0.929); outra opção: 5119
+Q0612,revisar,5120,,0.668,confiança 0.668 abaixo do limiar de publicação (limiar 0.929); outra opção: 5471
+Q0613,publicar,4689,,0.955,
+Q0614,revisar,5182,,0.617,confiança 0.617 abaixo do limiar de publicação (limiar 0.929); outra opção: 5483
+Q0615,revisar,5474,,0.493,confiança 0.493 abaixo do limiar de publicação (limiar 0.929); outra opção: 5198
+Q0616,revisar,5180,,0.903,confiança 0.903 abaixo do limiar de publicação (limiar 0.929); outra opção: 5505
+Q0617,revisar,5500,5504;5499,0.665,confiança 0.665 abaixo do limiar de publicação (limiar 0.929); outra opção: 5504
+Q0618,publicar,5224,,0.956,
+Q0619,revisar,5532,,0.896,confiança 0.896 abaixo do limiar de publicação (limiar 0.929); outra opção: 5531
+Q0620,publicar,5147,,0.938,
+Q0621,revisar,5557,,0.849,confiança 0.849 abaixo do limiar de publicação (limiar 0.929); outra opção: 5548
+Q0622,publicar,5182,,0.938,
+Q0623,publicar,5544,,0.943,
+Q0624,publicar,4704,,0.945,
+Q0625,revisar,5087,,0.626,confiança 0.626 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0626,revisar,5182,5506,0.787,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0627,publicar,5145,5125,0.938,
+Q0628,revisar,5504,5502;5501,0.764,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0629,revisar,4373,,0.918,confiança 0.918 abaixo do limiar de publicação (limiar 0.929); outra opção: 4372
+Q0630,publicar,5084,,0.939,
+Q0631,revisar,5097,5101,0.759,confiança 0.759 abaixo do limiar de publicação (limiar 0.929); outra opção: 5101
+Q0632,revisar,5092,5093;5100;5088,0.906,confiança 0.906 abaixo do limiar de publicação (limiar 0.929); outra opção: 5093
+Q0633,revisar,5096,5090;5099;5088,0.748,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0634,publicar,5488,5489,0.943,
+Q0635,publicar,5211,,0.945,
+Q0636,revisar,4695,,0.831,confiança 0.831 abaixo do limiar de publicação (limiar 0.929); outra opção: 5147
+Q0637,revisar,5087,,0.877,confiança 0.877 abaixo do limiar de publicação (limiar 0.929); outra opção: 4684
+Q0638,revisar,5089,5091;5101;5096,0.829,confiança 0.829 abaixo do limiar de publicação (limiar 0.929); outra opção: 5091
+Q0639,revisar,4707,,0.928,confiança 0.928 abaixo do limiar de publicação (limiar 0.929); outra opção: 5077
+Q0640,revisar,5227,,0.929,confiança 0.929 abaixo do limiar de publicação (limiar 0.929); outra opção: 5220
+Q0641,revisar,5087,,0.887,confiança 0.887 abaixo do limiar de publicação (limiar 0.929); outra opção: 5081
+Q0642,publicar,4704,,0.945,
+Q0643,revisar,4374,,0.676,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0644,revisar,5087,,0.650,confiança 0.650 abaixo do limiar de publicação (limiar 0.929); outra opção: 5180
+Q0645,revisar,5218,,0.767,perto de um tema inativo da árvore: possível fora da taxonomia
+Q0646,revisar,4373,,0.897,confiança 0.897 abaixo do limiar de publicação (limiar 0.929); outra opção: 4374
+Q0647,publicar,5488,5489,0.947,
+Q0648,revisar,4705,,0.623,confiança 0.623 abaixo do limiar de publicação (limiar 0.929); outra opção: 5543
+Q0649,fora,,,0.486,direito militar: a árvore não tem tema militar
+Q0650,fora,,,0.464,direito militar: a árvore não tem tema militar
+Q0651,publicar,4704,,0.952,
+Q0652,revisar,5087,,0.899,confiança 0.899 abaixo do limiar de publicação (limiar 0.929); outra opção: 5530
+Q0653,publicar,4704,,0.940,
+Q0654,fora,,,0.434,direito militar: a árvore não tem tema militar
+Q0655,revisar,4387,,0.840,confiança 0.840 abaixo do limiar de publicação (limiar 0.929); outra opção: 4386
+Q0656,publicar,4704,,0.945,
+Q0657,revisar,4684,,0.895,confiança 0.895 abaixo do limiar de publicação (limiar 0.929); outra opção: 5085
+Q0658,revisar,4380,,0.619,confiança 0.619 abaixo do limiar de publicação (limiar 0.929); outra opção: 4387
+Q0659,revisar,4702,4689,0.834,confiança 0.834 abaixo do limiar de publicação (limiar 0.929); outra opção: 4689

@@ -96,6 +96,7 @@ class TesteArquivoVetores(unittest.TestCase):
             ConjuntoVetores(("Q1:A",), matriz[:1]),
             ConjuntoVetores(("T",), matriz[1:]),
             ConjuntoVetores(("I",), matriz[:1]),
+            ConjuntoVetores(("T:1",), matriz[1:]),
         )
         pasta: str
         with tempfile.TemporaryDirectory() as pasta:

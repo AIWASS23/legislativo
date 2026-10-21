@@ -10,7 +10,8 @@ anthropic==1.13.0
 # OpenAI e Hugging Face Inference Providers (roteador compatível com a API da OpenAI).
 openai==3.31.0
 
-# Cálculo numérico e calibração da confiança / estimativa de precisão (passos 07 e 08).
+# Cálculo numérico, calibração e estimativa de precisão; o scikit-learn também dá o ranqueador de
+# gradient boosting da etapa 2 (HistGradientBoostingClassifier, vencedor do E10).
 numpy==2.5.4
 scikit-learn==1.9.1
 

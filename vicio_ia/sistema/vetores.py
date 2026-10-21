@@ -1,7 +1,7 @@
 """Vetores de embedding em cache como artefato versionado (ADR-021).
 
 A fase de conhecimento grava, e a fase de decisão só lê, os vetores em ``dados/conhecimento/embeddings/``:
-um ``.npy`` (``float32``, normalizado) e a lista de IDs para cada conjunto (questões, alternativas, temas e temas inativos),
+um ``.npy`` (``float32``, normalizado) e a lista de IDs para cada conjunto (questões, alternativas, temas, temas inativos e exemplos sintéticos),
 mais o ``modelo.json`` com o modelo, o digest e o hash dos textos de entrada. Nenhum modelo é chamado aqui.
 """
 
@@ -55,7 +55,7 @@ class ConjuntoVetores:
 
 @dataclass(frozen=True)
 class VetoresConhecimento:
-    """Os quatro conjuntos de vetores de um modelo.
+    """Os cinco conjuntos de vetores de um modelo.
 
     Attributes:
         modelo: Modelo que gerou os vetores.
@@ -63,6 +63,7 @@ class VetoresConhecimento:
         alternativas: Cada alternativa das questões de múltipla escolha.
         temas: Documento de cada tema publicável.
         inativos: Título e caminho de cada tema inativo (atributo de fora, ADR-023).
+        exemplos: Questões-modelo sintéticas de cada tema (``<tema_id>:<n>``, E13).
     """
 
     modelo: str
@@ -70,12 +71,13 @@ class VetoresConhecimento:
     alternativas: ConjuntoVetores
     temas: ConjuntoVetores
     inativos: ConjuntoVetores
+    exemplos: ConjuntoVetores
 
 
 class ArquivoVetores:
     """Grava e lê os vetores de ``dados/conhecimento/embeddings/``."""
 
-    CONJUNTOS: ClassVar[tuple[str, ...]] = ("questoes", "alternativas", "temas", "inativos")
+    CONJUNTOS: ClassVar[tuple[str, ...]] = ("questoes", "alternativas", "temas", "inativos", "exemplos")
 
     def __init__(self, pasta: Path) -> None:
         """Define a pasta.
@@ -99,7 +101,7 @@ class ArquivoVetores:
         return np.asarray(matriz / np.where(normas > 0, normas, 1.0), dtype=np.float64)
 
     def gravar(self, vetores: VetoresConhecimento, info: Mapping[str, object]) -> list[Path]:
-        """Grava os quatro conjuntos e o ``modelo.json``.
+        """Grava os cinco conjuntos e o ``modelo.json``.
 
         Args:
             vetores: Vetores do modelo escolhido.
@@ -113,7 +115,9 @@ class ArquivoVetores:
         nome: str
         conjunto: ConjuntoVetores
         for nome, conjunto in zip(
-            self.CONJUNTOS, (vetores.questoes, vetores.alternativas, vetores.temas, vetores.inativos), strict=True
+            self.CONJUNTOS,
+            (vetores.questoes, vetores.alternativas, vetores.temas, vetores.inativos, vetores.exemplos),
+            strict=True,
         ):
             matriz: Path = self._pasta / f"{nome}.npy"
             ids: Path = self._pasta / f"{nome}_ids.json"
@@ -152,4 +156,5 @@ class ArquivoVetores:
             alternativas=conjuntos[1],
             temas=conjuntos[2],
             inativos=conjuntos[3],
+            exemplos=conjuntos[4],
         )

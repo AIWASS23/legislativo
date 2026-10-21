@@ -614,6 +614,60 @@ class ParametrosCalibracao:
 
 
 @dataclass(frozen=True)
+class ConfigRanqueador:
+    """Uma configuração do ranqueador de pares (ADR-022, experimento E10).
+
+    Attributes:
+        tipo: ``logistica`` (L2) ou ``boosting`` (``HistGradientBoostingClassifier``, o algoritmo do LightGBM).
+        penalidade: Penalidade L2 da logística.
+        profundidade: Profundidade máxima das árvores do boosting.
+        folha_minima: Mínimo de pares por folha do boosting.
+        iteracoes: Árvores do boosting.
+        taxa_aprendizado: Taxa de aprendizado do boosting.
+        l2: Regularização L2 das folhas do boosting.
+    """
+
+    tipo: str
+    penalidade: float = 10.0
+    profundidade: int = 3
+    folha_minima: int = 20
+    iteracoes: int = 200
+    taxa_aprendizado: float = 0.05
+    l2: float = 1.0
+
+    @property
+    def nome(self) -> str:
+        """Nome curto para relatórios."""
+        if self.tipo == "logistica":
+            return f"logística L2 (penalidade {self.penalidade:g})"
+        return f"boosting (profundidade {self.profundidade}, folha ≥ {self.folha_minima}, {self.iteracoes} árvores)"
+
+
+def _grade_e10_padrao() -> tuple[ConfigRanqueador, ...]:
+    """Grade pré-registrada do E10, da configuração mais simples para a mais complexa (ordem do desempate).
+
+    Returns:
+        A logística de referência e as 8 configurações de boosting.
+    """
+    boosting: list[ConfigRanqueador] = [
+        ConfigRanqueador("boosting", profundidade=profundidade, folha_minima=folha, iteracoes=iteracoes)
+        for profundidade in (2, 3)
+        for folha in (20, 10)
+        for iteracoes in (100, 200)
+    ]
+    return (ConfigRanqueador("logistica"), *boosting)
+
+
+def _ranqueador_padrao() -> ConfigRanqueador:
+    """Ranqueador do sistema: o vencedor do E10 (21/10), pela menor log-loss fora da amostra.
+
+    Returns:
+        Configuração do ranqueador.
+    """
+    return ConfigRanqueador("boosting", profundidade=2, folha_minima=20, iteracoes=200)
+
+
+@dataclass(frozen=True)
 class ParametrosSistema:
     """Parâmetros do sistema de classificação da etapa 2, que decide sem LLM (ADR-019 a ADR-025).
 
@@ -629,6 +683,21 @@ class ParametrosSistema:
         questoes_etapa1: Questões da etapa 1 (Q0001 a Q0359); as demais são as novas da etapa 2 (ADR-018).
         amostra_conferencia: Citações sorteadas para a conferência do autor (ADR-021).
         documento_tema_bm25: Variante do documento de tema no BM25 (``TemaBase.VARIANTES``; escolhida no E7b).
+        candidatos_por_fonte: Temas mais bem colocados de cada fonte (denso e BM25) que viram candidatos (ADR-022).
+        vizinhos_sistema: Vizinhos rotulados da folha no atributo de kNN do ranqueador.
+        ranqueador: Ranqueador de pares do sistema (o vencedor do E10).
+        grade_e10: Configurações pré-registradas do E10.
+        limiar_extra: P(certo) mínima de um tema de outro ramo para entrar em ``extras_ids``.
+        max_extras: Máximo de extras por questão.
+        sorteios_previsao: Sorteios (bootstrap e Beta) da estimativa de precisão (ADR-025).
+        precisao_alvo: Precisão mínima no percentil do limiar (a régua do case).
+        percentil_limiar: Percentil da precisão estimada que precisa alcançar o alvo (ADR-025).
+        ponto_reserva: Ponto mínimo da precisão estimada (regra de reserva da etapa 1).
+        min_direto: Questões da folha na faixa publicada a partir das quais o ponto é só o estimador direto.
+        min_direto_parcial: Questões da folha na faixa abaixo das quais o estimador direto não entra no ponto (D15).
+        criterio_limiar: ``reserva`` (D15: ponto do modelo ≥ ``ponto_reserva``) ou ``percentil`` (ADR-025).
+        percentil_inativo: Percentil, nas questões com tema da folha, da proximidade com tema inativo acima do
+            qual a questão vai para ``revisar`` (ADR-023, E11b).
     """
 
     partes_validacao: int = 5
@@ -642,6 +711,20 @@ class ParametrosSistema:
     questoes_etapa1: int = 359
     amostra_conferencia: int = 20
     documento_tema_bm25: str = "cartao_termos"
+    candidatos_por_fonte: int = 10
+    vizinhos_sistema: int = 5
+    ranqueador: ConfigRanqueador = field(default_factory=_ranqueador_padrao)
+    grade_e10: tuple[ConfigRanqueador, ...] = field(default_factory=_grade_e10_padrao)
+    limiar_extra: float = 0.5
+    max_extras: int = 3
+    sorteios_previsao: int = 2000
+    precisao_alvo: float = 0.95
+    percentil_limiar: float = 0.10
+    ponto_reserva: float = 0.97
+    min_direto: int = 40
+    min_direto_parcial: int = 10
+    criterio_limiar: str = "reserva"
+    percentil_inativo: float = 0.90
 
 
 @dataclass(frozen=True)
@@ -693,6 +776,7 @@ class ParametrosEmbeddings:
         vizinhos_knn: Vizinhos rotulados considerados no kNN do E9.
         documento_e8: Variante do documento de tema usada na escolha do modelo (E8, pré-registrado).
         documento_tema: Variante do documento de tema exportada para a decisão (escolhida no E8b).
+        contexto_exemplos: Janela de contexto dos exemplos sintéticos (textos curtos; cabe na GPU de 6 GB, E13).
     """
 
     provedor: str = "ollama"
@@ -704,6 +788,7 @@ class ParametrosEmbeddings:
     vizinhos_knn: int = 10
     documento_e8: str = "cartao"
     documento_tema: str = "cartao_termos_leis"
+    contexto_exemplos: int = 1024
 
 
 @dataclass(frozen=True)

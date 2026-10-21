@@ -11,11 +11,14 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 from collections.abc import Mapping, Sequence
 from dataclasses import replace
 from datetime import datetime
 from pathlib import Path
 from typing import TextIO
+
+import numpy as np
 
 from vicio_ia.configuracao import (
     Caminhos,
@@ -116,6 +119,7 @@ class PipelineEmbeddings:
                 alternativas=self._conjunto(gerador, textos["alternativas"], True),
                 temas=self._conjunto(gerador, textos["temas"], False),
                 inativos=self._conjunto(gerador, textos["inativos"], False),
+                exemplos=ConjuntoVetores((), np.zeros((0, 1), dtype=np.float64)),
             )
             geradores[modelo.nome] = gerador
             print(
@@ -158,15 +162,52 @@ class PipelineEmbeddings:
         vencedor_e8b: str = RegraEscolha.escolher(
             metricas_e8b, "E8b", [f"{v}: denso" for v in TemaBase.VARIANTES]
         ).removesuffix(": denso")
+        escolhido: ModeloEmbedding = next(m for m in p.candidatos if m.nome == p.escolhido)
+        textos_exemplos: dict[str, str] = self._textos_exemplos()
+        gerador_exemplos: GeradorEmbeddings = GeradorEmbeddings(
+            provedor,
+            replace(escolhido, contexto_tokens=p.contexto_exemplos),
+            self._caminhos.runs / "embeddings",
+            p.lote,
+        )
         exportados: VetoresConhecimento = replace(
             vetores[p.escolhido],
             temas=ConjuntoVetores(tuple(textos_variante[p.documento_tema]), temas_variante[p.documento_tema]),
+            exemplos=self._conjunto(gerador_exemplos, textos_exemplos, True),
         )
-        escolhido: ModeloEmbedding = next(m for m in p.candidatos if m.nome == p.escolhido)
-        self._exportar(exportados, escolhido, gerador_escolhido, {**textos, "temas": textos_variante[p.documento_tema]})
+        print(f"  exemplos sintéticos: {len(textos_exemplos)} ({gerador_exemplos.calculados} calculados agora)")
+        self._exportar(
+            exportados,
+            escolhido,
+            gerador_escolhido,
+            {**textos, "temas": textos_variante[p.documento_tema], "exemplos": textos_exemplos},
+        )
         return self._relatorio(
             [*referencia, *resultado.metricas, *metricas_e8b], resultado.vencedor, vencedor_e8b, vetores
         )
+
+    def _textos_exemplos(self) -> dict[str, str]:
+        """Questões-modelo sintéticas (E13), com IDs ``<tema_id>:<n>``.
+
+        Returns:
+            ``id -> texto`` (vazio se o arquivo não existir).
+        """
+        arquivo: Path = self._caminhos.dados_conhecimento / "exemplos_sinteticos.jsonl"
+        if not arquivo.is_file():
+            return {}
+        textos: dict[str, str] = {}
+        linha: str
+        for linha in arquivo.read_text(encoding="utf-8").splitlines():
+            if not linha.strip():
+                continue
+            objeto: object = json.loads(linha)
+            if isinstance(objeto, dict):
+                exemplos: object = objeto.get("exemplos", [])
+                indice: int
+                texto: object
+                for indice, texto in enumerate(exemplos if isinstance(exemplos, list) else [], start=1):
+                    textos[f"{objeto.get('tema_id', '')}:{indice}"] = str(texto)
+        return textos
 
     @staticmethod
     def _conjunto(gerador: GeradorEmbeddings, textos: Mapping[str, str], consulta: bool) -> ConjuntoVetores:
