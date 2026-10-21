@@ -12,12 +12,14 @@ lei por um destes caminhos, nesta ordem:
 5. **contexto:** a questão cita uma única lei, e o artigo sem lei fica com ela. A regra não vale quando a
    questão fala de uma lei sem nome ("arts. 74 e 75 da Lei"), porque essa lei pode ser outra.
 
-O que sobra fica como pendente, com o trecho, para a conferência do autor. Nenhum modelo de linguagem
-entra neste passo.
+O que sobra fica como pendente, com o trecho, para a conferência do autor. A resposta do autor fica em
+``dados/conhecimento/citacoes_manuais.csv`` e é aplicada por cima da extração (resolução ``manual``). Nenhum
+modelo de linguagem entra neste passo.
 """
 
 from __future__ import annotations
 
+import csv
 import json
 import re
 import unicodedata
@@ -37,7 +39,7 @@ class ArtigoCitado:
         lei: Lei canônica (``CP``, ``CPP``, ``LEP``, ``CF``, ``CPM``, ``CPPM`` ou ``Lei 11.343/2006``).
         inicio: Primeiro artigo (o sufixo de letra, como em 147-A, é ignorado).
         fim: Último artigo (igual ao primeiro, exceto em intervalos como "arts. 158-A a 158-F").
-        resolucao: ``explicita``, ``enumeracao``, ``anafora``, ``repeticao`` ou ``contexto``.
+        resolucao: ``explicita``, ``enumeracao``, ``anafora``, ``repeticao``, ``contexto`` ou ``manual``.
         trecho: Trecho da questão em volta da citação.
     """
 
@@ -726,3 +728,103 @@ class ArquivoCitacoes:
                     citacao: CitacoesQuestao = CitacoesQuestao.de_dict(objeto, f"{self._caminho.name}:{numero}")
                     citacoes[citacao.id] = citacao
         return citacoes
+
+
+@dataclass(frozen=True)
+class CorrecaoCitacao:
+    """Artigo de uma questão resolvido à mão pelo autor (um pendente da extração).
+
+    Attributes:
+        id: ID da questão.
+        lei: Lei canônica.
+        inicio: Primeiro artigo.
+        fim: Último artigo.
+    """
+
+    id: str
+    lei: str
+    inicio: int
+    fim: int
+
+
+class CorrecoesCitacoes:
+    """Lê ``dados/conhecimento/citacoes_manuais.csv`` e aplica as correções às citações extraídas.
+
+    Uma questão listada no arquivo tem os artigos corrigidos acrescentados e os pendentes resolvidos: o autor
+    responde por todos os pendentes da questão.
+    """
+
+    COLUNAS: ClassVar[tuple[str, ...]] = ("id", "lei", "art_inicio", "art_fim")
+
+    def __init__(self, caminho: Path) -> None:
+        """Define o arquivo.
+
+        Args:
+            caminho: CSV de correções.
+        """
+        self._caminho: Path = caminho
+
+    def ler(self) -> list[CorrecaoCitacao]:
+        """Lê as correções.
+
+        Returns:
+            Correções, na ordem do arquivo (vazio se o arquivo não existir).
+
+        Raises:
+            ValueError: Se faltar coluna ou o intervalo for inválido.
+        """
+        if not self._caminho.is_file():
+            return []
+        arquivo: TextIO
+        with self._caminho.open(encoding="utf-8", newline="") as arquivo:
+            leitor: csv.DictReader[str] = csv.DictReader(arquivo)
+            if tuple(leitor.fieldnames or ())[: len(self.COLUNAS)] != self.COLUNAS:
+                raise ValueError(f"{self._caminho.name}: colunas esperadas {', '.join(self.COLUNAS)}")
+            correcoes: list[CorrecaoCitacao] = []
+            linha: dict[str, str]
+            for linha in leitor:
+                inicio: int = int(linha["art_inicio"])
+                fim: int = int(linha["art_fim"])
+                if fim < inicio:
+                    raise ValueError(f"{self._caminho.name}: intervalo invertido em {linha['id']}")
+                correcoes.append(CorrecaoCitacao(linha["id"], linha["lei"], inicio, fim))
+        return correcoes
+
+    @staticmethod
+    def aplicar(citacoes: Sequence[CitacoesQuestao], correcoes: Sequence[CorrecaoCitacao]) -> list[CitacoesQuestao]:
+        """Acrescenta os artigos corrigidos e resolve os pendentes das questões corrigidas.
+
+        Args:
+            citacoes: Citações extraídas.
+            correcoes: Correções do autor.
+
+        Returns:
+            Citações com as correções aplicadas, na mesma ordem.
+
+        Raises:
+            ValueError: Se uma correção citar uma questão sem pendentes.
+        """
+        por_questao: dict[str, list[CorrecaoCitacao]] = {}
+        correcao: CorrecaoCitacao
+        for correcao in correcoes:
+            por_questao.setdefault(correcao.id, []).append(correcao)
+        saida: list[CitacoesQuestao] = []
+        citacao: CitacoesQuestao
+        for citacao in citacoes:
+            novas: list[CorrecaoCitacao] = por_questao.pop(citacao.id, [])
+            if not novas:
+                saida.append(citacao)
+                continue
+            if not citacao.pendentes:
+                raise ValueError(f"correção manual para {citacao.id}, que não tem pendentes")
+            artigos: list[ArtigoCitado] = list(citacao.artigos)
+            leis: list[str] = list(citacao.leis)
+            for correcao in novas:
+                trecho: str = next((t for t in citacao.pendentes if str(correcao.inicio) in t), citacao.pendentes[0])
+                artigos.append(ArtigoCitado(correcao.lei, correcao.inicio, correcao.fim, "manual", trecho))
+                if correcao.lei not in leis:
+                    leis.append(correcao.lei)
+            saida.append(CitacoesQuestao(citacao.id, tuple(leis), tuple(artigos), ()))
+        if por_questao:
+            raise ValueError(f"correção manual para questões inexistentes: {', '.join(sorted(por_questao))}")
+        return saida

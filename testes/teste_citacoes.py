@@ -6,7 +6,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from vicio_ia.enriquecimento.citacoes import ArquivoCitacoes, CitacoesQuestao, ExtratorCitacoes
+from vicio_ia.enriquecimento.citacoes import (
+    ArquivoCitacoes,
+    CitacoesQuestao,
+    CorrecaoCitacao,
+    CorrecoesCitacoes,
+    ExtratorCitacoes,
+)
 from vicio_ia.sistema.mapa_artigos import LinhaMapa, MapaArtigos
 
 
@@ -117,6 +123,39 @@ class TesteExtratorCitacoes(unittest.TestCase):
             arquivo: ArquivoCitacoes = ArquivoCitacoes(Path(pasta) / "citacoes.jsonl")
             arquivo.gravar([citacoes])
             self.assertEqual(arquivo.ler(), {"Q0001": citacoes})
+
+
+class TesteCorrecoesCitacoes(unittest.TestCase):
+    """A correção do autor resolve os pendentes da questão e é recusada onde não há pendente."""
+
+    def teste_aplicar(self) -> None:
+        """O artigo corrigido entra como ``manual``, a lei entra na lista e os pendentes somem."""
+        extrator: ExtratorCitacoes = ExtratorCitacoes()
+        citacoes: list[CitacoesQuestao] = [
+            extrator.extrair("Q1", "pena (art. 77 do CP). A composição, nos arts. 74 e 75 da Lei, é causa."),
+            extrator.extrair("Q2", "art. 155 do CP"),
+        ]
+        corrigidas: list[CitacoesQuestao] = CorrecoesCitacoes.aplicar(
+            citacoes, [CorrecaoCitacao("Q1", "Lei 9.099/1995", 74, 75)]
+        )
+        self.assertEqual(corrigidas[0].pendentes, ())
+        self.assertEqual(corrigidas[0].leis, ("CP", "Lei 9.099/1995"))
+        self.assertEqual(
+            [(a.lei, a.inicio, a.fim, a.resolucao) for a in corrigidas[0].artigos],
+            [("CP", 77, 77, "explicita"), ("Lei 9.099/1995", 74, 75, "manual")],
+        )
+        self.assertEqual(corrigidas[1], citacoes[1])
+        with self.assertRaises(ValueError):
+            CorrecoesCitacoes.aplicar(citacoes, [CorrecaoCitacao("Q2", "CP", 1, 1)])
+
+    def teste_ler_csv(self) -> None:
+        """Arquivo ausente vira lista vazia; colunas extras (observação) são aceitas."""
+        pasta: str
+        with tempfile.TemporaryDirectory() as pasta:
+            arquivo: Path = Path(pasta) / "citacoes_manuais.csv"
+            self.assertEqual(CorrecoesCitacoes(arquivo).ler(), [])
+            arquivo.write_text("id,lei,art_inicio,art_fim,observacao\nQ1,Lei 8.666/1993,89,108,x\n", encoding="utf-8")
+            self.assertEqual(CorrecoesCitacoes(arquivo).ler(), [CorrecaoCitacao("Q1", "Lei 8.666/1993", 89, 108)])
 
 
 class TesteMapaArtigos(unittest.TestCase):

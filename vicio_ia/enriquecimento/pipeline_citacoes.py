@@ -15,7 +15,14 @@ from datetime import datetime
 from pathlib import Path
 
 from vicio_ia.configuracao import Caminhos, ParametrosSistema
-from vicio_ia.enriquecimento.citacoes import ArquivoCitacoes, ArtigoCitado, CitacoesQuestao, ExtratorCitacoes
+from vicio_ia.enriquecimento.citacoes import (
+    ArquivoCitacoes,
+    ArtigoCitado,
+    CitacoesQuestao,
+    CorrecaoCitacao,
+    CorrecoesCitacoes,
+    ExtratorCitacoes,
+)
 from vicio_ia.enriquecimento.manifesto import Manifesto
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
@@ -50,13 +57,24 @@ class PipelineCitacoes:
         questoes: list[QuestaoPreparada] = leitor.questoes()
         temas: list[TemaPreparado] = leitor.temas()
         extrator: ExtratorCitacoes = ExtratorCitacoes()
-        citacoes: list[CitacoesQuestao] = [
+        extraidas: list[CitacoesQuestao] = [
             extrator.extrair(q.id, MontadorDocumentos.texto_questao(q)) for q in questoes
         ]
         pasta: Path = self._caminhos.dados_conhecimento
+        arquivo_correcoes: Path = pasta / "citacoes_manuais.csv"
+        correcoes: list[CorrecaoCitacao] = CorrecoesCitacoes(arquivo_correcoes).ler()
+        citacoes: list[CitacoesQuestao] = CorrecoesCitacoes.aplicar(extraidas, correcoes)
         destino: Path = ArquivoCitacoes(pasta / "citacoes.jsonl").gravar(citacoes)
         regra: Path = self._caminhos.raiz / "vicio_ia" / "enriquecimento" / "citacoes.py"
-        Manifesto(pasta / "manifesto.json", self._caminhos.raiz).registrar(
+        manifesto: Manifesto = Manifesto(pasta / "manifesto.json", self._caminhos.raiz)
+        if correcoes:
+            manifesto.registrar(
+                arquivo_correcoes,
+                "manual",
+                "edição à mão (conferência do autor dos pendentes da extração; D14)",
+                {"correcoes": str(len(correcoes)), "questoes": str(len({c.id for c in correcoes}))},
+            )
+        manifesto.registrar(
             destino,
             "regra",
             self.COMANDO,
@@ -66,6 +84,7 @@ class PipelineCitacoes:
                 "questoes": str(len(citacoes)),
                 "artigos": str(sum(len(c.artigos) for c in citacoes)),
                 "pendentes": str(sum(len(c.pendentes) for c in citacoes)),
+                "correcoes_manuais": str(len(correcoes)),
                 "modelo": "nenhum",
             },
         )
@@ -134,7 +153,8 @@ class PipelineCitacoes:
             (
                 "As resoluções são: `explicita` (a lei está junto do artigo), `enumeracao` (herdada do artigo "
                 'seguinte da mesma enumeração), `anafora` ("do mesmo diploma"), `repeticao` (o mesmo artigo já '
-                "apareceu com a lei) e `contexto` (a questão só cita uma lei)."
+                "apareceu com a lei), `contexto` (a questão só cita uma lei) e `manual` (pendente resolvido pelo "
+                "autor em `dados/conhecimento/citacoes_manuais.csv`)."
             ),
             "",
         ]

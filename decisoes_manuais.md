@@ -5,7 +5,7 @@ lista todas elas. Cada decisão que afeta o pipeline está num arquivo de dados 
 (`dados/temas/`), lido pelo código e conferido por checagens automáticas a cada
 `uv run python executar_preparacao.py`.
 
-Última atualização: 20/10/2026.
+Última atualização: 21/10/2026.
 
 ---
 
@@ -358,3 +358,55 @@ Ela muda só o número informado, não as decisões.
 - **Dez novas são de Direito Penal Militar ou Processual Penal Militar,** e não há nó militar na árvore
   (ADR-023).
 
+
+## D14. Revisão do mapa de artigos e dos termos propostos (20/10/2026)
+
+**Protocolo** (ADR-020).
+- **O que foi revisado:** as propostas do `codex-cli:gpt-6.1-sol` (`executar_enriquecimento.py`; entrada: só a
+  árvore e os cartões, nenhuma questão).
+- **Fila de 1.680 itens,** em três blocos, na ordem da ADR-020:
+  1. as 568 linhas do mapa lei/artigo → tema;
+  2. 797 termos de risco: `forte` e `exclui` de lixeiras e sobreposições, e termos fortes propostos para mais de
+     um tema;
+  3. uma amostra aleatória de 315 termos (10% do restante, semente 20261021), para estimar a taxa de erro do que
+     não foi revisado.
+- **Critérios:**
+  - uma linha do mapa só fica se uma questão que cita o artigo costuma ser daquele tema;
+  - um termo `forte` precisa quase definir o tema;
+  - num conflito, o termo fica `forte` só no tema dono e vira `fraco` ou `exclui` nos outros.
+
+**Forma de registro.**
+- O autor decidiu os 1.680 itens num arquivo de respostas e o passou de uma vez à ferramenta
+  (`executar_revisao_conhecimento.py`, pela entrada padrão).
+- Por isso todas as decisões em `dados/conhecimento/revisao.csv` têm o mesmo horário (20/10/2026 16:04:52), que
+  é o da gravação, não o de cada decisão.
+- As decisões são do autor. Nenhum modelo revisou nada.
+- **Tempo gasto:** 3 horas.
+
+**Resultado.**
+
+| Bloco | Itens | Aceitos | Corrigidos | Apagados |
+|---|---:|---:|---:|---:|
+| 1. Mapa de artigos | 568 | 456 | 15 | 97 |
+| 2. Termos de risco | 797 | 573 | 224 | 0 |
+| 3. Amostra aleatória de termos | 315 | 305 | 10 | 0 |
+
+- **O mapa final tem 471 linhas,** todas revisadas. O modelo errou mais no mapa (20% das linhas mudaram) e nos
+  termos de risco (28% corrigidos) do que no resto.
+- **Erro estimado nos termos não revisados:** 10 de 315 na amostra, ou 3,2% (intervalo de 95% de Wilson: 1,7%
+  a 5,7%). Isso equivale a cerca de 90 dos 2.833 termos que ficaram como rascunho do modelo. Esses termos estão
+  marcados com `revisado = nao` em `dados/conhecimento/termos.csv`.
+- **Efeito na folha-verdade:** das 14 questões da folha com tema que citam artigo, todos os temas apontados
+  pelo mapa acertam pela régua em 5, contra 3 com a proposta (`saidas/etapa2/citacoes.md`). O mapa continua a
+  apontar mais de um tema em muitas questões, e por isso entra no ranqueador como candidato e atributo, não
+  como regra de publicação.
+
+**Conferência das citações** (`saidas/etapa2/citacoes.md`, 21/10).
+- **Amostra:** o autor conferiu os 20 artigos sorteados (semente 20261020), e os 20 estavam certos (lei e
+  número).
+- **Os 3 pendentes da extração** foram resolvidos à mão em `dados/conhecimento/citacoes_manuais.csv`, aplicado
+  pelo `executar_citacoes.py` com a resolução `manual`:
+  - Q0190, "arts. 74 e 75 da Lei" e "(art. 76)": Lei 9.099/1995, porque a questão é sobre os Juizados
+    Especiais Criminais;
+  - Q0592, "artigos 89 a 108": Lei 8.666/1993, os crimes da antiga Lei de Licitações.
+- **Resultado:** 209 artigos com a lei resolvida em 94 questões, e nenhum pendente.

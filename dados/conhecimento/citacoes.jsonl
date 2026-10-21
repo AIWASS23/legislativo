@@ -187,7 +187,7 @@
 {"id": "Q0187", "leis": [], "artigos": [], "pendentes": []}
 {"id": "Q0188", "leis": [], "artigos": [], "pendentes": []}
 {"id": "Q0189", "leis": [], "artigos": [], "pendentes": []}
-{"id": "Q0190", "leis": ["CP"], "artigos": [{"lei": "CP", "inicio": 77, "fim": 77, "resolucao": "explicita", "trecho": "…que autorizariam a suspensão condicional da pena (art. 77 do Código Penal). A composição civil, estabelecid…"}], "pendentes": ["…digo Penal). A composição civil, estabelecida nos arts. 74 e 75 da Lei, é uma causa de extinção da punibilidade n…", "…ca incondicionada. A proposta de Transação Penal (art. 76) deve ser feita pelo Juiz na presença do Ministér…"]}
+{"id": "Q0190", "leis": ["CP", "Lei 9.099/1995"], "artigos": [{"lei": "CP", "inicio": 77, "fim": 77, "resolucao": "explicita", "trecho": "…que autorizariam a suspensão condicional da pena (art. 77 do Código Penal). A composição civil, estabelecid…"}, {"lei": "Lei 9.099/1995", "inicio": 74, "fim": 75, "resolucao": "manual", "trecho": "…digo Penal). A composição civil, estabelecida nos arts. 74 e 75 da Lei, é uma causa de extinção da punibilidade n…"}, {"lei": "Lei 9.099/1995", "inicio": 76, "fim": 76, "resolucao": "manual", "trecho": "…ca incondicionada. A proposta de Transação Penal (art. 76) deve ser feita pelo Juiz na presença do Ministér…"}], "pendentes": []}
 {"id": "Q0191", "leis": ["CPP"], "artigos": [], "pendentes": []}
 {"id": "Q0192", "leis": [], "artigos": [], "pendentes": []}
 {"id": "Q0193", "leis": [], "artigos": [], "pendentes": []}
@@ -589,7 +589,7 @@
 {"id": "Q0589", "leis": [], "artigos": [], "pendentes": []}
 {"id": "Q0590", "leis": [], "artigos": [], "pendentes": []}
 {"id": "Q0591", "leis": ["CPP"], "artigos": [], "pendentes": []}
-{"id": "Q0592", "leis": ["Lei 8.666/1993", "Lei 14.133/2021", "CP"], "artigos": [{"lei": "CP", "inicio": 337, "fim": 337, "resolucao": "explicita", "trecho": "…istração em geral e correspondem, atualmente, aos artigos 337-E a 337-P do diploma criminal. Constitui crime em licitaçõe…"}], "pendentes": ["…estavam elencados em seção própria, previstos nos artigos 89 a 108. Com a entrada em vigor da Lei nº 14.133/2021, os…"]}
+{"id": "Q0592", "leis": ["Lei 8.666/1993", "Lei 14.133/2021", "CP"], "artigos": [{"lei": "CP", "inicio": 337, "fim": 337, "resolucao": "explicita", "trecho": "…istração em geral e correspondem, atualmente, aos artigos 337-E a 337-P do diploma criminal. Constitui crime em licitaçõe…"}, {"lei": "Lei 8.666/1993", "inicio": 89, "fim": 108, "resolucao": "manual", "trecho": "…estavam elencados em seção própria, previstos nos artigos 89 a 108. Com a entrada em vigor da Lei nº 14.133/2021, os…"}], "pendentes": []}
 {"id": "Q0593", "leis": ["CP"], "artigos": [{"lei": "CP", "inicio": 155, "fim": 155, "resolucao": "explicita", "trecho": "…de obstáculo, praticado durante repouso noturno (artigo 155, §§ 1º e 4º, inciso II, do CP). Segundo a denúnci…"}, {"lei": "CP", "inicio": 155, "fim": 155, "resolucao": "explicita", "trecho": "…ferida sentença condenando Camila como incursa no artigo 155, §§ 1º e 4º, incisos I e IV, do Código Penal. A p…"}, {"lei": "CP", "inicio": 155, "fim": 155, "resolucao": "explicita", "trecho": "…nas hipóteses de furto qualificado, previstas no art. 155, §4°, do Código Penal. não se admite a utilização…"}], "pendentes": []}
 {"id": "Q0594", "leis": [], "artigos": [], "pendentes": []}
 {"id": "Q0595", "leis": ["CPP"], "artigos": [], "pendentes": []}

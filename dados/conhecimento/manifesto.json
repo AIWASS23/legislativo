@@ -1,17 +1,28 @@
 {
   "dados/conhecimento/citacoes.jsonl": {
-    "sha256": "64f8a32ddbd59409fde152ff480a6ec857f1377d39ac2b47b0ad86aed3185b96",
+    "sha256": "0180b939134ec9e57d879bce3358b9ecf080a58e2d3573aed3b0999e5427e914",
     "origem": "regra",
     "comando": "uv run python executar_citacoes.py",
     "detalhes": {
-      "artigos": "206",
+      "artigos": "209",
+      "correcoes_manuais": "3",
       "entrada": "dados/preparados/questoes.jsonl (enunciado, comando e alternativas)",
       "modelo": "nenhum",
-      "pendentes": "3",
+      "pendentes": "0",
       "questoes": "659",
-      "regra": "vicio_ia/enriquecimento/citacoes.py@b4fa3a9a7bc4"
+      "regra": "vicio_ia/enriquecimento/citacoes.py@974cdfef4aac"
     },
-    "atualizado_em": "2026-10-20T15:22:51"
+    "atualizado_em": "2026-10-21T06:43:17"
+  },
+  "dados/conhecimento/citacoes_manuais.csv": {
+    "sha256": "8bab103cd8075cd07845a934a73e367b4f536213bb96587538d8ee0f7a9eb2a6",
+    "origem": "manual",
+    "comando": "edição à mão (conferência do autor dos pendentes da extração; D14)",
+    "detalhes": {
+      "correcoes": "3",
+      "questoes": "2"
+    },
+    "atualizado_em": "2026-10-21T06:43:17"
   },
   "dados/conhecimento/embeddings/alternativas.npy": {
     "sha256": "7b9ae0720e4146edf5851af133232e5567a59454664cb03d3a0d43437f23f5bf",
@@ -146,6 +157,21 @@
     },
     "atualizado_em": "2026-10-20T15:22:18"
   },
+  "dados/conhecimento/mapa_artigos.csv": {
+    "sha256": "3a350046e0c35a3e88eae4b927d7238a2d2fa17d1f072e14def8af3e70206e7b",
+    "origem": "llm+revisão",
+    "comando": "uv run python executar_revisao_conhecimento.py",
+    "detalhes": {
+      "amostra_revisada": "315/315",
+      "artigos_propostos": "568",
+      "decisoes": "artigo:aceitar 456; artigo:apagar 97; artigo:corrigir 15; termo:aceitar 878; termo:corrigir 234",
+      "revisado_ate": "2026-10-20T16:04:52",
+      "revisor": "autor do case",
+      "taxa_erro_amostra": "10/315",
+      "termos_propostos": "3945"
+    },
+    "atualizado_em": "2026-10-20T16:04:53"
+  },
   "dados/conhecimento/propostas/mapa_artigos.csv": {
     "sha256": "cfef876080011e193d084612c9ef1f321db4ddc23264d73332fb6f51c5dfb129",
     "origem": "llm (proposta, sem revisão)",
@@ -173,5 +199,20 @@
       "revisao": "pendente"
     },
     "atualizado_em": "2026-10-20T10:47:47"
+  },
+  "dados/conhecimento/termos.csv": {
+    "sha256": "8cdcd1c3fa4caebdf0084526eb0793aa4d4f48c04c827555ec7df3ad48daed99",
+    "origem": "llm+revisão",
+    "comando": "uv run python executar_revisao_conhecimento.py",
+    "detalhes": {
+      "amostra_revisada": "315/315",
+      "artigos_propostos": "568",
+      "decisoes": "artigo:aceitar 456; artigo:apagar 97; artigo:corrigir 15; termo:aceitar 878; termo:corrigir 234",
+      "revisado_ate": "2026-10-20T16:04:52",
+      "revisor": "autor do case",
+      "taxa_erro_amostra": "10/315",
+      "termos_propostos": "3945"
+    },
+    "atualizado_em": "2026-10-20T16:04:53"
   }
 }

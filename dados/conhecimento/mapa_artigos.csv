@@ -1,0 +1,472 @@
+lei,art_inicio,art_fim,tema_id,forca,revisado,origem
+Lei 13.869/2019,1,38,4684,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.105/2005,5,5,4685,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.105/2005,24,29,4685,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 4.737/1965,284,355,4692,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.504/1997,33,33,4692,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.504/1997,39,40,4692,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.504/1997,72,72,4692,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.072/1990,1,2,4693,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.072/1990,8,8,4693,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.684/2003,9,9,4695,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.137/1990,1,3,4695,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.430/1996,83,83,4695,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 1.521/1951,1,4,4687,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.137/1990,4,4,4687,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.137/1990,7,7,4687,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.492/1986,1,26,4689,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,225,225,4688,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.605/1998,1,69,4688,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.716/1989,1,20,4690,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.503/1997,291,312,4691,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.078/1990,61,80,4694,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.826/2003,12,21,4697,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.826/2003,30,32,4697,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 10.741/2003,93,108,4696,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 2.889/1956,1,7,4698,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.037/2009,1,7,4699,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,1,11,4700,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,98,98,4701,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,60,92,4701,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.613/1998,1,17,4702,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,1,46,4704,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+LEP,1,204,4703,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,1,2,4705,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,18,21,4705,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.260/2016,2,3,4706,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.260/2016,5,16,4706,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.455/1997,1,2,4707,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,27,64,4708,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,70,70,4708,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.431/2017,1,25,4709,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 14.344/2022,1,26,4709,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.069/1990,225,244,4709,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,100,106,5063,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,100,100,5065,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,103,106,5065,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,100,103,5064,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,69,72,5066,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,70,70,5068,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,69,69,5067,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,76,76,5067,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,71,71,5069,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,72,72,5070,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,31,5071,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5072,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5073,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,30,30,5076,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5075,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,29,29,5074,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,31,31,5074,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,129,129,5077,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,338,359,5079,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,339,341,5080,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,345,346,5082,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,350,350,5085,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.869/2019,44,44,5085,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,342,343,5081,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,348,349,5084,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,347,347,5083,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,338,338,5086,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,344,344,5086,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,351,359,5086,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,312,337,5087,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,321,321,5097,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,316,316,5091,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,320,320,5096,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,318,318,5094,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,334,334,5094,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,333,333,5093,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,317,317,5092,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,315,315,5090,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,327,327,5088,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,312,313,5089,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,319,319,5095,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,329,331,5100,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,332,332,5101,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,328,328,5099,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,322,322,5098,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,213,234,5102,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,218,218,5108,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,225,226,5110,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,213,213,5103,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,227,234,5109,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,218,218,5109,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,215,215,5104,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,289,311,5116,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,296,305,5118,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,306,311,5119,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,289,295,5117,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,138,145,5120,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,138,138,5122,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,139,139,5123,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,141,145,5121,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,140,140,5124,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,250,266,5125,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,260,266,5127,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,250,259,5126,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,146,154,5128,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,147,147,5130,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,150,154,5133,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,146,146,5129,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.185/2015,1,3,5129,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,148,149,5132,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,147,147,5131,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,130,137,5138,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,133,134,5141,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,136,136,5143,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,135,135,5142,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,130,131,5139,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,132,132,5140,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,267,288,5144,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,286,288,5146,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,267,285,5145,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,121,128,5149,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,124,128,5154,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 14.994/2024,2,2,5151,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,121,121,5150,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,122,122,5152,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,123,123,5153,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,155,183,5157,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,173,173,5167,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,168,170,5165,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,163,167,5164,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,181,183,5158,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,161,161,5162,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,171,172,5166,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,174,178,5166,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,158,160,5161,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,179,179,5168,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,155,156,5159,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,180,180,5169,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,157,157,5160,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,161,162,5163,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,235,249,5111,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,244,247,5114,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,235,239,5112,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,241,243,5113,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,248,249,5115,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,184,184,5134,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,186,186,5134,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,197,212,5134,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,197,207,5135,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,208,212,5137,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,184,184,5136,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,186,186,5136,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.279/1996,183,195,5136,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.609/1998,12,12,5136,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,1,5170,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,22,22,5171,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,1,5172,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,14,17,5175,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,14,14,5177,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,17,17,5179,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,15,16,5178,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,1,12,5180,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,5,9,5182,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,2,4,5181,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,10,11,5181,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,96,99,5184,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,109,119,5185,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,118,118,5186,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,115,115,5186,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,119,119,5186,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,10,10,5187,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,111,112,5187,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,116,117,5187,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,114,114,5190,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,110,110,5189,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,112,113,5189,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,109,110,5188,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,107,108,5191,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,2,2,5194,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,21,21,5193,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,48,48,5193,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,84,84,5193,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,103,103,5198,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,120,120,5197,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,60,60,5195,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,104,106,5196,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,143,143,5196,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,32,95,5199,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,15,15,5209,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,91,92,5209,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,83,90,5208,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,49,52,5206,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,60,60,5206,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,33,42,5201,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,75,75,5201,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,43,48,5205,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,59,59,5202,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,93,95,5210,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,32,32,5200,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,61,67,5203,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,77,82,5207,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,68,68,5204,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,21,22,5211,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,26,28,5211,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,22,22,5215,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,21,21,5214,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,228,228,5213,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,26,28,5213,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,22,22,5216,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,13,13,5218,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,18,20,5218,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,18,19,5222,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,13,13,5223,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,20,20,5224,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,73,74,5224,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,13,13,5226,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,23,25,5228,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,23,23,5229,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,24,24,5230,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,23,23,5232,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CP,25,25,5231,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5466,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,68,5466,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,63,68,5475,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,25,5471,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,38,39,5471,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5470,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,24,24,5470,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,27,27,5470,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,29,33,5472,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,36,38,5472,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,48,60,5472,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,395,395,5467,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,41,41,5473,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,46,47,5473,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,569,569,5473,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,42,42,5469,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,48,51,5469,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,38,38,5474,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,41,41,5474,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,44,45,5474,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,48,49,5474,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,569,569,5474,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,621,631,5476,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,647,667,5476,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.016/2009,1,25,5476,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,142,142,5477,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,647,667,5477,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.016/2009,1,29,5479,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,621,631,5478,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5480,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5480,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,108,109,5480,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,124,125,5480,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,69,91,5480,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,113,117,5480,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,70,73,5483,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,88,90,5483,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,75,75,5485,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,83,83,5485,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,109,109,5482,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,124,125,5482,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,74,74,5482,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,29,29,5484,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,96,96,5484,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5484,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5484,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,108,108,5484,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,84,87,5484,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,69,69,5481,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,113,117,5481,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,109,109,5486,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,76,82,5486,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,427,428,5486,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,351,372,5487,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5487,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,351,369,5488,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,396,396,5488,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5488,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,370,372,5489,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,390,392,5489,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,798,798,5489,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,92,112,5490,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,118,154,5490,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,95,95,5493,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,108,111,5493,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,95,95,5494,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,110,111,5494,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,95,107,5492,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,112,112,5492,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,252,256,5492,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,258,258,5492,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,145,154,5497,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,125,144,5496,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,92,94,5491,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,118,124,5495,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,4,23,5498,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,28,28,5498,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.830/2013,2,2,5498,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.347/1985,8,9,5498,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,4,4,5499,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,9,9,5499,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,12,12,5499,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,17,17,5499,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,20,20,5499,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,3,3,5503,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,10,10,5501,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,16,18,5501,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,28,28,5501,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.347/1985,5,5,5504,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.347/1985,8,10,5504,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,5,7,5500,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,10,10,5500,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,13,14,5500,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,21,21,5500,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.830/2013,2,2,5500,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,1,3,5505,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,3,3,5508,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,1,1,5506,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,2,2,5507,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,563,573,5509,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,563,563,5510,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,565,566,5510,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,571,573,5510,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,564,564,5511,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,567,570,5511,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,574,580,5512,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,617,617,5512,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,574,574,5516,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,599,599,5516,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,580,580,5515,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,584,584,5515,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,589,589,5515,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,596,597,5515,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,599,599,5515,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,575,575,5514,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,577,578,5514,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,598,598,5514,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,806,806,5514,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,574,574,5513,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,576,576,5513,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,579,579,5513,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,617,617,5513,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,282,5517,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,301,350,5517,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.960/1989,1,3,5517,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5523,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,321,350,5523,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,282,5522,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,319,320,5522,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,317,318,5521,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,282,5519,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,316,5519,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 7.960/1989,1,3,5520,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,301,310,5518,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,394,405,5530,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,397,397,5534,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,403,404,5536,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,399,402,5535,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,405,405,5535,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,394,394,5532,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,396,396,5533,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,514,514,5533,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,395,396,5531,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,399,399,5531,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,403,404,5537,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,98,98,5539,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,60,92,5539,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,98,98,5540,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,41,41,5540,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,60,68,5540,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,69,75,5540,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,77,81,5540,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,41,41,5542,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,89,89,5542,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.340/2006,41,41,5541,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,76,76,5541,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,394,394,5538,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,531,538,5538,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,406,497,5524,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,413,421,5527,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,425,491,5528,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,494,497,5528,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,74,74,5525,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,406,412,5526,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,422,424,5526,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,492,493,5529,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,158,250,5543,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,3,14,5543,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,1,9,5543,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,229,230,5552,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,53,53,5558,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,8,9,5558,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,240,250,5554,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.906/1994,7,7,5554,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,8,8,5556,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,41,41,5557,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,3,7,5557,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,197,200,5548,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,201,201,5549,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,158,158,5545,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,167,168,5545,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 11.343/2006,53,53,5559,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 12.850/2013,10,14,5559,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.296/1996,1,9,5555,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,185,196,5547,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,400,400,5547,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,159,166,5546,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,169,184,5546,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,231,238,5553,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,202,225,5550,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,226,228,5551,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5560,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5560,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,581,620,5560,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,637,646,5560,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+LEP,197,197,5560,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,82,83,5560,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+LEP,197,197,5566,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,593,603,5562,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,639,646,5567,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 5.010/1966,6,6,5568,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,609,609,5564,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,382,382,5565,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,619,620,5565,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,105,105,5571,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,102,102,5570,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,581,592,5561,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 9.099/1995,82,83,5569,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,381,392,5572,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,381,381,5573,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,800,800,5573,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5577,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,28,28,5502,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,383,384,5579,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5576,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,385,385,5578,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,386,386,5574,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,387,387,5575,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,389,390,5575,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,392,392,5575,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5580,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,93,93,5582,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,129,129,5581,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,251,281,5583,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,282,300,5584,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5584,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,287,287,5589,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5589,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,283,283,5585,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,283,286,5587,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,288,293,5587,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,300,300,5587,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,306,306,5587,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,27,27,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,53,53,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CF,86,86,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,295,296,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 4.737/1965,236,236,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.625/1993,40,40,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 8.906/1994,7,7,5586,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,310,310,5588,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,155,157,5590,ramo,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,156,156,5591,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+Lei 13.105/2015,372,372,5593,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,157,157,5594,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,155,155,5592,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,158,158,5544,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
+CPP,182,182,5592,exata,sim,llm:codex-cli:gpt-6.1-sol@conhecimento_tema@152fcf4e12ee
