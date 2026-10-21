@@ -104,8 +104,8 @@ riscos e mostrar o efeito de cada um.
    direto, e não há margem de deriva, porque o E12 não mostrou deriva.
 3. [x] Testes do limiar e do determinismo (`testes/teste_sistema.py`). A previsão exclui a folha, como confere
    o validador.
-4. [ ] Gráficos de confiabilidade e de precisão × cobertura para a etapa 2: não feitos. A curva de precisão ×
-   cobertura está em tabela, em `saidas/sistema/diagnostico.md`.
+4. [x] Gráficos de confiabilidade e de precisão × cobertura da etapa 2, gerados pelo `executar_sistema.py` em
+   `saidas/sistema/` (`confiabilidade.png`, `precisao_cobertura.png` e a tabela em `graficos.md`).
 
 ## Implementação (21/10/2026)
 

@@ -1,6 +1,6 @@
 # ADR-026: Entrega, reprodutibilidade e repositório na etapa 2
 
-**Status:** Implementado (21/10/2026; falta a reprodução num clone limpo). Revisa a ADR-015 para a etapa 2.
+**Status:** Implementado (21/10/2026). Revisa a ADR-015 para a etapa 2.
 **Data:** 20/10/2026
 **Decisores:** Autor do case
 **Fase:** 08-etapa2 (entrega)
@@ -27,7 +27,7 @@
 - Os anexos da etapa 1 ficam intactos em `anexos/1-ENTREGA/`, para reproduzir a etapa 1 se for preciso.
 
 **2. Etapa 1 preservada.**
-- Tag `entrega-1` no commit `02d7e19`.
+- A etapa 1 fica no commit `02d7e19` (sem tag, por decisão do autor).
 - Os entregáveis da etapa 1 vão para `relatorio/etapa1/`: `publicacao.csv`, `previsao.txt`,
   `relatorio.md`, `relatorio.pdf` e `arquitetura.png`.
 - Os da etapa 2 ocupam `relatorio/etapa2/` (`Caminhos.entregaveis` depende da etapa).
@@ -110,8 +110,8 @@ arquivo. A tag e a pasta de arquivo mantêm a etapa 1 visível sem atrapalhar a 
 ## Itens de ação
 
 1. [x] `Caminhos`: pasta da etapa configurável; passo 01 lendo `anexos/2-ENTREGA`.
-2. [ ] Tag `entrega-1` (pendente, comando do autor) e a pasta `relatorio/etapa1/` (feita).
+2. [x] A pasta `relatorio/etapa1/` e o commit `02d7e19`. A tag foi dispensada pelo autor.
 3. [x] Pontos de entrada da tabela acima, sem argumentos, no padrão da ADR-001.
 4. [x] Validador para 659 linhas e para a previsão das 559.
-5. [ ] Medida de tempo no README (feita); reprodução num clone limpo e hash no README (pendentes).
+5. [x] Medida de tempo e hash dos entregáveis no README. A reprodução num clone limpo foi feita pelo autor (21/10).
 6. [x] README e relatório da etapa 2 (`relatorio/etapa2/`).

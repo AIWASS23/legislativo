@@ -343,7 +343,7 @@ Ela muda só o número informado, não as decisões.
 - O autor moveu os anexos para `anexos/1-ENTREGA/` (etapa 1) e `anexos/2-ENTREGA/` (etapa 2).
 - `Caminhos` lê a pasta da etapa em vigor (`ETAPA_ATUAL = 2`, em `vicio_ia/configuracao.py`).
 - A classificação por LLM, o experimento E4 e o passo 07 da etapa 1 recusam rodar na etapa 2
-  (`GuardaEtapa`). Para reproduzir a etapa 1, use a tag `entrega-1`.
+  (`GuardaEtapa`). Para reproduzir a etapa 1, use o commit `02d7e19`.
 
 **Passo 01 nas 659 questões.**
 - As 8 checagens passaram.

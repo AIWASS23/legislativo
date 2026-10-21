@@ -44,7 +44,7 @@ entre pastas (ADR-001 a ADR-027), para que as referências não quebrem se um ar
 | [023](08-etapa2/ADR-023-fora-e-multitema.md) | "Fora" e multitema: P(fora), regras e dispersão entre as alternativas | Implementado com o plano B |
 | [024](08-etapa2/ADR-024-uso-da-folha-verdade.md) | Uso dos 100 rótulos e protocolo de avaliação; deriva entre antigas e novas | Implementado |
 | [025](08-etapa2/ADR-025-calibracao-limiar-e-previsao.md) | Calibração, limiar e previsão para as 559 | Implementado com ajustes (D15) |
-| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodução do zero e repositório | Implementado; falta o clone limpo |
+| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodução do zero e repositório | Implementado |
 | [027](08-etapa2/ADR-027-producao-e-retreino.md) | Produção: custo, ciclo do professor e retreino | Implementado no desenho |
 
 **Achados de 20/10, antes de qualquer modelo** (detalhes na ADR-018):
@@ -81,8 +81,7 @@ entre pastas (ADR-001 a ADR-027), para que as referências não quebrem se um ar
 - **Experimentos que confirmaram o plano B:** o fora não é separável (E11, E11b) e não há deriva (E12).
 - **Descartados:** LambdaMART (E10b), embeddings extras, filtro de concordância, antitemas e gold no treino. O
   E9 (kNN) entrou só como atributo.
-- **Ficou de fora:** a soma ponderada sem treino, o desconto de convenção por tipo de nó e os gráficos da etapa 2
-  (D15).
+- **Ficou de fora:** a soma ponderada sem treino e o desconto de convenção por tipo de nó (D15).
 
 **Cronograma** (o planejado em 20/10; com a entrega antecipada, tudo foi feito entre 20 e 22/10):
 
@@ -98,13 +97,14 @@ entre pastas (ADR-001 a ADR-027), para que as referências não quebrem se um ar
 
 **Definição de pronto da etapa 2:**
 - [x] `relatorio/etapa2/publicacao.csv` com 659 linhas e `relatorio/etapa2/previsao.txt` para as 559, aprovados pelo validador.
-- [ ] `executar_sistema.py` regenera os dois arquivos sem LLM e sem rede, byte a byte, num clone limpo; tempo medido.
-  Feito na máquina do autor, com a trava e o tempo medido; falta o clone limpo.
+- [x] `executar_sistema.py` regenera os dois arquivos sem LLM e sem rede, byte a byte, num clone limpo (feito pelo
+  autor); tempo medido.
 - [x] Manifesto de artefatos, com a origem e a revisão de cada um; tabela no README.
 - [x] Relatório de até 4 páginas (a–e), com o memo de 1 página.
 - [x] `decisoes_manuais.md` com D13 em diante (D13 a D16).
 - [x] Portão de qualidade aprovado, com os testes da fronteira do LLM, da escolha do nó, do fora e do determinismo.
-- [ ] Repositório público atualizado e e-mail para a Carla.
+- [x] Repositório público atualizado.
+- [ ] E-mail para a Carla.
 
 ---
 
@@ -186,7 +186,7 @@ anexos/ ──► [01] preparar ──► questões limpas + árvore marcada (fa
 | [023](08-etapa2/ADR-023-fora-e-multitema.md) | "Fora" e multitema | 08-etapa2 | Implementado com o plano B |
 | [024](08-etapa2/ADR-024-uso-da-folha-verdade.md) | Uso dos 100 rótulos e protocolo de avaliação | 08-etapa2 | Implementado |
 | [025](08-etapa2/ADR-025-calibracao-limiar-e-previsao.md) | Calibração, limiar e previsão na etapa 2 | 08-etapa2 | Implementado com ajustes (D15) |
-| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodutibilidade e repositório na etapa 2 | 08-etapa2 | Implementado; falta o clone limpo |
+| [026](08-etapa2/ADR-026-entrega-e-reprodutibilidade.md) | Entrega, reprodutibilidade e repositório na etapa 2 | 08-etapa2 | Implementado |
 | [027](08-etapa2/ADR-027-producao-e-retreino.md) | Produção na etapa 2: custo, ciclo do professor e retreino | 08-etapa2 | Implementado no desenho |
 
 **Status:** *Proposto* = decidido para implementar, pode mudar com os experimentos;

@@ -130,5 +130,5 @@ demonstrável. O custo é pequeno: um teste AST e um guarda de socket.
 3. [x] `FabricaProvedores`: levantar erro quando `VICIO_SEM_LLM=1`.
 4. [x] `dados/conhecimento/manifesto.json` e a classe que o grava e confere.
 5. [x] Teste `testes/teste_fronteira_llm.py`: AST dos imports, caminhos proibidos, guarda de rede.
-6. [ ] Roteiro de reprodução do zero (clone limpo, sem rede), com o hash do `publicacao.csv` no README. O
-   determinismo e a trava já estão conferidos na máquina do autor; falta o clone limpo.
+6. [x] Reprodução do zero (clone limpo, sem rede), feita pelo autor (21/10), com o hash do `publicacao.csv` no
+   README.

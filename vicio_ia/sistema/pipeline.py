@@ -5,7 +5,8 @@ ranqueador na folha, mede fora da amostra, calibra, escolhe o limiar e grava:
 
 - ``relatorio/etapa2/publicacao.csv``: as 659 questões, no formato do LEIA-ME;
 - ``relatorio/etapa2/previsao.txt``: precisão e cobertura previstas para as 559 avaliadas;
-- ``saidas/sistema/diagnostico.md`` e ``execucao.json``: o diagnóstico e o tempo.
+- ``saidas/sistema/diagnostico.md`` e ``execucao.json``: o diagnóstico e o tempo;
+- ``saidas/sistema/confiabilidade.png`` e ``precisao_cobertura.png`` (com ``graficos.md``): os gráficos da ADR-025.
 
 A saída é determinística: as mesmas entradas geram os mesmos arquivos, byte a byte.
 """
@@ -27,6 +28,7 @@ from vicio_ia.configuracao import Caminhos, ParametrosSistema
 from vicio_ia.estatistica import Matriz
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
 from vicio_ia.sistema.folha import ReguaEtapa2, RotuloFolha
+from vicio_ia.sistema.graficos import GraficosEtapa2
 from vicio_ia.sistema.pares import CarregadorSistema, DadosSistema, GeradorPares, ParesQuestao
 from vicio_ia.sistema.politica import Calibrador, EscolhaQuestao, EscolhedorNo, EstimadorLimiar, Previsao, RegrasFora
 from vicio_ia.sistema.ranqueador import ModeloPares, TreinoRanqueador
@@ -157,6 +159,9 @@ class SistemaEtapa2:
             cobertura,
             regras,
             bloqueio,
+        )
+        GraficosEtapa2(self._caminhos.raiz / "saidas" / "sistema", p.precisao_alvo, p.semente).gerar(
+            calibrador.aplicar(p_folha, concorda_folha), acerto_folha, previsao
         )
         self._gravar_execucao(segundos, decisoes, previsao)
         print(

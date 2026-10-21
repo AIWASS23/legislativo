@@ -1,6 +1,6 @@
 """Separação entre as etapas do case (ADR-018, ADR-026).
 
-A etapa 1 classificou com LLMs e foi entregue (tag ``entrega-1``). Na etapa 2, a decisão não pode
+A etapa 1 classificou com LLMs e foi entregue (commit ``02d7e19``). Na etapa 2, a decisão não pode
 chamar modelo de linguagem (ADR-019). Os pontos de entrada da etapa 1 que chamam LLMs para classificar,
 ou que gravam os entregáveis da etapa 1, recusam rodar quando os anexos em uso não são os da etapa 1.
 """
@@ -30,7 +30,7 @@ class GuardaEtapa:
         """
         if caminhos.etapa != 1:
             raise ErroEtapa(
-                f"{passo} pertence à etapa 1 (tag entrega-1). Na etapa {caminhos.etapa}, a decisão não chama "
+                f"{passo} pertence à etapa 1 (commit 02d7e19). Na etapa {caminhos.etapa}, a decisão não chama "
                 "modelo de linguagem (ADR-019): use executar_sistema.py. Para reproduzir a etapa 1, faça o "
-                "checkout da tag entrega-1."
+                "checkout do commit 02d7e19."
             )

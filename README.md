@@ -19,7 +19,7 @@ Por isso a solução tem duas fases:
 - Enunciado: [`docs/enunciado/`](docs/enunciado/) (o case original e os ajustes da etapa 2).
 - Plano e decisões de arquitetura, em ADRs: [`docs/adr/README.md`](docs/adr/README.md). As ADRs da etapa 2 são a
   018 a 027.
-- A entrega da etapa 1 está na tag `entrega-1` e em [`relatorio/etapa1/`](relatorio/etapa1/).
+- A entrega da etapa 1 está no commit `02d7e19` e em [`relatorio/etapa1/`](relatorio/etapa1/).
 
 ## Resultado
 
@@ -31,6 +31,7 @@ Por isso a solução tem duas fases:
 | [`relatorio/etapa2/arquitetura.png`](relatorio/etapa2/arquitetura.png) | As duas fases (fonte PlantUML em [`relatorio/diagramas/`](relatorio/diagramas/), com o diagrama de produção) |
 | [`decisoes_manuais.md`](decisoes_manuais.md) | Toda decisão tomada à mão (D1 a D16), com o porquê |
 | [`saidas/experimentos/registro.md`](saidas/experimentos/registro.md) | Pré-registro e resultado de cada experimento (E0 a E14), inclusive os descartados |
+| [`saidas/sistema/graficos.md`](saidas/sistema/graficos.md) | Confiabilidade e precisão × cobertura (folha fora da amostra e estimativa nas 559), com as tabelas |
 | [`saidas/sistema/diagnostico.md`](saidas/sistema/diagnostico.md) | Desempenho fora da amostra, calibração, curva do limiar e contagem das decisões |
 | [`saidas/etapa2/gold_secundario.md`](saidas/etapa2/gold_secundario.md) | Checagem independente com o gold manual do autor: 10 publicadas, as 10 certas |
 
@@ -73,7 +74,11 @@ uv run python executar_validacao.py  # confere os dois contra o LEIA-ME
   3. calibra, escolhe o limiar e decide as 659.
 - **Tempo:** cerca de **47 s** em CPU, neste notebook. Quase tudo é treino da validação cruzada; aplicar o modelo
   leva segundos.
-- **Determinismo:** a saída é igual byte a byte entre execuções, inclusive com uma thread só.
+- **Determinismo:** a saída é igual byte a byte entre execuções, inclusive com uma thread só e num clone limpo do
+  repositório, sem rede (reprodução feita pelo autor). SHA-256 esperados:
+  - `publicacao.csv`: `75577604df2f7616226d08afbf564b58eec0b67fab1d30f02608fed492426889`
+  - `previsao.txt`: `18ccb6faf1cc7c0102c7dfdf054f35a05a70dd4613245a5ab5988fe6fddfea4f`
+- **Gráficos:** o comando também gera os gráficos de confiabilidade e de precisão × cobertura em `saidas/sistema/`.
 - **Tempo e contagens da execução:** ficam em `saidas/sistema/execucao.json`.
 
 **A trava:**
@@ -202,8 +207,8 @@ uv run python executar_checagem.py
 
 ## Etapa 1
 
-- **Onde está:** a entrega da etapa 1 (359 questões, ensemble de LLMs na decisão, 81 publicadas) está na tag
-  `entrega-1` e em [`relatorio/etapa1/`](relatorio/etapa1/).
+- **Onde está:** a entrega da etapa 1 (359 questões, ensemble de LLMs na decisão, 81 publicadas) está no commit
+  `02d7e19` e em [`relatorio/etapa1/`](relatorio/etapa1/).
 - **Por que os comandos não rodam aqui:** os comandos da etapa 1 que chamam LLM na decisão se recusam a rodar
   com a etapa 2 em vigor (`GuardaEtapa`).
-- **Para reproduzir a etapa 1:** `git checkout entrega-1`.
+- **Para reproduzir a etapa 1:** `git checkout 02d7e19`.
