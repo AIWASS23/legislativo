@@ -1,7 +1,7 @@
 {
   "comando": "uv run python executar_sistema.py",
-  "segundos": 47.3,
-  "inicio": "2026-10-21T09:58:52",
+  "segundos": 46.7,
+  "inicio": "2026-10-21T11:14:59",
   "decisoes": {
     "fora": 10,
     "publicar": 152,

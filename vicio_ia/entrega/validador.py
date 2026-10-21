@@ -18,7 +18,7 @@ from vicio_ia.preparacao.leitura import LeitorPreparados
 
 
 class ValidadorEntrega:
-    """Confere o ``publicacao.csv`` e o ``previsao.txt`` da pasta dos entregáveis (``relatorio/``)."""
+    """Confere o ``publicacao.csv`` e o ``previsao.txt`` da pasta dos entregáveis (``relatorio/etapa<N>/``)."""
 
     COLUNAS: ClassVar[tuple[str, ...]] = ("id", "decisao", "tema_central_id", "extras_ids", "confianca", "motivo")
     _RE_LINHA: ClassVar[re.Pattern[str]] = re.compile(

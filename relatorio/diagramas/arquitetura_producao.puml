@@ -1,0 +1,119 @@
+@startuml arquitetura_producao_etapa2
+' Ícones oficiais da AWS para PlantUML (https://github.com/awslabs/aws-icons-for-plantuml), versão fixa.
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v20.0/dist
+!include AWSPuml/AWSCommon.puml
+!include AWSPuml/AWSSimplified.puml
+!include AWSPuml/General/Users.puml
+!include AWSPuml/General/User.puml
+!include AWSPuml/General/Genericdatabase.puml
+!include AWSPuml/ApplicationIntegration/EventBridge.puml
+!include AWSPuml/ApplicationIntegration/EventBridgeScheduler.puml
+!include AWSPuml/Compute/Lambda.puml
+!include AWSPuml/ArtificialIntelligence/SageMakerModel.puml
+!include AWSPuml/ArtificialIntelligence/SageMakerTrain.puml
+!include AWSPuml/ArtificialIntelligence/Bedrock.puml
+!include AWSPuml/ArtificialIntelligence/AugmentedAIA2I.puml
+!include AWSPuml/Analytics/OpenSearchService.puml
+!include AWSPuml/Analytics/QuickSight.puml
+!include AWSPuml/Database/DynamoDB.puml
+!include AWSPuml/Storage/SimpleStorageService.puml
+!include AWSPuml/ManagementGovernance/CloudWatch.puml
+!include AWSPuml/ManagementGovernance/CloudWatchAlarm.puml
+!include AWSPuml/NetworkingContentDelivery/APIGateway.puml
+!include AWSPuml/Groups/all.puml
+
+left to right direction
+skinparam ranksep 60
+skinparam nodesep 30
+
+title Produção: 50 mil questões por semana, decisão em CPU sem LLM, professor no ciclo
+
+GenericGroup(g_plataforma, "Plataforma Vício") {
+  Genericdatabase(banco, "Banco de questões\n~50 mil + importações", "")
+  Users(alunos, "Alunos\nestudam por tema", "")
+  User(professores, "Professores\nconfirmam sugestões e\nrevisam documentos de tema", "")
+}
+
+AWSCloudGroup(g_aws, "AWS") {
+  EventBridgeScheduler(agenda, "Lote noturno", "")
+  APIGateway(api, "Reportes e mudanças\nna árvore", "")
+  EventBridge(eventos, "Eventos", "")
+
+  StepFunctionsWorkflowGroup(g_conhecimento, "Fase de conhecimento (antes da decisão)") {
+    Lambda(normaliza, "Texto canônico + hash\nduplicata herda o tema", "")
+    Lambda(citacoes, "Citações por regex\n(LLM pequeno só se falhar, ~10%)", "")
+    SageMakerModel(embeddings, "Embeddings\nmodelo local multilíngue", "")
+  }
+
+  StepFunctionsWorkflowGroup(g_decisao, "Fase de decisão (CPU, sem LLM)") {
+    OpenSearchService(vetores, "Índice vetorial\ntemas, exemplos e\nvizinhos validados (kNN)", "")
+    Lambda(ranqueador, "Candidatos + ranqueador\n(gradient boosting)", "")
+    Lambda(politica, "Regras de fora,\ncalibração e limiar", "")
+  }
+
+  GenericBlueGroup(g_dados, "Dados versionados (manifesto)") {
+    SimpleStorageService(artefatos, "Base de temas, mapa,\ntermos, exemplos,\nvetores e calibração", "")
+    DynamoDB(decisoes, "Decisões com a versão\nde cada artefato", "")
+  }
+
+  GenericGreenGroup(g_aprendizado, "Aprendizado contínuo") {
+    AugmentedAIA2I(revisao, "Fila do professor\nordem: acessos × incerteza\nrotulagem ativa (E14)", "")
+    SimpleStorageService(rotulos, "Rótulos validados\n+ auditorias aleatórias", "")
+    SageMakerTrain(treino, "Retreino semanal\nranqueador; calibração\nsó com a auditoria", "")
+    Bedrock(propostas, "LLM propõe termos e exemplos\npara temas novos ou corrigidos\n(sempre revisado)", "")
+  }
+
+  GenericOrangeGroup(g_qualidade, "Qualidade contínua") {
+    CloudWatch(metricas, "Métricas\nderiva, taxa de fora,\nreportes por tema", "")
+    CloudWatchAlarm(alarme, "Limite inferior < 95%\n→ limiar sobe", "")
+    QuickSight(painel, "Painel de qualidade", "")
+  }
+}
+
+legend right
+  **Custo de máquina (ADR-027, medidas do case)**
+  Decisão: CPU, ~US$ 0 (as 659 do case em ~47 s,
+  quase tudo treino; aplicar o modelo leva segundos)
+  Embeddings locais: ~US$ 0 marginal; ~7 textos/s
+  numa GPU de 6 GB (escalar com servidor próprio)
+  Total: ordem de US$ 0,0001 por questão,
+  ~200 a 400 vezes menos que a decisão por LLM
+  Custo dominante: tempo do professor (~1 min por sugestão)
+endlegend
+
+banco --> normaliza : importação
+agenda --> normaliza : dispara
+normaliza --> citacoes
+normaliza --> embeddings
+citacoes --> ranqueador
+embeddings --> vetores
+vetores --> ranqueador
+artefatos ..> ranqueador : modelo e base de temas
+artefatos ..> politica : calibração
+ranqueador --> politica
+politica --> decisoes
+politica --> banco : publicar
+politica --> revisao : revisar
+politica --> revisao : fora (agrupado)
+banco --> alunos : questões publicadas
+
+professores --> revisao : confirma ou corrige
+revisao --> rotulos : cada decisão vira rótulo
+rotulos ..> vetores : memória do kNN (imediata)
+rotulos --> treino
+treino ..> artefatos : novo modelo (se passar\nno gold de regressão)
+revisao --> propostas : correções repetidas num tema
+propostas ..> professores : proposta para revisar
+propostas ..> artefatos : depois da revisão
+
+alunos --> api : reporta questão
+api --> eventos
+eventos --> revisao : reportada volta à fila
+eventos --> embeddings : árvore mudou: recalcula\nsó os temas afetados
+
+decisoes --> revisao : auditoria semanal\n150 publicadas
+decisoes --> metricas
+metricas --> alarme
+alarme ..> politica : sobe o limiar
+metricas --> painel
+@enduml

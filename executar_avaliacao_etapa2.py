@@ -2,7 +2,7 @@
 
 Roda o E7 e o E7b (lexical), o E11 (separabilidade do fora com atributos lexicais), o E11b (com embeddings e
 kNN), o E12 (deriva entre antigas e novas), o E10 (ranqueador: logística × gradient boosting) e a medida
-secundária com o gold do autor (sobre o ``relatorio/publicacao.csv`` já gravado) e grava os relatórios em
+secundária com o gold do autor (sobre o ``relatorio/etapa2/publicacao.csv`` já gravado) e grava os relatórios em
 ``saidas/etapa2/``. Não chama nenhum modelo de linguagem: os vetores vêm de
 ``dados/conhecimento/embeddings/``.
 """

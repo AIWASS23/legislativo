@@ -9,7 +9,7 @@ __pycache__/
 .ruff_cache/
 .env
 docs/enunciado/
-relatorio/arquitetura_producao.png
+relatorio/etapa2/arquitetura_producao.png
 relatorio/etapa1/arquitetura_producao.png
 
 # Arquivo temporário da gravação atômica da planilha de rótulos (só sobra se a gravação for interrompida)

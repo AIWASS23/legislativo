@@ -3,8 +3,8 @@
 Lê só artefatos versionados (``dados/preparados/``, ``dados/conhecimento/`` e a folha-verdade), treina o
 ranqueador na folha, mede fora da amostra, calibra, escolhe o limiar e grava:
 
-- ``relatorio/publicacao.csv``: as 659 questões, no formato do LEIA-ME;
-- ``relatorio/previsao.txt``: precisão e cobertura previstas para as 559 avaliadas;
+- ``relatorio/etapa2/publicacao.csv``: as 659 questões, no formato do LEIA-ME;
+- ``relatorio/etapa2/previsao.txt``: precisão e cobertura previstas para as 559 avaliadas;
 - ``saidas/sistema/diagnostico.md`` e ``execucao.json``: o diagnóstico e o tempo.
 
 A saída é determinística: as mesmas entradas geram os mesmos arquivos, byte a byte.

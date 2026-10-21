@@ -281,7 +281,7 @@ class PipelineDecisao:
             raise ErroPublicacao("; ".join(problemas[:20]))
 
     def _gravar_csv(self, linhas: Sequence[LinhaPublicacao]) -> Path:
-        """Grava ``publicacao.csv`` na pasta dos entregáveis (``relatorio/``).
+        """Grava ``publicacao.csv`` na pasta dos entregáveis (``relatorio/etapa1/``).
 
         Args:
             linhas: Linhas validadas.
@@ -307,7 +307,7 @@ class PipelineDecisao:
     def _gravar_previsao(
         self, previsao: ResultadoPrevisao, validacao: ValidacaoCalibracao, exemplos: int, metodo: str
     ) -> Path:
-        """Grava ``previsao.txt`` na pasta dos entregáveis (``relatorio/``), no formato do LEIA-ME, com a explicação.
+        """Grava ``previsao.txt`` na pasta dos entregáveis (``relatorio/etapa1/``), no formato do LEIA-ME, com a explicação.
 
         Args:
             previsao: Previsão.

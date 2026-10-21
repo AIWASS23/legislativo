@@ -502,3 +502,9 @@ Arquivos: `saidas/etapa2/e14_rotulagem.md` e `saidas/etapa2/fila_rotulagem_ativa
 - **Gold (medida secundária):** 10 publicadas nas 46 avaliadas do gold, as 10 certas; tema sugerido certo em 42
   de 46.
 - **O E10 não foi refeito com os 20 atributos.** A configuração do boosting continua a escolhida no E10.
+
+**Nota (21/10, depois do E13).** O `executar_avaliacao_etapa2.py` refaz o E10 com os atributos em uso no sistema.
+Com os 20 atributos (os 18 do E10 e os 2 dos exemplos sintéticos), o vencedor pela regra **não muda**: o boosting
+com profundidade 2, folha ≥ 20 e 200 árvores tem log-loss de 0,363, a menos de 0,005 do mínimo (0,362), e é o mais
+simples dentro da tolerância. A logística fica em 0,434. O `saidas/etapa2/e10_ranqueador.md` mostra os números
+com os 20 atributos, e a tabela do E10 acima mostra os de 18.

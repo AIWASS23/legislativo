@@ -1,0 +1,95 @@
+@startuml arquitetura_etapa2
+' Ícones oficiais da AWS para PlantUML (https://github.com/awslabs/aws-icons-for-plantuml), versão fixa.
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v20.0/dist
+!include AWSPuml/AWSCommon.puml
+!include AWSPuml/AWSSimplified.puml
+!include AWSPuml/General/User.puml
+!include AWSPuml/General/Documents.puml
+!include AWSPuml/General/DataTable.puml
+!include AWSPuml/General/Gear.puml
+!include AWSPuml/General/Genericdatabase.puml
+!include AWSPuml/General/Disk.puml
+!include AWSPuml/General/MagnifyingGlass.puml
+!include AWSPuml/General/Toolkit.puml
+!include AWSPuml/General/Metrics.puml
+!include AWSPuml/General/Shield2.puml
+!include AWSPuml/ArtificialIntelligence/Bedrock.puml
+!include AWSPuml/ArtificialIntelligence/SageMakerModel.puml
+!include AWSPuml/ArtificialIntelligence/SageMakerTrain.puml
+!include AWSPuml/Groups/all.puml
+
+left to right direction
+skinparam ranksep 55
+skinparam nodesep 28
+
+title Vício IA, etapa 2: o LLM organiza o conhecimento antes; a decisão roda sem modelo de linguagem
+
+GenericAltGroup(g_entrada, "Anexos do case") {
+  Documents(questoes, "questoes.jsonl\n659 questões", "")
+  DataTable(temas, "temas.csv\n377 temas", "")
+  DataTable(folha, "folha_verdade.csv\n100 rótulos da equipe", "")
+}
+
+User(autor, "Autor\nrevisa mapa e termos: 3 h\nconfere citações e exemplos", "")
+
+GenericGroup(g_conhecimento, "Fase de conhecimento · pode usar LLM e embeddings · offline, com cache e manifesto") {
+  Gear(canonico, "Texto canônico\n(regra)", "")
+  Bedrock(propostas, "Propostas de mapa\nde artigos e termos\ncodex gpt-6.1-sol, só temas", "")
+  Toolkit(revisao, "Revisão do autor\n1.680 itens (D14)", "")
+  MagnifyingGlass(citacoes, "Citações de lei e artigo\nregex + 3 correções manuais", "")
+  Bedrock(exemplos, "Exemplos sintéticos\n3 por tema, só temas\n(E13, D16)", "")
+  Gear(base, "Base de temas\ncartão + termos + leis", "")
+  SageMakerModel(embeddings, "Embeddings locais\nqwen3-embedding:4b\n(Ollama, E8)", "")
+}
+
+GenericBlueGroup(g_artefatos, "Artefatos versionados · dados/conhecimento + manifesto.json") {
+  Genericdatabase(conhecimento, "mapa_artigos.csv · termos.csv\ncitacoes.jsonl · temas.jsonl\nexemplos_sinteticos.jsonl", "")
+  Disk(vetores, "embeddings/*.npy\nquestões, alternativas,\ntemas, inativos, exemplos", "")
+}
+
+GenericGreenGroup(g_decisao, "Fase de decisão · executar_sistema.py · sem LLM e sem rede (trava) · ~47 s em CPU") {
+  MagnifyingGlass(candidatos, "Candidatos\ndenso + BM25 + mapa\n+ termos fortes + pais", "")
+  Gear(atributos, "20 atributos por par\n(questão, tema)", "")
+  SageMakerTrain(ranqueador, "Ranqueador\ngradient boosting (E10)\ntreino na folha, CV 5×10", "")
+  Gear(no, "Escolha do nó\nP(certo | nó) + extras", "")
+  Shield2(regras, "Regras de fora\nmilitar → fora\ntema inativo → revisar", "")
+  Metrics(limiar, "Calibração e limiar\nreserva de 97% (D15)", "")
+}
+
+GenericOrangeGroup(g_saida, "Entregáveis · relatorio/") {
+  DataTable(publicacao, "publicacao.csv\n659: 152 publicar,\n497 revisar, 10 fora", "")
+  Documents(previsao, "previsao.txt\n559 avaliadas: 127 publicadas\nprecisão 0,96 (0,91–0,99)", "")
+}
+
+DataTable(gold, "Gold do autor (46 avaliadas)\nmedida secundária:\n10 de 10 publicadas certas", "")
+
+questoes --> canonico
+temas --> canonico
+canonico --> citacoes
+canonico --> embeddings
+temas --> propostas
+propostas --> revisao
+autor --> revisao
+revisao --> conhecimento : mapa e termos finais
+citacoes --> conhecimento
+temas --> exemplos
+exemplos --> conhecimento
+conhecimento --> base
+base --> embeddings : documento do tema
+exemplos --> embeddings
+embeddings --> vetores
+base --> conhecimento
+
+conhecimento ..> candidatos
+vetores ..> candidatos
+candidatos --> atributos
+atributos --> ranqueador
+folha --> ranqueador : rótulos pela régua
+ranqueador --> no
+no --> regras
+regras --> limiar
+folha ..> limiar : calibração fora da amostra
+limiar --> publicacao
+limiar --> previsao
+publicacao ..> gold : confere
+@enduml

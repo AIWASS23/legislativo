@@ -122,7 +122,7 @@ class ValidacaoGold:
             "",
             (
                 "O gold da etapa 1 foi rotulado à mão pelo autor, sem LLM. Ele não entra no treino nem na calibração: só "
-                "confere o `relatorio/publicacao.csv` já gravado, com a régua da etapa 2."
+                "confere o `relatorio/etapa2/publicacao.csv` já gravado, com a régua da etapa 2."
             ),
             "",
             (

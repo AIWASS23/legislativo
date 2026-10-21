@@ -1,6 +1,6 @@
 # Medida secundária: gold manual do autor (ADR-024)
 
-O gold da etapa 1 foi rotulado à mão pelo autor, sem LLM. Ele não entra no treino nem na calibração: só confere o `relatorio/publicacao.csv` já gravado, com a régua da etapa 2.
+O gold da etapa 1 foi rotulado à mão pelo autor, sem LLM. Ele não entra no treino nem na calibração: só confere o `relatorio/etapa2/publicacao.csv` já gravado, com a régua da etapa 2.
 
 - **Convenção (14 questões na folha):** o tema do autor acerta pela régua da equipe em 12 de 14.
 - **Tema sugerido certo nas 46 avaliadas do gold:** 42 de 46 (questões fora no gold: 0).

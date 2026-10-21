@@ -40,7 +40,7 @@ class Caminhos:
         saida_cartoes: Material de revisão dos cartões e tamanhos das versões da árvore.
         dados_classificacao: Respostas e sinais por questão (ADR-008).
         saida_classificacao: Resumo agregado da classificação.
-        entregaveis: Pasta do ``publicacao.csv``, do ``previsao.txt`` e do relatório (ADR-015).
+        entregaveis: Pasta do ``publicacao.csv``, do ``previsao.txt`` e do relatório da etapa (``relatorio/etapa<N>``).
         etapa: Etapa do case cujos anexos são lidos (1 ou 2, ADR-026).
         folha_verdade: ``folha_verdade.csv`` da etapa 2 (100 questões rotuladas pela equipe, ADR-024).
         dados_conhecimento: Artefatos da fase de conhecimento da etapa 2, com manifesto (ADR-019, ADR-020).
@@ -107,7 +107,7 @@ class Caminhos:
             saida_cartoes=raiz / "saidas" / "cartoes",
             dados_classificacao=raiz / "dados" / "classificacao",
             saida_classificacao=raiz / "saidas" / "classificacao",
-            entregaveis=raiz / "relatorio",
+            entregaveis=raiz / "relatorio" / f"etapa{etapa}",
             etapa=etapa,
             folha_verdade=anexos / "folha_verdade.csv",
             dados_conhecimento=raiz / "dados" / "conhecimento",

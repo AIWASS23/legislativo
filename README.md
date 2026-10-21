@@ -1,277 +1,209 @@
-# Classificação de tópicos de questões jurídicas: case Vício (Método VDE)
+# Classificação de tópicos de questões jurídicas: case Vício (Método VDE), etapa 2
 
-Solução para o case de IA da Vício: decidir, para cada uma das 359 questões de Penal,
-Processo Penal, Legislação Penal Especial e Criminologia, entre **publicar** (direto para o
-aluno, num tema da árvore), **revisar** (fila do professor, com sugestão) ou **fora**
-(nenhum tema serve). A régua é **95% de acerto nas publicadas**, publicando o máximo possível.
+Para cada uma das **659 questões** de Penal, Processo Penal, Legislação Penal Especial e Criminologia, o sistema
+decide entre **publicar** (vai direto para o aluno, num tema da árvore de 377 temas), **revisar** (vai para o
+professor, com uma sugestão) ou **fora** (nenhum tema serve). A régua é **95% de acerto nas publicadas**,
+publicando o máximo possível.
 
-- Enunciado original: [`docs/enunciado/`](docs/enunciado/) (README do case e PDF).
-- Plano de implementação, em ADRs: [`docs/adr/README.md`](docs/adr/README.md).
+Na etapa 2, a regra mudou:
+- **O LLM pode entrar antes da decisão,** sempre documentado e versionado: embeddings, extração de lei e artigo,
+  enriquecimento dos temas, e termos e exemplos propostos, revisados e guardados como dado.
+- **Na hora de classificar, nenhum modelo de linguagem é chamado.** O sistema roda com a rede bloqueada.
+
+Por isso a solução tem duas fases:
+- uma **fase de conhecimento**, offline, que produz artefatos versionados com a origem de cada um;
+- uma **fase de decisão** que só lê esses artefatos.
+
+![Arquitetura da etapa 2](relatorio/etapa2/arquitetura.png)
+
+- Enunciado: [`docs/enunciado/`](docs/enunciado/) (o case original e os ajustes da etapa 2).
+- Plano e decisões de arquitetura, em ADRs: [`docs/adr/README.md`](docs/adr/README.md). As ADRs da etapa 2 são a
+  018 a 027.
+- A entrega da etapa 1 está na tag `entrega-1` e em [`relatorio/etapa1/`](relatorio/etapa1/).
 
 ## Resultado
 
 | Entregável | Conteúdo |
 |---|---|
-| [`relatorio/publicacao.csv`](relatorio/publicacao.csv) | 359 linhas no formato do LEIA-ME: **81 publicar** (23%), **276 revisar** (todas com tema sugerido, extras e motivo) e **2 fora** |
-| [`relatorio/previsao.txt`](relatorio/previsao.txt) | Precisão prevista **0,97** (0,93–1,00); cobertura **0,23** (0,22–0,24); como chegamos nesses números e o que não foi medido |
-| [`relatorio/relatorio.md`](relatorio/relatorio.md) ([PDF](relatorio/relatorio.pdf), 5 páginas) | a) como pensei; b) diagnóstico; c) produção; o que faria com mais tempo; d) memo para o professor |
-| [`decisoes_manuais.md`](decisoes_manuais.md) | Toda decisão tomada à mão (D1 a D12), com o porquê |
-| [`saidas/decisao/relatorio_decisao.md`](saidas/decisao/relatorio_decisao.md) | Motivos de revisar e fora, calibração e escolha do calibrador |
-| [`saidas/avaliacao/graficos.md`](saidas/avaliacao/graficos.md) | Confiabilidade e precisão × cobertura (gold e 359) |
-| [`saidas/experimentos/registro.md`](saidas/experimentos/registro.md) | Experimentos E0 a E5: hipótese, resultado e decisão |
-| [`saidas/custos/resumo_custos.md`](saidas/custos/resumo_custos.md) | Chamadas, tokens, tempo e custo por papel, medidos no cache |
+| [`relatorio/etapa2/publicacao.csv`](relatorio/etapa2/publicacao.csv) | As 659 questões no formato do LEIA-ME: 152 publicar, 497 revisar (todas com tema sugerido e motivo) e 10 fora |
+| [`relatorio/etapa2/previsao.txt`](relatorio/etapa2/previsao.txt) | Para as 559 avaliadas: precisão prevista **0,96** (0,91–0,99) e cobertura **0,23** (127 publicadas), e como chegamos nesses números |
+| [`relatorio/etapa2/relatorio.md`](relatorio/etapa2/relatorio.md) ([PDF](relatorio/etapa2/relatorio.pdf), 4 páginas) | Relatório (a: sistema; b: os 100 rótulos; c: diagnóstico; d: produção) e memo para o professor (e) |
+| [`relatorio/etapa2/arquitetura.png`](relatorio/etapa2/arquitetura.png) | As duas fases (fonte PlantUML em [`relatorio/diagramas/`](relatorio/diagramas/), com o diagrama de produção) |
+| [`decisoes_manuais.md`](decisoes_manuais.md) | Toda decisão tomada à mão (D1 a D16), com o porquê |
+| [`saidas/experimentos/registro.md`](saidas/experimentos/registro.md) | Pré-registro e resultado de cada experimento (E0 a E14), inclusive os descartados |
+| [`saidas/sistema/diagnostico.md`](saidas/sistema/diagnostico.md) | Desempenho fora da amostra, calibração, curva do limiar e contagem das decisões |
+| [`saidas/etapa2/gold_secundario.md`](saidas/etapa2/gold_secundario.md) | Checagem independente com o gold manual do autor: 10 publicadas, as 10 certas |
 
 ## Como rodar
 
 ### 1. Pré-requisitos
 
-- [uv](https://docs.astral.sh/uv/). Ele instala o Python 3.12 (fixado em `.python-version`) se não houver um na máquina.
-- Os anexos do case (`questoes.jsonl`, `temas.csv`, `LEIA-ME.md` e `entrega_modelo.csv`) já vêm no
-  repositório, em `anexos/`, como foram recebidos. A origem é o
-  [ZIP dos anexos](https://github.com/viciod/case-vicio-ia/raw/main/anexos-case-ia.zip) do case.
+- [uv](https://docs.astral.sh/uv/). Ele instala o Python 3.12 (fixado em `.python-version`), se faltar.
+- Os anexos da etapa 2 já vêm no repositório, como foram recebidos, em [`anexos/2-ENTREGA/`](anexos/2-ENTREGA/):
+  `questoes.jsonl`, `temas.csv`, `folha_verdade.csv`, `LEIA-ME.md` e `entrega_modelo.csv`.
+- Só para **regerar** a fase de conhecimento:
+  - o [Ollama](https://ollama.com), para os embeddings;
+  - a CLI `codex`, para as propostas de termos e de exemplos.
+
+  A decisão não precisa de nenhum dos dois.
 
 ### 2. Ambiente
 
 ```bash
-uv venv                                   # cria .venv com Python 3.12
-uv pip install -r requirements-dev.txt    # execução + ferramentas de checagem
-# ou, só para executar: uv pip install -r requirements.txt
+uv venv                                  # cria .venv com Python 3.12
+uv pip install -r requirements.txt       # execução
+uv pip install -r requirements-dev.txt   # e, para desenvolver, as ferramentas de checagem
 ```
 
-### 3. Etapas disponíveis
-
-Todo ponto de entrada roda **sem argumentos**. Caminhos e limiares ficam em
-[`vicio_ia/configuracao.py`](vicio_ia/configuracao.py).
-
-| Comando | O que faz | Saídas |
-|---|---|---|
-| `uv run python executar_eda.py` | Análise exploratória das questões e da árvore de temas | `saidas/eda/relatorio_eda.md`, `resumo_eda.json`, `tabelas/*.csv` |
-| `uv run python executar_preparacao.py` | Passo 01: texto canônico das questões (8 checagens) e árvore preparada a partir das decisões em `dados/temas/` (9 checagens) | `dados/preparados/` (`questoes.jsonl`, `temas.json`, `arvore_enxuta.txt`), `saidas/preparacao/` |
-| `uv run python executar_infra.py` | Analisa a máquina (CPU, RAM, GPU, Ollama, CLIs, credenciais) e recomenda um modelo por papel | `saidas/infra/relatorio_infra.md`, `perfil_maquina.json` |
-| `uv run python executar_escolha_modelo.py` | Escolha interativa dos modelos (sugestão automática ou um por papel) | `config/escolha_modelos.json` |
-| `uv run python executar_teste_llm.py` | Uma questão simples por modelo escolhido: funcionou? acertou? latência e tokens | `saidas/infra/teste_llm.json` |
-| `uv run python executar_cartoes.py` | Passo 02: cartões de tema por LLM (uma chamada por tema pai, com cache), ajustes manuais de `dados/temas/cartoes_ajustes.csv`, 6 checagens e as versões da árvore para os prompts | `dados/temas/cartoes.jsonl`, `arvore_escopo.txt`, `saidas/cartoes/` |
-| `uv run python executar_classificacao.py` | Passos 05 e 06: classificadores A (plano) e B (hierárquico), voto barato, regras das leis citadas e verificador contrastivo; pula o gold ainda sem rótulo | `dados/classificacao/sinais.jsonl`, `saidas/classificacao/`, `saidas/custos/` |
-| `uv run python executar_experimentos.py` | Experimentos no gold (ADR-014): E0 (assunto de origem), E2 (A sozinho), E3 (B e voto barato sozinhos; erros em comum de A e B). Só números agregados | `saidas/experimentos/resultados.csv` |
-| `uv run python executar_experimento_cartoes.py` | Experimento E4: classificador B com escopo e cartões × só títulos, no gold (com cache) | `saidas/experimentos/resultados.csv` |
-| `uv run python executar_congelamento.py` | Congela o pipeline antes da rodada final: impressão digital de prompts, cartões, árvores, decisões, modelos e código | `saidas/experimentos/congelamento.json`, `registro.md` |
-| `uv run python executar_decisao.py` | Passo 07: agregação, recuo para o pai, regras que forçam revisão, calibração no gold, limiar e previsão. Não chama modelo | `relatorio/publicacao.csv`, `relatorio/previsao.txt`, `saidas/decisao/`, `dados/decisao/` |
-| `uv run python executar_gold.py` | Gold set: sorteio estratificado com semente fixa (ou reaproveita o gravado), planilha de rótulos (nunca sobrescrita), caderno e situação da rotulagem | `dados/gold/` (`amostra_leva1.csv`, `rotulos_leva1.csv`, `caderno_leva1.md`) |
-| `uv run python executar_rotulagem.py` | Rotulagem interativa no terminal: só o texto canônico, busca de temas na árvore, grava a cada questão e retoma de onde parou | `dados/gold/rotulos_leva1.csv` |
-| `uv run python executar_validacao.py` | Confere `relatorio/publicacao.csv` e `relatorio/previsao.txt` contra o formato do LEIA-ME (sai com código 1 se houver problema) | Resumo no terminal |
-| `uv run python executar_pipeline.py` | Roda tudo em ordem (01, 02, 05/06, 07) e valida a entrega; com o cache `runs/` completo, não chama nenhum modelo | Todos os acima |
-| `uv run python executar_graficos.py` | Gráficos de confiabilidade e de precisão × cobertura (gold e 359), com as tabelas equivalentes | `saidas/avaliacao/` (PNG, SVG, `graficos.md`) |
-| `uv run python executar_testes.py` | Testes unitários (recuo para o pai, política de decisão, colunas do `publicacao.csv`, régua e corte do limiar); também rodam no portão | Resumo no terminal |
-| `uv run python executar_checagem.py` | Portão de qualidade: ruff, formatação, mypy estrito, anotações e docstrings | Resumo no terminal; código de saída 1 se algo falhar |
-
-
-### 4. Provedores de LLM e credenciais
-
-O pipeline não depende de um fornecedor ([ADR-017](docs/adr/00-fundacao/ADR-017-provedores-plugaveis-e-analise-de-infra.md)).
-Cada papel do ensemble (classificador A, classificador B, voto barato, verificador) usa o
-modelo escolhido para a máquina. Basta ter **um** dos provedores abaixo:
-
-| Provedor | Acesso | O que precisa |
-|---|---|---|
-| `ollama` | local (GPU/CPU) | [Ollama](https://ollama.com) rodando e um modelo baixado (`ollama pull ...`). GGUF do Hugging Face: `ollama pull hf.co/<usuario>/<repo>:<quant>` |
-| `claude-cli` | assinatura | CLI `claude` (Claude Code) com login feito |
-| `gemini-agy` | assinatura | CLI `agy` (Antigravity) com login feito; também dá acesso a Claude Opus/Sonnet e GPT-OSS |
-| `codex-cli` | assinatura | CLI `codex` (OpenAI Codex) com login do ChatGPT |
-| `claude-api` | API paga | `ANTHROPIC_API_KEY` (ou `ant auth login`) |
-| `openai` | API paga | `OPENAI_API_KEY` |
-| `huggingface` | API (Inference Providers) | `HF_TOKEN` (ou `hf auth login`) |
-
-As chaves podem ficar num arquivo `.env` na raiz, que o git ignora. O modelo, com as variáveis de
-`claude-api`, `openai` e `huggingface`, está em [`.env.example`](.env.example):
+### 3. A entrega: um comando, sem LLM e sem rede
 
 ```bash
-cp .env.example .env   # e preencha só as chaves dos provedores que for usar
+uv run python executar_sistema.py    # gera relatorio/etapa2/publicacao.csv e previsao.txt
+uv run python executar_validacao.py  # confere os dois contra o LEIA-ME
 ```
 
-Elas nunca são impressas nem gravadas.
+- **O que o comando lê:**
+  - os anexos;
+  - as questões preparadas (`dados/preparados/`);
+  - os artefatos versionados de `dados/conhecimento/`: base de temas, mapa de artigos, termos, citações, exemplos
+    sintéticos e vetores de embedding.
+- **Como trabalha:**
+  1. treina o ranqueador nas 100 questões da folha-verdade;
+  2. mede fora da amostra (validação cruzada, 5 partes × 10 repetições);
+  3. calibra, escolhe o limiar e decide as 659.
+- **Tempo:** cerca de **47 s** em CPU, neste notebook. Quase tudo é treino da validação cruzada; aplicar o modelo
+  leva segundos.
+- **Determinismo:** a saída é igual byte a byte entre execuções, inclusive com uma thread só.
+- **Tempo e contagens da execução:** ficam em `saidas/sistema/execucao.json`.
 
-Fluxo recomendado:
+**A trava:**
+- O `executar_sistema.py` liga `VICIO_SEM_LLM=1`, e a fábrica de provedores de LLM se recusa a criar qualquer
+  provedor.
+- A `TravaSemLLM` bloqueia as conexões de rede durante a execução.
+- Um teste do portão de qualidade (`testes/teste_fronteira_llm.py`) proíbe, no código da decisão
+  (`vicio_ia/sistema/` e `executar_sistema.py`), imports de LLM, de rede e da decisão da etapa 1.
 
-```bash
-uv run python executar_infra.py           # o que esta máquina oferece e o que é sugerido
-uv run python executar_escolha_modelo.py  # aceitar a sugestão ou escolher por papel (opcional)
-uv run python executar_teste_llm.py       # confirma que cada modelo escolhido responde
-```
+### 4. Fase de conhecimento: como os artefatos foram feitos
 
-A escolha usada nas rodadas está congelada em `config/escolha_modelos.json` (modo manual):
-classificador A = GPT `gpt-6.1-sol` (`codex-cli`), classificador B = Gemini 3.8 Flash `-low` (`gemini-agy`),
-voto barato = GPT-OSS 120B `-medium` (`gemini-agy`) e verificador = Gemini 3.8 Flash `-medium` (`gemini-agy`),
-sem gasto da cota do Claude Code. O `qwen3.5:4b` local saiu do voto barato: nesta GPU ele gera ~2 tokens/s
-(~34 s por questão, ~3,4 h por rodada). Com `"modo": "auto"` (ou sem o arquivo), a
-escolha é automática. O catálogo de candidatos
-(qualidade estimada, preços, tamanhos) fica em `config/catalogo_modelos.json` e pode ser editado.
+Só é preciso rodar para regerar os artefatos; eles já estão versionados. Em ordem:
+
+| # | Comando | O que faz | Modelo | Tempo medido |
+|---|---|---|---|---|
+| 1 | `executar_preparacao.py` | Texto canônico das 659 questões e árvore preparada (D1 a D4, D13) | nenhum | segundos |
+| 2 | `executar_enriquecimento.py` | Propostas de mapa lei/artigo → tema e de termos, só a partir dos temas (nenhuma questão entra na chamada) | `codex` `gpt-6.1-sol` | 62 chamadas em 15 min; com o cache `runs/conhecimento/`, segundos |
+| 3 | `executar_revisao_conhecimento.py` | Revisão do autor: 568 linhas do mapa, 797 termos de risco e uma amostra de 315 (D14) | — (humano) | 3 h |
+| 4 | `executar_citacoes.py` | Leis e artigos citados, por regex, mais 3 correções manuais (`citacoes_manuais.csv`) | nenhum | ~1 s |
+| 5 | `executar_base_temas.py` | Base de temas: cartão, mapa e termos revisados e os IDs da folha (`temas.jsonl`) | nenhum | ~1 s |
+| 6 | `executar_exemplos.py` | 3 questões-modelo por tema, só a partir dos temas (E13, D16) | `codex` `gpt-6.1-sol` | 62 chamadas em 26 min; com o cache `runs/exemplos/`, segundos |
+| 7 | `executar_embeddings.py` | Vetores dos 5 modelos candidatos (E8), do documento do tema (E8b) e dos exemplos; exporta o `qwen3-embedding:4b` | Ollama, local | ~50 min na primeira vez (GPU de 6 GB); com o cache `runs/embeddings/`, ~4 s |
+| 8 | `executar_avaliacao_etapa2.py` | Experimentos E7, E7b, E11, E11b, E12 e E10 e a medida secundária com o gold | nenhum | ~45 s |
+
+- **Cache dos modelos:** com o cache de `runs/`, os passos 2 e 6 refazem tudo sem chamar o modelo.
+- **Embeddings:** o cache de `runs/embeddings/` não é versionado (são 5 modelos). Sem ele, o passo 7 exige o
+  Ollama com os modelos candidatos (`ollama pull qwen3-embedding:4b` e os outros de `ParametrosEmbeddings`).
+- **Configuração:** caminhos, limiares e modelos ficam em [`vicio_ia/configuracao.py`](vicio_ia/configuracao.py).
+  Todo ponto de entrada roda **sem argumentos**.
+
+### 5. Provedores de LLM (só na fase de conhecimento)
+
+- **Camada:** as chamadas passam pela camada `vicio_ia/llm/` ([ADR-017](docs/adr/00-fundacao/ADR-017-provedores-plugaveis-e-analise-de-infra.md)),
+  com cache só de acréscimo em `runs/`.
+- **Provedores da etapa 2:**
+  - `codex-cli`, a CLI `codex` com login do ChatGPT;
+  - `ollama`, local, para os embeddings.
+- **Outros provedores** (`claude-api`, `openai`, `huggingface`) usam chaves num `.env`, que o git ignora (modelo em
+  [`.env.example`](.env.example)). As chaves nunca são impressas nem gravadas.
+- **Custo pago:** nenhum. A etapa 2 usou só a assinatura e a máquina local.
+
+## Tempo gasto
+
+- **Máquina:**
+  - decisão: ~47 s;
+  - avaliação: ~45 s;
+  - fase de conhecimento do zero: cerca de 1 h 30 min (15 min de propostas, 26 min de exemplos e ~50 min de
+    embeddings);
+  - tudo a partir do cache: menos de 2 min.
+- **Autor:** o tempo total não foi cronometrado.
+  - A revisão do mapa de artigos e dos termos, a maior parte do trabalho manual, levou 3 h (D14).
+  - O resto foi a conferência das citações e dos pendentes, a revisão da conferência dos exemplos sintéticos (D16)
+    e as decisões registradas em `decisoes_manuais.md`.
+
+## De onde veio cada artefato
+
+O detalhe, com o hash de cada arquivo, está em [`dados/conhecimento/manifesto.json`](dados/conhecimento/manifesto.json).
+
+| Artefato | Origem | Comando | Revisão humana |
+|---|---|---|---|
+| `anexos/2-ENTREGA/` | Equipe da Vício, como recebido | — | — |
+| `dados/preparados/` (questões e árvore) | Regra, sem modelo | `executar_preparacao.py` | Conferência manual de 20 questões novas (D13) e decisões sobre a árvore (D1 a D4) |
+| `dados/temas/cartoes.jsonl` | LLM, na etapa 1 (D7) | `executar_cartoes.py` (etapa 1) | Ajustes pontuais em `cartoes_ajustes.csv` |
+| `dados/conhecimento/mapa_artigos.csv` | LLM (`codex` `gpt-6.1-sol`, só temas) e revisão | `executar_enriquecimento.py` → `executar_revisao_conhecimento.py` | 100% das linhas revisadas pelo autor (D14) |
+| `dados/conhecimento/termos.csv` | LLM (`codex` `gpt-6.1-sol`, só temas) e revisão | idem | Termos de risco revisados pelo autor; amostra de 315 com 3,2% de erro; 2.833 termos não revisados, marcados com `revisado = nao` (D14) |
+| `dados/conhecimento/citacoes.jsonl` | Regra (regex) e 3 correções manuais | `executar_citacoes.py` | Amostra de 20 conferida pelo autor (20 de 20 certas) e os 3 pendentes resolvidos à mão (D14) |
+| `dados/conhecimento/temas.jsonl` | Regra (montagem dos artefatos acima) | `executar_base_temas.py` | A dos artefatos de entrada |
+| `dados/conhecimento/exemplos_sinteticos.jsonl` | LLM (`codex` `gpt-6.1-sol`, só temas) | `executar_exemplos.py` | Amostra de 30 conferida pelo assistente (LLM), com a conferência revisada e aceita pelo autor (D16); o restante é rascunho do modelo |
+| `dados/conhecimento/embeddings/` | Embedding local `qwen3-embedding:4b` (digest `df5bd2e3c74c`) | `executar_embeddings.py` | — |
+| `dados/conhecimento/propostas/` | LLM, sem revisão; **não é usado pelo sistema** | `executar_enriquecimento.py` e o assistente (antitemas) | — |
+| `dados/gold/` | Autor, à mão, sem LLM (etapa 1) | `executar_rotulagem.py` | — (só medida secundária, fora do treino) |
+| `runs/` | Respostas brutas dos modelos (cache) | os passos com modelo | — |
 
 ## Padrão de código
 
 Definido na [ADR-001](docs/adr/00-fundacao/ADR-001-stack-e-ambiente.md) e conferido pelo `executar_checagem.py`:
 
-- **Orientado a objetos**: cada etapa é um subpacote de `vicio_ia/` com uma classe orquestradora e um `executar_<etapa>.py`.
-- **Sem argumentos de linha de comando**, sem `*args` nem `**kwargs`. A configuração fica em dataclasses congeladas.
-- **Tudo tipado**, inclusive variáveis locais. Alvos de `for` e `with` são declarados antes; aliases usam `type X = ...`.
-- **Docstrings** em módulos, classes e funções, em português.
-- **Dependências** fixadas com `==`: execução em `requirements.txt`, desenvolvimento em `requirements-dev.txt`.
-- Testes unitários com o `unittest` da biblioteca padrão, em `testes/` (métodos `teste_*`).
-- O portão (ruff, mypy estrito, testes e anotações) precisa passar antes de cada entrega:
+- **Orientado a objetos:** cada etapa é um subpacote de `vicio_ia/`, com uma classe orquestradora e um
+  `executar_<etapa>.py`.
+- **Sem argumentos de linha de comando,** sem `*args` nem `**kwargs`. A configuração fica em dataclasses congeladas.
+- **Tudo tipado,** inclusive variáveis locais. Alvos de `for` e `with` são declarados antes.
+- **Docstrings** em português, em módulos, classes e funções.
+- **Dependências fixadas** com `==` em `requirements.txt` e `requirements-dev.txt`.
+- **Testes** com `unittest`, em `testes/`.
+- **Portão de qualidade:** ruff, mypy estrito, testes e anotações. Precisa passar antes de cada entrega:
 
 ```bash
 uv run python executar_checagem.py
 ```
 
-## Estrutura do repositório
+## Estrutura do repositório (etapa 2)
 
 ```
-├── README.md                  ← este arquivo
-├── decisoes_manuais.md        ← toda decisão tomada à mão, com o porquê
-├── executar_eda.py            ← EDA
-├── executar_preparacao.py     ← passo 01: texto canônico das questões
-├── executar_infra.py          ← análise da máquina e recomendação de modelos
-├── executar_escolha_modelo.py ← escolha interativa de modelos por papel
-├── executar_teste_llm.py      ← teste rápido dos modelos escolhidos
-├── executar_cartoes.py        ← passo 02: cartões de tema
-├── executar_classificacao.py  ← passos 05 e 06: classificação e verificação
-├── executar_experimentos.py   ← experimentos no gold (E0, E2, E3)
-├── executar_experimento_cartoes.py ← experimento E4 (cartões × títulos)
-├── executar_congelamento.py   ← congelamento do pipeline antes da rodada final (D11)
-├── executar_decisao.py        ← passo 07: publicacao.csv e previsao.txt
-├── executar_validacao.py      ← validação dos entregáveis
-├── executar_pipeline.py       ← todos os passos, a partir do cache
-├── executar_gold.py           ← gold set: sorteio, planilha, caderno e situação
-├── executar_rotulagem.py      ← rotulagem interativa do gold set
-├── executar_graficos.py       ← gráficos de confiabilidade e de precisão × cobertura
-├── executar_testes.py         ← testes unitários
-├── executar_checagem.py       ← portão de qualidade
-├── relatorio/                 ← entregáveis: publicacao.csv, previsao.txt e o relatório (Markdown e PDF; o memo é a seção d)
-├── vicio_ia/                  ← código do pipeline
-│   ├── configuracao.py        ← caminhos e parâmetros (sem argumentos de CLI)
-│   ├── dominio.py, carregamento.py, texto.py, arvore.py, conhecimento.py, ambiente.py, relatorio.py, leitura_json.py
-│   ├── eda/                   ← perfis e análises da EDA
-│   ├── preparacao/            ← passo 01: texto canônico, árvore preparada, checagens e leitura das saídas
-│   ├── temas/                 ← passo 02: cartões, versões da árvore para os prompts, revisão
-│   ├── classificacao/         ← classificadores, voto barato, verificador, schemas, montador de prompt
-│   ├── sinais/                ← sinais sem LLM (leis citadas)
-│   ├── decisao/               ← agregação, recuo, política publicar/revisar/fora, publicacao.csv
-│   ├── avaliacao/             ← gold set, régua, métricas, experimentos, calibração e previsão
-│   ├── entrega/               ← validador dos entregáveis
-│   ├── infra/                 ← analisador da máquina, catálogo, memória, recomendador
-│   └── llm/                   ← contrato, provedores (ollama, claude-api/cli, gemini-agy, codex-cli, openai, huggingface), seleção, cache, custo
-├── config/                    ← catálogo de modelos e escolha de modelos (editáveis)
-├── prompts/                   ← prompts versionados de cada papel (a versão entra na chave do cache)
-├── runs/                      ← cache de chamadas a modelos, só de acréscimo (respostas brutas)
-├── ferramentas/               ← verificador de anotações e portão de qualidade
-├── testes/                    ← testes unitários (unittest)
-├── docs/
-│   ├── adr/                   ← plano de implementação (ADRs por fase)
-│   └── enunciado/             ← README original do case e PDF
-├── dados/temas/              ← decisões manuais sobre a árvore (lixeiras, sobreposições, títulos)
-├── dados/preparados/         ← saídas do passo 01 usadas pelos passos seguintes
-├── dados/gold/               ← amostra, rótulos manuais e caderno do gold set
-├── dados/classificacao/      ← sinais de cada questão (votos, regras, verificador)
-├── dados/decisao/            ← decisões preliminares (antes do limiar)
-├── saidas/eda/                ← relatório, resumo e tabelas da EDA
-├── saidas/preparacao/         ← relatório e conferência do passo 01
-├── saidas/cartoes/            ← checagens e revisão dos cartões de tema
-├── saidas/classificacao/      ← resumo das rodadas de classificação
-├── saidas/decisao/            ← relatório da decisão e da calibração
-├── saidas/avaliacao/          ← gráficos de confiabilidade e de precisão × cobertura
-├── saidas/experimentos/       ← resultados, registro dos experimentos e congelamento
-├── saidas/custos/             ← custo e tempo por papel
-├── saidas/infra/              ← perfil da máquina, recomendação, escolha resolvida, teste dos modelos
-├── anexos/                    ← dados do case, como foram recebidos (nunca alterados)
-├── .env.example               ← modelo das chaves de API (copiar para .env)
-└── requirements.txt, requirements-dev.txt, ruff.toml, .python-version
+├── executar_sistema.py            ← a entrega: decisão sem LLM (publicacao.csv e previsao.txt)
+├── executar_validacao.py          ← confere os entregáveis contra o LEIA-ME
+├── executar_preparacao.py         ← passo 01: texto canônico e árvore preparada
+├── executar_enriquecimento.py     ← propostas de mapa de artigos e de termos (LLM, só temas)
+├── executar_revisao_conhecimento.py ← revisão interativa do autor
+├── executar_citacoes.py           ← citações de lei e artigo (regex)
+├── executar_base_temas.py         ← base de conhecimento dos temas
+├── executar_exemplos.py           ← exemplos sintéticos por tema (LLM, só temas)
+├── executar_embeddings.py         ← vetores (Ollama), E8 e exportação
+├── executar_avaliacao_etapa2.py   ← experimentos na folha e medida secundária com o gold
+├── executar_checagem.py           ← portão de qualidade
+├── relatorio/                     ← entregáveis e relatório por etapa (etapa2/, etapa1/) e fontes dos diagramas
+├── decisoes_manuais.md            ← decisões tomadas à mão (D1 a D16)
+├── vicio_ia/
+│   ├── sistema/                   ← fase de decisão, sem LLM: pares, ranqueador, política, pipeline, experimentos
+│   ├── enriquecimento/            ← fase de conhecimento: propostas, revisão, citações, base de temas, exemplos, embeddings
+│   ├── llm/                       ← contrato e provedores de LLM e de embedding, cache, custo
+│   ├── preparacao/, temas/, entrega/ ← passo 01, cartões da etapa 1, validador
+│   └── (classificacao/, decisao/, avaliacao/ ← etapa 1; bloqueados na etapa 2 pela GuardaEtapa)
+├── dados/
+│   ├── conhecimento/              ← artefatos versionados da etapa 2 e o manifesto
+│   ├── preparados/, temas/, gold/ ← questões preparadas, decisões sobre a árvore, gold do autor
+├── saidas/
+│   ├── sistema/                   ← diagnóstico e tempo da decisão
+│   ├── etapa2/                    ← relatórios dos experimentos da etapa 2
+│   └── experimentos/registro.md   ← pré-registro e resultados (E0 a E14)
+├── prompts/                       ← prompts versionados (a versão entra na chave do cache)
+├── runs/                          ← cache das chamadas a modelos (os embeddings ficam fora do git)
+├── testes/, ferramentas/          ← testes unitários e portão de qualidade
+├── docs/adr/                      ← ADRs (etapa 2: 08-etapa2/)
+└── anexos/1-ENTREGA/, anexos/2-ENTREGA/ ← dados do case, como recebidos
 ```
 
-## Entrega
+## Etapa 1
 
-### Passos que geram o `publicacao.csv`
-
-Os entregáveis ficam em [`relatorio/`](relatorio/): `publicacao.csv`, `previsao.txt` e o relatório.
-
-Com os anexos em `anexos/` e o cache `runs/` do repositório, um comando refaz tudo **sem chamar nenhum
-modelo**, em segundos (3,7 s medidos), e gera o mesmo `publicacao.csv`, byte a byte:
-
-```bash
-uv run python executar_pipeline.py
-```
-
-Ele roda, em ordem:
-
-| Passo | Comando | O que faz | Saída usada adiante |
-|---|---|---|---|
-| 01 | `executar_preparacao.py` | Texto canônico das questões (sem HTML, sem os rótulos de origem) e árvore preparada com as decisões de `dados/temas/` (D1 a D4) | `dados/preparados/` |
-| 02 | `executar_cartoes.py` | Cartões de tema (definição, o que entra, o que não entra) e as versões da árvore para os prompts | `dados/temas/cartoes.jsonl` |
-| 05/06 | `executar_classificacao.py` | Classificador A (plano), classificador B (hierárquico), voto barato, regras das leis citadas e verificador contrastivo | `dados/classificacao/sinais.jsonl` |
-| 07 | `executar_decisao.py` | Agregação, recuo para o pai, regras que forçam revisão, calibração por faixas no gold (`dados/gold/rotulos_leva1.csv`), limiar pelo limite inferior e previsão | `relatorio/publicacao.csv`, `relatorio/previsao.txt` |
-| — | `executar_validacao.py` | Confere os dois entregáveis contra o LEIA-ME | — |
-
-- **Congelamento:** o passo 07 confere a impressão digital de prompts, cartões, árvores, regras, modelos e
-  código registrada antes da rodada final (D11). Se algo mudou depois disso, ele avisa.
-- **Sem cache:** a mesma sequência chama os modelos de `config/escolha_modelos.json`. São ~1.700 chamadas,
-  e as cotas das assinaturas espalharam a rodada por dois dias.
-- **Outros passos:** os experimentos (`executar_experimentos.py`, `executar_experimento_cartoes.py`) e os
-  gráficos (`executar_graficos.py`) não alteram o `publicacao.csv`.
-
-### Modelos usados
-
-Todos pelas assinaturas que eu já tinha, pela camada `vicio_ia/llm/`, sem chave de API paga.
-
-| Papel | Modelo | Acesso | Chamadas | Tempo médio |
-|---|---|---|---:|---:|
-| Cartões de tema (351 temas, uma chamada por tema pai) | Claude Opus 5.5 | CLI `claude` | 58 | 51 s |
-| Classificador A (plano, árvore com escopo) | GPT `gpt-6.1-sol` | CLI `codex` | 369 | 8 s |
-| Classificador B (hierárquico, duas etapas) | Gemini 3.8 Flash `-low` | CLI `agy` | 642 | 18 s |
-| Voto barato (árvore enxuta) | GPT-OSS 120B `-medium` | CLI `agy` | 374 | 18 s |
-| Verificador contrastivo | Gemini 3.8 Flash `-medium` | CLI `agy` | 326 | 33 s |
-| Experimento E4 (B só com títulos) | Gemini 3.8 Flash `-low` | CLI `agy` | 107 | 20 s |
-
-Algumas chamadas ficaram no cache, mas não entram na decisão:
-- 13 do verificador com Claude Opus, antes da troca para o Gemini, que aconteceu quando a cota acabou (D8);
-- 14 do voto barato com o `qwen3.5:4b` local, abandonado por ser lento (~2 tokens/s nesta GPU).
-
-### Custo e tempo
-
-- **Chamadas:** 1.903 ao todo, com 74 milhões de tokens de entrada e 4,6 milhões de saída. As CLIs
-  acrescentam de 13 a 66 mil tokens do próprio agente a cada chamada.
-- **Custo:** US$ 0 pagos.
-  - A CLI `claude` informa o equivalente na API: US$ 14,81, todo dos cartões.
-  - `codex` e `agy` não informam custo.
-  - O custo real foi a cota das assinaturas.
-- **Tempo de máquina:** 10,6 h de chamadas somadas, menos em tempo de relógio graças ao paralelismo. As
-  cotas espalharam as rodadas entre 15 e 17/10.
-- **Tempo humano:**
-  - 3 h para rotular as 60 questões do gold;
-  - conferência manual do texto canônico (D5);
-  - as decisões sobre a árvore (D1 a D4).
-- **Refazer a entrega a partir do cache:** segundos, sem custo.
-
-### Decisões tomadas à mão
-
-Estão em [`decisoes_manuais.md`](decisoes_manuais.md), cada uma com o porquê:
-
-| | Decisão |
-|---|---|
-| D1 | Nos temas duplicados, vale o nó com histórico de questões; os 20 fantasmas nunca são tema central |
-| D2 | Regra de desempate das 6 sobreposições (lado material × processual) |
-| D3 | Lixeiras em dois níveis (11 fortes, 7 moderadas; 3 falsos positivos descartados) |
-| D4 | 9 títulos com erro corrigidos só para exibição nos prompts |
-| D5 | Conferência manual do texto canônico, que gerou três correções |
-| D6 | Gold set: sorteio, protocolo de rotulagem cega e tempo gasto |
-| D7 | Cartões de tema com modelo fixo, sem revisão manual antes do congelamento |
-| D8 | Modelos por papel fora da cota do Claude Code; verificador da mesma família de B (risco aceito) |
-| D9 | Regras de decisão definidas na implementação (recuo pelo verificador, extras, confiança de fora, margens) |
-| D10 | Calibração por faixas de sinais e chance efetiva com desconto de convenção |
-| D11 | Congelamento antes da rodada final e os recongelamentos de 17/10, todos sem efeito nas decisões |
-| D12 | Estimador direto da precisão suavizado (Jeffreys): ponto de 0,99 para 0,97 |
-
-### O que ficou de fora
-
-- **Cartões:** os rascunhos do modelo não foram revisados por um especialista.
-- **E6** (modelos por papel) e **E1** (embeddings) não rodaram.
-- **Previsão:** não foi testada numa amostra independente, porque a mesma amostra calibrou e conferiu.
-
-O que eu faria com mais tempo está no fim da seção c do [relatório](relatorio/relatorio.md#o-que-faria-com-mais-tempo).
+- **Onde está:** a entrega da etapa 1 (359 questões, ensemble de LLMs na decisão, 81 publicadas) está na tag
+  `entrega-1` e em [`relatorio/etapa1/`](relatorio/etapa1/).
+- **Por que os comandos não rodam aqui:** os comandos da etapa 1 que chamam LLM na decisão se recusam a rodar
+  com a etapa 2 em vigor (`GuardaEtapa`).
+- **Para reproduzir a etapa 1:** `git checkout entrega-1`.
