@@ -1,0 +1,10 @@
+configuracao,log_loss,acertos,topo20_certas,topo30_certas,topo50_certas,topo20_fora,topo30_fora,topo50_fora
+logística L2 (penalidade 10),0.4333,81,19,28,45,1,2,3
+"boosting (profundidade 2, folha ≥ 20, 100 árvores)",0.4115,79,19,29,49,1,1,1
+"boosting (profundidade 2, folha ≥ 20, 200 árvores)",0.4031,77,19,29,48,1,1,1
+"boosting (profundidade 2, folha ≥ 10, 100 árvores)",0.4102,79,19,29,49,1,1,1
+"boosting (profundidade 2, folha ≥ 10, 200 árvores)",0.4107,76,19,29,48,1,1,2
+"boosting (profundidade 3, folha ≥ 20, 100 árvores)",0.4112,78,19,29,49,1,1,1
+"boosting (profundidade 3, folha ≥ 20, 200 árvores)",0.4038,76,19,29,48,1,1,1
+"boosting (profundidade 3, folha ≥ 10, 100 árvores)",0.4003,77,19,29,48,1,1,1
+"boosting (profundidade 3, folha ≥ 10, 200 árvores)",0.4117,76,19,29,47,1,1,2

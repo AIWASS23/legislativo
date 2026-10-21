@@ -1,0 +1,151 @@
+ordem,id,tema_sugerido,caminho,confianca,disciplina
+1,Q0521,4384,Criminologia > Teorias Legitimadoras da Pena,0.961,Criminologia
+2,Q0078,4697,Direito Penal - Legislação Especial > Estatuto do Desarmamento,0.962,Direito Penal - Legislação Especial
+3,Q0131,5072,Penal > Concurso de Pessoas > Autores e Partícipes,0.964,Penal
+4,Q0647,5488,Processo Penal > Comunicação dos Atos Processuais > Citação e Contagem dos Prazos,0.964,Processo Penal
+5,Q0285,4376,Criminologia > Política Criminal > Direito Penal do Inimigo,0.953,Criminologia
+6,Q0200,4705,Direito Penal - Legislação Especial > Organizações Criminosas,0.962,Direito Penal - Legislação Especial
+7,Q0305,5064,Penal > Ação Penal > Ação Penal Pública,0.963,Penal
+8,Q0096,5483,Processo Penal > Competência > Competência Territorial,0.962,Processo Penal
+9,Q0328,4382,Criminologia > Teoria Geral da Criminologia > Métodos e funções da Criminologia,0.953,Criminologia
+10,Q0272,4703,Direito Penal - Legislação Especial > Lei de Execução Penal,0.962,Direito Penal - Legislação Especial
+11,Q0321,5071,Penal > Concurso de Pessoas,0.963,Penal
+12,Q0388,5532,Processo Penal > Procedimento Ordinário > Classificação dos Procedimentos,0.962,Processo Penal
+13,Q0556,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.952,Criminologia
+14,Q0402,4684,Direito Penal - Legislação Especial > Abuso de Autoridade,0.962,Direito Penal - Legislação Especial
+15,Q0351,5118,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > Da Falsidade Documental,0.963,Penal
+16,Q0408,5495,Processo Penal > Das Questões e Processos Incidentes > Restituição de Coisas Apreendidas,0.962,Processo Penal
+17,Q0629,4373,Criminologia > Etapas Evolutivas e Escolas Criminológicas > Escolas Criminológicas,0.950,Criminologia
+18,Q0653,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.961,Direito Penal - Legislação Especial
+19,Q0524,5185,Penal > Prescrição,0.963,Penal
+20,Q0442,5468,Processo Penal > Ação Penal > Classificação da Ação Penal,0.962,Processo Penal
+21,Q0334,4381,Criminologia > Teoria Geral da Criminologia > Conceito e objeto da Criminologia,0.932,Criminologia
+22,Q0166,4703,Direito Penal - Legislação Especial > Lei de Execução Penal,0.960,Direito Penal - Legislação Especial
+23,Q0533,5134,"Penal > Dos Crimes contra a Organização do Trabalho, a Propriedade Imaterial e ao Sentimento Religioso",0.963,Penal
+24,Q0551,5467,Processo Penal > Ação Penal > Características e Condições da Ação Penal,0.962,Processo Penal
+25,Q0646,4373,Criminologia > Etapas Evolutivas e Escolas Criminológicas > Escolas Criminológicas,0.925,Criminologia
+26,Q0470,4703,Direito Penal - Legislação Especial > Lei de Execução Penal,0.959,Direito Penal - Legislação Especial
+27,Q0089,5172,Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal,0.962,Penal
+28,Q0623,5544,Processo Penal > Provas em Espécies > Cadeia de Custódia,0.961,Processo Penal
+29,Q0234,4380,Criminologia > Teoria Geral da Criminologia,0.884,Criminologia
+30,Q0084,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.955,Direito Penal - Legislação Especial
+31,Q0227,5103,Penal > Dos Crimes Contra a Dignidade Sexual > Estupro e Estupro de Vulnerável,0.962,Penal
+32,Q0634,5487,Processo Penal > Comunicação dos Atos Processuais,0.961,Processo Penal
+33,Q0222,4376,Criminologia > Política Criminal > Direito Penal do Inimigo,0.874,Criminologia
+34,Q0484,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,0.955,Direito Penal - Legislação Especial
+35,Q0301,5197,Penal > Punibilidade > Perdão Judicial,0.962,Penal
+36,Q0432,5469,Processo Penal > Ação Penal > Princípios da Ação Penal,0.960,Processo Penal
+37,Q0564,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.825,Criminologia
+38,Q0203,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,0.954,Direito Penal - Legislação Especial
+39,Q0373,5182,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço,0.962,Penal
+40,Q0209,5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,0.959,Processo Penal
+41,Q0534,4378,Criminologia > Processos de Criminalização e Cifras Criminais > Criminalização Primária e Secundária,0.803,Criminologia
+42,Q0445,4705,Direito Penal - Legislação Especial > Organizações Criminosas,0.954,Direito Penal - Legislação Especial
+43,Q0528,5182,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço,0.962,Penal
+44,Q0331,5477,Processo Penal > Ações Autônomas de Impugnação > Habeas Corpus,0.959,Processo Penal
+45,Q0024,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.767,Criminologia
+46,Q0254,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.952,Direito Penal - Legislação Especial
+47,Q0622,5182,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Espaço,0.962,Penal
+48,Q0536,5544,Processo Penal > Provas em Espécies > Cadeia de Custódia,0.959,Processo Penal
+49,Q0655,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.731,Criminologia
+50,Q0350,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,0.952,Direito Penal - Legislação Especial
+51,Q0375,5224,Penal > Teoria do Crime: Fato Típico > Erro de Tipo,0.961,Penal
+52,Q0332,5541,Processo Penal > Procedimento Sumaríssimo > Transação Penal,0.955,Processo Penal
+53,Q0299,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.693,Criminologia
+54,Q0414,4695,Direito Penal - Legislação Especial > Crimes Tributários,0.951,Direito Penal - Legislação Especial
+55,Q0250,5201,Penal > Teoria da Pena > Penas Privativas de Liberdade,0.959,Penal
+56,Q0258,5545,Processo Penal > Provas em Espécies > Exame de Corpo de Delito,0.953,Processo Penal
+57,Q0076,4380,Criminologia > Teoria Geral da Criminologia,0.666,Criminologia
+58,Q0101,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.950,Direito Penal - Legislação Especial
+59,Q0256,5222,Penal > Teoria do Crime: Fato Típico > Crime Doloso e Culposo,0.959,Penal
+60,Q0476,5528,Processo Penal > Procedimento do Tribunal do Júri > Organização do Júri e Sessão de Julgamento,0.953,Processo Penal
+61,Q0088,4381,Criminologia > Teoria Geral da Criminologia > Conceito e objeto da Criminologia,0.646,Criminologia
+62,Q0112,4705,Direito Penal - Legislação Especial > Organizações Criminosas,0.949,Direito Penal - Legislação Especial
+63,Q0296,5065,Penal > Ação Penal > Ação Penal Privada,0.959,Penal
+64,Q0193,5557,Processo Penal > Provas em Espécies > Colaboração Premiada,0.952,Processo Penal
+65,Q0526,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.643,Criminologia
+66,Q0145,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,0.949,Direito Penal - Legislação Especial
+67,Q0487,5157,Penal > Dos Crimes Contra o Patrimônio,0.959,Penal
+68,Q0133,5528,Processo Penal > Procedimento do Tribunal do Júri > Organização do Júri e Sessão de Julgamento,0.949,Processo Penal
+69,Q0162,4380,Criminologia > Teoria Geral da Criminologia,0.634,Criminologia
+70,Q0648,4705,Direito Penal - Legislação Especial > Organizações Criminosas,0.949,Direito Penal - Legislação Especial
+71,Q0584,5185,Penal > Prescrição,0.959,Penal
+72,Q0013,5503,Processo Penal > Inquérito Policial > Juiz das Garantias,0.948,Processo Penal
+73,Q0094,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.597,Criminologia
+74,Q0097,4708,Direito Penal - Legislação Especial > Tráfico de Drogas,0.948,Direito Penal - Legislação Especial
+75,Q0502,5100,"Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato",0.958,Penal
+76,Q0407,5578,Processo Penal > Sentença Penal > Princípio da Correlação entre Acusação e Sentença,0.947,Processo Penal
+77,Q0195,4373,Criminologia > Etapas Evolutivas e Escolas Criminológicas > Escolas Criminológicas,0.581,Criminologia
+78,Q0423,4695,Direito Penal - Legislação Especial > Crimes Tributários,0.947,Direito Penal - Legislação Especial
+79,Q0566,5087,Penal > Dos Crimes Contra a Administração Pública,0.958,Penal
+80,Q0601,5541,Processo Penal > Procedimento Sumaríssimo > Transação Penal,0.947,Processo Penal
+81,Q0607,4375,Criminologia > Política Criminal > Correntes da Política Criminal,0.560,Criminologia
+82,Q0383,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,0.943,Direito Penal - Legislação Especial
+83,Q0640,5227,Penal > Teoria do Crime: Fato Típico > Tipicidade,0.958,Penal
+84,Q0098,5548,Processo Penal > Provas em Espécies > Confissão,0.946,Processo Penal
+85,Q0360,4390,Criminologia > Vitimologia > Processo de Vitimização,0.525,Criminologia
+86,Q0639,4707,Direito Penal - Legislação Especial > Tortura,0.942,Direito Penal - Legislação Especial
+87,Q0412,5087,Penal > Dos Crimes Contra a Administração Pública,0.957,Penal
+88,Q0104,5500,Processo Penal > Inquérito Policial > Procedimento do Inquérito Policial,0.946,Processo Penal
+89,Q0269,4375,Criminologia > Política Criminal > Correntes da Política Criminal,0.522,Criminologia
+90,Q0036,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.941,Direito Penal - Legislação Especial
+91,Q0437,5181,Penal > Lei Penal no Tempo e no Espaço > Lei penal no Tempo,0.957,Penal
+92,Q0557,5541,Processo Penal > Procedimento Sumaríssimo > Transação Penal,0.945,Processo Penal
+93,Q0598,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.476,Criminologia
+94,Q0453,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.941,Direito Penal - Legislação Especial
+95,Q0507,5214,Penal > Teoria do Crime: Culpabilidade > Erro de Proibição,0.957,Penal
+96,Q0519,5501,Processo Penal > Inquérito Policial > Conclusão e Arquivamento do Inquérito Policial,0.943,Processo Penal
+97,Q0643,4375,Criminologia > Política Criminal > Correntes da Política Criminal,0.455,Criminologia
+98,Q0063,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.940,Direito Penal - Legislação Especial
+99,Q0559,5087,Penal > Dos Crimes Contra a Administração Pública,0.957,Penal
+100,Q0001,5527,"Processo Penal > Procedimento do Tribunal do Júri > Impronúncia, Desclassificação, Absolvição Sumária e Pronúncia",0.942,Processo Penal
+101,Q0260,4376,Criminologia > Política Criminal > Direito Penal do Inimigo,0.410,Criminologia
+102,Q0190,4701,Direito Penal - Legislação Especial > Juizado Especial Criminal,0.939,Direito Penal - Legislação Especial
+103,Q0603,5087,Penal > Dos Crimes Contra a Administração Pública,0.957,Penal
+104,Q0214,5494,Processo Penal > Das Questões e Processos Incidentes > Exceção de Litispendência e de Coisa Julgada,0.942,Processo Penal
+105,Q0435,4377,Criminologia > Processos de Criminalização e Cifras Criminais,0.409,Criminologia
+106,Q0011,4702,Direito Penal - Legislação Especial > Lavagem de Dinheiro,0.938,Direito Penal - Legislação Especial
+107,Q0604,5087,Penal > Dos Crimes Contra a Administração Pública,0.957,Penal
+108,Q0352,5512,Processo Penal > Parte Geral dos Recursos,0.941,Processo Penal
+109,Q0469,4374,Criminologia > Política Criminal,0.382,Criminologia
+110,Q0289,4704,Direito Penal - Legislação Especial > Lei Maria da Penha,0.935,Direito Penal - Legislação Especial
+111,Q0630,5084,Penal > Dos Crimes Contra a Administração Judicial > Favorecimento Pessoal e Real,0.957,Penal
+112,Q0558,5580,Processo Penal > Sistemas e Princípios Processuais Penais,0.940,Processo Penal
+113,Q0545,4381,Criminologia > Teoria Geral da Criminologia > Conceito e objeto da Criminologia,0.355,Criminologia
+114,Q0344,4688,Direito Penal - Legislação Especial > Crimes contra o meio ambiente,0.935,Direito Penal - Legislação Especial
+115,Q0550,5157,Penal > Dos Crimes Contra o Patrimônio,0.956,Penal
+116,Q0548,5560,Processo Penal > Recursos em Espécies,0.937,Processo Penal
+117,Q0292,4375,Criminologia > Política Criminal > Correntes da Política Criminal,0.305,Criminologia
+118,Q0513,4688,Direito Penal - Legislação Especial > Crimes contra o meio ambiente,0.935,Direito Penal - Legislação Especial
+119,Q0082,5100,"Penal > Dos Crimes Contra a Administração Pública > Resistência, Desobediência e Desacato",0.955,Penal
+120,Q0552,5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,0.937,Processo Penal
+121,Q0123,4377,Criminologia > Processos de Criminalização e Cifras Criminais,0.267,Criminologia
+122,Q0580,4690,Direito Penal - Legislação Especial > Crimes de Racismo,0.935,Direito Penal - Legislação Especial
+123,Q0439,5087,Penal > Dos Crimes Contra a Administração Pública,0.955,Penal
+124,Q0571,5550,Processo Penal > Provas em Espécies > Prova Testemunhal,0.937,Processo Penal
+125,Q0390,4385,Criminologia > Teorias Sociológicas Explicativas da Criminalidade,0.254,Criminologia
+126,Q0359,4696,Direito Penal - Legislação Especial > Estatuto do Idoso - Crimes,0.934,Direito Penal - Legislação Especial
+127,Q0585,5177,Penal > Iter Criminis > Crime Consumado e Tentado,0.955,Penal
+128,Q0565,5466,Processo Penal > Ação Penal,0.936,Processo Penal
+129,Q0658,4380,Criminologia > Teoria Geral da Criminologia,0.251,Criminologia
+130,Q0010,4688,Direito Penal - Legislação Especial > Crimes contra o meio ambiente,0.933,Direito Penal - Legislação Especial
+131,Q0192,5087,Penal > Dos Crimes Contra a Administração Pública,0.954,Penal
+132,Q0120,5582,Processo Penal > Sistemas e Princípios Processuais Penais > Princípios do Processo Penal,0.935,Processo Penal
+133,Q0105,4387,Criminologia > Teorias Sociológicas Explicativas da Criminalidade > Teorias de Nível Sociológico,0.250,Criminologia
+134,Q0210,4697,Direito Penal - Legislação Especial > Estatuto do Desarmamento,0.933,Direito Penal - Legislação Especial
+135,Q0396,5087,Penal > Dos Crimes Contra a Administração Pública,0.954,Penal
+136,Q0204,5505,Processo Penal > Lei Processual no Tempo e no Espaço,0.935,Processo Penal
+137,Q0474,4379,Criminologia > Processos de Criminalização e Cifras Criminais > Cifras Criminais,0.236,Criminologia
+138,Q0459,4695,Direito Penal - Legislação Especial > Crimes Tributários,0.932,Direito Penal - Legislação Especial
+139,Q0481,5172,Penal > Introdução ao Estudo do Direito Penal > Princípios do Direito Penal,0.952,Penal
+140,Q0177,5547,Processo Penal > Provas em Espécies > Interrogatório Judicial,0.934,Processo Penal
+141,Q0386,4369,Criminologia > Criminologia no Estado Democrático de Direito > Sistemas de Prevenção,0.225,Criminologia
+142,Q0582,4693,Direito Penal - Legislação Especial > Crimes Hediondos,0.931,Direito Penal - Legislação Especial
+143,Q0130,5160,Penal > Dos Crimes Contra o Patrimônio > Roubo,0.951,Penal
+144,Q0218,5518,Processo Penal > Prisões em Espécie > Prisão em Flagrante,0.934,Processo Penal
+145,Q0569,4378,Criminologia > Processos de Criminalização e Cifras Criminais > Criminalização Primária e Secundária,0.185,Criminologia
+146,Q0165,4705,Direito Penal - Legislação Especial > Organizações Criminosas,0.930,Direito Penal - Legislação Especial
+147,Q0107,5119,Penal > Dos Crimes Contra a Fé Pública e de Falsidade Documental > De outras falsidades,0.950,Penal
+148,Q0394,5480,Processo Penal > Competência,0.932,Processo Penal
+149,Q0217,4375,Criminologia > Política Criminal > Correntes da Política Criminal,0.149,Criminologia
+150,Q0298,4694,Direito Penal - Legislação Especial > Crimes previstos no CDC,0.930,Direito Penal - Legislação Especial

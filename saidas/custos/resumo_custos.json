@@ -78,6 +78,21 @@
     "tipo_custo": "assinatura"
   },
   {
+    "papel": "exemplos",
+    "provedor": "codex-cli",
+    "modelo": "gpt-6.1-sol",
+    "versoes_prompt": [
+      "exemplos_tema@93adfb7c873a"
+    ],
+    "chamadas": 62,
+    "tokens_entrada": 1603155,
+    "tokens_saida": 167209,
+    "latencia_total_s": 4951.5,
+    "latencia_media_s": 79.86,
+    "custo_usd": null,
+    "tipo_custo": "assinatura"
+  },
+  {
     "papel": "verificador",
     "provedor": "gemini-agy",
     "modelo": "claude-opus-5-5-medium",

@@ -341,3 +341,164 @@ Arquivo: `saidas/etapa2/e11b_e12.md`.
   - as novas são mais curtas (mediana de 210 tokens, contra 251), citam artigo um pouco menos (12% contra
     17%) e têm um pouco mais de certo/errado (20% contra 17%).
 - **10 novas são de direito militar,** sem nó na árvore. Ficam com a regra de fora da ADR-023.
+
+## E10. Ranqueador: logística × gradient boosting: pré-registro (21/10, antes da grade)
+
+**Exploração anterior.** Antes deste registro, quatro configurações de boosting foram exploradas na folha, numa
+pasta temporária e fora do sistema:
+- (profundidade 2, folha mínima 20, 100 iterações): log-loss 0,411;
+- (3, 20, 200): 0,404;
+- (3, 10, 300): 0,417;
+- (sem limite, 15, 200): 0,423.
+
+Duas delas, (2, 20, 100) e (3, 20, 200), também foram simuladas de ponta a ponta. Por isso a grade abaixo é
+fixada agora e medida inteira, e o resultado da exploração não decide sozinho.
+
+- **Configurações:**
+  - a referência: logística L2 (penalidade 10, o sistema atual);
+  - 8 de `HistGradientBoostingClassifier` (scikit-learn, o mesmo algoritmo do LightGBM): profundidade máxima 2
+    ou 3, folha mínima 10 ou 20 e 100 ou 200 iterações, com taxa de aprendizado 0,05, regularização L2 1,0 e
+    semente 0.
+- **Base:** os mesmos 18 atributos, os mesmos candidatos e a mesma validação cruzada (5 partes × 10
+  repetições). O kNN usa só as questões de treino de cada partição.
+- **Métricas:**
+  - log-loss fora da amostra do nó escolhido nas 100 da folha (o critério);
+  - acerto do nó;
+  - acertos e fora entre as 20, 30 e 50 de maior confiança.
+- **Regra (ADR-024):**
+  - vence a menor log-loss;
+  - uma diferença menor que 0,005 é empate, decidido pela configuração mais simples, na ordem: logística,
+    depois profundidade, folha mínima maior e menos iterações.
+- **Consequência:**
+  - o vencedor vira o ranqueador do `executar_sistema.py`, com o resto do sistema igual (calibração, limiar
+    D15 e regras);
+  - se a logística vencer, nada muda;
+  - todas as configurações ficam no relatório do E10.
+
+## E10. Ranqueador: resultado (21/10)
+
+Arquivo: `saidas/etapa2/e10_ranqueador.md` (todas as 9 configurações).
+
+| Configuração (folha, fora da amostra) | Log-loss | Acerto (100) | Topo 50: certas (fora) |
+|---|---:|---:|---:|
+| Logística L2 (referência) | 0,433 | 81 | 45 (3) |
+| Boosting: as 8 configurações | 0,400–0,412 | 76–79 | 47–49 (1–2) |
+| **Boosting, profundidade 2, folha ≥ 20, 200 árvores** (vencedor) | 0,403 | 77 | 48 (1) |
+
+- **Regra:** a menor log-loss é 0,400 (profundidade 3, folha ≥ 10, 100 árvores). Três configurações ficam a
+  menos de 0,005 dela, e o desempate vai para a mais simples.
+- **Hipótese:** pré-registrada assim: "o treino melhora a log-loss e o acerto no top-1". **Confirmada em parte.**
+  - Todas as 8 configurações de boosting melhoram a log-loss.
+  - O acerto geral piora (77, contra 81).
+  - A ordenação do topo melhora em todas: as árvores empurram as questões fora para baixo, e só a Q0087 continua
+    no topo.
+- **Decisão:** o boosting vencedor vira o ranqueador do sistema (`ParametrosSistema.ranqueador`).
+  - **Efeito:** com a mesma regra da D15, o sistema passa de 16 para **97** publicadas entre as 559 (17%), com
+    previsão de 0,95 (0,90–0,99).
+  - **Escolha do autor:** manter essa versão (D15).
+- **Tempo:** o `executar_sistema.py` passa de 6 s para cerca de 45 s. A saída continua igual byte a byte entre
+  execuções, inclusive com uma thread só.
+
+## Explorações depois do E10 (21/10): gold, origem e antitemas
+
+Nenhuma mudou o sistema. Ficam registradas, como pede a ADR-024.
+
+- **Gold do autor como medida secundária** (`saidas/etapa2/gold_secundario.md`, ADR-024, decisão 6):
+  - as 7 questões do gold que a entrega publica estão todas certas;
+  - o tema sugerido está certo em 41 das 46 avaliadas do gold;
+  - com confiança ≥ 0,80, as 26 estão certas;
+  - a convenção do autor bate com a da equipe em 12 de 14;
+  - nenhuma das 46 é fora.
+- **Gold no treino** (as 46 sempre no treino, com medição só na folha): log-loss de 0,397, contra 0,403, e acerto
+  de 79, contra 77. O topo é idêntico (19, 29 e 48 entre as 20, 30 e 50 de maior confiança).
+  - **Não adotado:** a cobertura quase não mudaria, e o gold deixaria de ser a checagem independente da entrega.
+- **Regra do assunto de origem** (o assunto de origem aponta um tema de outro ramo → revisar):
+  - na folha, ela tira os 2 erros do topo, mas foi pensada a partir dessas mesmas questões fora;
+  - no gold, o conflito aparece em 21 das 46, com 20 delas certas.
+  - **Não adotada:** o conflito de origem não indica erro, e a regra inflaria a previsão por vazamento.
+- **Antitemas** (10 descrições de áreas fora do recorte, escritas pelo assistente e não revisadas, em
+  `dados/conhecimento/propostas/antitemas.csv`):
+  - AUC de 0,60 nas 8 fora da folha, porque essas questões têm conteúdo do recorte;
+  - nenhuma das 97 publicadas fica mais perto de um antitema que de um tema;
+  - o antitema de direito militar é o mais próximo das 10 questões militares, confirmando pelo conteúdo a regra
+    pela disciplina de origem.
+  - **Não adotados:** não mudam a entrega. Ficam como proposta para a produção, em que a disciplina de origem pode
+    não vir.
+
+## Pré-registro: E13 (exemplos sintéticos), E10b (ranqueador por lista) e E14 (rotulagem ativa) (21/10)
+
+- **E13. Exemplos sintéticos por tema** (ADR-021, decisão 6).
+  - **Geração:** 3 questões-modelo por tema publicável, propostas pelo `codex-cli:gpt-6.1-sol` só a partir do tema
+    (nenhuma questão real), sem revisão humana nesta medição.
+  - **Uso medido:** dois atributos novos no ranqueador, com o boosting do E10: a similaridade máxima da questão
+    com os exemplos do tema e com os exemplos do ramo, menos a similaridade máxima com os exemplos de qualquer
+    tema.
+  - **Critério:** o mesmo do E10 (log-loss do nó escolhido, fora da amostra). Adota-se só se a log-loss cair
+    pelo menos 0,005 e o topo 50 não piorar.
+- **E10b. Ranqueador por lista** (LambdaMART, `LGBMRanker` do LightGBM).
+  - Mesmos candidatos, atributos e partições.
+  - O escore do nó escolhido vira probabilidade por Platt, ajustado dentro de cada partição de treino.
+  - **Critério:** o mesmo do E10, contra o boosting atual.
+- **E14. Rotulagem ativa** (simulação, sem rotular nada da entrega).
+  - **Curva de aprendizado na folha:** o sistema é treinado com 50, 70 e 85 das 100 questões (sorteio estratificado,
+    5 repetições) e medido nas restantes. Medem-se a log-loss e o percentil 10 da precisão do topo, para
+    extrapolar o ganho de 100 para 200 rótulos.
+  - **Fila para a produção:** as 150 questões avaliadas mais úteis para rotular: as mais próximas do limiar e
+    as de maior incerteza entre os candidatos.
+
+## E10b. Ranqueador por lista (LambdaMART): resultado (21/10)
+
+| Ranqueador (folha, fora da amostra) | Log-loss | Acerto (100) | Topo 20 / 30 / 50 | Fora no topo 50 |
+|---|---:|---:|---|---:|
+| Boosting atual (E10) | **0,403** | 77 | 19 / 29 / **48** | 1 |
+| LambdaMART (profundidade 2, folha ≥ 20, 200 árvores) | 0,505 | 80 | 18 / 26 / 44 | 4 |
+| LambdaMART (3, 20, 200) | 0,550 | 78 | 18 / 27 / 43 | 4 |
+| LambdaMART (3, 10, 100) | 0,471 | 80 | 19 / 28 / 44 | 4 |
+
+- **Não adotado.** O LambdaMART escolhe melhor o tema dentro da questão (80, contra 77), porque otimiza a ordem
+  entre os candidatos.
+- **O que piora:** a confiança entre questões, que é o que decide a publicação. A log-loss sobe, e o topo tem
+  mais erros e mais questões fora.
+- O LightGBM foi instalado só para o teste e não entra no `requirements.txt`.
+
+## E14. Rotulagem ativa: resultado (21/10)
+
+Arquivos: `saidas/etapa2/e14_rotulagem.md` e `saidas/etapa2/fila_rotulagem_ativa.csv` (150 questões).
+
+| Rótulos no treino (folha) | Log-loss no teste | Acerto do nó |
+|---:|---:|---:|
+| 40 | 0,548 | 74% |
+| 60 | 0,477 | 75% |
+| 80 | 0,446 | 75% |
+
+- **A log-loss ainda cai,** mas cada vez menos (−0,07 de 40 para 60, e −0,03 de 60 para 80). O acerto do nó
+  estabiliza em 75%.
+- **O ganho de mais rótulos vem da incerteza.** Com o dobro de rótulos, o intervalo da calibração estreita por cerca
+  de √2.
+  - Hoje, no conjunto publicado, o percentil 10 fica 0,028 abaixo do ponto. Com 200 rótulos, ficaria cerca de
+    0,020 abaixo.
+  - Com isso, o critério estrito (percentil 10 ≥ 95%) passaria a cobrir as cerca de 97 questões que hoje só a
+    reserva pontual libera.
+- **Para a produção (ADR-027):** a fila de rotulagem ativa são as 150 questões em `revisar` mais perto do limiar,
+  em rodízio pelas disciplinas. Nada da entrega foi rotulado.
+
+## E13. Exemplos sintéticos por tema: resultado (21/10)
+
+- **Geração:** 1.053 questões-modelo (3 para cada um dos 351 temas), em 62 chamadas ao `codex-cli:gpt-6.1-sol`, sem
+  falhas. A entrada só tinha os temas. Os vetores foram gerados com o `qwen3-embedding:4b`, com contexto de 1024.
+
+| Variante (folha, fora da amostra) | Log-loss | Acerto (100) | Topo 20 / 30 / 50 | Fora no topo 50 |
+|---|---:|---:|---|---:|
+| Boosting (E10, 18 atributos) | 0,403 | 77 | 19 / 29 / 48 | 1 |
+| **Boosting + exemplos (20 atributos)** | **0,363** | **82** | 19 / 29 / 48 | 2 |
+
+- **Sozinhos, os exemplos não substituem o documento do tema** (E8c, só denso): o top-1 é de 76 de 92 com os
+  exemplos, contra 79 de 92 com o documento.
+- **Decisão pela regra pré-registrada: adotado.** A log-loss caiu 0,040, e o topo 50 não piorou.
+- **Efeito no sistema** (mesma calibração, limiar D15 e regras):
+  - **127** publicadas entre as 559 (22,7%), contra 97;
+  - previsão de **0,96 (0,91–0,99)**, contra 0,95;
+  - folha na faixa publicada: 24 certas em 25; pelo critério estrito, seriam 58 publicadas.
+- **Gold (medida secundária):** 10 publicadas nas 46 avaliadas do gold, as 10 certas; tema sugerido certo em 42
+  de 46.
+- **O E10 não foi refeito com os 20 atributos.** A configuração do boosting continua a escolhida no E10.

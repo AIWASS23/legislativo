@@ -1,6 +1,6 @@
 # E8 e E9: embeddings e kNN na folha-verdade
 
-Gerado em 21/10/2026 07:21 por `uv run python executar_embeddings.py`. Base: as 100 questões da folha-verdade (92 com tema), com a régua da etapa 2. Documento de tema: título, caminho e cartão (o mesmo do BM25 no E7). A medição só usa vetores já gravados; nenhum modelo de linguagem decide nada.
+Gerado em 21/10/2026 09:58 por `uv run python executar_embeddings.py`. Base: as 100 questões da folha-verdade (92 com tema), com a régua da etapa 2. Documento de tema: título, caminho e cartão (o mesmo do BM25 no E7). A medição só usa vetores já gravados; nenhum modelo de linguagem decide nada.
 
 ## E8: questão inteira × documentos de tema
 

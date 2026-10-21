@@ -410,3 +410,111 @@ Ela muda só o número informado, não as decisões.
     Especiais Criminais;
   - Q0592, "artigos 89 a 108": Lei 8.666/1993, os crimes da antiga Lei de Licitações.
 - **Resultado:** 209 artigos com a lei resolvida em 94 questões, e nenhum pendente.
+
+## D15. Sistema da etapa 2: regra de publicação e decisões de implementação (21/10/2026)
+
+**Contexto.**
+- O sistema sem LLM (`executar_sistema.py`) acerta o nó, fora da amostra, em 81 das 100 questões da folha: 81
+  das 92 com tema, e as 8 fora são sempre erro.
+- Pelo critério da ADR-025 (percentil 10 da precisão estimada ≥ 95%), só **3** das 559 avaliadas poderiam ser
+  publicadas. Com 100 rótulos e 8% de questões fora que nenhum atributo separa (E11b), a incerteza da calibração
+  é grande.
+- Na folha, 19 das 20 questões de maior confiança fora da amostra estão certas; o único erro é uma questão
+  fora, a Q0087.
+- Na etapa 1, as 29 questões da folha que o LLM publicou tiveram 27 acertos (93%).
+
+**Decisão do autor.**
+- A reserva pontual da etapa 1 passa a ser o critério: publica-se o maior conjunto com ponto do estimador do
+  modelo ≥ 97% (`ParametrosSistema.criterio_limiar = "reserva"`).
+- O resultado do critério estrito continua no `previsao.txt` e no diagnóstico, para comparação.
+- **Estimador direto no ponto:** com menos de 10 questões da folha na faixa publicada, ele não entra
+  (`min_direto_parcial`). Com tão poucas, o Jeffreys domina: 1 de 1 daria 0,75.
+
+**Resultado com a logística (primeira versão).**
+- **Publicação:** 16 das 559 avaliadas (2,9%), 8 antigas e 8 novas. Ao todo, nas 659, ficaram 17 publicar, 632
+  revisar e 10 fora.
+- **Previsão:** 0,97 (0,92–1,00), com percentil 10 de 0,94.
+
+**Troca do ranqueador pelo E10** (mesmo dia, registro em `saidas/experimentos/registro.md`).
+- **Grade pré-registrada:** a logística e 8 configurações de gradient boosting. Quatro configurações tinham sido
+  exploradas antes e estão declaradas no registro.
+- **Vencedor pela menor log-loss fora da amostra:** o boosting com profundidade 2, folha ≥ 20 e 200 árvores
+  (0,403, contra 0,433 da logística). Ele acerta menos no total (77, contra 81), mas ordena melhor o topo:
+  - 48 certas entre as 50 de maior confiança, contra 45;
+  - só uma questão fora no topo, contra três.
+- **Calibração:** com o boosting, vence o Platt (log-loss de 0,393).
+- **Resultado com a mesma regra (reserva de 97%):**
+  - **97** das 559 publicadas (17,4%): 30 antigas (12%) e 67 novas (22%);
+  - nas 659: 120 publicar, 529 revisar e 10 fora;
+  - previsão de **0,95 (0,90–0,99)**: o modelo dá 0,970, e a folha na faixa tem 22 certas em 23 (direto de
+    0,938, com Jeffreys);
+  - pelo critério estrito seriam 48 publicadas, com previsão informada de 0,92, porque só 10 questões da folha
+    cairiam na faixa.
+- **Decisão do autor:** manter o boosting com a reserva de 97% na entrega (as alternativas eram cortar mais alto,
+  com cerca de 40 publicadas, ou voltar à logística, com 16).
+
+**Por quê.**
+- O critério estrito protege a régua, mas publica quase nada.
+- O ponto de 95% (cerca de 90 publicadas) teria uma chance alta de ficar abaixo de 95%.
+- A reserva de 97% deixa folga e mantém o risco baixo.
+
+**Decisões de implementação** (registradas aqui porque ajustam as ADR-022, ADR-023 e ADR-025):
+1. **Rótulo do par pela régua.** Um par é positivo se publicar o tema estaria certo pela régua, então a
+   logística estima direto P(certo | nó).
+   - Os pais dos subtemas candidatos também são candidatos, e por isso o recuo para o pai sai de graça.
+   - Isso substitui a soma `Σ P(t)` da ADR-022, com o mesmo efeito.
+2. **Penalidade L2 fixa em 10.** As penalidades 1 e 100 foram medidas como sensibilidade:
+   - acerto fora da amostra de 78, 81 e 79 em 100;
+   - log-loss de 0,438, 0,433 e 0,450.
+3. **As 559 são previstas pela média dos 50 modelos da validação cruzada,** os mesmos que preveem a folha fora da
+   amostra.
+   - Assim a P das avaliadas fica na mesma escala da P em que a calibração foi medida.
+   - O modelo treinado com as 100 dava P mais alta (mediana de 0,856, contra 0,820 na folha).
+4. **Calibração:** identidade, Platt, ou Platt com a faixa de concordância entre o denso e o BM25 (ADR-025).
+   - A identidade venceu pela log-loss fora da amostra: 0,433, contra 0,465 do Platt e 0,473 do Platt com
+     concordância.
+   - Os sorteios da incerteza refazem a calibração por Platt em cada bootstrap da folha.
+5. **Estimador direto fora do critério do limiar,** como na etapa 1. O critério usa só os sorteios do estimador
+   do modelo; o direto entra no ponto (D12).
+6. **Direito militar vai sempre para `fora`,** mesmo com regra forte. É mais estrito que a ADR-023, porque a árvore
+   não tem nenhum nó militar.
+7. **Tema inativo:** com a proximidade acima do percentil 90 das questões com tema da folha (−0,100), a questão
+   vai para `revisar`. Atingiu 95 das 659 questões.
+8. **Não feito por falta de prazo:** a soma ponderada sem treino (a referência original do E10, que foi feito
+   como logística contra boosting) e o desconto de convenção por tipo de nó (ADR-025, item 3). Os desvios de
+   convenção da folha já aparecem como erros fora da amostra.
+
+## D16. Exemplos sintéticos por tema no ranqueador (21/10/2026)
+
+**O que foi feito.**
+- O LLM (`codex-cli:gpt-6.1-sol`, `executar_exemplos.py`) propôs 3 questões-modelo para cada tema publicável, só a
+  partir da árvore e dos cartões, sem nenhuma questão real.
+- Elas estão em `dados/conhecimento/exemplos_sinteticos.jsonl`, com a proveniência no manifesto.
+- Os vetores entram como dois atributos do ranqueador: a similaridade com os exemplos do tema e com os do ramo,
+  relativas ao melhor exemplo.
+
+**Por quê.** O experimento E13, pré-registrado, mostrou ganho fora da amostra na folha:
+- log-loss de 0,363, contra 0,403;
+- 82 nós certos, contra 77;
+- topo igual.
+
+No sistema inteiro, a cobertura nas 559 passou de 97 para 127 publicadas, com previsão de 0,96 (0,91–0,99).
+
+**Revisão.**
+- Os exemplos são rascunho do modelo; o enunciado permite exemplos propostos por LLM revisados pelo autor.
+- **Amostra para a conferência do autor:** 30 exemplos sorteados (semente 20261021), em
+  `dados/conhecimento/revisao_exemplos.csv`.
+- **Conferência da amostra, feita pelo assistente (LLM), não pelo autor:** 30 de 30 cobrem o tema indicado. Os
+  dispositivos citados que foram conferidos estão corretos. Há duas ressalvas menores, anotadas no CSV: uma questão
+  sobre a redação histórica do art. 350 do CP, que é o próprio nó, e uma sobre compromisso de ajustamento de
+  conduta, coerente com o nó "Inquérito Civil".
+- **Revisão do autor (21/10):** o autor revisou a conferência do assistente e a aceitou: 30 de 30 cobrem o tema. Os
+  1.023 exemplos fora da amostra continuam como rascunho do modelo, como registra o manifesto.
+
+**Também medidos e não adotados** (registro de 21/10):
+- o ranqueador por lista (E10b, LambdaMART), com log-loss pior;
+- o gold do autor no treino, com ganho pequeno, além de tirar a checagem independente;
+- os antitemas, que não mudaram nenhuma publicação;
+- a regra do assunto de origem, que é ruído no gold.
+
+A rotulagem ativa (E14) fica para a produção, com a fila em `saidas/etapa2/fila_rotulagem_ativa.csv`.
