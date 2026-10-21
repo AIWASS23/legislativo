@@ -200,6 +200,21 @@
     },
     "atualizado_em": "2026-10-20T10:47:47"
   },
+  "dados/conhecimento/temas.jsonl": {
+    "sha256": "03633fd423941f33e0a6c6be505365130ba66737a3e47312dcb4a9d61199ce3f",
+    "origem": "regra",
+    "comando": "uv run python executar_base_temas.py",
+    "detalhes": {
+      "entrada": "árvore preparada, cartões, mapa de artigos e termos finais (D14), IDs da folha-verdade",
+      "modelo": "nenhum",
+      "sha256_cartoes": "46112400213a",
+      "sha256_folha": "c1412ce8d336",
+      "sha256_mapa": "3a350046e0c3",
+      "sha256_termos": "8cdcd1c3fa4c",
+      "temas": "351"
+    },
+    "atualizado_em": "2026-10-21T06:50:55"
+  },
   "dados/conhecimento/termos.csv": {
     "sha256": "8cdcd1c3fa4caebdf0084526eb0793aa4d4f48c04c827555ec7df3ad48daed99",
     "origem": "llm+revisão",

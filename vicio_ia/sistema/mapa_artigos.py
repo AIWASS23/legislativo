@@ -94,6 +94,14 @@ class MapaArtigos:
         achado: re.Match[str] | None = cls._RE_NUMERO_LEI.match(lei)
         return achado.group(1).replace(".", "") if achado else lei
 
+    def todas(self) -> list[LinhaMapa]:
+        """Todas as linhas, agrupadas por lei.
+
+        Returns:
+            Linhas do mapa.
+        """
+        return [linha for grupo in self._por_lei.values() for linha in grupo]
+
     def linhas(self, lei: str, inicio: int, fim: int) -> list[LinhaMapa]:
         """Linhas do mapa cujo intervalo cruza os artigos citados.
 

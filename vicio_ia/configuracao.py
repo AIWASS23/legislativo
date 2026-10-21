@@ -628,6 +628,7 @@ class ParametrosSistema:
         variavel_sem_llm: Variável de ambiente que, com valor ``"1"``, proíbe criar provedores de LLM (ADR-019).
         questoes_etapa1: Questões da etapa 1 (Q0001 a Q0359); as demais são as novas da etapa 2 (ADR-018).
         amostra_conferencia: Citações sorteadas para a conferência do autor (ADR-021).
+        documento_tema_bm25: Variante do documento de tema no BM25 (``TemaBase.VARIANTES``; escolhida no E7b).
     """
 
     partes_validacao: int = 5
@@ -640,6 +641,7 @@ class ParametrosSistema:
     variavel_sem_llm: str = "VICIO_SEM_LLM"
     questoes_etapa1: int = 359
     amostra_conferencia: int = 20
+    documento_tema_bm25: str = "cartao"
 
 
 @dataclass(frozen=True)
@@ -689,6 +691,8 @@ class ParametrosEmbeddings:
         timeout_segundos: Tempo máximo por lote.
         rrf_k: Constante da fusão por posição recíproca (BM25 + denso) medida no E8.
         vizinhos_knn: Vizinhos rotulados considerados no kNN do E9.
+        documento_e8: Variante do documento de tema usada na escolha do modelo (E8, pré-registrado).
+        documento_tema: Variante do documento de tema exportada para a decisão (escolhida no E8b).
     """
 
     provedor: str = "ollama"
@@ -698,6 +702,8 @@ class ParametrosEmbeddings:
     timeout_segundos: int = 600
     rrf_k: int = 60
     vizinhos_knn: int = 10
+    documento_e8: str = "cartao"
+    documento_tema: str = "cartao"
 
 
 @dataclass(frozen=True)

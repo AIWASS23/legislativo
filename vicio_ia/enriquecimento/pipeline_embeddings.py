@@ -12,6 +12,7 @@ from __future__ import annotations
 import csv
 import hashlib
 from collections.abc import Mapping, Sequence
+from dataclasses import replace
 from datetime import datetime
 from pathlib import Path
 from typing import TextIO
@@ -32,13 +33,13 @@ from vicio_ia.llm.fabrica import FabricaProvedores
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
+from vicio_ia.sistema.base_temas import ArquivoBaseTemas, TemaBase
 from vicio_ia.sistema.documentos import DocumentoTema, MontadorDocumentos
 from vicio_ia.sistema.experimento_embeddings import CandidatoEmbedding, ExperimentoEmbeddings, ResultadoE8
 from vicio_ia.sistema.folha import LeitorFolha, RotuloFolha
 from vicio_ia.sistema.lexical import IndiceBM25, TokenizadorLexical
-from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao
+from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao, RegraEscolha
 from vicio_ia.sistema.vetores import ArquivoVetores, ConjuntoVetores, VetoresConhecimento
-from vicio_ia.temas.cartoes import ArquivoCartoes, CartaoTema
 from vicio_ia.texto import ProcessadorTexto
 
 
@@ -82,9 +83,9 @@ class PipelineEmbeddings:
         leitor: LeitorPreparados = LeitorPreparados(self._caminhos)
         questoes: list[QuestaoPreparada] = leitor.questoes()
         temas: list[TemaPreparado] = leitor.temas()
-        cartoes: list[CartaoTema] = ArquivoCartoes(self._caminhos.dados_temas / "cartoes.jsonl").ler()
         folha: list[RotuloFolha] = LeitorFolha(self._caminhos.folha_verdade, temas, {q.id for q in questoes}).ler()
-        documentos: list[DocumentoTema] = MontadorDocumentos(temas, cartoes).documentos(True)
+        base: list[TemaBase] = ArquivoBaseTemas(self._caminhos.dados_conhecimento / "temas.jsonl").ler()
+        documentos: list[DocumentoTema] = MontadorDocumentos.documentos_base(base, p.documento_e8)
         textos: dict[str, dict[str, str]] = {
             "questoes": {q.id: MontadorDocumentos.texto_questao(q) for q in questoes},
             "alternativas": {
@@ -93,6 +94,9 @@ class PipelineEmbeddings:
                 for letra, texto in MontadorDocumentos.textos_alternativas(q).items()
             },
             "temas": {d.tema_id: d.texto for d in documentos},
+            "inativos": {
+                t.tema_id: f"{t.titulo_exibicao}\n{t.caminho_exibicao}" for t in temas if t.status != "active"
+            },
         }
         provedor: ProvedorEmbedding = FabricaProvedores(self._caminhos, self._parametros_llm).obter_embedding(
             p.provedor, p.timeout_segundos
@@ -111,6 +115,7 @@ class PipelineEmbeddings:
                 questoes=self._conjunto(gerador, textos["questoes"], True),
                 alternativas=self._conjunto(gerador, textos["alternativas"], True),
                 temas=self._conjunto(gerador, textos["temas"], False),
+                inativos=self._conjunto(gerador, textos["inativos"], False),
             )
             geradores[modelo.nome] = gerador
             print(
@@ -134,9 +139,34 @@ class PipelineEmbeddings:
             avaliador.ordenar(r, pontos_bm25[i], ids_temas) for i, r in enumerate(folha)
         ]
         referencia: list[Metrica] = avaliador.metricas("E7", "BM25 com cartão (referência)", folha, rankings_bm25)
+        gerador_escolhido: GeradorEmbeddings = geradores[p.escolhido]
+        textos_variante: dict[str, dict[str, str]] = {
+            v: {d.tema_id: d.texto for d in MontadorDocumentos.documentos_base(base, v)} for v in TemaBase.VARIANTES
+        }
+        temas_variante: dict[str, Matriz] = {
+            v: gerador_escolhido.vetores(list(t.values()), False) for v, t in textos_variante.items()
+        }
+        questoes_por_id: dict[str, QuestaoPreparada] = {q.id: q for q in questoes}
+        metricas_e8b: list[Metrica] = experimento.medir_documentos(
+            vetores[p.escolhido].questoes.submatriz([r.id for r in folha]),
+            temas_variante,
+            {
+                v: self._bm25(MontadorDocumentos.documentos_base(base, v), questoes_por_id, folha)
+                for v in TemaBase.VARIANTES
+            },
+        )
+        vencedor_e8b: str = RegraEscolha.escolher(
+            metricas_e8b, "E8b", [f"{v}: denso" for v in TemaBase.VARIANTES]
+        ).removesuffix(": denso")
+        exportados: VetoresConhecimento = replace(
+            vetores[p.escolhido],
+            temas=ConjuntoVetores(tuple(textos_variante[p.documento_tema]), temas_variante[p.documento_tema]),
+        )
         escolhido: ModeloEmbedding = next(m for m in p.candidatos if m.nome == p.escolhido)
-        self._exportar(vetores[p.escolhido], escolhido, geradores[p.escolhido], textos)
-        return self._relatorio([*referencia, *resultado.metricas], resultado.vencedor, vetores)
+        self._exportar(exportados, escolhido, gerador_escolhido, {**textos, "temas": textos_variante[p.documento_tema]})
+        return self._relatorio(
+            [*referencia, *resultado.metricas, *metricas_e8b], resultado.vencedor, vencedor_e8b, vetores
+        )
 
     @staticmethod
     def _conjunto(gerador: GeradorEmbeddings, textos: Mapping[str, str], consulta: bool) -> ConjuntoVetores:
@@ -202,7 +232,7 @@ class PipelineEmbeddings:
             "contexto_tokens": str(modelo.contexto_tokens),
             "prefixo_consulta": modelo.prefixo_consulta,
             "prefixo_documento": modelo.prefixo_documento,
-            "documento_tema": "título, caminho e cartão da etapa 1 (MontadorDocumentos.documentos(com_cartao=True))",
+            "documento_tema": f"{self._parametros.documento_tema} (TemaBase.texto, dados/conhecimento/temas.jsonl)",
             "gerado_em": datetime.now().isoformat(timespec="seconds"),
             **hashes,
         }
@@ -215,13 +245,18 @@ class PipelineEmbeddings:
         print(f"Exportado: {modelo.nome} ({gerador.digest[:12]}) em {pasta}")
 
     def _relatorio(
-        self, metricas: Sequence[Metrica], vencedor: str, vetores: Mapping[str, VetoresConhecimento]
+        self,
+        metricas: Sequence[Metrica],
+        vencedor: str,
+        vencedor_e8b: str,
+        vetores: Mapping[str, VetoresConhecimento],
     ) -> Path:
-        """Grava o CSV de métricas e o relatório do E8 e do E9.
+        """Grava o CSV de métricas e o relatório do E8, do E9 e do E8b.
 
         Args:
             metricas: Métricas (a referência do BM25 primeiro).
-            vencedor: Vencedor pela regra pré-registrada.
+            vencedor: Modelo vencedor do E8 pela regra pré-registrada.
+            vencedor_e8b: Documento de tema vencedor do E8b.
             vetores: Vetores por modelo (para a dimensão).
 
         Returns:
@@ -262,6 +297,7 @@ class PipelineEmbeddings:
             dict.fromkeys(m.variante for m in metricas if m.experimento == "E9" and m.variante != "teto")
         )
         teto: Metrica = next(m for m in metricas if m.experimento == "E9" and m.variante == "teto")
+        e8b: list[str] = list(dict.fromkeys(m.variante for m in metricas if m.experimento == "E8b"))
         tempos: list[str] = [
             f"- `{nome}`: dimensão {v.temas.matriz.shape[1]}, "
             f"{next(m.valor for m in metricas if m.variante == f'{nome}: denso' and m.nome.startswith('segundos')):.0f} s "
@@ -301,8 +337,25 @@ class PipelineEmbeddings:
             separador,
             *(f"| {v} | " + " | ".join(celula(v, c) for c in colunas) + " |" for v in knn),
             "",
+            f"## E8b: documento do tema com o `{self._parametros.escolhido}`",
+            "",
+            (
+                "Variantes do texto do tema (`dados/conhecimento/temas.jsonl`): `cartao` (título, caminho, escopo, o "
+                "que entra e âncoras), `cartao_termos` (mais os termos `forte` e `fraco`) e `cartao_termos_leis` "
+                "(mais as referências do mapa revisado). A fusão usa o BM25 da mesma variante."
+            ),
+            "",
+            cabecalho,
+            separador,
+            *(f"| {v} | " + " | ".join(celula(v, c) for c in colunas) + " |" for v in e8b),
+            "",
+            (
+                f"**Vencedor pela regra pré-registrada** (sobre o denso): `{vencedor_e8b}`. Documento exportado para "
+                f"`dados/conhecimento/embeddings/temas.npy`: `{self._parametros.documento_tema}`."
+            ),
+            "",
         ]
         destino: Path = pasta / "e8_embeddings.md"
         destino.write_text("\n".join(linhas), encoding="utf-8")
-        print(f"Vencedor do E8 pela regra: {vencedor}. Relatório: {destino}")
+        print(f"Vencedor do E8 pela regra: {vencedor}; do E8b: {vencedor_e8b}. Relatório: {destino}")
         return destino

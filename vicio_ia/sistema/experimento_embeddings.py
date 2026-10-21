@@ -14,7 +14,7 @@ questão é empate, e o empate vai para o maior acerto no top-1.
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 
 import numpy as np
@@ -23,7 +23,7 @@ import numpy.typing as npt
 from vicio_ia.estatistica import Matriz
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.sistema.folha import ReguaEtapa2, RotuloFolha
-from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao
+from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao, RegraEscolha
 
 
 @dataclass(frozen=True)
@@ -192,7 +192,7 @@ class ExperimentoEmbeddings:
 
     @staticmethod
     def _vencedor(metricas: Sequence[Metrica], candidatos: Sequence[CandidatoEmbedding]) -> str:
-        """Aplica a regra pré-registrada: maior recall@10 do denso; até uma questão de diferença é empate.
+        """Aplica a regra pré-registrada ao denso de cada modelo.
 
         Args:
             metricas: Métricas medidas.
@@ -201,20 +201,37 @@ class ExperimentoEmbeddings:
         Returns:
             Nome do modelo vencedor.
         """
+        variantes: list[str] = [f"{c.modelo}: denso" for c in candidatos]
+        return RegraEscolha.escolher(metricas, "E8", variantes).removesuffix(": denso")
 
-        def valor(modelo: str, nome: str) -> float:
-            """Métrica do denso de um modelo.
+    def medir_documentos(
+        self,
+        questoes: Matriz,
+        temas_por_variante: Mapping[str, Matriz],
+        bm25_por_variante: Mapping[str, Sequence[Matriz]],
+    ) -> list[Metrica]:
+        """E8b: o modelo escolhido contra cada variante do documento de tema, denso e fundido com o BM25.
 
-            Args:
-                modelo: Modelo.
-                nome: Nome da métrica.
+        Args:
+            questoes: Vetores das questões da folha, na ordem da folha.
+            temas_por_variante: Vetores dos temas por variante, na ordem de ``ids_temas``.
+            bm25_por_variante: Pontuação BM25 das questões da folha por variante.
 
-            Returns:
-                Valor.
-            """
-            return next(m.valor for m in metricas if m.variante == f"{modelo}: denso" and m.nome == nome)
-
-        nomes: list[str] = [c.modelo for c in candidatos]
-        melhor_recall: float = max(valor(n, "recall@10 (92)") for n in nomes)
-        empatados: list[str] = [n for n in nomes if valor(n, "recall@10 (92)") >= melhor_recall - 1.5 / 92]
-        return max(empatados, key=lambda n: (valor(n, "acerto top-1 (92 com tema)"), -nomes.index(n)))
+        Returns:
+            Métricas do E8b (variantes ``<documento>: denso`` e ``<documento>: BM25 + denso (RRF)``).
+        """
+        metricas: list[Metrica] = []
+        variante: str
+        temas: Matriz
+        for variante, temas in temas_por_variante.items():
+            similaridade: Matriz = questoes @ temas.T
+            denso: list[RankingQuestao] = [
+                self._avaliador.ordenar(r, similaridade[i], self._ids_temas) for i, r in enumerate(self._folha)
+            ]
+            metricas.extend(self._avaliador.metricas("E8b", f"{variante}: denso", self._folha, denso))
+            fusao: list[RankingQuestao] = [
+                self._avaliador.ordenar(r, self._rrf(bm25_por_variante[variante][i], similaridade[i]), self._ids_temas)
+                for i, r in enumerate(self._folha)
+            ]
+            metricas.extend(self._avaliador.metricas("E8b", f"{variante}: BM25 + denso (RRF)", self._folha, fusao))
+        return metricas

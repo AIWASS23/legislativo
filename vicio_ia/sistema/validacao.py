@@ -12,6 +12,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from vicio_ia.estatistica import Matriz, RegressaoLogisticaL2
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.sistema.folha import RotuloFolha
 
@@ -101,3 +102,34 @@ class ValidacaoCruzadaRepetida:
                 treino: tuple[int, ...] = tuple(i for i in range(n) if parte_de[i] != parte)
                 particoes.append(Particao(repeticao, parte, treino, teste))
         return particoes
+
+    @staticmethod
+    def logistica_fora_da_amostra(x: Matriz, y: Matriz, particoes: Sequence[Particao], penalidade: float) -> Matriz:
+        """Previsão fora da amostra de uma logística padronizada, com a média entre as repetições.
+
+        Em cada partição, os atributos são padronizados com a média e o desvio do treino, a logística é ajustada
+        no treino e prevê o teste.
+
+        Args:
+            x: Atributos (uma linha por exemplo).
+            y: Rótulo 0/1.
+            particoes: Partições da validação cruzada.
+            penalidade: Penalidade L2 da logística.
+
+        Returns:
+            Probabilidade média fora da amostra de cada exemplo.
+        """
+        soma: Matriz = np.zeros(len(y), dtype=np.float64)
+        contagem: Matriz = np.zeros(len(y), dtype=np.float64)
+        particao: Particao
+        for particao in particoes:
+            treino: list[int] = list(particao.treino)
+            teste: list[int] = list(particao.teste)
+            media: Matriz = x[treino].mean(axis=0)
+            desvio: Matriz = x[treino].std(axis=0) + 1e-9
+            modelo: RegressaoLogisticaL2 = RegressaoLogisticaL2(penalidade).ajustar(
+                (x[treino] - media) / desvio, y[treino], np.ones(len(treino), dtype=np.float64)
+            )
+            soma[teste] += modelo.prever((x[teste] - media) / desvio)
+            contagem[teste] += 1.0
+        return np.asarray(soma / np.maximum(contagem, 1.0), dtype=np.float64)

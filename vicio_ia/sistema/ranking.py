@@ -136,3 +136,43 @@ class AvaliadorRanking:
                     )
                 )
         return metricas
+
+
+class RegraEscolha:
+    """Regra pré-registrada de escolha entre variantes (E8, E7b, E8b).
+
+    Vence o maior recall@10 nas 92 com tema; até uma questão de diferença é empate, decidido pelo acerto no
+    top-1; persistindo o empate, vence a primeira variante da lista (a mais simples).
+    """
+
+    @staticmethod
+    def escolher(metricas: Sequence[Metrica], experimento: str, variantes: Sequence[str]) -> str:
+        """Aplica a regra.
+
+        Args:
+            metricas: Métricas medidas.
+            experimento: Experimento das métricas (``E8``, ``E7b``...).
+            variantes: Variantes candidatas, da mais simples para a mais complexa.
+
+        Returns:
+            Variante vencedora.
+        """
+
+        def valor(variante: str, nome: str) -> float:
+            """Valor de uma métrica.
+
+            Args:
+                variante: Variante.
+                nome: Nome da métrica.
+
+            Returns:
+                Valor.
+            """
+            return next(
+                m.valor for m in metricas if m.experimento == experimento and m.variante == variante and m.nome == nome
+            )
+
+        melhor: float = max(valor(v, "recall@10 (92)") for v in variantes)
+        empatadas: list[str] = [v for v in variantes if valor(v, "recall@10 (92)") >= melhor - 1.5 / 92]
+        lista: list[str] = list(variantes)
+        return max(empatadas, key=lambda v: (valor(v, "acerto top-1 (92 com tema)"), -lista.index(v)))

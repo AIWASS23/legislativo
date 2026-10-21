@@ -18,16 +18,17 @@ from typing import TextIO
 import numpy as np
 
 from vicio_ia.configuracao import Caminhos, ParametrosEDA, ParametrosSistema
-from vicio_ia.estatistica import Matriz, RegressaoLogisticaL2
+from vicio_ia.estatistica import Matriz
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.leitura import LeitorPreparados
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
+from vicio_ia.sistema.base_temas import ArquivoBaseTemas, TemaBase
 from vicio_ia.sistema.documentos import DocumentoTema, MontadorDocumentos
 from vicio_ia.sistema.folha import LeitorFolha, RotuloFolha
 from vicio_ia.sistema.lexical import IndiceBM25, TokenizadorLexical
 from vicio_ia.sistema.metricas import MetricasBinarias
-from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao
-from vicio_ia.sistema.validacao import Particao, ValidacaoCruzadaRepetida
+from vicio_ia.sistema.ranking import AvaliadorRanking, Metrica, RankingQuestao, RegraEscolha
+from vicio_ia.sistema.validacao import ValidacaoCruzadaRepetida
 from vicio_ia.temas.cartoes import ArquivoCartoes, CartaoTema
 from vicio_ia.texto import ProcessadorTexto
 
@@ -94,13 +95,30 @@ class ExperimentosEtapa2:
             indice: IndiceBM25 = self._indice(documentos)
             rankings[variante] = [self._ranking(questoes[r.id], r, documentos, indice, avaliador) for r in folha]
             metricas.extend(avaliador.metricas("E7", variante, folha, rankings[variante]))
+        base: list[TemaBase] = ArquivoBaseTemas(self._caminhos.dados_conhecimento / "temas.jsonl").ler()
+        for variante in TemaBase.VARIANTES:
+            documentos_base: list[DocumentoTema] = MontadorDocumentos.documentos_base(base, variante)
+            indice_base: IndiceBM25 = self._indice(documentos_base)
+            rankings_base: list[RankingQuestao] = [
+                self._ranking(questoes[r.id], r, documentos_base, indice_base, avaliador) for r in folha
+            ]
+            metricas.extend(avaliador.metricas("E7b", variante, folha, rankings_base))
+        vencedor_e7b: str = RegraEscolha.escolher(metricas, "E7b", TemaBase.VARIANTES)
+        print(f"E7b (documento de tema no BM25), vencedor pela regra pré-registrada: {vencedor_e7b}")
         documentos_cartao: list[DocumentoTema] = montador.documentos(True)
         indice_cartao: IndiceBM25 = self._indice(documentos_cartao)
         atributos: list[AtributosFora] = [
             self._atributos_fora(questoes[r.id], documentos_cartao, indice_cartao, temas) for r in folha
         ]
         metricas.extend(self._metricas_e11(folha, atributos, temas))
-        return self._gravar(metricas, rankings["com cartão"], folha, atributos)
+        notas: list[str] = [
+            (
+                f"**E7b, documento de tema no BM25:** vence `{vencedor_e7b}` pela regra pré-registrada (maior "
+                "recall@10; até uma questão de diferença é empate, decidido pelo top-1; depois, a variante mais "
+                f"simples). Documento do BM25 em uso no sistema: `{self._parametros.documento_tema_bm25}`."
+            )
+        ]
+        return self._gravar(metricas, rankings["com cartão"], folha, atributos, notas)
 
     def _indice(self, documentos: Sequence[DocumentoTema]) -> IndiceBM25:
         """Indexa os documentos de tema.
@@ -247,20 +265,9 @@ class ExperimentosEtapa2:
         validacao: ValidacaoCruzadaRepetida = ValidacaoCruzadaRepetida(
             p.partes_validacao, p.repeticoes_validacao, p.semente
         )
-        soma: Matriz = np.zeros(len(folha), dtype=np.float64)
-        contagem: Matriz = np.zeros(len(folha), dtype=np.float64)
-        particao: Particao
-        for particao in validacao.particoes(ValidacaoCruzadaRepetida.estratos_folha(folha, temas)):
-            treino: list[int] = list(particao.treino)
-            teste: list[int] = list(particao.teste)
-            media: Matriz = x[treino].mean(axis=0)
-            desvio: Matriz = x[treino].std(axis=0) + 1e-9
-            modelo: RegressaoLogisticaL2 = RegressaoLogisticaL2(1.0).ajustar(
-                (x[treino] - media) / desvio, y[treino], np.ones(len(treino), dtype=np.float64)
-            )
-            soma[teste] += modelo.prever((x[teste] - media) / desvio)
-            contagem[teste] += 1.0
-        previstas: list[float] = [float(v) for v in soma / np.maximum(contagem, 1.0)]
+        estratos: list[str] = ValidacaoCruzadaRepetida.estratos_folha(folha, temas)
+        previsao: Matriz = ValidacaoCruzadaRepetida.logistica_fora_da_amostra(x, y, validacao.particoes(estratos), 1.0)
+        previstas: list[float] = [float(v) for v in previsao]
         auc_cv: float = MetricasBinarias.auc(previstas, fora)
         baixo_cv: float
         alto_cv: float
@@ -282,6 +289,7 @@ class ExperimentosEtapa2:
         rankings: Sequence[RankingQuestao],
         folha: Sequence[RotuloFolha],
         atributos: Sequence[AtributosFora],
+        notas: Sequence[str],
     ) -> Path:
         """Grava o CSV de métricas, o ranking por questão e o relatório.
 
@@ -290,6 +298,7 @@ class ExperimentosEtapa2:
             rankings: Rankings da variante com cartão.
             folha: Rótulos.
             atributos: Atributos de fora.
+            notas: Parágrafos depois da tabela do relatório.
 
         Returns:
             Caminho do relatório.
@@ -319,12 +328,16 @@ class ExperimentosEtapa2:
         with (pasta / "e7_ranking_folha.csv").open("w", encoding="utf-8", newline="") as arquivo:
             csv.writer(arquivo).writerows(linhas_ranking)
         destino: Path = pasta / "experimentos_etapa2.md"
-        destino.write_text("\n".join(self._markdown(metricas, folha, atributos)) + "\n", encoding="utf-8")
+        destino.write_text("\n".join(self._markdown(metricas, folha, atributos, notas)) + "\n", encoding="utf-8")
         print(f"Experimentos da etapa 2: {destino}")
         return destino
 
     def _markdown(
-        self, metricas: Sequence[Metrica], folha: Sequence[RotuloFolha], atributos: Sequence[AtributosFora]
+        self,
+        metricas: Sequence[Metrica],
+        folha: Sequence[RotuloFolha],
+        atributos: Sequence[AtributosFora],
+        notas: Sequence[str],
     ) -> list[str]:
         """Monta o relatório.
 
@@ -332,6 +345,7 @@ class ExperimentosEtapa2:
             metricas: Métricas.
             folha: Rótulos.
             atributos: Atributos de fora.
+            notas: Parágrafos depois da tabela (vencedores pelas regras pré-registradas).
 
         Returns:
             Linhas do Markdown.
@@ -349,6 +363,7 @@ class ExperimentosEtapa2:
             "|---|---|---|---:|---|",
         ]
         linhas.extend(f"| {m.experimento} | {m.variante} | {m.nome} | {m.valor:.3f} | {m.detalhe} |" for m in metricas)
+        linhas.extend(["", *notas])
         linhas.extend(
             [
                 "",

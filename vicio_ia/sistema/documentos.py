@@ -13,6 +13,7 @@ from dataclasses import dataclass
 
 from vicio_ia.preparacao.arvore_preparada import TemaPreparado
 from vicio_ia.preparacao.texto_canonico import QuestaoPreparada
+from vicio_ia.sistema.base_temas import TemaBase
 from vicio_ia.temas.cartoes import CartaoTema
 
 
@@ -60,6 +61,19 @@ class MontadorDocumentos:
                 partes.extend([cartao.escopo, *cartao.inclui, *cartao.ancoras_legais])
             documentos.append(DocumentoTema(tema.tema_id, "\n".join(p for p in partes if p)))
         return documentos
+
+    @staticmethod
+    def documentos_base(base: Sequence[TemaBase], variante: str) -> list[DocumentoTema]:
+        """Documentos dos temas a partir da base de conhecimento (ADR-020), na ordem da base.
+
+        Args:
+            base: Registros de ``dados/conhecimento/temas.jsonl``.
+            variante: ``cartao``, ``cartao_termos`` ou ``cartao_termos_leis`` (E7b, E8b).
+
+        Returns:
+            Um documento por tema.
+        """
+        return [DocumentoTema(t.tema_id, t.texto(variante)) for t in base]
 
     @staticmethod
     def texto_questao(questao: QuestaoPreparada) -> str:

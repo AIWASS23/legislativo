@@ -229,3 +229,48 @@ Arquivos: `saidas/etapa2/e8_embeddings.md` e `e8_resultados.csv`. Comando: `uv r
 - **Hipótese confirmada:** sozinho, o kNN fica muito abaixo do denso contra os documentos de tema, porque a
   folha cobre só 61 temas. Ele entra no ranqueador como atributo (a similaridade com o vizinho rotulado mais
   próximo de cada tema candidato), e não como fonte principal de candidatos.
+
+## Pré-registro: documento de tema final (E7b, E8b), E11b e E12 (21/10, antes de rodar)
+
+**E7b e E8b. Documento de tema final** (`dados/conhecimento/temas.jsonl`, ADR-020).
+- **Variantes do texto do tema:**
+  - `cartao`: título, caminho, escopo, o que entra e âncoras legais. É o documento atual, do E7 e do E8.
+  - `cartao_termos`: o anterior mais os termos `forte` e `fraco` do tema (revisados ou não; os `exclui`
+    ficam de fora porque falam de outro nó, como o `nao_inclui`).
+  - `cartao_termos_leis`: o anterior mais as referências do mapa revisado, por extenso ("CP, arts. 121 a 128").
+- **As questões da folha não entram no texto do tema,** porque as métricas são medidas nelas. A base guarda só
+  os IDs como exemplos, para o kNN (que é deixa-uma-fora).
+- **Medição:** BM25 (E7b) e denso com o `qwen3-embedding:4b`, o modelo já escolhido no E8 (E8b), com as
+  métricas do E7.
+- **Regra, separada para o BM25 e para o denso:**
+  - vence o maior recall@10 nas 92;
+  - até uma questão de diferença é empate, decidido pelo top-1;
+  - persistindo o empate, vence a variante mais simples.
+
+**E11b. Separabilidade do fora com embeddings e kNN** (ADR-023), nas 100 da folha (8 fora).
+- **Atributos densos, todos com o `qwen3-embedding:4b`:**
+  1. similaridade máxima com os temas publicáveis (baixa indica fora);
+  2. margem entre o 1º e o 2º tema (baixa indica fora);
+  3. dispersão entre as alternativas: ramos de nível 1 distintos entre os melhores temas de cada alternativa,
+     sobre as alternativas;
+  4. similaridade com os temas inativos (5078 e 5234) menos a similaridade máxima com os publicáveis (alta
+     indica fora);
+  5. kNN deixa-uma-fora: similaridade com a questão fora mais parecida menos a similaridade com a questão com
+     tema mais parecida (alta indica fora).
+- **Também medido:** quantas das 8 fora têm uma regra forte (artigo no mapa ou termo `forte`).
+- **Logística fora da amostra,** com os atributos 1, 3 e 5 escolhidos agora e a mesma validação cruzada do
+  E11.
+- **Critério:** separável se a AUC fora da amostra for ≥ 0,7. Se não for, vale o plano B da ADR-023: P(fora)
+  igual à taxa da folha, e só se publica onde a folha mostrar taxa de fora compatível com 95%.
+
+**E12. Deriva entre antigas e novas** (ADR-024).
+- **Grupos:** as 259 antigas avaliadas (fora da folha) contra as 300 novas.
+- **Atributos sem rótulo:**
+  - similaridade densa máxima, margem densa, dispersão densa e BM25 máximo;
+  - presença de artigo citado, tamanho em tokens e formato certo/errado;
+  - disciplina de origem e disciplina do melhor tema denso.
+- **Medida:** a AUC "nova × antiga" de cada atributo numérico, com intervalo de 90% por bootstrap, e as
+  proporções dos categóricos.
+- **Critério:** há deriva se, na similaridade máxima ou na margem, o intervalo da AUC excluir 0,5 e
+  |AUC − 0,5| ≥ 0,1. Havendo deriva, a previsão das novas é alargada (ADR-025), e a cobertura é informada
+  separadamente para antigas e novas.
